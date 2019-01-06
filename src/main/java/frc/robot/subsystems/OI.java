@@ -2,8 +2,8 @@ package frc.robot.subsystems;
 
 
 import frc.controllers.BobXboxController;
-import frc.robot.commands.PrepBall;
-import frc.robot.commands.ShootFlywheel;
+//import frc.robot.commands.PrepBall;
+//import frc.robot.commands.ShootFlywheel;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -19,8 +19,8 @@ public class OI
         //for our controllers.
         theXboxController = new BobXboxController(0, 0.10, 0.08);
 
-        theXboxController.xButton.whenPressed(new PrepBall());
-        theXboxController.rightTriggerButton.whenPressed(new ShootFlywheel());
+        //theXboxController.xButton.whenPressed(new PrepBall());
+        //theXboxController.rightTriggerButton.whenPressed(new ShootFlywheel());
 
 
     }
