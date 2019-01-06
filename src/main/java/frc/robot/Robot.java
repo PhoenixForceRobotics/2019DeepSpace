@@ -12,10 +12,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
-import frc.robot.commands.RunDriveBase;
-import frc.robot.commands.PrepBall;
 import frc.robot.subsystems.OI;
-import frc.robot.subsystems.Flywheel;
 import frc.robot.subsystems.Drivebase;
 
 /**
@@ -32,8 +29,8 @@ public class Robot extends TimedRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   public static OI oi;
 	public static Drivebase drivebase;
-	public static Flywheel flywheel;
-	public static PrepBall prepball;
+//	public static Flywheel flywheel;
+// public static PrepBall prepball;
 
   /**
    * This function is run when the robot is first started up and should be
@@ -46,8 +43,8 @@ public class Robot extends TimedRobot {
     SmartDashboard.putData("Auto choices", m_chooser);
     oi = new OI();
 		drivebase = new Drivebase();
-		flywheel = new Flywheel();
-		prepball = new PrepBall();
+		//flywheel = new Flywheel();
+		//prepball = new PrepBall();
   }
 
   /**
@@ -101,7 +98,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
-    Scheduler.getInstance().add(new RunDriveBase(drivebase, oi));
+   // Scheduler.getInstance().add(new RunDriveBase(drivebase, oi));
   }
 
   /**
