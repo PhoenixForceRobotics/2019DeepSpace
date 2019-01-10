@@ -14,7 +14,7 @@ public class PrepBall extends Command
    //public PrepBall(Flywheel flywheel)
     public PrepBall()
    {
-       requires(Robot.flywheel);
+       //requires(Robot.flywheel);
 
        myfly = Robot.flywheel;
 

@@ -18,7 +18,7 @@ public class RunDriveBase extends Command
     public RunDriveBase(Drivebase drivebase, OI oi)
     {
         requires(drivebase);
-
+System.out.println("In RunDriveBase Constructor");
         this.drivebase = drivebase;
         this.oi = oi;
     }
@@ -32,6 +32,7 @@ public class RunDriveBase extends Command
     @Override
     public void execute()
     {
+        System.out.println(oi.theXboxController.leftStick.getY());
         drivebase.setLeft(ControlMode.PercentOutput, oi.theXboxController.leftStick.getY());
         drivebase.setRight(ControlMode.PercentOutput, oi.theXboxController.rightStick.getY());
     }

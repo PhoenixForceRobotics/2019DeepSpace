@@ -24,10 +24,10 @@ public class ShootFlywheel extends Command
     private OI oi;
 
     public ShootFlywheel(){
-        requires(Robot.flywheel);
+        //requires(Robot.flywheel);
 
 
-        this.flywheel = flywheel;
+        this.flywheel = Robot.flywheel;
         this.oi = Robot.oi;
     }
 

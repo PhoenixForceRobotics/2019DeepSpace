@@ -12,11 +12,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
-import frc.robot.commands.RunDriveBase;
-import frc.robot.commands.PrepBall;
 import frc.robot.subsystems.OI;
-import frc.robot.subsystems.Flywheel;
 import frc.robot.subsystems.Drivebase;
+import frc.robot.subsystems.Flywheel;
+
+import frc.robot.commands.RunDriveBase;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -31,9 +31,11 @@ public class Robot extends TimedRobot {
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   public static OI oi;
-	public static Drivebase drivebase;
-	public static Flywheel flywheel;
-	public static PrepBall prepball;
+  public static Drivebase drivebase;
+  public static Flywheel flywheel;
+  public static RunDriveBase runDriveBase;
+//	public static Flywheel flywheel;
+// public static PrepBall prepball;
 
   /**
    * This function is run when the robot is first started up and should be
@@ -46,8 +48,7 @@ public class Robot extends TimedRobot {
     SmartDashboard.putData("Auto choices", m_chooser);
     oi = new OI();
 		drivebase = new Drivebase();
-		flywheel = new Flywheel();
-		prepball = new PrepBall();
+    flywheel = new Flywheel();
   }
 
   /**
@@ -96,12 +97,16 @@ public class Robot extends TimedRobot {
     }
   }
 
+  @Override
+  public void teleopInit() {
+    Scheduler.getInstance().add(new RunDriveBase(drivebase, oi));
+  }
   /**
    * This function is called periodically during operator control.
    */
   @Override
   public void teleopPeriodic() {
-    Scheduler.getInstance().add(new RunDriveBase(drivebase, oi));
+    Scheduler.getInstance().run();
   }
 
   /**
