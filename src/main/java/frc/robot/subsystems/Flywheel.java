@@ -17,7 +17,7 @@ public class Flywheel extends Subsystem {
         fright.follow(fleft);
     }
 
-    public void moveUp(ControlMode mode, double value){
+    public void shoot(ControlMode mode, double value){
         fleft.set(mode, value);
     }
     public void intake(ControlMode mode, boolean value){

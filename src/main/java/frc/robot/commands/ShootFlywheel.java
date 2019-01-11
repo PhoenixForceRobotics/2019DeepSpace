@@ -1,6 +1,7 @@
 package frc.robot.commands;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import edu.wpi.first.wpilibj.Timer;
 import frc.robot.OI;
 
 import frc.robot.Robot;
@@ -22,6 +23,7 @@ public class ShootFlywheel extends Command
 {
     private Flywheel flywheel;
     private OI oi;
+    private Timer spinup;
 
     public ShootFlywheel(){
         requires(Robot.flywheel);
@@ -31,26 +33,38 @@ public class ShootFlywheel extends Command
 
     public void initialize() {
         this.oi = Robot.oi;
-        System.out.println(oi);
+        spinup = new Timer();
+        spinup.reset();
+        spinup.start();
+        setTimeout(.9);
     }
 
 
     public void execute() {
-        flywheel.outtake(ControlMode.PercentOutput, true);
+        System.out.println(spinup.get());
+        if(spinup.get() < .5){
+            flywheel.shoot(ControlMode.PercentOutput, 1);
+        } else {
+            flywheel.shoot(ControlMode.PercentOutput, 1);
+            flywheel.outtake(ControlMode.PercentOutput, true);
+        }
     }
 
 
     public boolean isFinished()
     {
-        //System.out.println(oi.theXboxController.rightTriggerButton.get());
-        if (oi.theXboxController.rightTriggerButton.get())
-        { return false;}
-        else
-        { return true;}
+        return isTimedOut();
+    //     System.out.println(oi.theXboxController.rightTriggerButton.get());
+    //     if (oi.theXboxController.rightTriggerButton.get())
+    //     { return false;}
+    //     else
+    //     { return true;}
+    // 
     }
 
 
     public void end() {
+        flywheel.shoot(ControlMode.PercentOutput, 0);
         flywheel.outtake(ControlMode.PercentOutput, false);
     }
 
