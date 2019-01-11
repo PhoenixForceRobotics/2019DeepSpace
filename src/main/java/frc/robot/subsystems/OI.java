@@ -12,17 +12,14 @@ import frc.controllers.BobXboxController;
 public class OI
 {
 
-    public BobXboxController theXboxController;
+    public BobXboxController driverController;
+    public BobXboxController operatorController;
 
     public OI() {
-        //Not sure the exact impact of these constants passed into constructor.  They probably need to be adjusted
-        //for our controllers.
-        theXboxController = new BobXboxController(0, 0.10, 0.08);
+        driverController = new BobXboxController(0, 0.10, 0.08);
+        operatorController = new BobXboxController(0, 0.10, 0.08);
 
-        //theXboxController.xButton.whenPressed(new PrepBall());
-        //theXboxController.rightTriggerButton.whenPressed(new ShootFlywheel());
-
-
+        
     }
 
 }

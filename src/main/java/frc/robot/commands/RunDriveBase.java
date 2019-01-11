@@ -11,8 +11,6 @@ public class RunDriveBase extends Command
 {
     private Drivebase drivebase;
     private OI oi;
-    public double editedLAxis = 0;
-    public double editedRAxis = 0;
 
     public RunDriveBase(Drivebase drivebase, OI oi)
     {
@@ -31,8 +29,8 @@ public class RunDriveBase extends Command
     @Override
     public void execute()
     {
-        drivebase.setLeft(ControlMode.PercentOutput, oi.theXboxController.leftStick.getY());
-        drivebase.setRight(ControlMode.PercentOutput, oi.theXboxController.rightStick.getY());
+        drivebase.setLeft(ControlMode.PercentOutput, oi.driverController.leftStick.getY());
+        drivebase.setRight(ControlMode.PercentOutput, oi.driverController.rightStick.getY());
     }
 
     @Override
