@@ -1,8 +1,7 @@
 package frc.robot.commands;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import frc.robot.Constants;
-import frc.robot.subsystems.OI;
+import frc.robot.OI;
 import frc.robot.subsystems.Drivebase;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -18,7 +17,6 @@ public class RunDriveBase extends Command
     public RunDriveBase(Drivebase drivebase, OI oi)
     {
         requires(drivebase);
-System.out.println("In RunDriveBase Constructor");
         this.drivebase = drivebase;
         this.oi = oi;
     }
@@ -32,7 +30,6 @@ System.out.println("In RunDriveBase Constructor");
     @Override
     public void execute()
     {
-        System.out.println(oi.theXboxController.leftStick.getY());
         drivebase.setLeft(ControlMode.PercentOutput, oi.theXboxController.leftStick.getY());
         drivebase.setRight(ControlMode.PercentOutput, oi.theXboxController.rightStick.getY());
     }

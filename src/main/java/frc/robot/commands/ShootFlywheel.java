@@ -1,7 +1,7 @@
 package frc.robot.commands;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import frc.robot.subsystems.OI;
+import frc.robot.OI;
 
 import frc.robot.Robot;
 import frc.robot.subsystems.Flywheel;
@@ -24,29 +24,25 @@ public class ShootFlywheel extends Command
     private OI oi;
 
     public ShootFlywheel(){
-        //requires(Robot.flywheel);
-
+        requires(Robot.flywheel);
 
         this.flywheel = Robot.flywheel;
-        this.oi = Robot.oi;
     }
 
     public void initialize() {
-
+        this.oi = Robot.oi;
+        System.out.println(oi);
     }
 
 
     public void execute() {
-
-            flywheel.outtake(ControlMode.PercentOutput, true);
-
+        flywheel.outtake(ControlMode.PercentOutput, true);
     }
 
 
     public boolean isFinished()
-    //if button still pressed then return false because we are not finished.
-            // If we have let go of button return true so we stop
     {
+        //System.out.println(oi.theXboxController.rightTriggerButton.get());
         if (oi.theXboxController.rightTriggerButton.get())
         { return false;}
         else

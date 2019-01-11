@@ -12,7 +12,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
-import frc.robot.subsystems.OI;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.Flywheel;
 
@@ -34,8 +33,6 @@ public class Robot extends TimedRobot {
   public static Drivebase drivebase;
   public static Flywheel flywheel;
   public static RunDriveBase runDriveBase;
-//	public static Flywheel flywheel;
-// public static PrepBall prepball;
 
   /**
    * This function is run when the robot is first started up and should be
@@ -46,9 +43,9 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
-    oi = new OI();
 		drivebase = new Drivebase();
     flywheel = new Flywheel();
+    oi = new OI();
   }
 
   /**

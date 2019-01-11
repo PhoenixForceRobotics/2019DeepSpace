@@ -22,8 +22,10 @@ public class Flywheel extends Subsystem {
     }
     public void intake(ControlMode mode, boolean value){
         if(value){
+            fleft.set(mode, -1);
             indexer.set(mode, Constants.FlywheelValues.CSPEED);
         } else {
+            fleft.set(mode, 0);
             indexer.set(mode, 0);
         }
     }

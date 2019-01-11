@@ -1,4 +1,4 @@
-package frc.robot.subsystems;
+package frc.robot;
 
 
 import frc.controllers.BobXboxController;
@@ -21,7 +21,6 @@ public class OI
 
         theXboxController.xButton.whenPressed(new PrepBall());
         theXboxController.rightTriggerButton.whenPressed(new ShootFlywheel());
-
 
     }
 

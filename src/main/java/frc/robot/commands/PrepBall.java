@@ -14,10 +14,8 @@ public class PrepBall extends Command
    //public PrepBall(Flywheel flywheel)
     public PrepBall()
    {
-       //requires(Robot.flywheel);
-
+       requires(Robot.flywheel);
        myfly = Robot.flywheel;
-
    }
 
    protected void initialize()
@@ -32,11 +30,11 @@ public class PrepBall extends Command
 
    protected void end()
    {
-       myfly.intake(ControlMode.PercentOutput, false);
+        myfly.intake(ControlMode.PercentOutput, false);
    }
 
     public boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
 
