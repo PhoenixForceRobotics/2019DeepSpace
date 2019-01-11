@@ -4,6 +4,7 @@ package frc.robot;
 import frc.controllers.BobXboxController;
 import frc.robot.commands.PrepBall;
 import frc.robot.commands.ShootFlywheel;
+import frc.robot.commands.HoldIntake;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -21,6 +22,7 @@ public class OI
 
         theXboxController.xButton.whenPressed(new PrepBall());
         theXboxController.rightTriggerButton.whenPressed(new ShootFlywheel());
+        theXboxController.startButton.whenPressed(new HoldIntake());
 
     }
 
