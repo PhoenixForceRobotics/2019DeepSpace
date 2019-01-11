@@ -48,6 +48,7 @@ public class RunDriveBase extends Command
     @Override
     public void end()
     {
-
+        drivebase.setLeft(ControlMode.PercentOutput, 0);
+        drivebase.setRight(ControlMode.PercentOutput, 0);
     }
 }
