@@ -33,7 +33,7 @@ public class PrepBall extends Command
 
    protected void execute()
    {
-      if (preppy.get() > .3) {
+      if (preppy.get() > .35) {
         myfly.outtake(ControlMode.PercentOutput, true);
     } else {
         myfly.intake(ControlMode.PercentOutput, true);
