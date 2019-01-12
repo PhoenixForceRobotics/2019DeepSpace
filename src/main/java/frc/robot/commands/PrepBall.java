@@ -5,10 +5,12 @@ import frc.robot.subsystems.Flywheel;
 import frc.robot.Constants;
 import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.Timer;
 
 public class PrepBall extends Command
 {
     private Flywheel myfly;
+    private Timer preppy;
    //private Timer commandTimer;
 
    //public PrepBall(Flywheel flywheel)
@@ -20,16 +22,26 @@ public class PrepBall extends Command
 
    protected void initialize()
    {
-        setTimeout(.7);
+        setTimeout(.4);
+        preppy = new Timer();
+        preppy.reset();
+        preppy.start();
+        
+
    }
 
    protected void execute()
    {
-       myfly.intake(ControlMode.PercentOutput, true);
+      if (preppy.get() > .3) {
+        myfly.outtake(ControlMode.PercentOutput, true);
+    } else {
+        myfly.intake(ControlMode.PercentOutput, true);
+    }
    }
 
    protected void end()
    {
+       myfly.outtake(ControlMode.PercentOutput, false);
         myfly.intake(ControlMode.PercentOutput, false);
    }
 
