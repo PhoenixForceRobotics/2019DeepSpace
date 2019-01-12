@@ -2,6 +2,7 @@ package frc.robot;
 
 
 import frc.controllers.BobXboxController;
+import frc.robot.commands.HoldIntake;
 import frc.robot.commands.PrepBall;
 import frc.robot.commands.ShootFlywheel;
 
@@ -21,6 +22,7 @@ public class OI
 
         theXboxController.xButton.whenPressed(new PrepBall());
         theXboxController.rightTriggerButton.whenPressed(new ShootFlywheel());
+        theXboxController.leftBumper.whileHeld(new HoldIntake());
 
     }
 
