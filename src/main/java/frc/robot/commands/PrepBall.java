@@ -1,6 +1,7 @@
 package frc.robot.commands;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import edu.wpi.first.wpilibj.Timer;
 import frc.robot.subsystems.Flywheel;
 import frc.robot.Constants;
 import frc.robot.Robot;
@@ -15,9 +16,9 @@ public class PrepBall extends Command
 
    //public PrepBall(Flywheel flywheel)
     public PrepBall()
-   {
+   {     
        requires(Robot.flywheel);
-       myfly = Robot.flywheel;
+        this.myfly = Robot.flywheel;
    }
 
    protected void initialize()
