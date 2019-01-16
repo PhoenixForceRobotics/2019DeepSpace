@@ -1,7 +1,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import com.ctre.phoenix.motorcontrol.ControlMode;
+import edu.wpi.first.wpilibj.SendableBase;
 import frc.robot.Constants;
 import frc.robot.utility.Motor;
 
@@ -19,20 +19,20 @@ public class Drivebase extends Subsystem {
         right2 = new Motor(Constants.MotorMap.Drivebase.RIGHT_2, Constants.MotorMap.Drivebase.RIGHT2_REVERSED);
         right3 = new Motor(Constants.MotorMap.Drivebase.RIGHT_3, Constants.MotorMap.Drivebase.RIGHT3_REVERSED);
 
-        left2.follow(left1);
-        left3.follow(left1);
+        //left1.addChild(left2);
+        //left3.follow(left1);
 
-        right2.follow(right1);
-        right3.follow(right1);
+        //right2.follow(right1);
+        //right3.follow(right1);
     }
-    public void setLeft(ControlMode mode, double value)
+    public void setLeft(double value)
     {
-        left1.set(mode, value);
+        left1.set(value);
     }
 
-    public void setRight(ControlMode mode, double value)
+    public void setRight(double value)
     {
-        right1.set(mode, value);
+        right1.set(value);
     }
 
     public void initDefaultCommand()
