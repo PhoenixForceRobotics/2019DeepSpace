@@ -28,6 +28,17 @@ public class Constants
             public static final boolean RIGHT2_REVERSED = false;
             public static final boolean RIGHT3_REVERSED = false;
         }
+
+        public static class BallCollector
+        {
+            public static int BALL_ROTATE = 3;
+            public static int COLLECTOR_LEFT = 4;
+            public static int COLLECTOR_RIGHT = 5;
+
+            public static final boolean BALLROTATE_REVERSED = false;
+            public static final boolean COLLECTORLEFT_REVERSED = true;
+            public static final boolean COLLECTORRIGHT_REVERSED = false;
+        }
     }
 
     //I'm keeping this in becasue we may need it in the end, but as of 1/11 I don't think we will
