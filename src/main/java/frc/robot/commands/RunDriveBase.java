@@ -28,9 +28,13 @@ public class RunDriveBase extends Command
 
     @Override
     public void execute()
-    {
-        drivebase.setLeft(ControlMode.PercentOutput, oi.driverController.leftStick.getY());
-        drivebase.setRight(ControlMode.PercentOutput, oi.driverController.rightStick.getY());
+    {   
+        //tank drive controls
+        drivebase.setLeft(oi.driverController.leftStick.getY());
+        drivebase.setRight(oi.driverController.rightStick.getY());
+
+        //H-drive controls 
+        
     }
 
     @Override
@@ -48,7 +52,7 @@ public class RunDriveBase extends Command
     @Override
     public void end()
     {
-        drivebase.setLeft(ControlMode.PercentOutput, 0);
-        drivebase.setRight(ControlMode.PercentOutput, 0);
+        drivebase.setLeft(0);
+        drivebase.setRight(0);
     }
 }

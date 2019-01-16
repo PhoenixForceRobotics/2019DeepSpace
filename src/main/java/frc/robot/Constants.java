@@ -12,6 +12,7 @@ public class Constants
 
         public static class Drivebase
         {
+            //tank drive motors 
             public static int LEFT_1 = 0;
             public static int LEFT_2 = 1;
             public static int LEFT_3 = 2;
@@ -27,6 +28,13 @@ public class Constants
             public static final boolean RIGHT1_REVERSED = false;
             public static final boolean RIGHT2_REVERSED = false;
             public static final boolean RIGHT3_REVERSED = false;
+
+            //H-drive motors
+            public static int HDRIVE1 = 9;
+            public static int HDRIVE2 = 10;
+            
+            public static final boolean HDRIVE1_REVERSED = false;
+            public static final boolean HDRIVE2_REVERSED = false;
         }
 
         public static class BallCollector
