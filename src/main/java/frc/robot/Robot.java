@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 
 import frc.robot.subsystems.OI;
 import frc.robot.subsystems.Drivebase;
+import frc.robot.subsystems.HatchCollector;
 
 import frc.robot.commands.RunDriveBase;
 

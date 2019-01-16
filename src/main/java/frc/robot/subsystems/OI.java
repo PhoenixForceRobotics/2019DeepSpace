@@ -2,6 +2,7 @@ package frc.robot.subsystems;
 
 
 import frc.controllers.BobXboxController;
+import frc.robot.commands.RunHatchCollector;
 //import frc.robot.commands.PrepBall;
 //import frc.robot.commands.ShootFlywheel;
 
@@ -19,7 +20,7 @@ public class OI
         driverController = new BobXboxController(0, 0.10, 0.08);
         operatorController = new BobXboxController(0, 0.10, 0.08);
 
-        
+        driverController.bButton.whenPressed(new RunHatchCollector());
     }
 
 }

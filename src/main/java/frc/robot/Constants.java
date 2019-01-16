@@ -1,6 +1,5 @@
 package frc.robot;
 
-
 public class Constants
 {
     public static class MotorMap
@@ -28,10 +27,24 @@ public class Constants
             public static final boolean RIGHT2_REVERSED = false;
             public static final boolean RIGHT3_REVERSED = false;
         }
+
+        public static class HatchCollector
+        {
+        //¯\_(ツ)_/¯ dunno what the motor is
+            public static int ARMCOLLECTOR = 16;
+        //Should this be true or false? 
+            public static final boolean ARMCOLLECTOR_REVERSED = false;
+        }
+
+    public static class HatchCollectorSpeed 
+    {
+        public static final double HCspeed = .3; 
     }
 
-    //I'm keeping this in becasue we may need it in the end, but as of 1/11 I don't think we will
     public static class OIMap {
+      
+        }
 
     }
+
 }
