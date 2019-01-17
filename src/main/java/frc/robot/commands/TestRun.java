@@ -15,6 +15,7 @@ public class TestRun extends Command
 
     public TestRun()
     {
+        System.out.println("test run initialize");
         requires(Robot.test);
 
         this.test = Robot.test;
@@ -30,6 +31,7 @@ public class TestRun extends Command
     @Override
     public void execute()
     {   
+        System.out.println("this should be running");
         test.setTest(1);
     }
 
