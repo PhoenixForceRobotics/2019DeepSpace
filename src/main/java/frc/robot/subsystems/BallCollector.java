@@ -1,7 +1,6 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import com.ctre.phoenix.motorcontrol.ControlMode;
 import frc.robot.Constants;
 import frc.robot.utility.Motor;
 
@@ -15,22 +14,24 @@ public class BallCollector extends Subsystem {
         flywheelright = new Motor(Constants.MotorMap.BallCollector.COLLECTOR_RIGHT, Constants.MotorMap.BallCollector.COLLECTORRIGHT_REVERSED);
         collectorrotate = new Motor(Constants.MotorMap.BallCollector.BALL_ROTATE, Constants.MotorMap.BallCollector.BALLROTATE_REVERSED);
 
-        flywheelright.follow(flywheelleft);
+        // flywheelright.follow(flywheelleft);
 
     }
-    public void setLeft(ControlMode mode, double value)
+    public void intake(double value)
     {
-        flywheelleft.set(mode, value);
+        flywheelleft.set(value);
+        flywheelright.set(value);
     }
 
-    public void setRight(ControlMode mode, double value)
+    public void outtake(double value)
     {
-        flywheelright.set(mode, value);
+        flywheelleft.set(value);
+        flywheelright.set(value);
     }
 
-    public void setRotate(ControlMode mode, double value)
+    public void rotate(double value)
     {
-        collectorrotate.set(mode, value);
+        collectorrotate.set(value);
     }
     
     public void initDefaultCommand()
