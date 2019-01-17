@@ -28,7 +28,7 @@ public class CollectHatch extends Command
     public void execute()
     {
         System.out.println("Hello! Collecting Hatches... (＾ω＾)");
-        hatchCollector.armcollector.set(Constants.MotorMap.HatchCollectorSpeed.HCspeed * -1);
+        hatchCollector.armcollector.set(Constants.HatchCollectorSpeed.HCspeed * -1);
     }
 
     @Override

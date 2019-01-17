@@ -28,7 +28,7 @@ public class RunHatchCollector extends Command
     public void execute()
     {
         System.out.println( "Hewwo? Is anybody there? (´ ･ ω ･ `)" );
-        hatchCollector.armcollector.set(Constants.MotorMap.HatchCollectorSpeed.HCspeed);
+        hatchCollector.armcollector.set(Constants.HatchCollectorSpeed.HCspeed);
     }
 
     @Override 

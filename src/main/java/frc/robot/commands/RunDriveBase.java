@@ -1,6 +1,5 @@
 package frc.robot.commands;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
 import frc.robot.subsystems.OI;
 import frc.robot.subsystems.Drivebase;
 

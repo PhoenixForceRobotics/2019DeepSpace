@@ -15,10 +15,8 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.OI;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.HatchCollector;
-import frc.robot.subsystems.Test;
 
 import frc.robot.commands.RunDriveBase;
-import frc.robot.commands.TestRun;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -35,7 +33,6 @@ public class Robot extends TimedRobot {
   public static OI oi;
   public static Drivebase drivebase;
   public static HatchCollector hatchCollector;
-  public static Test test;
 
   /**
    * This function is run when the robot is first started up and should be
@@ -49,7 +46,6 @@ public class Robot extends TimedRobot {
     drivebase = new Drivebase();
     hatchCollector = new HatchCollector();
     oi = new OI();
-    test = new Test();
   }
 
   /**
@@ -102,9 +98,13 @@ public class Robot extends TimedRobot {
    * This function is called periodically during operator control.
    */
   @Override
+  public void teleopInit() {
+      Scheduler.getInstance().add(new RunDriveBase(drivebase, oi));
+  }
+
+  @Override
   public void teleopPeriodic() {
-    Scheduler.getInstance().add(new RunDriveBase(drivebase, oi));
-    Scheduler.getInstance().add(new TestRun());
+    Scheduler.getInstance().run();
   }
 
   /**
