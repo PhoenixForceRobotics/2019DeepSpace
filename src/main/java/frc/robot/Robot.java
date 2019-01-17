@@ -15,8 +15,10 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.OI;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.HatchCollector;
+import frc.robot.subsystems.Test;
 
 import frc.robot.commands.RunDriveBase;
+import frc.robot.commands.TestRun;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -31,7 +33,9 @@ public class Robot extends TimedRobot {
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   public static OI oi;
-	public static Drivebase drivebase;
+  public static Drivebase drivebase;
+  public static HatchCollector hatchCollector;
+  public static Test test;
 
   /**
    * This function is run when the robot is first started up and should be
@@ -43,7 +47,9 @@ public class Robot extends TimedRobot {
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
     drivebase = new Drivebase();
+    hatchCollector = new HatchCollector();
     oi = new OI();
+    test = new Test();
   }
 
   /**
@@ -98,6 +104,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().add(new RunDriveBase(drivebase, oi));
+    Scheduler.getInstance().add(new TestRun());
   }
 
   /**

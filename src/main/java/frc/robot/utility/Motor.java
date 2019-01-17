@@ -4,9 +4,9 @@ package frc.robot.utility;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 */
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import edu.wpi.first.wpilibj.Spark;
 
-public class Motor extends TalonSRX {
+public class Motor extends Spark {
     public Motor(int port, boolean reversed) {
         super(port);
         setInverted(reversed);

@@ -1,5 +1,5 @@
 package frc.robot.commands;
-
+//Evan is the coolest Senior Ever™
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import frc.robot.subsystems.OI;
 import frc.robot.Constants;
@@ -7,31 +7,31 @@ import frc.robot.Robot;
 import frc.robot.subsystems.HatchCollector;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class RunHatchCollector extends Command 
+public class CollectHatch extends Command
 {
     private HatchCollector hatchCollector;
     
-    public RunHatchCollector()
+    public CollectHatch()
     {
         requires(Robot.hatchCollector);
 
         this.hatchCollector = Robot.hatchCollector;
-    } 
+    }
 
     @Override
     public void initialize()
     {
         setTimeout(.1);
     }
-  
+
     @Override
     public void execute()
     {
-        System.out.println( "Hewwo? Is anybody there? (´ ･ ω ･ `)" );
-        hatchCollector.armcollector.set(Constants.MotorMap.HatchCollectorSpeed.HCspeed);
+        System.out.println("Hello! Collecting Hatches... (＾ω＾)");
+        hatchCollector.armcollector.set(Constants.MotorMap.HatchCollectorSpeed.HCspeed * -1);
     }
 
-    @Override 
+    @Override
     public boolean isFinished()
     {
         return isTimedOut();
@@ -46,7 +46,7 @@ public class RunHatchCollector extends Command
     @Override
     public void end()
     {
-        System.out.println( "No, there is nobody (you're forever alone)(Jk) ( ╹ਊ╹)" );
+        System.out.println("Evan is an orange.(◕‿◕✿)");
         hatchCollector.armcollector.set(0);
     }
 }
