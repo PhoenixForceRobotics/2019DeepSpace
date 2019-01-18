@@ -42,7 +42,8 @@ public class Constants
             public static int ARMCOLLECTOR = 16;
         //Should this be true or false? 
             public static final boolean ARMCOLLECTOR_REVERSED = false;
-        } 
+        }
+
         public static class BallCollector
         {
             public static int BALL_ROTATE = 3;
@@ -53,10 +54,24 @@ public class Constants
             public static final boolean COLLECTORLEFT_REVERSED = true;
             public static final boolean COLLECTORRIGHT_REVERSED = false;
         }
+
+        public static class Elevator
+        {
+            public static int ELEVATORL = 21;
+            public static int ELEVATORR = 42;
+
+            public static final boolean ELEVATORL_REVERSED = false;
+            public static final boolean ELEVATORR_REVERSED = true;
+        }
+    
     }
     public static class HatchCollectorSpeed 
     {
         public static final double HCspeed = .3;
+    }
+    public static class ElevatorSpeed
+    {
+        public static final double Espeed = .75;
     }
 
     public static class OIMap {
