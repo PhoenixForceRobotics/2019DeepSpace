@@ -58,7 +58,6 @@ public class Constants
     {
         public static final double HCspeed = .3;
     }
-
     public static class OIMap {
       
     }

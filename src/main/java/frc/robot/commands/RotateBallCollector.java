@@ -5,11 +5,11 @@ import frc.robot.subsystems.BallCollector;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class HoldIntake extends Command
+public class RotateBallCollector extends Command
 {
     private BallCollector ballCollector;
 
-    public HoldIntake()
+    public RotateBallCollector()
     {
         requires(ballCollector);
         this.ballCollector = Robot.ballCollector;
@@ -18,19 +18,19 @@ public class HoldIntake extends Command
     @Override
     public void initialize()
     {
-
+        setTimeout(.6);
     }
 
     @Override
     public void execute()
     {    
-        ballCollector.intake(1);
+        ballCollector.rotate(1);
     }
 
     @Override
     public boolean isFinished()
     {
-        return false;
+        return isTimedOut();
     }
 
     @Override
@@ -42,7 +42,6 @@ public class HoldIntake extends Command
     @Override
     public void end()
     {
-        ballCollector.intake(0);
-        ballCollector.intake(0);
+        ballCollector.rotate(0);
     }
 }
