@@ -21,11 +21,6 @@ public class Drivebase extends Subsystem {
 
         hdrive1 = new Motor(Constants.MotorMap.Drivebase.HDRIVE1, Constants.MotorMap.Drivebase.HDRIVE1_REVERSED);
         hdrive2 = new Motor(Constants.MotorMap.Drivebase.HDRIVE2, Constants.MotorMap.Drivebase.HDRIVE2_REVERSED);
-        //left1.addChild(left2);
-        //left3.follow(left1);
-
-        //right2.follow(right1);
-        //right3.follow(right1);
     }
     public void setLeft(double value)
     {
@@ -37,9 +32,10 @@ public class Drivebase extends Subsystem {
         right1.set(value);
     }
     public void hDrive(char direction, double value){
-        if(direction == 'l'){
+        if(direction == 'r'){
             hdrive1.set(value);
-        } else if(direction == 'r'){
+            System.out.println(value);
+        } else if(direction == 'l'){
             hdrive1.set(-value);
         } else {
             hdrive1.set(0);

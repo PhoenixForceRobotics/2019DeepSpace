@@ -19,13 +19,19 @@ public class RunHDrive extends Command
     @Override
     public void initialize()
     {
-        
+        this.oi = Robot.oi;
     }
 
     @Override
     public void execute()
     {
-        drivebase.hDrive();
+        if(oi.driverController.rightTriggerButton.get() & !oi.driverController.leftTriggerButton.get()){
+            drivebase.hDrive('r', oi.driverController.triggers.getRight());
+        } else if(oi.driverController.leftTriggerButton.get() & !oi.driverController.rightTriggerButton.get()){
+            drivebase.hDrive('l', oi.driverController.triggers.getLeft());
+        } else {
+            drivebase.hDrive('l', 0);
+        }
     }
 
     @Override
@@ -43,6 +49,6 @@ public class RunHDrive extends Command
     @Override
     public void end()
     {
-        drivebase.hDrive(0);
+        drivebase.hDrive('l', 0);
     }
 }
