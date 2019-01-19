@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.OI;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.HatchCollector;
+import frc.robot.subsystems.Elevator;
 
 import frc.robot.commands.RunDriveBase;
 
@@ -33,6 +34,7 @@ public class Robot extends TimedRobot {
   public static OI oi;
   public static Drivebase drivebase;
   public static HatchCollector hatchCollector;
+  public static Elevator elevator;
 
   /**
    * This function is run when the robot is first started up and should be
