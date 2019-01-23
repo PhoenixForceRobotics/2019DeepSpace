@@ -17,5 +17,4 @@ public class HatchCollector extends Subsystem{
     {
 
     }
-    
 }
