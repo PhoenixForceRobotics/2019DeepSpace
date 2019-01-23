@@ -54,7 +54,7 @@ public class Constants
             public static final boolean COLLECTORRIGHT_REVERSED = false;
         }
     }
-    public static class HatchCollectorSpeed 
+    public static class HatchCollectorValues
     {
         public static final double HCspeed = .3;
     }

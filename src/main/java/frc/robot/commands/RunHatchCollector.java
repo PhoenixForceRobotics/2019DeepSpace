@@ -26,7 +26,8 @@ public class RunHatchCollector extends Command
     public void execute()
     {
         System.out.println( "Hewwo? Is anybody there? (´ ･ ω ･ `)" );
-        hatchCollector.armcollector.set(Constants.HatchCollectorSpeed.HCspeed);
+        
+        hatchCollector.runHatch();
     }
 
     @Override 
@@ -45,6 +46,6 @@ public class RunHatchCollector extends Command
     public void end()
     {
         System.out.println( "No, there is nobody (you're forever alone)(Jk) ( ╹ਊ╹)" );
-        hatchCollector.armcollector.set(0);
+        hatchCollector.stopHatch();
     }
 }

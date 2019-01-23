@@ -26,7 +26,7 @@ public class CollectHatch extends Command
     public void execute()
     {
         System.out.println("Hello! Collecting Hatches... (＾ω＾)");
-        hatchCollector.armcollector.set(Constants.HatchCollectorSpeed.HCspeed * -1);
+        hatchCollector.liftHatch();
     }
 
     @Override
@@ -44,7 +44,7 @@ public class CollectHatch extends Command
     @Override
     public void end()
     {
-        System.out.println("Evan is an orange.(◕‿◕✿)");
-        hatchCollector.armcollector.set(0);
+        System.out.println("(◕‿◕✿)");
+        hatchCollector.stopHatch();
     }
 }
