@@ -8,7 +8,12 @@ import frc.robot.utility.Motor;
 public class Elevator extends PIDSubsystem {
     public Motor elevatorL;
     public Motor elevatorR;
-    
+
+    //setting constants
+    public double kp = .00;
+    public double ki = .00;
+    public double kd = .00;
+
     public Elevator() {
         super("Elevator", 2.0, 0.0, 0.0);// The constructor passes a name for the subsystem and the P, I and D constants that are used when computing the motor output
         setAbsoluteTolerance(0.05);
@@ -19,6 +24,7 @@ public class Elevator extends PIDSubsystem {
 
         
     }
+
     public void initDefaultCommand()
     {
 
