@@ -14,9 +14,7 @@ public class Drivebase extends Subsystem {
     private static final Logger logger = Log.configureLog(Drivebase.class.getName());
 
     public Drivebase() {
-
-        
-
+        logger.fine("Spinup Drivebase");
         left1 = new Motor(Constants.MotorMap.Drivebase.LEFT_1, Constants.MotorMap.Drivebase.LEFT1_REVERSED);
         left2 = new Motor(Constants.MotorMap.Drivebase.LEFT_2, Constants.MotorMap.Drivebase.LEFT2_REVERSED);
         left3 = new Motor(Constants.MotorMap.Drivebase.LEFT_3, Constants.MotorMap.Drivebase.LEFT3_REVERSED);
@@ -30,23 +28,25 @@ public class Drivebase extends Subsystem {
     }
     public void setLeft(double value)
     {
-        logger.info("Start Set Left");
+        logger.finest("Start Set Left");
         left1.set(value);
-        logger.info("Leaving Set Left");
-        //System.out.println(logger);
     }
 
     public void setRight(double value)
     {
+        logger.finest("Start Set Right");
         right1.set(value);
     }
     public void hDrive(char direction, double value){
+        logger.finest("Start hDrive");
         if(direction == 'r'){
+            logger.finer("hDrive to the right");
             hdrive1.set(value);
-            System.out.println(value);
         } else if(direction == 'l'){
+            logger.finer("hDrive to the left");
             hdrive1.set(-value);
         } else {
+            logger.finer("hDrive off");
             hdrive1.set(0);
         }
     }
