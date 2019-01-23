@@ -7,10 +7,13 @@
 
 package frc.robot;
 
+import java.util.logging.Logger;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.command.Scheduler;
+
+import frc.robot.utility.Log;
 
 import frc.robot.subsystems.OI;
 import frc.robot.subsystems.Drivebase;

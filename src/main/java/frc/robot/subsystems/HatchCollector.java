@@ -13,9 +13,9 @@ public class HatchCollector extends Subsystem{
 
     }
 
-public void initDefaultCommand()
-{
+    public void initDefaultCommand()
+    {
 
-}
+    }
     
 }

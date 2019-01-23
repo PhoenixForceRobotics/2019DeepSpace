@@ -33,6 +33,7 @@ public class Drivebase extends Subsystem {
         logger.info("Start Set Left");
         left1.set(value);
         logger.info("Leaving Set Left");
+        //System.out.println(logger);
     }
 
     public void setRight(double value)

@@ -18,13 +18,13 @@ public class OI
 
     public OI() {
         driverController = new BobXboxController(0, 0.10, 0.08);
-        //operatorController = new BobXboxController(0, 0.10, 0.08);
+        operatorController = new BobXboxController(0, 0.10, 0.08);
 
         driverController.leftTriggerButton.whileHeld(new RunHDrive());
         driverController.rightTriggerButton.whileHeld(new RunHDrive());
 
-        //operatorController.aButton.whenPressed(new RunHatchCollector());
-        //operatorController.bButton.whenPressed(new CollectHatch());  
+        operatorController.aButton.whenPressed(new RunHatchCollector());
+        operatorController.bButton.whenPressed(new CollectHatch());  
     }
 
 }
