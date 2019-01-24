@@ -4,7 +4,7 @@ package frc.robot.subsystems;
 import frc.controllers.BobXboxController;
 import frc.robot.commands.RunHatchCollector;
 import frc.robot.commands.CollectHatch;
-import frc.robot.commands.HoldIntake;
+import frc.robot.commands.BallHoldIntake;
 import frc.robot.commands.BallOuttake;
 //import frc.robot.commands.PrepBall;
 //import frc.robot.commands.ShootFlywheel;
@@ -29,7 +29,7 @@ public class OI
 
         operatorController.aButton.whenPressed(new RunHatchCollector());
         operatorController.bButton.whenPressed(new CollectHatch());
-        driverController.leftBumper.whileHeld(new HoldIntake());
+        driverController.leftBumper.whileHeld(new BallHoldIntake());
         operatorController.leftBumper.whenPressed(new BallOuttake());
 
     }

@@ -3,43 +3,49 @@ package frc.robot.commands;
 // import frc.robot.subsystems.OI;
 import frc.robot.Robot;
 import frc.robot.subsystems.BallCollector;
+import frc.robot.utility.Log;
 import edu.wpi.first.wpilibj.command.Command;
+import java.util.logging.Logger;
 
 public class BallOuttake extends Command
 {
     private BallCollector ballCollector;
-    // private OI oi;
+    private static final Logger logger = Log.configureLog(BallOuttake.class.getName());
 
     public BallOuttake()
     {
+        logger.fine("Spinup BallOuttake");
         requires(Robot.ballCollector);
         this.ballCollector = Robot.ballCollector;
     }
 
     public void initialize() {
-        // this.oi = Robot.oi;
+        logger.fine("Initialize BallOuttake");
         setTimeout(.2);
     }
 
 
     public void execute() {
-        System.out.println("executing...");
+        logger.finest("Excecute BallOuttake");
         ballCollector.outtake(1);
     }
 
 
     public boolean isFinished()
     {
+        logger.finest("BallOuttake is Finished");
         return isTimedOut();
-    }
-
-
-    public void end() {
-        ballCollector.outtake(0);
     }
 
     @Override
     public void interrupted() {
+        logger.fine("BallOuttake Interrupted");
         end();
     }
+    
+    public void end() {
+        logger.fine("BallOuttake end");
+        ballCollector.outtake(0);
+    }
+
 }

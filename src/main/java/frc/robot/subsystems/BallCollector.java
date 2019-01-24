@@ -12,7 +12,7 @@ public class BallCollector extends Subsystem {
     public Motor flywheelleft, flywheelright;
     public Motor collectorrotate;
 
-    private static final Logger logger = Log.configureLog(Drivebase.class.getName());
+    private static final Logger logger = Log.configureLog(BallCollector.class.getName());
 
     public BallCollector() {
         logger.fine("Spinup Ball Collector");
