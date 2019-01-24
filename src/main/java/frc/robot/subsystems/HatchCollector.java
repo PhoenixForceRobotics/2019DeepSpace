@@ -8,14 +8,13 @@ public class HatchCollector extends Subsystem{
     public Motor armcollector;
     
     public HatchCollector() {
-//this is really short ( ͠° ͟ʖ ͡°)
+        //this is really short ( ͠° ͟ʖ ͡°)
         armcollector = new Motor (Constants.MotorMap.HatchCollector.ARMCOLLECTOR, Constants.MotorMap.HatchCollector.ARMCOLLECTOR_REVERSED);
 
     }
 
-public void initDefaultCommand()
-{
+    public void initDefaultCommand()
+    {
 
-}
-    
+    }
 }
