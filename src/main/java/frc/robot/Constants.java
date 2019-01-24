@@ -69,10 +69,7 @@ public class Constants
     {
         public static final double HCspeed = .3;
     }
-    public static class ElevatorSpeed
-    {
-        public static final double Espeed = .75;
-    }
+
 
     public static class OIMap {
       
