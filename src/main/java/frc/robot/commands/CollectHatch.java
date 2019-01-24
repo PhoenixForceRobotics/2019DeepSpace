@@ -5,12 +5,17 @@ import frc.robot.Robot;
 import frc.robot.subsystems.HatchCollector;
 import edu.wpi.first.wpilibj.command.Command;
 
+import java.util.logging.Logger;
+import frc.robot.utility.Log;
+
 public class CollectHatch extends Command
 {
     private HatchCollector hatchCollector;
+    public static final Logger logger = Log.configureLog(CollectHatch.class.getName());
     
     public CollectHatch()
     {
+        logger.fine("Spinup CollectHatch");
         requires(Robot.hatchCollector);
 
         this.hatchCollector = Robot.hatchCollector;
@@ -19,13 +24,15 @@ public class CollectHatch extends Command
     @Override
     public void initialize()
     {
+        logger.fine("CollectHatch Initialize"); 
         setTimeout(.1);
     }
 
     @Override
     public void execute()
     {
-        System.out.println("Hello! Collecting Hatches... (＾ω＾)");
+        logger.finest("CollectHatch Execute(＾ω＾)");
+//      System.out.println("Hello! Collecting Hatches... (＾ω＾)");
         hatchCollector.liftHatch();
     }
 
@@ -38,13 +45,15 @@ public class CollectHatch extends Command
     @Override
     public void interrupted()
     {
+        logger.fine("CollectHatch Interrupted");
         end();
     }
 
     @Override
     public void end()
     {
-        System.out.println("(◕‿◕✿)");
+        logger.fine("(◕‿◕✿)");
+//      System.out.println("(◕‿◕✿)");
         hatchCollector.stopHatch();
     }
 }
