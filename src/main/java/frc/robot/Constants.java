@@ -1,5 +1,7 @@
 package frc.robot;
 
+import java.util.logging.Level;
+
 public class Constants
 {
     public static class MotorMap
@@ -61,5 +63,9 @@ public class Constants
 
     public static class OIMap {
       
+    }
+
+    public static class Misc{
+        public static Level logLevel = Level.INFO;
     }
 }
