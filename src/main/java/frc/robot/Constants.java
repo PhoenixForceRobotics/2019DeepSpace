@@ -47,7 +47,7 @@ public class Constants
         } 
         public static class BallCollector
         {
-            public static int BALL_ROTATE = 3;
+            public static int BALL_ROTATE = 1;
             public static int COLLECTOR_LEFT = 4;
             public static int COLLECTOR_RIGHT = 5;
 
