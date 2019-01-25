@@ -15,7 +15,7 @@ public class Constants
         {
             //tank drive motors 
             public static int LEFT_1 = 0;
-            public static int LEFT_2 = 1;
+            public static int LEFT_2 = 3;
             public static int LEFT_3 = 2;
 
             public static int RIGHT_1 = 13;
@@ -41,7 +41,7 @@ public class Constants
         public static class HatchCollector
         {
         //¯\_(ツ)_/¯ dunno what the motor is
-            public static int ARMCOLLECTOR = 16;
+            public static int ARMCOLLECTOR = 11;
         //Should this be true or false? 
             public static final boolean ARMCOLLECTOR_REVERSED = false;
         } 

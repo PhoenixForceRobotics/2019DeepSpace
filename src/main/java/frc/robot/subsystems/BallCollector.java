@@ -33,8 +33,8 @@ public class BallCollector extends Subsystem {
     public void outtake(double value)
     {
         logger.finest("Start Ball Collector Outake");
-        flywheelleft.set(value);
-        flywheelright.set(value);
+        flywheelleft.set(-value);
+        flywheelright.set(-value);
     }
 
     public void rotate(double value)
