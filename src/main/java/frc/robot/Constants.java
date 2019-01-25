@@ -56,6 +56,12 @@ public class Constants
             public static final boolean COLLECTORRIGHT_REVERSED = false;
         }
     }
+    public static class PneumaticsMap{
+        public static class HatchCollector {
+            public static int PUNCHER1 = 1;
+            public static int PUNCHER2 = 2;
+        }
+    }
     public static class HatchCollectorValues
     {
         public static final double HCspeed = .3;

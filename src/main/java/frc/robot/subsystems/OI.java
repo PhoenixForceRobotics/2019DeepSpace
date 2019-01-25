@@ -2,9 +2,7 @@ package frc.robot.subsystems;
 
 
 import frc.controllers.BobXboxController;
-import frc.robot.commands.RunHatchCollector;
-import frc.robot.commands.CollectHatch;
-import frc.robot.commands.RunHDrive;
+import frc.robot.commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -22,6 +20,9 @@ public class OI
 
         driverController.leftTriggerButton.whileHeld(new RunHDrive());
         driverController.rightTriggerButton.whileHeld(new RunHDrive());
+
+        driverController.aButton.whenPressed(new PuncherHatchOut());
+        driverController.bButton.whenPressed(new PuncherHatchIn());
 
         operatorController.aButton.whenPressed(new RunHatchCollector());
         operatorController.bButton.whenPressed(new CollectHatch());  
