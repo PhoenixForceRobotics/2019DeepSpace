@@ -21,11 +21,11 @@ public class OI
         driverController.leftTriggerButton.whileHeld(new RunHDrive());
         driverController.rightTriggerButton.whileHeld(new RunHDrive());
 
-        driverController.aButton.whenPressed(new PuncherHatchOut());
-        driverController.bButton.whenPressed(new PuncherHatchIn());
+//        driverController.aButton.whenPressed(new PuncherHatchOut());
+//        driverController.bButton.whenPressed(new PuncherHatchIn());
 
-        operatorController.aButton.whenPressed(new RunHatchCollector());
-        operatorController.bButton.whenPressed(new CollectHatch());  
+        driverController.aButton.whenPressed(new RunHatchCollector());
+        driverController.bButton.whenPressed(new CollectHatch());  
     }
 
 }
