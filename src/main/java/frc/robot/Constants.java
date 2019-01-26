@@ -15,7 +15,7 @@ public class Constants
         {
             //tank drive motors 
             public static int LEFT_1 = 0;
-            public static int LEFT_2 = 3;
+            public static int LEFT_2 = 1;
             public static int LEFT_3 = 2;
 
             public static int RIGHT_1 = 13;
@@ -56,7 +56,13 @@ public class Constants
             public static final boolean COLLECTORRIGHT_REVERSED = false;
         }
     }
-    public static class HatchCollectorSpeed 
+    public static class PneumaticsMap{
+        public static class HatchCollector {
+            public static int PUNCHER1 = 1;
+            public static int PUNCHER2 = 2;
+        }
+    }
+    public static class HatchCollectorValues
     {
         public static final double HCspeed = .3;
     }
@@ -66,5 +72,5 @@ public class Constants
 
     public static class Misc{
         public static Level logLevel = Level.FINE;
-    }
+   }
 }

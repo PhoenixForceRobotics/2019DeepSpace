@@ -2,14 +2,7 @@ package frc.robot.subsystems;
 
 
 import frc.controllers.BobXboxController;
-import frc.robot.commands.RunHatchCollector;
-import frc.robot.commands.CollectHatch;
-import frc.robot.commands.RotateBallCollector;
-import frc.robot.commands.BallHoldIntake;
-import frc.robot.commands.BallOuttake;
-//import frc.robot.commands.PrepBall;
-//import frc.robot.commands.ShootFlywheel;
-import frc.robot.commands.RunHDrive;
+import frc.robot.commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -34,6 +27,11 @@ public class OI
         driverController.rightBumper.whenPressed(new BallOuttake());
         driverController.xButton.whenPressed(new RotateBallCollector());
 
+//        driverController.aButton.whenPressed(new PuncherHatchOut());
+//        driverController.bButton.whenPressed(new PuncherHatchIn());
+
+        driverController.aButton.whenPressed(new RunHatchCollector());
+        driverController.bButton.whenPressed(new CollectHatch());  
     }
 
 }
