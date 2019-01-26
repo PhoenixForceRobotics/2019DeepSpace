@@ -4,11 +4,13 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Constants;
 import frc.robot.utility.Motor;
+import edu.wpi.first.wpilibj.Encoder;
 
 public class Elevator extends PIDSubsystem {
     public Motor elevatorL;
     public Motor elevatorR;
 
+    public Encoder elevatorEncoder;
     //setting constants
     public double kp = .00;
     public double ki = .00;
@@ -21,10 +23,12 @@ public class Elevator extends PIDSubsystem {
         
         elevatorL = new Motor(Constants.MotorMap.Elevator.ELEVATORL, Constants.MotorMap.Elevator.ELEVATORL_REVERSED);
         elevatorR = new Motor(Constants.MotorMap.Elevator.ELEVATORR, Constants.MotorMap.Elevator.ELEVATORR_REVERSED);
+    
+        elevatorEncoder = new Encoder(Constants.EncoderMap.Elevator.ELEVATORDIGITAL1, Constants.EncoderMap.Elevator.ELEVATORDIGITAL2, Constants.EncoderMap.Elevator.ELEVATORDIGITAL_REVERSED);
     }
 
     public double returnPIDInput(){
-        return encoder;
+        return elevatorEncoder.getDistance();
     }
 
     public void usePIDOutput(double output){

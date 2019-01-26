@@ -69,8 +69,15 @@ public class Constants
     {
         public static final double HCspeed = .3;
     }
-
-
+    public static class EncoderMap 
+    {
+        public static class Elevator
+        {
+            public static int ELEVATORDIGITAL1 = 0;
+            public static int ELEVATORDIGITAL2 = 1;
+            public static boolean ELEVATORDIGITAL_REVERSED = true;
+        }
+    }
     public static class OIMap {
       
     }
