@@ -21,8 +21,6 @@ public class Elevator extends PIDSubsystem {
         
         elevatorL = new Motor(Constants.MotorMap.Elevator.ELEVATORL, Constants.MotorMap.Elevator.ELEVATORL_REVERSED);
         elevatorR = new Motor(Constants.MotorMap.Elevator.ELEVATORR, Constants.MotorMap.Elevator.ELEVATORR_REVERSED);
-<<<<<<< HEAD
-=======
 
         
     }
@@ -30,7 +28,6 @@ public class Elevator extends PIDSubsystem {
     public void initDefaultCommand()
     {
 
->>>>>>> 0918e8fb1e37f3cb1b21aaf5ecb9fbe4ea6f05b3
     }
     
     // PIDSubsystem.returnPIDInput()Java(67109264)
