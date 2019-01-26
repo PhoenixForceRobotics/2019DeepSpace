@@ -14,7 +14,7 @@ public class BallHoldIntake extends Command
     public BallHoldIntake()
     {
         logger.fine("Spinup BallHoldIntake");
-        requires(ballCollector);
+        requires(Robot.ballCollector);
         this.ballCollector = Robot.ballCollector;
     }
 

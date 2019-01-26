@@ -47,8 +47,8 @@ public class Constants
         } 
         public static class BallCollector
         {
-            public static int BALL_ROTATE = 1;
-            public static int COLLECTOR_LEFT = 4;
+            public static int BALL_ROTATE = 4;
+            public static int COLLECTOR_LEFT = 1;
             public static int COLLECTOR_RIGHT = 5;
 
             public static final boolean BALLROTATE_REVERSED = false;
@@ -65,6 +65,6 @@ public class Constants
     }
 
     public static class Misc{
-        public static Level logLevel = Level.INFO;
+        public static Level logLevel = Level.FINE;
     }
 }

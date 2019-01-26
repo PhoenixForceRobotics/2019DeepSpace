@@ -4,6 +4,7 @@ package frc.robot.subsystems;
 import frc.controllers.BobXboxController;
 import frc.robot.commands.RunHatchCollector;
 import frc.robot.commands.CollectHatch;
+import frc.robot.commands.RotateBallCollector;
 import frc.robot.commands.BallHoldIntake;
 import frc.robot.commands.BallOuttake;
 //import frc.robot.commands.PrepBall;
@@ -31,6 +32,7 @@ public class OI
         //operatorController.bButton.whenPressed(new CollectHatch());
         driverController.leftBumper.whileHeld(new BallHoldIntake());
         driverController.rightBumper.whenPressed(new BallOuttake());
+        driverController.xButton.whenPressed(new RotateBallCollector());
 
     }
 

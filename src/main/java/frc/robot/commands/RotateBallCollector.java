@@ -14,7 +14,7 @@ public class RotateBallCollector extends Command
     public RotateBallCollector()
     {
         logger.fine("Spinup RotateBallCollector");
-        requires(ballCollector);
+        requires(Robot.ballCollector);
         this.ballCollector = Robot.ballCollector;
     }
 
