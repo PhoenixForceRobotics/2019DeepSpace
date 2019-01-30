@@ -6,6 +6,8 @@ import frc.robot.utility.Log;
 import frc.robot.utility.Motor;
 import java.util.logging.Logger;
 
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
 public class Drivebase extends Subsystem {
     public Motor left1, left2, left3;
     public Motor right1, right2, right3;
@@ -15,16 +17,16 @@ public class Drivebase extends Subsystem {
 
     public Drivebase() {
         logger.fine("Spinup Drivebase");
-        left1 = new Motor(Constants.MotorMap.Drivebase.LEFT_1, Constants.MotorMap.Drivebase.LEFT1_REVERSED);
-        left2 = new Motor(Constants.MotorMap.Drivebase.LEFT_2, Constants.MotorMap.Drivebase.LEFT2_REVERSED);
-        left3 = new Motor(Constants.MotorMap.Drivebase.LEFT_3, Constants.MotorMap.Drivebase.LEFT3_REVERSED);
+        left1 = new Motor(Constants.MotorMap.Drivebase.LEFT_1, MotorType.kBrushless, Constants.MotorMap.Drivebase.LEFT1_REVERSED);
+        left2 = new Motor(Constants.MotorMap.Drivebase.LEFT_2, MotorType.kBrushless, Constants.MotorMap.Drivebase.LEFT2_REVERSED);
+        left3 = new Motor(Constants.MotorMap.Drivebase.LEFT_3, MotorType.kBrushless, Constants.MotorMap.Drivebase.LEFT3_REVERSED);
 
-        right1 = new Motor(Constants.MotorMap.Drivebase.RIGHT_1, Constants.MotorMap.Drivebase.RIGHT1_REVERSED);
-        right2 = new Motor(Constants.MotorMap.Drivebase.RIGHT_2, Constants.MotorMap.Drivebase.RIGHT2_REVERSED);
-        right3 = new Motor(Constants.MotorMap.Drivebase.RIGHT_3, Constants.MotorMap.Drivebase.RIGHT3_REVERSED);
+        right1 = new Motor(Constants.MotorMap.Drivebase.RIGHT_1, MotorType.kBrushless, Constants.MotorMap.Drivebase.RIGHT1_REVERSED);
+        right2 = new Motor(Constants.MotorMap.Drivebase.RIGHT_2, MotorType.kBrushless, Constants.MotorMap.Drivebase.RIGHT2_REVERSED);
+        right3 = new Motor(Constants.MotorMap.Drivebase.RIGHT_3, MotorType.kBrushless, Constants.MotorMap.Drivebase.RIGHT3_REVERSED);
 
-        hdrive1 = new Motor(Constants.MotorMap.Drivebase.HDRIVE1, Constants.MotorMap.Drivebase.HDRIVE1_REVERSED);
-        hdrive2 = new Motor(Constants.MotorMap.Drivebase.HDRIVE2, Constants.MotorMap.Drivebase.HDRIVE2_REVERSED);
+        hdrive1 = new Motor(Constants.MotorMap.Drivebase.HDRIVE1, MotorType.kBrushless, Constants.MotorMap.Drivebase.HDRIVE1_REVERSED);
+        hdrive2 = new Motor(Constants.MotorMap.Drivebase.HDRIVE2, MotorType.kBrushless, Constants.MotorMap.Drivebase.HDRIVE2_REVERSED);
     }
     public void setLeft(double value)
     {

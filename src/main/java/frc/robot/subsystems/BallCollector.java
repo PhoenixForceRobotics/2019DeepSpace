@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Constants;
 import frc.robot.utility.Motor;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import frc.robot.utility.Log;
 
@@ -16,9 +17,9 @@ public class BallCollector extends Subsystem {
 
     public BallCollector() {
         logger.fine("Spinup Ball Collector");
-        flywheelleft = new Motor(Constants.MotorMap.BallCollector.COLLECTOR_LEFT, Constants.MotorMap.BallCollector.COLLECTORLEFT_REVERSED);
-        flywheelright = new Motor(Constants.MotorMap.BallCollector.COLLECTOR_RIGHT, Constants.MotorMap.BallCollector.COLLECTORRIGHT_REVERSED);
-        collectorrotate = new Motor(Constants.MotorMap.BallCollector.BALL_ROTATE, Constants.MotorMap.BallCollector.BALLROTATE_REVERSED);
+        flywheelleft = new Motor(Constants.MotorMap.BallCollector.COLLECTOR_LEFT, MotorType.kBrushed, Constants.MotorMap.BallCollector.COLLECTORLEFT_REVERSED);
+        flywheelright = new Motor(Constants.MotorMap.BallCollector.COLLECTOR_RIGHT,  MotorType.kBrushed,Constants.MotorMap.BallCollector.COLLECTORRIGHT_REVERSED);
+        collectorrotate = new Motor(Constants.MotorMap.BallCollector.BALL_ROTATE, MotorType.kBrushed, Constants.MotorMap.BallCollector.BALLROTATE_REVERSED);
 
         // flywheelright.follow(flywheelleft);
 

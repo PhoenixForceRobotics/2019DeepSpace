@@ -8,33 +8,34 @@ import frc.robot.utility.Log;
 import frc.robot.utility.Motor;
 import java.util.logging.Logger;
 
-import edu.wpi.first.wpilibj.Encoder;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.revrobotics.CANEncoder;
 
 public class HatchCollector extends Subsystem{
     public Motor armcollector;
     public DoubleSolenoid puncher;
-    public Encoder rotate;
+    public CANEncoder rotate;
     
     public static final Logger logger = Log.configureLog(HatchCollector.class.getName());
 
     public HatchCollector() {
         logger.fine("Spinup Hatch Collector");
         //this is really short ( ͠° ͟ʖ ͡°)
-        armcollector = new Motor (Constants.MotorMap.HatchCollector.ARMCOLLECTOR, Constants.MotorMap.HatchCollector.ARMCOLLECTOR_REVERSED);
+        armcollector = new Motor (Constants.MotorMap.HatchCollector.ARMCOLLECTOR, MotorType.kBrushed, Constants.MotorMap.HatchCollector.ARMCOLLECTOR_REVERSED);
         this.puncher = new DoubleSolenoid(Constants.PneumaticsMap.HatchCollector.PUNCHER1, Constants.PneumaticsMap.HatchCollector.PUNCHER2);
-        rotate = new Encoder(Constants.EncoderMap.HatchCollector.ROTATE1, Constants.EncoderMap.HatchCollector.ROTATE2);
+        rotate = armcollector.getEncoder();
     }
     public void runHatch()
     {
         logger.finest("Start Hatch");
         armcollector.set(Constants.HatchCollectorValues.HCspeed);
-        logger.severe(Double.toString(rotate.getDistance()));
+        logger.severe(Double.toString(rotate.getPosition()));
     }
     public void liftHatch()
     {
         logger.finest("Start Reverse Hatch");
         armcollector.set(Constants.HatchCollectorValues.HCspeed * -1);
-        logger.severe(Double.toString(rotate.getDistance()));
+        logger.severe(Double.toString(rotate.getPosition()));
     }
     public void stopHatch()
     {

@@ -20,7 +20,7 @@ public class Constants
 
             public static int RIGHT_1 = 7;
             public static int RIGHT_2 = 8;
-            public static int RIGHT_3 = 16;
+            public static int RIGHT_3 = 9;
 
             public static final boolean LEFT1_REVERSED = true;
             public static final boolean LEFT2_REVERSED = true;
@@ -41,13 +41,13 @@ public class Constants
         public static class HatchCollector
         {
         //¯\_(ツ)_/¯ dunno what the motor is
-            public static int ARMCOLLECTOR = 9;
+            public static int ARMCOLLECTOR = 12;
         //Should this be true or false? 
             public static final boolean ARMCOLLECTOR_REVERSED = false;
         } 
         public static class BallCollector
         {
-            public static int BALL_ROTATE = 12;
+            public static int BALL_ROTATE = 15;
             public static int COLLECTOR_LEFT = 13;
             public static int COLLECTOR_RIGHT = 14;
 
@@ -72,7 +72,7 @@ public class Constants
 
     public static class HatchCollectorValues
     {
-        public static final double HCspeed = .3;
+        public static final double HCspeed = .5;
     }
     public static class OIMap {
       
