@@ -15,7 +15,7 @@ public class Constants
         {
             //tank drive motors 
             public static int LEFT_1 = 0;
-            public static int LEFT_2 = 1;
+            public static int LEFT_2 = 12;
             public static int LEFT_3 = 2;
 
             public static int RIGHT_1 = 7;
