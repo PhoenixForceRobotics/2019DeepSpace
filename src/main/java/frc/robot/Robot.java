@@ -17,6 +17,7 @@ import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.HatchCollector;
 
 import frc.robot.commands.RunDriveBase;
+import frc.robot.subsystems.OurCompressor;
 
 /**
  * The VM is configured to automatically run this class, and to call the
