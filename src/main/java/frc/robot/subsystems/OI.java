@@ -21,8 +21,8 @@ public class OI
         driverController.leftTriggerButton.whileHeld(new RunHDrive());
         driverController.rightTriggerButton.whileHeld(new RunHDrive());
 
-//        driverController.aButton.whenPressed(new PuncherHatchOut());
-//        driverController.bButton.whenPressed(new PuncherHatchIn());
+        driverController.aButton.whenPressed(new PuncherHatchOut());
+        driverController.bButton.whenPressed(new PuncherHatchIn());
 
         driverController.yButton.whenPressed(new RunHatchCollector());
         driverController.xButton.whenPressed(new CollectHatch());  
