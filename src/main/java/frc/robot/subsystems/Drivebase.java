@@ -30,24 +30,31 @@ public class Drivebase extends Subsystem {
     {
         logger.finest("Start Set Left");
         left1.set(value);
+        left2.set(value);
+        left3.set(value);
     }
 
     public void setRight(double value)
     {
         logger.finest("Start Set Right");
         right1.set(value);
+        right2.set(value);
+        right3.set(value);
     }
     public void hDrive(char direction, double value){
         logger.finest("Start hDrive");
         if(direction == 'r'){
             logger.finer("hDrive to the right");
             hdrive1.set(value);
+            hdrive2.set(value);
         } else if(direction == 'l'){
             logger.finer("hDrive to the left");
             hdrive1.set(-value);
+            hdrive2.set(-value);
         } else {
             logger.finer("hDrive off");
             hdrive1.set(0);
+            hdrive2.set(0);
         }
     }
 

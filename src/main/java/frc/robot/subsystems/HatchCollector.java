@@ -8,9 +8,12 @@ import frc.robot.utility.Log;
 import frc.robot.utility.Motor;
 import java.util.logging.Logger;
 
+import edu.wpi.first.wpilibj.Encoder;
+
 public class HatchCollector extends Subsystem{
     public Motor armcollector;
     public DoubleSolenoid puncher;
+    public Encoder rotate;
     
     public static final Logger logger = Log.configureLog(HatchCollector.class.getName());
 
@@ -19,17 +22,19 @@ public class HatchCollector extends Subsystem{
         //this is really short ( ͠° ͟ʖ ͡°)
         armcollector = new Motor (Constants.MotorMap.HatchCollector.ARMCOLLECTOR, Constants.MotorMap.HatchCollector.ARMCOLLECTOR_REVERSED);
         this.puncher = new DoubleSolenoid(Constants.PneumaticsMap.HatchCollector.PUNCHER1, Constants.PneumaticsMap.HatchCollector.PUNCHER2);
-
+        rotate = new Encoder(Constants.EncoderMap.HatchCollector.ROTATE1, Constants.EncoderMap.HatchCollector.ROTATE2);
     }
     public void runHatch()
     {
         logger.finest("Start Hatch");
         armcollector.set(Constants.HatchCollectorValues.HCspeed);
+        logger.severe(Double.toString(rotate.getDistance()));
     }
     public void liftHatch()
     {
         logger.finest("Start Reverse Hatch");
         armcollector.set(Constants.HatchCollectorValues.HCspeed * -1);
+        logger.severe(Double.toString(rotate.getDistance()));
     }
     public void stopHatch()
     {
