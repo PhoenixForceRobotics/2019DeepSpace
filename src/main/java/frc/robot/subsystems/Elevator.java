@@ -4,6 +4,9 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Constants;
 import frc.robot.utility.Motor;
+
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
 import edu.wpi.first.wpilibj.Encoder;
 
 public class Elevator extends PIDSubsystem {
@@ -21,10 +24,11 @@ public class Elevator extends PIDSubsystem {
         setAbsoluteTolerance(0.05);
         getPIDController().setContinuous(false);
         
-        elevatorL = new Motor(Constants.MotorMap.Elevator.ELEVATORL, Constants.MotorMap.Elevator.ELEVATORL_REVERSED);
-        elevatorR = new Motor(Constants.MotorMap.Elevator.ELEVATORR, Constants.MotorMap.Elevator.ELEVATORR_REVERSED);
+        elevatorL = new Motor(Constants.MotorMap.Elevator.ELEVATORL, MotorType.kBrushless, Constants.MotorMap.Elevator.ELEVATORL_REVERSED);
+        elevatorR = new Motor(Constants.MotorMap.Elevator.ELEVATORR, MotorType.kBrushless, Constants.MotorMap.Elevator.ELEVATORR_REVERSED);
     
         elevatorEncoder = new Encoder(Constants.EncoderMap.Elevator.ELEVATORDIGITAL1, Constants.EncoderMap.Elevator.ELEVATORDIGITAL2, Constants.EncoderMap.Elevator.ELEVATORDIGITAL_REVERSED);
+        
     }
 
     public double returnPIDInput(){
