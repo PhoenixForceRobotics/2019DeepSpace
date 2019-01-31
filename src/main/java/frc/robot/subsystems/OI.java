@@ -29,9 +29,12 @@ public class OI
 
 //        driverController.aButton.whenPressed(new PuncherHatchOut());
 //        driverController.bButton.whenPressed(new PuncherHatchIn());
+        driverController.aButton.whenPressed(new PunchInAndOut());
+        driverController.bButton.whenPressed(new PuncherHatchIn());
 
-        driverController.aButton.whenPressed(new RunHatchCollector());
-        driverController.bButton.whenPressed(new CollectHatch());  
+        driverController.yButton.whenPressed(new RunHatchCollector());
+        driverController.xButton.whenPressed(new CollectHatch());  
+
     }
 
 }
