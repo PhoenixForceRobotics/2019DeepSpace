@@ -28,13 +28,13 @@ public class HatchCollector extends Subsystem{
     public void runHatch()
     {
         logger.finest("Start Hatch");
-        armcollector.set(Constants.HatchCollectorValues.HCspeed);
+        armcollector.set(Constants.SubsystemSpeeds.HatchCollectorValues.HCspeed);
         logger.severe(Double.toString(rotate.getPosition()));
     }
     public void liftHatch()
     {
         logger.finest("Start Reverse Hatch");
-        armcollector.set(Constants.HatchCollectorValues.HCspeed * -1);
+        armcollector.set(Constants.SubsystemSpeeds.HatchCollectorValues.HCspeed * -1);
         logger.severe(Double.toString(rotate.getPosition()));
     }
     public void stopHatch()

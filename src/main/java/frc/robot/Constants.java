@@ -70,15 +70,17 @@ public class Constants
         }
     }
 
-    public static class HatchCollectorValues
-    {
-        public static final double HCspeed = .5;
+    public static class SubsystemSpeeds{
+        public static class HatchCollectorValues
+        {
+            public static final double HCspeed = .5;
+        }
     }
     public static class OIMap {
       
     }
 
-    public static class Misc{
+    public static class Misc {
         public static Level logLevel = Level.FINE;
    }
 }
