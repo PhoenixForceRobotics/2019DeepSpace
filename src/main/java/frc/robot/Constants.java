@@ -18,9 +18,9 @@ public class Constants
             public static int LEFT_2 = 1;
             public static int LEFT_3 = 2;
 
-            public static int RIGHT_1 = 7;
-            public static int RIGHT_2 = 8;
-            public static int RIGHT_3 = 9;
+            public static int RIGHT_1 = 13;
+            public static int RIGHT_2 = 14;
+            public static int RIGHT_3 = 15;
 
             public static final boolean LEFT1_REVERSED = true;
             public static final boolean LEFT2_REVERSED = true;
@@ -41,15 +41,15 @@ public class Constants
         public static class HatchCollector
         {
         //¯\_(ツ)_/¯ dunno what the motor is
-            public static int ARMCOLLECTOR = 9;
+            public static int ARMCOLLECTOR = 12;
         //Should this be true or false? 
             public static final boolean ARMCOLLECTOR_REVERSED = false;
         } 
         public static class BallCollector
         {
-            public static int BALL_ROTATE = 12;
-            public static int COLLECTOR_LEFT = 13;
-            public static int COLLECTOR_RIGHT = 14;
+            public static int BALL_ROTATE = 6;
+            public static int COLLECTOR_LEFT = 7;
+            public static int COLLECTOR_RIGHT = 8;
 
             public static final boolean BALLROTATE_REVERSED = false;
             public static final boolean COLLECTORLEFT_REVERSED = true;
