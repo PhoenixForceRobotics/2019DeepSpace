@@ -75,6 +75,12 @@ public class Constants
         {
             public static final double HCspeed = .5;
         }
+        public static class BallCollectorValues
+        {
+            public static final double BCIntakeSpeed = .5;
+            public static final double BCOuttakeSpeed = .5;
+            public static final double BCRotateSpeed = .5;
+        }
     }
     public static class OIMap {
       

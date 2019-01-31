@@ -2,6 +2,7 @@ package frc.robot.commands;
 
 import frc.robot.Robot;
 import frc.robot.subsystems.BallCollector;
+import frc.robot.Constants;
 import frc.robot.utility.Log;
 import edu.wpi.first.wpilibj.command.Command;
 import java.util.logging.Logger;
@@ -28,7 +29,7 @@ public class BallHoldIntake extends Command
     public void execute()
     {    
         logger.finest("Excecute BallHoldIntake");
-        ballCollector.intake(1);
+        ballCollector.intake(Constants.SubsystemSpeeds.BallCollectorValues.BCIntakeSpeed);
     }
 
     @Override

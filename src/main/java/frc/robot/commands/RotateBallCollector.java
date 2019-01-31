@@ -2,6 +2,7 @@ package frc.robot.commands;
 
 import frc.robot.Robot;
 import frc.robot.subsystems.BallCollector;
+import frc.robot.Constants;
 import frc.robot.utility.Log;
 import edu.wpi.first.wpilibj.command.Command;
 import java.util.logging.Logger;
@@ -29,7 +30,7 @@ public class RotateBallCollector extends Command
     public void execute()
     {  
         logger.finest("Execute RotateBallCollector");  
-        ballCollector.rotate(1);
+        ballCollector.rotate(Constants.SubsystemSpeeds.BallCollectorValues.BCRotateSpeed);
     }
 
     @Override
