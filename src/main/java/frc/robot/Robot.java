@@ -33,6 +33,7 @@ public class Robot extends TimedRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   public static OI oi;
   public static Drivebase drivebase;
+  public static OurCompressor compressor;
   public static HatchCollector hatchCollector;
 
   /**
@@ -45,6 +46,7 @@ public class Robot extends TimedRobot {
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
     drivebase = new Drivebase();
+    compressor = new OurCompressor();
     hatchCollector = new HatchCollector();
     oi = new OI();
   }
