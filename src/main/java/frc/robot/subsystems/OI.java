@@ -16,12 +16,20 @@ public class OI
 
     public OI() {
         driverController = new BobXboxController(0, 0.10, 0.08);
-        operatorController = new BobXboxController(0, 0.10, 0.08);
+        //operatorController = new BobXboxController(0, 0.10, 0.08);
 
         driverController.leftTriggerButton.whileHeld(new RunHDrive());
         driverController.rightTriggerButton.whileHeld(new RunHDrive());
 
-        driverController.aButton.whenPressed(new PuncherHatchOut());
+        //operatorController.aButton.whenPressed(new RunHatchCollector());
+        //operatorController.bButton.whenPressed(new CollectHatch());
+        driverController.leftBumper.whileHeld(new BallHoldIntake());
+        driverController.rightBumper.whenPressed(new BallOuttake());
+        driverController.xButton.whenPressed(new RotateBallCollector());
+
+//        driverController.aButton.whenPressed(new PuncherHatchOut());
+//        driverController.bButton.whenPressed(new PuncherHatchIn());
+        driverController.aButton.whenPressed(new PunchInAndOut());
         driverController.bButton.whenPressed(new PuncherHatchIn());
 
         driverController.yButton.whenPressed(new RunHatchCollector());
