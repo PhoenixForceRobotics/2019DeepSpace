@@ -16,33 +16,26 @@ public class HoldIntake extends Command{
     }
     protected void initialize()
    {
-       //why is there a timeout in a hold command? the world will never know....
-        setTimeout(.3);
         this.oi = Robot.oi;
         myflyisbettterthanyourfly = Robot.flywheel;
    }
 
    protected void execute()
    {
-
+        myflyisbettterthanyourfly.intake(ControlMode.PercentOutput, true);
    }
 
    protected void end()
    {
-
+        myflyisbettterthanyourfly.intake(ControlMode.PercentOutput, false);
    }
 
     public boolean isFinished() {
-        //that's a werid button to use
-        System.out.println(oi.theXboxController.selectButton.get());
-        if (oi.theXboxController.selectButton.get())
-        { return false;}
-        else
-        { return true;}
+        return false;
     }
 
 
     public void interrupted() {
-
+        end();
     }
 }

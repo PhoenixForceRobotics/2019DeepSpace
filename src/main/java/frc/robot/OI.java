@@ -22,7 +22,7 @@ public class OI
 
         theXboxController.xButton.whenPressed(new PrepBall());
         theXboxController.rightTriggerButton.whenPressed(new ShootFlywheel());
-        theXboxController.startButton.whenPressed(new HoldIntake());
+        theXboxController.leftBumper.whileHeld(new HoldIntake());
 
     }
 
