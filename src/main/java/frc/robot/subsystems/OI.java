@@ -21,15 +21,27 @@ public class OI
         driverController.leftTriggerButton.whileHeld(new RunHDrive());
         driverController.rightTriggerButton.whileHeld(new RunHDrive());
 
+<<<<<<< HEAD
+=======
+        //operatorController.aButton.whenPressed(new RunHatchCollector());
+        //operatorController.bButton.whenPressed(new CollectHatch());
+>>>>>>> HatchCollector
         driverController.leftBumper.whileHeld(new BallHoldIntake());
         driverController.rightBumper.whenPressed(new BallOuttake());
         driverController.xButton.whenPressed(new RotateBallCollector());
 
+<<<<<<< HEAD
         driverController.aButton.whenPressed(new PuncherHatchOut());
+=======
+//        driverController.aButton.whenPressed(new PuncherHatchOut());
+//        driverController.bButton.whenPressed(new PuncherHatchIn());
+        driverController.aButton.whenPressed(new PunchInAndOut());
+>>>>>>> HatchCollector
         driverController.bButton.whenPressed(new PuncherHatchIn());
 
         driverController.yButton.whenPressed(new RunHatchCollector());
-        driverController.xButton.whenPressed(new CollectHatch());  
+        driverController.xButton.whenPressed(new CollectHatch());
+        driverController.leftStickButton.whileHeld(new RunCompressor());  
     }
 
 }

@@ -19,6 +19,7 @@ import frc.robot.subsystems.BallCollector;
 import java.util.logging.Logger;
 import frc.robot.utility.Log;
 import frc.robot.commands.RunDriveBase;
+import frc.robot.subsystems.OurCompressor;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -34,6 +35,7 @@ public class Robot extends TimedRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   public static OI oi;
   public static Drivebase drivebase;
+  public static OurCompressor compressor;
   public static HatchCollector hatchCollector;
   public static BallCollector ballCollector;
 
@@ -45,6 +47,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
+<<<<<<< HEAD
       m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
       m_chooser.addOption("My Auto", kCustomAuto);
       SmartDashboard.putData("Auto choices", m_chooser);
@@ -57,6 +60,22 @@ public class Robot extends TimedRobot {
       logger.fine("starting OI");
       oi = new OI();
       logger.fine("Everything done here");
+=======
+    m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
+    m_chooser.addOption("My Auto", kCustomAuto);
+    SmartDashboard.putData("Auto choices", m_chooser);
+    logger.fine("About to start drivebase");
+    drivebase = new Drivebase();
+    logger.fine("About to start compressor");
+    compressor = new OurCompressor();
+    logger.fine("About to start hatch");
+    hatchCollector = new HatchCollector();
+    logger.fine("About  to start BallCollector");
+    ballCollector = new BallCollector();
+    logger.fine("starting OI");
+    oi = new OI();
+    logger.fine("Everything done here");
+>>>>>>> HatchCollector
   }
 
   /**

@@ -41,13 +41,21 @@ public class Constants
         public static class HatchCollector
         {
         //¯\_(ツ)_/¯ dunno what the motor is
+<<<<<<< HEAD
             public static int ARMCOLLECTOR = 12;
+=======
+            public static int ARMCOLLECTOR = 9;
+>>>>>>> HatchCollector
         //Should this be true or false? 
             public static final boolean ARMCOLLECTOR_REVERSED = false;
         } 
         public static class BallCollector
         {
+<<<<<<< HEAD
             public static int BALL_ROTATE = 15;
+=======
+            public static int BALL_ROTATE = 12;
+>>>>>>> HatchCollector
             public static int COLLECTOR_LEFT = 13;
             public static int COLLECTOR_RIGHT = 14;
 
