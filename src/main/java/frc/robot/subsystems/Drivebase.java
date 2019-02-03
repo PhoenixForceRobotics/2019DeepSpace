@@ -47,12 +47,12 @@ public class Drivebase extends Subsystem {
         logger.finest("Start hDrive");
         if(direction == 'r'){
             logger.finer("hDrive to the right");
-            hdrive1.set(value);
-            hdrive2.set(value);
+            hdrive1.set(value*.2);
+            hdrive2.set(value*.2);
         } else if(direction == 'l'){
             logger.finer("hDrive to the left");
-            hdrive1.set(-value);
-            hdrive2.set(-value);
+            hdrive1.set(-value*.2);
+            hdrive2.set(-value*.2);
         } else {
             logger.finer("hDrive off");
             hdrive1.set(0);

@@ -27,11 +27,11 @@ public class OI
         driverController.rightBumper.whenPressed(new BallOuttake());
         driverController.xButton.whenPressed(new RotateBallCollector());
 
-        driverController.aButton.whenPressed(new PuncherHatchOut());
+       // driverController.aButton.whenPressed(new PuncherHatchOut());
 //        driverController.aButton.whenPressed(new PuncherHatchOut());
 //        driverController.bButton.whenPressed(new PuncherHatchIn());
-        driverController.aButton.whenPressed(new PunchInAndOut());
-        driverController.bButton.whenPressed(new PuncherHatchIn());
+        // driverController.aButton.whenPressed(new PunchInAndOut());
+        // driverController.bButton.whenPressed(new PuncherHatchOut());
 
         driverController.yButton.whenPressed(new RunHatchCollector());
         driverController.xButton.whenPressed(new CollectHatch());  
