@@ -34,8 +34,8 @@ public class Constants
             public static int HDRIVE1 = 0;
             public static int HDRIVE2 = 15;
             
-            public static final boolean HDRIVE1_REVERSED = false;
-            public static final boolean HDRIVE2_REVERSED = false;
+            public static final boolean HDRIVE1_REVERSED = true;
+            public static final boolean HDRIVE2_REVERSED = true;
         }
 
         public static class HatchCollector
