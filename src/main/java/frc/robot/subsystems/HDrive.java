@@ -17,21 +17,19 @@ public class HDrive extends Subsystem {
         logger.fine("Spinup hDrive");
         hdrive1 = new Motor(Constants.MotorMap.Drivebase.HDRIVE1, MotorType.kBrushless, Constants.MotorMap.Drivebase.HDRIVE1_REVERSED);
         hdrive2 = new Motor(Constants.MotorMap.Drivebase.HDRIVE2, MotorType.kBrushless, Constants.MotorMap.Drivebase.HDRIVE2_REVERSED);
+        hdrive2.follow(hdrive1);
     }
     public void hDrive(char direction, double value){
         logger.finest("Start hDrive");
         if(direction == 'r'){
             logger.finer("hDrive to the right");
-            hdrive1.set(value*.5*value);
-            hdrive2.set(value*.5*value);
+            hdrive1.set(value);
         } else if(direction == 'l'){
             logger.finer("hDrive to the left");
-            hdrive1.set(-value*.5*value);
-            hdrive2.set(-value*.5*value);
+            hdrive1.set(-value);
         } else {
             logger.finer("hDrive off");
             hdrive1.set(0);
-            hdrive2.set(0);
         }
     }
 

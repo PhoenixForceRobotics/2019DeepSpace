@@ -55,7 +55,6 @@ public class HatchCollector extends Subsystem{
             puncher.set(DoubleSolenoid.Value.kOff);
         }
     }
-   
     public void initDefaultCommand()
     {
 
