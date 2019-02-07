@@ -15,8 +15,9 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.OI;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.HDrive;
-import frc.robot.subsystems.HatchCollector;
+// import frc.robot.subsystems.HatchCollector;
 import frc.robot.subsystems.BallCollector;
+import frc.robot.subsystems.Collector;
 import java.util.logging.Logger;
 import frc.robot.utility.Log;
 import frc.robot.commands.RunDriveBase;
@@ -36,9 +37,11 @@ public class Robot extends TimedRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   public static OI oi;
   public static Drivebase drivebase;
-  public static HatchCollector hatchCollector;
+// public static HatchCollector hatchCollector;
   public static BallCollector ballCollector;
   public static HDrive hDrive;
+  public static Collector collector;
+  public static OurCompressor compressor;
 
   private static final Logger logger = Log.configureLog(Robot.class.getName());
 
@@ -53,8 +56,8 @@ public class Robot extends TimedRobot {
       SmartDashboard.putData("Auto choices", m_chooser);
       logger.fine("About to start drivebase");
       drivebase = new Drivebase();
-      logger.fine("About to start hatch");
-      hatchCollector = new HatchCollector();
+      logger.fine("About to start Collector");
+      collector = new Collector();
       logger.fine("About  to start BallCollector");
       ballCollector = new BallCollector();
       logger.fine("About  to start HDrive");
