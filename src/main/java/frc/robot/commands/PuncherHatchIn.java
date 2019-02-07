@@ -26,7 +26,7 @@ public class PuncherHatchIn extends Command
     public void initialize()
     {
         logger.fine("Hatch Collector puncher in initialize");
-        setTimeout(.1);
+        setTimeout(.05);
     }
   
     @Override
