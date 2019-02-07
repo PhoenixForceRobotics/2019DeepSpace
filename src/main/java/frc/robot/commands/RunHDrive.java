@@ -2,7 +2,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.subsystems.Drivebase;
+import frc.robot.subsystems.HDrive;
 import frc.robot.subsystems.OI;
 
 import java.util.logging.Logger;
@@ -10,16 +10,16 @@ import frc.robot.utility.Log;
 
 public class RunHDrive extends Command
 {
-    private Drivebase drivebase;
+    private HDrive hDrive;
     private OI oi;
 
     private static final Logger logger = Log.configureLog(RunHDrive.class.getName());
 
     public RunHDrive(){
         logger.fine("Spinup RunHDrive");
-        requires(Robot.drivebase);
+        requires(Robot.hDrive);
 
-        this.drivebase = Robot.drivebase;
+        this.hDrive = Robot.hDrive;
     }
 
     @Override
@@ -33,11 +33,11 @@ public class RunHDrive extends Command
     {
         logger.finest("RunHDrive Execute");
         if(oi.driverController.rightTriggerButton.get() & !oi.driverController.leftTriggerButton.get()){
-            drivebase.hDrive('r', oi.driverController.triggers.getRight());
+            hDrive.hDrive('r', oi.driverController.triggers.getRight());
         } else if(oi.driverController.leftTriggerButton.get() & !oi.driverController.rightTriggerButton.get()){
-            drivebase.hDrive('l', oi.driverController.triggers.getLeft());
+            hDrive.hDrive('l', oi.driverController.triggers.getLeft());
         } else {
-            drivebase.hDrive('l', 0);
+            hDrive.hDrive('l', 0);
         }
     }
 
@@ -58,6 +58,6 @@ public class RunHDrive extends Command
     public void end()
     {
         logger.fine("RunHDrive End");
-        drivebase.hDrive('l', 0);
+        hDrive.hDrive('l', 0);
     }
 }

@@ -14,13 +14,13 @@ public class Constants
         public static class Drivebase
         {
             //tank drive motors 
-            public static int LEFT_1 = 0;
-            public static int LEFT_2 = 1;
-            public static int LEFT_3 = 2;
+            public static int LEFT_1 = 1;
+            public static int LEFT_2 = 2;
+            public static int LEFT_3 = 3;
 
-            public static int RIGHT_1 = 13;
-            public static int RIGHT_2 = 14;
-            public static int RIGHT_3 = 15;
+            public static int RIGHT_1 = 12;
+            public static int RIGHT_2 = 13;
+            public static int RIGHT_3 = 14;
 
             public static final boolean LEFT1_REVERSED = true;
             public static final boolean LEFT2_REVERSED = true;
@@ -31,43 +31,25 @@ public class Constants
             public static final boolean RIGHT3_REVERSED = false;
 
             //H-drive motors
-            public static int HDRIVE1 = 10;
-            public static int HDRIVE2 = 11;
+            public static int HDRIVE1 = 0;
+            public static int HDRIVE2 = 15;
             
-            public static final boolean HDRIVE1_REVERSED = false;
-            public static final boolean HDRIVE2_REVERSED = false;
+            public static final boolean HDRIVE1_REVERSED = true;
+            public static final boolean HDRIVE2_REVERSED = true;
         }
 
         public static class HatchCollector
         {
         //¯\_(ツ)_/¯ dunno what the motor is
-<<<<<<< HEAD
-<<<<<<< HEAD
-            public static int ARMCOLLECTOR = 12;
-=======
-            public static int ARMCOLLECTOR = 9;
->>>>>>> HatchCollector
-=======
-            public static int ARMCOLLECTOR = 12;
->>>>>>> 7e3bd6233ce39c0610d010e9bc76f12bf43c61f1
+            public static int ARMCOLLECTOR = 11;
         //Should this be true or false? 
             public static final boolean ARMCOLLECTOR_REVERSED = false;
         } 
         public static class BallCollector
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            public static int BALL_ROTATE = 15;
-=======
-            public static int BALL_ROTATE = 12;
->>>>>>> HatchCollector
-            public static int COLLECTOR_LEFT = 13;
-            public static int COLLECTOR_RIGHT = 14;
-=======
             public static int BALL_ROTATE = 6;
             public static int COLLECTOR_LEFT = 7;
             public static int COLLECTOR_RIGHT = 8;
->>>>>>> 7e3bd6233ce39c0610d010e9bc76f12bf43c61f1
 
             public static final boolean BALLROTATE_REVERSED = false;
             public static final boolean COLLECTORLEFT_REVERSED = true;
@@ -105,6 +87,6 @@ public class Constants
     }
 
     public static class Misc {
-        public static Level logLevel = Level.FINE;
+        public static Level logLevel = Level.FINEST;
    }
 }
