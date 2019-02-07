@@ -16,7 +16,7 @@ import frc.robot.subsystems.OI;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.HDrive;
 // import frc.robot.subsystems.HatchCollector;
-import frc.robot.subsystems.BallCollector;
+//import frc.robot.subsystems.BallCollector;
 import frc.robot.subsystems.Collector;
 import java.util.logging.Logger;
 import frc.robot.utility.Log;
@@ -38,7 +38,7 @@ public class Robot extends TimedRobot {
   public static OI oi;
   public static Drivebase drivebase;
 // public static HatchCollector hatchCollector;
-  public static BallCollector ballCollector;
+//  public static BallCollector ballCollector;
   public static HDrive hDrive;
   public static Collector collector;
   public static OurCompressor compressor;
@@ -58,8 +58,8 @@ public class Robot extends TimedRobot {
       drivebase = new Drivebase();
       logger.fine("About to start Collector");
       collector = new Collector();
-      logger.fine("About  to start BallCollector");
-      ballCollector = new BallCollector();
+//      logger.fine("About  to start BallCollector");
+//      ballCollector = new BallCollector();
       logger.fine("About  to start HDrive");
       hDrive = new HDrive();
       logger.fine("starting OI");
