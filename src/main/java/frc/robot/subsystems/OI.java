@@ -3,6 +3,7 @@ package frc.robot.subsystems;
 
 import frc.controllers.BobXboxController;
 import frc.robot.commands.*;
+import frc.robot.commands.collector.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator

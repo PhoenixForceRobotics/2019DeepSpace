@@ -1,9 +1,9 @@
-package frc.robot.commands;
+package frc.robot.commands.collector;
 
 import frc.robot.Constants;
 import frc.robot.Robot;
-import frc.robot.commands.PuncherHatchIn;
-import frc.robot.commands.PuncherHatchOut;
+import frc.robot.commands.collector.PuncherHatchIn;
+import frc.robot.commands.collector.PuncherHatchOut;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 import java.util.logging.Logger;

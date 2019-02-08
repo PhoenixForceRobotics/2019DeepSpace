@@ -1,4 +1,4 @@
-package frc.robot.commands;
+package frc.robot.commands.collector;
 
 import frc.robot.Constants;
 import frc.robot.Robot;
@@ -8,15 +8,15 @@ import edu.wpi.first.wpilibj.command.Command;
 import java.util.logging.Logger;
 import frc.robot.utility.Log;
 
-public class PuncherHatchIn extends Command 
+public class PuncherHatchOut extends Command 
 {
     private Collector hatchCollector;
 
-    private static final Logger logger = Log.configureLog(PuncherHatchIn.class.getName());
+    private static final Logger logger = Log.configureLog(PuncherHatchOut.class.getName());
     
-    public PuncherHatchIn()
+    public PuncherHatchOut()
     {
-        logger.fine("Spinup Puncher Hatch In");
+        logger.fine("Spinup Puncher Hatch Out");
         requires(Robot.collector);
 
         this.hatchCollector = Robot.collector;
@@ -25,15 +25,15 @@ public class PuncherHatchIn extends Command
     @Override
     public void initialize()
     {
-        logger.fine("Hatch Collector puncher in initialize");
+        logger.fine("Hatch Collector puncher out initialize");
         setTimeout(.05);
     }
   
     @Override
     public void execute()
     {
-        logger.finest("Hatch Collector puncher in execute");
-        hatchCollector.puncherControl('i');
+        logger.finest("Hatch Collector puncher out execute");
+        hatchCollector.puncherControl('o');
     }
 
     @Override 
@@ -51,7 +51,7 @@ public class PuncherHatchIn extends Command
     @Override
     public void end()
     {
-        logger.fine("Hatch Collector puncher end");
+        logger.fine("Hatch Collector puncher out end");
         hatchCollector.puncherControl('n');
     }
 }

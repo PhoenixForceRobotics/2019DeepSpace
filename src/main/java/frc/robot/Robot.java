@@ -21,7 +21,7 @@ import frc.robot.subsystems.Collector;
 import java.util.logging.Logger;
 import frc.robot.utility.Log;
 import frc.robot.commands.RunDriveBase;
-import frc.robot.subsystems.OurCompressor;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -41,7 +41,6 @@ public class Robot extends TimedRobot {
 //  public static BallCollector ballCollector;
   public static HDrive hDrive;
   public static Collector collector;
-  public static OurCompressor compressor;
 
   private static final Logger logger = Log.configureLog(Robot.class.getName());
 
