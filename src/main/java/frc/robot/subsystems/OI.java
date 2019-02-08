@@ -2,7 +2,7 @@ package frc.robot.subsystems;
 
 
 import frc.controllers.BobXboxController;
-import frc.robot.commands.*;
+import frc.robot.commands.drivebase.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -15,21 +15,10 @@ public class OI
     public BobXboxController operatorController;
 
     public OI() {
-        driverController = new BobXboxController(0, 0.10, 0.08);
+        driverController = new BobXboxController(0, 0.11, 0.11);
         //operatorController = new BobXboxController(0, 0.10, 0.08);
 
         driverController.leftTriggerButton.whileHeld(new RunHDrive());
         driverController.rightTriggerButton.whileHeld(new RunHDrive());
-
-        driverController.leftBumper.whileHeld(new BallHoldIntake());
-        driverController.rightBumper.whenPressed(new BallOuttake());
-        driverController.xButton.whenPressed(new RotateBallCollector());
-
-        driverController.aButton.whenPressed(new PuncherHatchOut());
-        driverController.bButton.whenPressed(new PuncherHatchIn());
-
-        driverController.yButton.whenPressed(new RunHatchCollector());
-        driverController.xButton.whenPressed(new CollectHatch());
     }
-
 }
