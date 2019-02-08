@@ -31,7 +31,6 @@ public class Collector extends Subsystem
         // flywheelright.follow(flywheelleft);
         
         //this is really short ( ͠° ͟ʖ ͡°)
-        armcollector = new Motor (Constants.MotorMap.HatchCollector.ARMCOLLECTOR, MotorType.kBrushed, Constants.MotorMap.HatchCollector.ARMCOLLECTOR_REVERSED);
         this.puncher = new DoubleSolenoid(Constants.PneumaticsMap.HatchCollector.PUNCHER1, Constants.PneumaticsMap.HatchCollector.PUNCHER2);
         rotate = armcollector.getEncoder();
 

@@ -37,14 +37,6 @@ public class Constants
             public static final boolean HDRIVE1_REVERSED = true;
             public static final boolean HDRIVE2_REVERSED = true;
         }
-
-        public static class HatchCollector
-        {
-        //¯\_(ツ)_/¯ dunno what the motor is
-            public static int ARMCOLLECTOR = 11;
-        //Should this be true or false? 
-            public static final boolean ARMCOLLECTOR_REVERSED = false;
-        } 
         public static class BallCollector
         {
             public static int BALL_ROTATE = 6;
@@ -71,6 +63,12 @@ public class Constants
     }
 
     public static class SubsystemSpeeds{
+        public static class HDriveValues{
+            public static double MaxSpeed = .7;
+            public static double TimerMultiplyer = .2;
+            public static int TiggerPower = 2;
+            public static double TimerPower = 1.5;
+        }
         public static class HatchCollectorValues
         {
             public static final double HCspeed = .5;
