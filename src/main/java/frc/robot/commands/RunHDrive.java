@@ -46,9 +46,9 @@ public class RunHDrive extends Command
         //once a direction is chosen the code checks to see whether the value of the tuned trigger or the tuned timer
         //is smaller and returns the lesser for smooth accel
         if(oi.driverController.rightTriggerButton.get() & !oi.driverController.leftTriggerButton.get()){
-            hDrive.hDrive('r', customMath.returnLesserMag(Math.pow(oi.driverController.triggers.getRight(), Constants.SubsystemSpeeds.HDriveValues.TiggerPower)*Constants.SubsystemSpeeds.HDriveValues.MaxSpeed, startUp.get()*Constants.SubsystemSpeeds.HDriveValues.TimerMultiplyer));
+            hDrive.hDrive('r', customMath.returnLesserMag(Math.pow(oi.driverController.triggers.getRight(), Constants.SubsystemSpeeds.HDriveValues.TiggerPower)*Constants.SubsystemSpeeds.HDriveValues.MaxSpeed, Math.pow(startUp.get(), Constants.SubsystemSpeeds.HDriveValues.TimerPower)*Constants.SubsystemSpeeds.HDriveValues.TimerMultiplyer));
         } else if(oi.driverController.leftTriggerButton.get() & !oi.driverController.rightTriggerButton.get()){
-            hDrive.hDrive('l', customMath.returnLesserMag(Math.pow(oi.driverController.triggers.getLeft(), Constants.SubsystemSpeeds.HDriveValues.TiggerPower)*Constants.SubsystemSpeeds.HDriveValues.MaxSpeed, startUp.get()*Constants.SubsystemSpeeds.HDriveValues.TimerMultiplyer));
+            hDrive.hDrive('l', customMath.returnLesserMag(Math.pow(oi.driverController.triggers.getLeft(), Constants.SubsystemSpeeds.HDriveValues.TiggerPower)*Constants.SubsystemSpeeds.HDriveValues.MaxSpeed, Math.pow(startUp.get(), Constants.SubsystemSpeeds.HDriveValues.TimerPower)*Constants.SubsystemSpeeds.HDriveValues.TimerMultiplyer));
         } else {
             hDrive.hDrive('l', 0);
         }

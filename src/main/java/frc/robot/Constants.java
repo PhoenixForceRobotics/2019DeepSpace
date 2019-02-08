@@ -72,9 +72,10 @@ public class Constants
 
     public static class SubsystemSpeeds{
         public static class HDriveValues{
-            public static double MaxSpeed = .5;
-            public static double TimerMultiplyer = .5;
+            public static double MaxSpeed = .7;
+            public static double TimerMultiplyer = .2;
             public static int TiggerPower = 2;
+            public static double TimerPower = 1.5;
         }
         public static class HatchCollectorValues
         {
