@@ -19,7 +19,7 @@ import frc.robot.subsystems.HatchCollector;
 import frc.robot.subsystems.BallCollector;
 import java.util.logging.Logger;
 import frc.robot.utility.Log;
-import frc.robot.commands.RunDriveBase;
+import frc.robot.commands.drivebase.RunDriveBase;
 
 /**
  * The VM is configured to automatically run this class, and to call the
