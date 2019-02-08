@@ -32,7 +32,7 @@ public class Collector extends Subsystem
         
         //this is really short ( ͠° ͟ʖ ͡°)
         this.puncher = new DoubleSolenoid(Constants.PneumaticsMap.HatchCollector.PUNCHER1, Constants.PneumaticsMap.HatchCollector.PUNCHER2);
-        rotate = armcollector.getEncoder();
+        //rotate = armcollector.getEncoder();
 
     }
 

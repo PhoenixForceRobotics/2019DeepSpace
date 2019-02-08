@@ -21,5 +21,9 @@ public class OI
 
         driverController.leftTriggerButton.whileHeld(new RunHDrive());
         driverController.rightTriggerButton.whileHeld(new RunHDrive());
+
+        driverController.xButton.whenPressed(new PunchInAndOut());
+        driverController.aButton.whenPressed(new PuncherHatchOut());
+        driverController.bButton.whenPressed(new PuncherHatchIn());
     }
 }
