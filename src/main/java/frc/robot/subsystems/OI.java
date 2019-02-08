@@ -21,34 +21,11 @@ public class OI
         driverController.leftTriggerButton.whileHeld(new RunHDrive());
         driverController.rightTriggerButton.whileHeld(new RunHDrive());
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        //operatorController.aButton.whenPressed(new RunHatchCollector());
-        //operatorController.bButton.whenPressed(new CollectHatch());
->>>>>>> HatchCollector
-=======
-        //operatorController.aButton.whenPressed(new RunHatchCollector());
-        //operatorController.bButton.whenPressed(new CollectHatch());
->>>>>>> 7e3bd6233ce39c0610d010e9bc76f12bf43c61f1
         driverController.leftBumper.whileHeld(new BallHoldIntake());
         driverController.rightBumper.whenPressed(new BallOuttake());
         driverController.xButton.whenPressed(new RotateBallCollector());
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         driverController.aButton.whenPressed(new PuncherHatchOut());
-=======
-//        driverController.aButton.whenPressed(new PuncherHatchOut());
-//        driverController.bButton.whenPressed(new PuncherHatchIn());
-        driverController.aButton.whenPressed(new PunchInAndOut());
->>>>>>> HatchCollector
-=======
-        driverController.aButton.whenPressed(new PuncherHatchOut());
-//        driverController.aButton.whenPressed(new PuncherHatchOut());
-//        driverController.bButton.whenPressed(new PuncherHatchIn());
-        driverController.aButton.whenPressed(new PunchInAndOut());
->>>>>>> 7e3bd6233ce39c0610d010e9bc76f12bf43c61f1
         driverController.bButton.whenPressed(new PuncherHatchIn());
 
         driverController.yButton.whenPressed(new RunHatchCollector());
