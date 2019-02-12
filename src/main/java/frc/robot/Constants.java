@@ -69,6 +69,12 @@ public class Constants
     {
         public static final double HCspeed = .3;
     }
+    public static class ElevatorSetPoints
+    {
+        public static final double BOTTOM = 100;
+        public static final double MIDDLE = 200;
+        public static final double TOP = 300;
+    }
     public static class EncoderMap 
     {
         public static class Elevator

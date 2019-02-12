@@ -47,6 +47,7 @@ public class Robot extends TimedRobot {
     SmartDashboard.putData("Auto choices", m_chooser);
     drivebase = new Drivebase();
     hatchCollector = new HatchCollector();
+    elevator = new Elevator();
     oi = new OI();
   }
 
