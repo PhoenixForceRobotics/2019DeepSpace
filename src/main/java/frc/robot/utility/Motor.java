@@ -1,14 +1,11 @@
 package frc.robot.utility;
 
-/*import com.ctre.phoenix.ErrorCode;
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.FeedbackDevice;
-*/
-import edu.wpi.first.wpilibj.Spark;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel;
 
-public class Motor extends Spark {
-    public Motor(int port, boolean reversed) {
-        super(port);
+public class Motor extends CANSparkMax {
+    public Motor(int port, CANSparkMaxLowLevel.MotorType theMotorType, boolean reversed) {
+        super(port, theMotorType);
         setInverted(reversed);
     }
 }

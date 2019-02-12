@@ -17,6 +17,9 @@ import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.HatchCollector;
 import frc.robot.subsystems.Elevator;
 
+import frc.robot.subsystems.BallCollector;
+import java.util.logging.Logger;
+import frc.robot.utility.Log;
 import frc.robot.commands.RunDriveBase;
 
 /**
@@ -35,6 +38,9 @@ public class Robot extends TimedRobot {
   public static Drivebase drivebase;
   public static HatchCollector hatchCollector;
   public static Elevator elevator;
+  public static BallCollector ballCollector;
+
+  private static final Logger logger = Log.configureLog(Robot.class.getName());
 
   /**
    * This function is run when the robot is first started up and should be
@@ -42,13 +48,19 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-    m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
-    m_chooser.addOption("My Auto", kCustomAuto);
-    SmartDashboard.putData("Auto choices", m_chooser);
-    drivebase = new Drivebase();
-    hatchCollector = new HatchCollector();
-    elevator = new Elevator();
-    oi = new OI();
+      m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
+      m_chooser.addOption("My Auto", kCustomAuto);
+      SmartDashboard.putData("Auto choices", m_chooser);
+      logger.fine("About to start drivebase");
+      drivebase = new Drivebase();
+      logger.fine("About to start hatch");
+      hatchCollector = new HatchCollector();
+      logger.fine("About  to start BallCollector");
+      ballCollector = new BallCollector();
+      logger.fine("starting OI");
+      oi = new OI();
+      logger.fine("starting elevator");
+      logger.fine("Everything done here");
   }
 
   /**
