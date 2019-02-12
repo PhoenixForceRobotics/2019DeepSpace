@@ -10,6 +10,7 @@ import frc.robot.utility.Motor;
 
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.CANEncoder;
+import com.revrobotics.CANSparkMaxLowLevel;
 
 import frc.robot.utility.Log;
 
@@ -17,9 +18,8 @@ public class Collector extends Subsystem
 {
     public Motor flywheelleft, flywheelright;
     public Motor collectorrotate;
-    public Motor armcollector;
     public DoubleSolenoid puncher;
-    public CANEncoder rotate;
+    public CANEncoder theEncoder;
 
     public static final Logger logger = Log.configureLog(Collector.class.getName());
 
@@ -32,8 +32,9 @@ public class Collector extends Subsystem
         
         //this is really short ( ͠° ͟ʖ ͡°)
         this.puncher = new DoubleSolenoid(Constants.PneumaticsMap.HatchCollector.PUNCHER1, Constants.PneumaticsMap.HatchCollector.PUNCHER2);
-        //rotate = armcollector.getEncoder();
-
+        //try setting a lowe leve motor setting per Chief Delphi --this is JT's fault
+        collectorrotate.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 1);
+        theEncoder = collectorrotate.getEncoder();
     }
 
     public void intake(double value)
@@ -54,24 +55,7 @@ public class Collector extends Subsystem
     {
         logger.finest("Start Ball Collector Rotate");
         collectorrotate.set(value);
-    }
-
-    public void runHatch()
-    {
-        logger.finest("Start Hatch");
-        armcollector.set(Constants.SubsystemSpeeds.HatchCollectorValues.HCspeed);
-        logger.severe(Double.toString(rotate.getPosition()));
-    }
-    public void liftHatch()
-    {
-        logger.finest("Start Reverse Hatch");
-        armcollector.set(Constants.SubsystemSpeeds.HatchCollectorValues.HCspeed * -1);
-        logger.severe(Double.toString(rotate.getPosition()));
-    }
-    public void stopHatch()
-    {
-        logger.fine("Hatch off");
-        armcollector.set(0);
+        //logger.severe(Double.toString(theEncoder.getPosition()));
     }
 
     public void puncherControl(char direction){

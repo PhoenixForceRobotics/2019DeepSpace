@@ -25,5 +25,7 @@ public class OI
         driverController.xButton.whenPressed(new PunchInAndOut());
         driverController.aButton.whenPressed(new PuncherHatchOut());
         driverController.bButton.whenPressed(new PuncherHatchIn());
+
+        driverController.yButton.whileHeld(new Rotate());
     }
 }
