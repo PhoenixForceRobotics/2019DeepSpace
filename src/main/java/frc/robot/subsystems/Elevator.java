@@ -1,10 +1,5 @@
 package frc.robot.subsystems;
-<<<<<<< HEAD
-//Nothing to see here ;)
-=======
 
-import frc.robot.subsystems.OI;
->>>>>>> 2f48f636b527c2076f3581a2bbda02b82315c03e
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 // import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Constants;
