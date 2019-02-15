@@ -1,8 +1,8 @@
-package frc.robot.commands;
+package frc.robot.commands.collector;
 
 import frc.robot.Constants;
 import frc.robot.Robot;
-import frc.robot.subsystems.HatchCollector;
+import frc.robot.subsystems.Collector;
 import edu.wpi.first.wpilibj.command.Command;
 
 import java.util.logging.Logger;
@@ -10,23 +10,23 @@ import frc.robot.utility.Log;
 
 public class PuncherHatchIn extends Command 
 {
-    private HatchCollector hatchCollector;
+    private Collector hatchCollector;
 
     private static final Logger logger = Log.configureLog(PuncherHatchIn.class.getName());
     
     public PuncherHatchIn()
     {
         logger.fine("Spinup Puncher Hatch In");
-        requires(Robot.hatchCollector);
+        requires(Robot.collector);
 
-        this.hatchCollector = Robot.hatchCollector;
+        this.hatchCollector = Robot.collector;
     } 
 
     @Override
     public void initialize()
     {
         logger.fine("Hatch Collector puncher in initialize");
-        setTimeout(.1);
+        setTimeout(.05);
     }
   
     @Override

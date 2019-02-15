@@ -1,22 +1,35 @@
-package frc.robot.commands;
+package frc.robot.commands.collector;
 
 import frc.robot.Robot;
-import frc.robot.subsystems.BallCollector;
+import frc.robot.subsystems.Collector;
 import frc.robot.Constants;
 import frc.robot.utility.Log;
 import edu.wpi.first.wpilibj.command.Command;
 import java.util.logging.Logger;
+import edu.wpi.first.wpilibj.command.PIDCommand;
 
-public class RotateBallCollector extends Command
+public class RotateBallCollector extends PIDCommand
 {
-    private BallCollector ballCollector;
+    private Collector collector;
     private static final Logger logger = Log.configureLog(RotateBallCollector.class.getName());
 
     public RotateBallCollector()
     {
+        super(0,0,0);
         logger.fine("Spinup RotateBallCollector");
-        requires(Robot.ballCollector);
-        this.ballCollector = Robot.ballCollector;
+        requires(Robot.collector);
+        this.collector = Robot.collector;
+    }
+
+    @Override
+    protected double returnPIDInput() {
+    //TODO put encoder here
+        return 0;
+    }
+
+    @Override
+    protected void usePIDOutput(double output) {
+        
     }
 
     @Override
@@ -30,7 +43,7 @@ public class RotateBallCollector extends Command
     public void execute()
     {  
         logger.finest("Execute RotateBallCollector");  
-        ballCollector.rotate(Constants.SubsystemSpeeds.BallCollectorValues.BCRotateSpeed);
+        collector.rotate(Constants.SubsystemSpeeds.BallCollectorValues.BCRotateSpeed);
     }
 
     @Override
@@ -51,6 +64,6 @@ public class RotateBallCollector extends Command
     public void end()
     {
         logger.fine("end RotateBallCollector");
-        ballCollector.rotate(0);
+        collector.rotate(0);
     }
 }
