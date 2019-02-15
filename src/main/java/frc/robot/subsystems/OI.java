@@ -5,6 +5,7 @@ import frc.controllers.BobXboxController;
 import frc.robot.commands.collector.*;
 import frc.robot.commands.drivebase.*;
 import frc.robot.commands.elevator.*;
+import frc.robot.Constants;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -27,8 +28,8 @@ public class OI
         driverController.aButton.whenPressed(new PuncherHatchOut());
         driverController.bButton.whenPressed(new PuncherHatchIn());
         
-        driverController.Dpad.Down.whenPressed(new RunElevator1());
-        driverController.Dpad.Left.whenPressed(new RunElevator2());
-        driverController.Dpad.Up.whenPressed(new RunElevator3());
+        driverController.Dpad.Down.whenPressed(new RunElevator(Constants.ElevatorSetPoints.BOTTOM));
+        driverController.Dpad.Left.whenPressed(new RunElevator(Constants.ElevatorSetPoints.MIDDLE));
+        driverController.Dpad.Up.whenPressed(new RunElevator(Constants.ElevatorSetPoints.TOP));
     }
 }
