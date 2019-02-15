@@ -1,10 +1,6 @@
 package frc.robot.commands.elevator;
-import frc.robot.Constants;
 import frc.robot.Robot;
 import frc.robot.subsystems.Elevator;
-
-import javax.lang.model.util.ElementScanner6;
-
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.command.Command;
 
