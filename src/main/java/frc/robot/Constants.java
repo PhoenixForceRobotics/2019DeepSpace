@@ -37,6 +37,15 @@ public class Constants
             public static final boolean HDRIVE1_REVERSED = true;
             public static final boolean HDRIVE2_REVERSED = true;
         }
+
+        public static class HatchCollector
+        {
+        //¯\_(ツ)_/¯ dunno what the motor is
+            public static int ARMCOLLECTOR = 9;
+        //Should this be true or false? 
+            public static final boolean ARMCOLLECTOR_REVERSED = false;
+        }
+
         public static class BallCollector
         {
             public static int BALL_ROTATE = 6;
@@ -47,6 +56,16 @@ public class Constants
             public static final boolean COLLECTORLEFT_REVERSED = true;
             public static final boolean COLLECTORRIGHT_REVERSED = false;
         }
+
+        public static class Elevator
+        {
+            public static int ELEVATORL = 21;
+            public static int ELEVATORR = 42;
+
+            public static final boolean ELEVATORL_REVERSED = false;
+            public static final boolean ELEVATORR_REVERSED = true;
+        }
+    
     }
     public static class PneumaticsMap{
         public static class HatchCollector {
@@ -54,14 +73,25 @@ public class Constants
             public static int PUNCHER2 = 1;
         }
     }
+    public static class ElevatorSetPoints
+    {
+        public static final double BOTTOM = 100;
+        public static final double MIDDLE = 200;
+        public static final double TOP = 300;
+    }
 
     public static class EncoderMap{
         public static class HatchCollector {
             public static int ROTATE1 = 1;
             public static int ROTATE2 = 2;
         }
+        public static class Elevator
+        {
+            public static int ELEVATORDIGITAL1 = 0;
+            public static int ELEVATORDIGITAL2 = 1;
+            public static boolean ELEVATORDIGITAL_REVERSED = true;
+        }
     }
-
     public static class SubsystemSpeeds{
         public static class DrivebaseValues{
             public static double StickPower = 3;

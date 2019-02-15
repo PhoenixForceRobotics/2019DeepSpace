@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 
 import frc.robot.subsystems.OI;
 import frc.robot.subsystems.Drivebase;
+import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.HDrive;
 import frc.robot.subsystems.Collector;
 import java.util.logging.Logger;
@@ -36,6 +37,7 @@ public class Robot extends TimedRobot {
   public static Drivebase drivebase;
   public static HDrive hDrive;
   public static Collector collector;
+  public static Elevator elevator;
 
   private static final Logger logger = Log.configureLog(Robot.class.getName());
 
@@ -54,6 +56,8 @@ public class Robot extends TimedRobot {
       collector = new Collector();
       logger.fine("About  to start HDrive");
       hDrive = new HDrive();
+      logger.fine("starting elevator");
+      elevator = new Elevator();
       logger.fine("starting OI");
       oi = new OI();
       logger.fine("Everything done here");
