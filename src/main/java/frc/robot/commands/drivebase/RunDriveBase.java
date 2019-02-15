@@ -5,6 +5,8 @@ import frc.robot.subsystems.Drivebase;
 
 import java.util.logging.Logger;
 import frc.robot.utility.Log;
+import frc.robot.Constants;
+import frc.robot.utility.CustomMath;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -13,6 +15,7 @@ public class RunDriveBase extends Command
 {
     private Drivebase drivebase;
     private OI oi;
+    private CustomMath customMath;
 
     private static final Logger logger = Log.configureLog(RunDriveBase.class.getName());
 
@@ -20,6 +23,7 @@ public class RunDriveBase extends Command
     {
         logger.fine("Spinup Run Drive Base");
         requires(drivebase);
+        customMath = new CustomMath();
 
         this.drivebase = drivebase;
         this.oi = oi;
@@ -36,8 +40,8 @@ public class RunDriveBase extends Command
     {   
         logger.finest("Run Drive Base Execute");
         //tank drive controls
-        drivebase.setLeft(oi.driverController.leftStick.getY());
-        drivebase.setRight(oi.driverController.rightStick.getY());
+        drivebase.setLeft(customMath.makeSign(oi.driverController.rightStick.getY(), Math.pow(oi.driverController.rightStick.getY(), Constants.SubsystemSpeeds.DrivebaseValues.StickPower)));
+        drivebase.setRight(customMath.makeSign(oi.driverController.leftStick.getY(), Math.pow(oi.driverController.leftStick.getY(), Constants.SubsystemSpeeds.DrivebaseValues.StickPower)));
     }
 
     @Override

@@ -23,10 +23,10 @@ public class HDrive extends Subsystem {
         logger.finest("Start hDrive");
         if(direction == 'r'){
             logger.finer("hDrive to the right");
-            hdrive1.set(value);
+            hdrive1.set(-value);
         } else if(direction == 'l'){
             logger.finer("hDrive to the left");
-            hdrive1.set(-value);
+            hdrive1.set(value);
         } else {
             logger.finer("hDrive off");
             hdrive1.set(0);

@@ -22,13 +22,13 @@ public class Constants
             public static int RIGHT_2 = 13;
             public static int RIGHT_3 = 14;
 
-            public static final boolean LEFT1_REVERSED = true;
-            public static final boolean LEFT2_REVERSED = true;
-            public static final boolean LEFT3_REVERSED = true;
+            public static final boolean LEFT1_REVERSED = false;
+            public static final boolean LEFT2_REVERSED = false;
+            public static final boolean LEFT3_REVERSED = false;
 
-            public static final boolean RIGHT1_REVERSED = false;
-            public static final boolean RIGHT2_REVERSED = false;
-            public static final boolean RIGHT3_REVERSED = false;
+            public static final boolean RIGHT1_REVERSED = true;
+            public static final boolean RIGHT2_REVERSED = true;
+            public static final boolean RIGHT3_REVERSED = true;
 
             //H-drive motors
             public static int HDRIVE1 = 0;
@@ -63,9 +63,12 @@ public class Constants
     }
 
     public static class SubsystemSpeeds{
+        public static class DrivebaseValues{
+            public static double StickPower = 3;
+        }
         public static class HDriveValues{
-            public static double MaxSpeed = .7;
-            public static double TimerMultiplyer = .2;
+            public static double MaxSpeed = 1;
+            public static double TimerMultiplyer = .4;
             public static int TiggerPower = 2;
             public static double TimerPower = 1.5;
         }
