@@ -14,21 +14,12 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 
 import frc.robot.subsystems.OI;
 import frc.robot.subsystems.Drivebase;
-<<<<<<< HEAD
-import frc.robot.subsystems.HatchCollector;
 import frc.robot.subsystems.Elevator;
-
-import frc.robot.subsystems.BallCollector;
-import java.util.logging.Logger;
-import frc.robot.utility.Log;
-import frc.robot.commands.RunDriveBase;
-=======
 import frc.robot.subsystems.HDrive;
 import frc.robot.subsystems.Collector;
 import java.util.logging.Logger;
 import frc.robot.utility.Log;
 import frc.robot.commands.drivebase.RunDriveBase;
->>>>>>> 9bc42461d7996d6c79d9b77887d58b2c30728c37
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -44,14 +35,9 @@ public class Robot extends TimedRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   public static OI oi;
   public static Drivebase drivebase;
-<<<<<<< HEAD
-  public static HatchCollector hatchCollector;
-  public static Elevator elevator;
-  public static BallCollector ballCollector;
-=======
   public static HDrive hDrive;
   public static Collector collector;
->>>>>>> 9bc42461d7996d6c79d9b77887d58b2c30728c37
+  public static Elevator elevator;
 
   private static final Logger logger = Log.configureLog(Robot.class.getName());
 
@@ -70,9 +56,10 @@ public class Robot extends TimedRobot {
       collector = new Collector();
       logger.fine("About  to start HDrive");
       hDrive = new HDrive();
+      logger.fine("starting elevator");
+      elevator = new Elevator();
       logger.fine("starting OI");
       oi = new OI();
-      logger.fine("starting elevator");
       logger.fine("Everything done here");
   }
 

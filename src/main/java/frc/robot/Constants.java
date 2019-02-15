@@ -37,7 +37,6 @@ public class Constants
             public static final boolean HDRIVE1_REVERSED = true;
             public static final boolean HDRIVE2_REVERSED = true;
         }
-<<<<<<< HEAD
 
         public static class HatchCollector
         {
@@ -47,8 +46,6 @@ public class Constants
             public static final boolean ARMCOLLECTOR_REVERSED = false;
         }
 
-=======
->>>>>>> 9bc42461d7996d6c79d9b77887d58b2c30728c37
         public static class BallCollector
         {
             public static int BALL_ROTATE = 6;

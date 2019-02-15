@@ -1,4 +1,4 @@
-package frc.robot.commands;
+package frc.robot.commands.elevator;
 import frc.robot.Constants;
 import frc.robot.Robot;
 import frc.robot.subsystems.Elevator;
