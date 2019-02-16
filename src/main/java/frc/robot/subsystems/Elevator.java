@@ -17,21 +17,19 @@ public class Elevator extends PIDSubsystem {
     public Motor elevatorR;
 
     public CANEncoder elevatorEncoder;
-    //setting constants
-    public double kp = .00;
-    public double ki = .00;
-    public double kd = .00;
 
     public Elevator() {
-        super("Elevator", 2.0, 0.0, 0.0);// The constructor passes a name for the subsystem and the P, I and D constants that are used when computing the motor output
+        // The constructor passes a name for the subsystem and the P, I and D constants that are used when computing the motor output
+        super("Elevator", Constants.SubsystemSpeeds.ElevatorPIDConstants.kp, Constants.SubsystemSpeeds.ElevatorPIDConstants.ki, Constants.SubsystemSpeeds.ElevatorPIDConstants.kd);
         setAbsoluteTolerance(0.05);
         getPIDController().setContinuous(false);
         
         elevatorL = new Motor(Constants.MotorMap.Elevator.ELEVATORL, MotorType.kBrushed, Constants.MotorMap.Elevator.ELEVATORL_REVERSED, 30);
         elevatorR = new Motor(Constants.MotorMap.Elevator.ELEVATORR, MotorType.kBrushed, Constants.MotorMap.Elevator.ELEVATORR_REVERSED, 30);
+        elevatorR.follow(elevatorL);
         elevatorL.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 1);
         elevatorEncoder = elevatorL.getEncoder();
-        
+        setAbsoluteTolerance(Constants.SubsystemSpeeds.ElevatorPIDConstants.tolerance);
     }
 
     public double returnPIDInput(){
@@ -40,8 +38,11 @@ public class Elevator extends PIDSubsystem {
     }
 
     public void usePIDOutput(double output){
-        elevatorL.pidWrite(output);
-        elevatorR.pidWrite(output);
+        elevatorL.set(output);
+    }
+
+    public void killmotors(){
+        elevatorL.set(0);
     }
 
     public void initDefaultCommand()

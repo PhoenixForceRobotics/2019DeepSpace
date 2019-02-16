@@ -22,27 +22,19 @@ public class RunElevator extends Command
     @Override
     public void initialize()
     {
-        elevator.returnPIDInput();
+        elevator.enable();
     }
 
     @Override
     public void execute()
     {
-        elevator.enable();
         
     }
 
     @Override
     public boolean isFinished()
     {
-        if(elevator.getSetpoint()-elevator.getPosition() < 0.1)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return elevator.onTarget();
     }
 
     @Override
@@ -55,5 +47,6 @@ public class RunElevator extends Command
     public void end()
     {
         elevator.disable();
+        elevator.killmotors();
     }
 }

@@ -114,6 +114,13 @@ public class Constants
             public static final double BCOuttakeSpeed = .5;
             public static final double BCRotateSpeed = .5;
         }
+        public static class ElevatorPIDConstants
+        {
+            public static final double kp = .00;
+            public static final double ki = .00;
+            public static final double kd = .00;
+            public static final double tolerance = 10;
+        }
     }
     public static class OIMap {
       
