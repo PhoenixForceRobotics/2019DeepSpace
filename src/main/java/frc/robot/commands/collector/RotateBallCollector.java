@@ -14,7 +14,7 @@ public class RotateBallCollector extends PIDCommand
 
     public RotateBallCollector()
     {
-        super(0,0,0);
+        super("RotateBallCollector", Constants.SubsystemSpeeds.RotateBallCollectorPIDConstants.kp, Constants.SubsystemSpeeds.RotateBallCollectorPIDConstants.ki, Constants.SubsystemSpeeds.RotateBallCollectorPIDConstants.kd);
         logger.fine("Spinup RotateBallCollector");
         requires(Robot.collector);
         this.collector = Robot.collector;

@@ -121,6 +121,13 @@ public class Constants
             public static final double kd = .00;
             public static final double tolerance = 10;
         }
+        public static class RotateBallCollectorPIDConstants
+        {
+            public static final double kp = .00;
+            public static final double ki = .00;
+            public static final double kd = .00;
+            public static final double tolerance = 3;
+        }
     }
     public static class OIMap {
       

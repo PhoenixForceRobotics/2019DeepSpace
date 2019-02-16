@@ -21,7 +21,6 @@ public class Elevator extends PIDSubsystem {
     public Elevator() {
         // The constructor passes a name for the subsystem and the P, I and D constants that are used when computing the motor output
         super("Elevator", Constants.SubsystemSpeeds.ElevatorPIDConstants.kp, Constants.SubsystemSpeeds.ElevatorPIDConstants.ki, Constants.SubsystemSpeeds.ElevatorPIDConstants.kd);
-        setAbsoluteTolerance(0.05);
         getPIDController().setContinuous(false);
         
         elevatorL = new Motor(Constants.MotorMap.Elevator.ELEVATORL, MotorType.kBrushed, Constants.MotorMap.Elevator.ELEVATORL_REVERSED, 30);
