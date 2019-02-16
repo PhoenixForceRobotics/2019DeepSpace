@@ -1,6 +1,5 @@
 package frc.robot.subsystems;
 
-import frc.robot.subsystems.OI;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 // import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Constants;
@@ -9,37 +8,41 @@ import frc.robot.utility.Motor;
 
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
-import edu.wpi.first.wpilibj.Encoder;
+import com.revrobotics.CANEncoder;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel;
 
 public class Elevator extends PIDSubsystem {
     public Motor elevatorL;
     public Motor elevatorR;
 
-    public Encoder elevatorEncoder;
-    //setting constants
-    public double kp = .00;
-    public double ki = .00;
-    public double kd = .00;
+    public CANEncoder elevatorEncoder;
 
     public Elevator() {
-        super("Elevator", 2.0, 0.0, 0.0);// The constructor passes a name for the subsystem and the P, I and D constants that are used when computing the motor output
+        // The constructor passes a name for the subsystem and the P, I and D constants that are used when computing the motor output
+        super("Elevator", Constants.SubsystemSpeeds.ElevatorPIDConstants.kp, Constants.SubsystemSpeeds.ElevatorPIDConstants.ki, Constants.SubsystemSpeeds.ElevatorPIDConstants.kd);
         setAbsoluteTolerance(0.05);
         getPIDController().setContinuous(false);
         
-        elevatorL = new Motor(Constants.MotorMap.Elevator.ELEVATORL, MotorType.kBrushless, Constants.MotorMap.Elevator.ELEVATORL_REVERSED);
-        elevatorR = new Motor(Constants.MotorMap.Elevator.ELEVATORR, MotorType.kBrushless, Constants.MotorMap.Elevator.ELEVATORR_REVERSED);
-    
-        elevatorEncoder = new Encoder(Constants.EncoderMap.Elevator.ELEVATORDIGITAL1, Constants.EncoderMap.Elevator.ELEVATORDIGITAL2, Constants.EncoderMap.Elevator.ELEVATORDIGITAL_REVERSED);
-        
+        elevatorL = new Motor(Constants.MotorMap.Elevator.ELEVATORL, MotorType.kBrushed, Constants.MotorMap.Elevator.ELEVATORL_REVERSED, 30);
+        elevatorR = new Motor(Constants.MotorMap.Elevator.ELEVATORR, MotorType.kBrushed, Constants.MotorMap.Elevator.ELEVATORR_REVERSED, 30);
+        elevatorR.follow(elevatorL);
+        elevatorL.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 1);
+        elevatorEncoder = elevatorL.getEncoder();
+        setAbsoluteTolerance(Constants.SubsystemSpeeds.ElevatorPIDConstants.tolerance);
     }
 
     public double returnPIDInput(){
-        return elevatorEncoder.getDistance();
+        System.out.println(elevatorEncoder.getPosition());
+        return elevatorEncoder.getPosition();
     }
 
     public void usePIDOutput(double output){
-        elevatorL.pidWrite(output);
-        elevatorR.pidWrite(output);
+        elevatorL.set(output);
+    }
+
+    public void killmotors(){
+        elevatorL.set(0);
     }
 
     public void initDefaultCommand()

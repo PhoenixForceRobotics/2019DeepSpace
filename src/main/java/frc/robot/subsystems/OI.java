@@ -1,6 +1,5 @@
 package frc.robot.subsystems;
 
-
 import frc.controllers.BobXboxController;
 import frc.robot.commands.collector.*;
 import frc.robot.commands.drivebase.*;
@@ -27,7 +26,9 @@ public class OI
         driverController.xButton.whenPressed(new PunchInAndOut());
         driverController.aButton.whenPressed(new PuncherHatchOut());
         driverController.bButton.whenPressed(new PuncherHatchIn());
+        driverController.yButton.whileHeld(new Rotate());
         
+        driverController.startButton.whenPressed(new RunElevator(Constants.ElevatorSetPoints.TEST1));
         driverController.Dpad.Down.whenPressed(new RunElevator(Constants.ElevatorSetPoints.BOTTOM));
         driverController.Dpad.Left.whenPressed(new RunElevator(Constants.ElevatorSetPoints.MIDDLE));
         driverController.Dpad.Up.whenPressed(new RunElevator(Constants.ElevatorSetPoints.TOP));

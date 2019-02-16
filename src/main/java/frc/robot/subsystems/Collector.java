@@ -25,16 +25,16 @@ public class Collector extends Subsystem
 
     public Collector() {
         logger.fine("Spinup Ball Collector and Hatch Collector");
-        flywheelleft = new Motor(Constants.MotorMap.BallCollector.COLLECTOR_LEFT, MotorType.kBrushed, Constants.MotorMap.BallCollector.COLLECTORLEFT_REVERSED);
-        flywheelright = new Motor(Constants.MotorMap.BallCollector.COLLECTOR_RIGHT,  MotorType.kBrushed,Constants.MotorMap.BallCollector.COLLECTORRIGHT_REVERSED);
-        collectorrotate = new Motor(Constants.MotorMap.BallCollector.BALL_ROTATE, MotorType.kBrushed, Constants.MotorMap.BallCollector.BALLROTATE_REVERSED);
+        flywheelleft = new Motor(Constants.MotorMap.BallCollector.COLLECTOR_LEFT, MotorType.kBrushed, Constants.MotorMap.BallCollector.COLLECTORLEFT_REVERSED, 30);
+        flywheelright = new Motor(Constants.MotorMap.BallCollector.COLLECTOR_RIGHT,  MotorType.kBrushed,Constants.MotorMap.BallCollector.COLLECTORRIGHT_REVERSED, 30);
+        collectorrotate = new Motor(Constants.MotorMap.BallCollector.BALL_ROTATE, MotorType.kBrushed, Constants.MotorMap.BallCollector.BALLROTATE_REVERSED, 30);
         // flywheelright.follow(flywheelleft);
         
         //this is really short ( ͠° ͟ʖ ͡°)
         this.puncher = new DoubleSolenoid(Constants.PneumaticsMap.HatchCollector.PUNCHER1, Constants.PneumaticsMap.HatchCollector.PUNCHER2);
         //try setting a lowe leve motor setting per Chief Delphi --this is JT's fault
-        collectorrotate.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 1);
-        theEncoder = collectorrotate.getEncoder();
+        //collectorrotate.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 1);
+        //theEncoder = collectorrotate.getEncoder();
     }
 
     public void intake(double value)

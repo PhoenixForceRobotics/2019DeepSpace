@@ -30,9 +30,6 @@ public class Rotate extends CommandGroup
     {
         logger.finest("Hatch Collector puncher out execute");
         collector.rotate(1);
-        logger.severe("Sending encoder position from command group next line");
-        logger.severe(Double.toString(collector.theEncoder.getVelocity()));
-        System.out.println("Encoder velocity" + collector.theEncoder.getVelocity());
     }
 
     @Override 

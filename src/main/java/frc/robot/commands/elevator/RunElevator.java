@@ -15,32 +15,26 @@ public class RunElevator extends Command
     {
         requires(Robot.elevator);
         this.elevator = Robot.elevator;
+        
         elevator.setSetpoint(setpoint);
     }
 
     @Override
     public void initialize()
     {
-    
+        elevator.enable();
     }
 
     @Override
     public void execute()
     {
-        elevator.enable();
+        
     }
 
     @Override
     public boolean isFinished()
     {
-        if(elevator.getSetpoint()-elevator.getPosition() < 0.1)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return elevator.onTarget();
     }
 
     @Override
@@ -53,5 +47,6 @@ public class RunElevator extends Command
     public void end()
     {
         elevator.disable();
+        elevator.killmotors();
     }
 }
