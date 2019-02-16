@@ -27,8 +27,8 @@ public class Elevator extends PIDSubsystem {
         setAbsoluteTolerance(0.05);
         getPIDController().setContinuous(false);
         
-        elevatorL = new Motor(Constants.MotorMap.Elevator.ELEVATORL, MotorType.kBrushless, Constants.MotorMap.Elevator.ELEVATORL_REVERSED, 30);
-        elevatorR = new Motor(Constants.MotorMap.Elevator.ELEVATORR, MotorType.kBrushless, Constants.MotorMap.Elevator.ELEVATORR_REVERSED, 30);
+        elevatorL = new Motor(Constants.MotorMap.Elevator.ELEVATORL, MotorType.kBrushed, Constants.MotorMap.Elevator.ELEVATORL_REVERSED, 30);
+        elevatorR = new Motor(Constants.MotorMap.Elevator.ELEVATORR, MotorType.kBrushed, Constants.MotorMap.Elevator.ELEVATORR_REVERSED, 30);
         elevatorL.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 1);
         elevatorEncoder = elevatorL.getEncoder();
         
