@@ -31,7 +31,7 @@ public class Constants
             public static final boolean RIGHT3_REVERSED = true;
 
             //H-drive motors
-            public static int HDRIVE1 = 0;
+            public static int HDRIVE1 = 16;
             public static int HDRIVE2 = 15;
             
             public static final boolean HDRIVE1_REVERSED = true;
@@ -59,8 +59,8 @@ public class Constants
 
         public static class Elevator
         {
-            public static int ELEVATORL = 21;
-            public static int ELEVATORR = 42;
+            public static int ELEVATORL = 10;
+            public static int ELEVATORR = 11;
 
             public static final boolean ELEVATORL_REVERSED = false;
             public static final boolean ELEVATORR_REVERSED = true;

@@ -27,6 +27,7 @@ public class OI
         driverController.xButton.whenPressed(new PunchInAndOut());
         driverController.aButton.whenPressed(new PuncherHatchOut());
         driverController.bButton.whenPressed(new PuncherHatchIn());
+        driverController.yButton.whileHeld(new Rotate());
         
         driverController.Dpad.Down.whenPressed(new RunElevator(Constants.ElevatorSetPoints.BOTTOM));
         driverController.Dpad.Left.whenPressed(new RunElevator(Constants.ElevatorSetPoints.MIDDLE));
