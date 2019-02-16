@@ -1,6 +1,5 @@
 package frc.robot.commands.collector;
 
-import frc.robot.Constants;
 import frc.robot.Robot;
 import frc.robot.subsystems.Collector;
 import edu.wpi.first.wpilibj.command.Command;
