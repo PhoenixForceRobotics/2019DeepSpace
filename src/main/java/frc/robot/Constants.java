@@ -20,7 +20,7 @@ public class Constants
 
             public static int RIGHT_1 = 12;
             public static int RIGHT_2 = 13;
-            public static int RIGHT_3 = 14;
+            public static int RIGHT_3 = 15;
 
             public static final boolean LEFT1_REVERSED = false;
             public static final boolean LEFT2_REVERSED = false;
@@ -32,7 +32,7 @@ public class Constants
 
             //H-drive motors
             public static int HDRIVE1 = 0;
-            public static int HDRIVE2 = 15;
+            public static int HDRIVE2 = 16;
             
             public static final boolean HDRIVE1_REVERSED = true;
             public static final boolean HDRIVE2_REVERSED = true;
@@ -59,8 +59,8 @@ public class Constants
 
         public static class Elevator
         {
-            public static int ELEVATORL = 21;
-            public static int ELEVATORR = 42;
+            public static int ELEVATORL = 14;
+            public static int ELEVATORR = 420;
 
             public static final boolean ELEVATORL_REVERSED = false;
             public static final boolean ELEVATORR_REVERSED = true;
@@ -78,6 +78,8 @@ public class Constants
         public static final double BOTTOM = 100;
         public static final double MIDDLE = 200;
         public static final double TOP = 300;
+        public static final double TEST1 = 1024;
+        public static final double TEST2 = 4096;
     }
 
     public static class EncoderMap{
@@ -87,7 +89,7 @@ public class Constants
         }
         public static class Elevator
         {
-            public static int ELEVATORDIGITAL1 = 0;
+            public static int ELEVATORDIGITAL1 = 14;
             public static int ELEVATORDIGITAL2 = 1;
             public static boolean ELEVATORDIGITAL_REVERSED = true;
         }
