@@ -4,7 +4,6 @@ import frc.robot.Robot;
 import frc.robot.subsystems.Collector;
 import frc.robot.Constants;
 import frc.robot.utility.Log;
-import edu.wpi.first.wpilibj.command.Command;
 import java.util.logging.Logger;
 import edu.wpi.first.wpilibj.command.PIDCommand;
 

@@ -15,19 +15,21 @@ public class RunElevator extends Command
     {
         requires(Robot.elevator);
         this.elevator = Robot.elevator;
+        
         elevator.setSetpoint(setpoint);
     }
 
     @Override
     public void initialize()
     {
-    
+        elevator.returnPIDInput();
     }
 
     @Override
     public void execute()
     {
         elevator.enable();
+        
     }
 
     @Override

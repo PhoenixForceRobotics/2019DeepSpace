@@ -20,7 +20,7 @@ public class Constants
 
             public static int RIGHT_1 = 12;
             public static int RIGHT_2 = 13;
-            public static int RIGHT_3 = 14;
+            public static int RIGHT_3 = 15;
 
             public static final boolean LEFT1_REVERSED = false;
             public static final boolean LEFT2_REVERSED = false;
@@ -78,6 +78,8 @@ public class Constants
         public static final double BOTTOM = 100;
         public static final double MIDDLE = 200;
         public static final double TOP = 300;
+        public static final double TEST1 = 1024;
+        public static final double TEST2 = 4096;
     }
 
     public static class EncoderMap{
@@ -87,7 +89,7 @@ public class Constants
         }
         public static class Elevator
         {
-            public static int ELEVATORDIGITAL1 = 0;
+            public static int ELEVATORDIGITAL1 = 14;
             public static int ELEVATORDIGITAL2 = 1;
             public static boolean ELEVATORDIGITAL_REVERSED = true;
         }

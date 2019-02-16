@@ -1,6 +1,5 @@
 package frc.robot.subsystems;
 
-import frc.robot.subsystems.OI;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 // import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Constants;
@@ -9,13 +8,15 @@ import frc.robot.utility.Motor;
 
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
-import edu.wpi.first.wpilibj.Encoder;
+import com.revrobotics.CANEncoder;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel;
 
 public class Elevator extends PIDSubsystem {
     public Motor elevatorL;
     public Motor elevatorR;
 
-    public Encoder elevatorEncoder;
+    public CANEncoder elevatorEncoder;
     //setting constants
     public double kp = .00;
     public double ki = .00;
@@ -28,13 +29,14 @@ public class Elevator extends PIDSubsystem {
         
         elevatorL = new Motor(Constants.MotorMap.Elevator.ELEVATORL, MotorType.kBrushless, Constants.MotorMap.Elevator.ELEVATORL_REVERSED, 30);
         elevatorR = new Motor(Constants.MotorMap.Elevator.ELEVATORR, MotorType.kBrushless, Constants.MotorMap.Elevator.ELEVATORR_REVERSED, 30);
-    
-        //elevatorEncoder = new Encoder(Constants.EncoderMap.Elevator.ELEVATORDIGITAL1, Constants.EncoderMap.Elevator.ELEVATORDIGITAL2, Constants.EncoderMap.Elevator.ELEVATORDIGITAL_REVERSED);
+        elevatorL.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 1);
+        elevatorEncoder = elevatorL.getEncoder();
         
     }
 
     public double returnPIDInput(){
-        return elevatorEncoder.getDistance();
+        System.out.println(elevatorEncoder.getPosition());
+        return elevatorEncoder.getPosition();
     }
 
     public void usePIDOutput(double output){
