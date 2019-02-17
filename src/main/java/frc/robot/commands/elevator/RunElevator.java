@@ -34,7 +34,7 @@ public class RunElevator extends Command
     @Override
     public boolean isFinished()
     {
-        return elevator.onTarget();
+        return false;
     }
 
     @Override

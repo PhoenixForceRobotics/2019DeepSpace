@@ -59,11 +59,11 @@ public class Constants
 
         public static class Elevator
         {
-            public static int ELEVATORL = 4;
-            public static int ELEVATORR = 5;
+            public static int ELEVATORL = 10;
+            public static int ELEVATORR = 11;
 
-            public static final boolean ELEVATORL_REVERSED = false;
-            public static final boolean ELEVATORR_REVERSED = true;
+            public static final boolean ELEVATORL_REVERSED = true;
+            public static final boolean ELEVATORR_REVERSED = false;
         }
     
     }
