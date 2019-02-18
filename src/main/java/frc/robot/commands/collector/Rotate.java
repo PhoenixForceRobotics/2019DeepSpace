@@ -17,7 +17,7 @@ public class Rotate extends CommandGroup
     public Rotate() {
         requires(Robot.collector);
 
-        collector = Robot.collector;
+        this.collector = Robot.collector;
     }
     @Override
     public void initialize()
@@ -29,7 +29,7 @@ public class Rotate extends CommandGroup
     public void execute()
     {
         logger.finest("Hatch Collector puncher out execute");
-        collector.rotate(1);
+        collector.rotate(Constants.SubsystemSpeeds.BallCollectorValues.BCRotateSpeed);
     }
 
     @Override 

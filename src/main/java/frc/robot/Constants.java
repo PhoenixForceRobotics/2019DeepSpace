@@ -48,11 +48,13 @@ public class Constants
 
         public static class BallCollector
         {
-            public static int BALL_ROTATE = 6;
-            public static int COLLECTOR_LEFT = 7;
-            public static int COLLECTOR_RIGHT = 8;
+            public static int BALL_ROTATE = 5;
+            public static int BALL_ROTATE1 = 7;
+            public static int COLLECTOR_LEFT = 8;
+            public static int COLLECTOR_RIGHT = 9;
 
-            public static final boolean BALLROTATE_REVERSED = false;
+            public static final boolean BALLROTATE_REVERSED = true;
+            public static final boolean BALLROTATE1_REVERSED = false;
             public static final boolean COLLECTORLEFT_REVERSED = true;
             public static final boolean COLLECTORRIGHT_REVERSED = false;
         }
@@ -62,8 +64,8 @@ public class Constants
             public static int ELEVATORL = 10;
             public static int ELEVATORR = 11;
 
-            public static final boolean ELEVATORL_REVERSED = true;
-            public static final boolean ELEVATORR_REVERSED = false;
+            public static final boolean ELEVATORL_REVERSED = false;
+            public static final boolean ELEVATORR_REVERSED = true;
         }
     
     }
@@ -84,12 +86,11 @@ public class Constants
 
     public static class EncoderMap{
         public static class HatchCollector {
-            public static int ROTATE1 = 1;
-            public static int ROTATE2 = 2;
+            public static int ROTATE = 5;
         }
         public static class Elevator
         {
-            public static int ELEVATORDIGITAL1 = 14;
+            public static int ELEVATORDIGITAL1 = 11;
             public static int ELEVATORDIGITAL2 = 1;
             public static boolean ELEVATORDIGITAL_REVERSED = true;
         }
@@ -116,7 +117,7 @@ public class Constants
         }
         public static class ElevatorPIDConstants
         {
-            public static final double kp = .00;
+            public static final double kp = .001;
             public static final double ki = .00;
             public static final double kd = .00;
             public static final double tolerance = 10;

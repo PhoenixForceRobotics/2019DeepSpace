@@ -29,19 +29,19 @@ public class Collector extends Subsystem
         flywheelleft = new Motor(Constants.MotorMap.BallCollector.COLLECTOR_LEFT, MotorType.kBrushed, Constants.MotorMap.BallCollector.COLLECTORLEFT_REVERSED, 30);
         flywheelright = new Motor(Constants.MotorMap.BallCollector.COLLECTOR_RIGHT,  MotorType.kBrushed,Constants.MotorMap.BallCollector.COLLECTORRIGHT_REVERSED, 30);
         collectorrotate = new Motor(Constants.MotorMap.BallCollector.BALL_ROTATE, MotorType.kBrushed, Constants.MotorMap.BallCollector.BALLROTATE_REVERSED, 30);
-       
+        collectorrotate1 = new Motor(Constants.MotorMap.BallCollector.BALL_ROTATE1, MotorType.kBrushed, Constants.MotorMap.BallCollector.BALLROTATE1_REVERSED, 30);
+
        //Test some elevator stuff
       // collectorrotate = new Motor(Constants.MotorMap.Elevator.ELEVATORL, MotorType.kBrushed, Constants.MotorMap.Elevator.ELEVATORL_REVERSED, 30);
-      // collectorrotate1 = new Motor(Constants.MotorMap.Elevator.ELEVATORR, MotorType.kBrushed, Constants.MotorMap.Elevator.ELEVATORR_REVERSED, 30);
-      // collectorrotate1.follow(collectorrotate);
-
-       // flywheelright.follow(flywheelleft);
+       
+        collectorrotate1.follow(collectorrotate);
+        flywheelright.follow(flywheelleft);
         
         //this is really short ( ͠° ͟ʖ ͡°)
         this.puncher = new DoubleSolenoid(Constants.PneumaticsMap.HatchCollector.PUNCHER1, Constants.PneumaticsMap.HatchCollector.PUNCHER2);
         //try setting a lowe leve motor setting per Chief Delphi --this is JT's fault
-        //collectorrotate.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 1);
-        //theEncoder = collectorrotate.getEncoder();
+        collectorrotate.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 1);
+        theEncoder = collectorrotate.getEncoder();
     }
 
     public void intake(double value)
@@ -60,6 +60,8 @@ public class Collector extends Subsystem
 
     public void rotate(double value)
     {
+        //jt system out
+        System.out.println("Value:" + value);
         logger.finest("Start Ball Collector Rotate");
         collectorrotate.set(value);
         //logger.severe(Double.toString(theEncoder.getPosition()));
