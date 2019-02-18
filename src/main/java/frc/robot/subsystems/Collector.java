@@ -29,17 +29,24 @@ public class Collector extends Subsystem
         flywheelleft = new Motor(Constants.MotorMap.BallCollector.COLLECTOR_LEFT, MotorType.kBrushed, Constants.MotorMap.BallCollector.COLLECTORLEFT_REVERSED, 30);
         flywheelright = new Motor(Constants.MotorMap.BallCollector.COLLECTOR_RIGHT,  MotorType.kBrushed,Constants.MotorMap.BallCollector.COLLECTORRIGHT_REVERSED, 30);
         collectorrotate = new Motor(Constants.MotorMap.BallCollector.BALL_ROTATE, MotorType.kBrushed, Constants.MotorMap.BallCollector.BALLROTATE_REVERSED, 30);
+<<<<<<< HEAD
         collectorrotate1 = new Motor(Constants.MotorMap.BallCollector.BALL_ROTATE1, MotorType.kBrushed, Constants.MotorMap.BallCollector.BALLROTATE1_REVERSED, 30);
 
        //Test some elevator stuff
       // collectorrotate = new Motor(Constants.MotorMap.Elevator.ELEVATORL, MotorType.kBrushed, Constants.MotorMap.Elevator.ELEVATORL_REVERSED, 30);
        
         collectorrotate1.follow(collectorrotate);
+=======
+
+>>>>>>> 823ccf7128d2f8042926cba129fcfd341effdd02
         flywheelright.follow(flywheelleft);
         
-        //this is really short ( ͠° ͟ʖ ͡°)
         this.puncher = new DoubleSolenoid(Constants.PneumaticsMap.HatchCollector.PUNCHER1, Constants.PneumaticsMap.HatchCollector.PUNCHER2);
+<<<<<<< HEAD
         //try setting a lowe leve motor setting per Chief Delphi --this is JT's fault
+=======
+        //try setting a lower level motor setting per Chief Delphi --this is JT's fault
+>>>>>>> 823ccf7128d2f8042926cba129fcfd341effdd02
         collectorrotate.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 1);
         theEncoder = collectorrotate.getEncoder();
     }
@@ -64,7 +71,7 @@ public class Collector extends Subsystem
         System.out.println("Value:" + value);
         logger.finest("Start Ball Collector Rotate");
         collectorrotate.set(value);
-        //logger.severe(Double.toString(theEncoder.getPosition()));
+        System.out.println(theEncoder.getPosition());
     }
 
     public void puncherControl(char direction){
