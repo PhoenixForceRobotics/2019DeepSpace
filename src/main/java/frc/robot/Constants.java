@@ -75,9 +75,9 @@ public class Constants
     }
     public static class ElevatorSetPoints
     {
-        public static final double BOTTOM = .05;
+        public static final double BOTTOM = .15;
         public static final double MIDDLE = .75;
-        public static final double TOP = 1.3;
+        public static final double TOP = 1.5;
     }
 
     public static class EncoderMap{
@@ -114,7 +114,7 @@ public class Constants
         }
         public static class ElevatorPIDConstants
         {
-            public static final double kp = 0;
+            public static final double kp = -2;
             public static final double ki = .00;
             public static final double kd = .00;
             public static final double tolerance = .05;
@@ -123,7 +123,7 @@ public class Constants
         {
             public static final double kp = .00;
             public static final double ki = .00;
-            
+
             public static final double kd = .00;
             public static final double tolerance = 3;
         }
