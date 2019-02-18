@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import java.util.logging.Logger;
 import frc.robot.utility.Log;
 
+
 public class Rotate extends CommandGroup 
 {   
     private Collector collector;
@@ -18,6 +19,7 @@ public class Rotate extends CommandGroup
         requires(Robot.collector);
 
         collector = Robot.collector;
+
     }
     @Override
     public void initialize()

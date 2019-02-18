@@ -48,9 +48,9 @@ public class Constants
 
         public static class BallCollector
         {
-            public static int BALL_ROTATE = 6;
-            public static int COLLECTOR_LEFT = 7;
-            public static int COLLECTOR_RIGHT = 8;
+            public static int BALL_ROTATE = 4;
+            public static int COLLECTOR_LEFT = 5;
+            public static int COLLECTOR_RIGHT = 6;
 
             public static final boolean BALLROTATE_REVERSED = false;
             public static final boolean COLLECTORLEFT_REVERSED = true;
@@ -62,8 +62,8 @@ public class Constants
             public static int ELEVATORL = 10;
             public static int ELEVATORR = 11;
 
-            public static final boolean ELEVATORL_REVERSED = true;
-            public static final boolean ELEVATORR_REVERSED = false;
+            public static final boolean ELEVATORL_REVERSED = false;
+            public static final boolean ELEVATORR_REVERSED = true;
         }
     
     }
@@ -75,11 +75,9 @@ public class Constants
     }
     public static class ElevatorSetPoints
     {
-        public static final double BOTTOM = 100;
-        public static final double MIDDLE = 200;
-        public static final double TOP = 300;
-        public static final double TEST1 = 1024;
-        public static final double TEST2 = 4096;
+        public static final double BOTTOM = .05;
+        public static final double MIDDLE = .75;
+        public static final double TOP = 1.3;
     }
 
     public static class EncoderMap{
@@ -89,8 +87,8 @@ public class Constants
         }
         public static class Elevator
         {
-            public static int ELEVATORDIGITAL1 = 14;
-            public static int ELEVATORDIGITAL2 = 1;
+            public static int ELEVATORDIGITAL1 = 10;
+            public static int ELEVATORDIGITAL2 = 11;
             public static boolean ELEVATORDIGITAL_REVERSED = true;
         }
     }
@@ -116,15 +114,16 @@ public class Constants
         }
         public static class ElevatorPIDConstants
         {
-            public static final double kp = .00;
+            public static final double kp = 0;
             public static final double ki = .00;
             public static final double kd = .00;
-            public static final double tolerance = 10;
+            public static final double tolerance = .05;
         }
         public static class RotateBallCollectorPIDConstants
         {
             public static final double kp = .00;
             public static final double ki = .00;
+            
             public static final double kd = .00;
             public static final double tolerance = 3;
         }
