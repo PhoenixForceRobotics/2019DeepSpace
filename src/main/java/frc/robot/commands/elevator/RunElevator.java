@@ -3,17 +3,17 @@ import frc.robot.Constants;
 import frc.robot.Robot;
 import frc.robot.subsystems.Elevator;
 
+import org.graalvm.compiler.replacements.nodes.AssertionNode;
+import org.junit.Assert;
 import org.junit.Assert.*;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.PIDController;
 // import edu.wpi.first.wpilibj.Joystick.ButtonType;
 import frc.robot.subsystems.OI;
-import junit.framework.Assert;
+// import junit.framework.Assert;
 import edu.wpi.first.wpilibj.command.Command;
 
-// not sure if I should be using returnPIDInput() or usePIDOutput(),
-// not even sure if this will work but it builds ok... I guess we'll see.
 
 public class RunElevator extends Command 
 {
@@ -23,7 +23,7 @@ public class RunElevator extends Command
     private boolean a;
     private boolean b;
     private boolean c;
-    private AssertionError error;
+    private Assert assert1;
 
     public RunElevator()
     {
@@ -40,16 +40,16 @@ public class RunElevator extends Command
             b = Robot.oi.driverController.Dpad.Left.get();
             c = Robot.oi.driverController.Dpad.Down.get();
             if(a){
-                Assert.assertNotEquals(a, b);
-                Assert.assertNotEquals(a, c);
+                assert1.Assert.assertNotEquals(a, b);
+                assert1.Assert.assertNotEquals(a, c);
                 point = Constants.ElevatorSetPoints.TOP;
             } if(b){
-                Assert.assertNotEquals(b, c);
+                assert1.Assert.assertNotEquals(b, c);
                 point = Constants.ElevatorSetPoints.MIDDLE;
             } if(c){
                 point = Constants.ElevatorSetPoints.BOTTOM;
             }
-        } catch(error){
+        } catch(AssertionError assert1){
             end();
         }
 
