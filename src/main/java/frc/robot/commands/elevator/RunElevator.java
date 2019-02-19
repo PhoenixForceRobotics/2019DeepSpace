@@ -13,7 +13,6 @@ public class RunElevator extends Command
 {
     private Elevator elevator;
     private OI oi;
-    private double point;
     private boolean a;
     private boolean b;
     private boolean c;
@@ -28,26 +27,22 @@ public class RunElevator extends Command
     @Override
     public void initialize()
     {
-        a = Robot.oi.driverController.Dpad.Up.get();
-        b = Robot.oi.driverController.Dpad.Left.get();
-        c = Robot.oi.driverController.Dpad.Down.get();
+        a = oi.driverController.Dpad.Up.get();
+        b = oi.driverController.Dpad.Left.get();
+        c = oi.driverController.Dpad.Down.get();
         System.out.println(a);
 
         if(a && !b && !c){
             elevator.setSetpoint(Constants.ElevatorSetPoints.TOP);
             elevator.enable();
-            System.out.println("shit");
         } else if(!a && b && !c){
             elevator.setSetpoint(Constants.ElevatorSetPoints.MIDDLE);
             elevator.enable();
-            System.out.println("shit2");
         } else if(!a && !b && c){
             elevator.setSetpoint(Constants.ElevatorSetPoints.BOTTOM);
             elevator.enable();
-            System.out.println("shit3");
         } else {
-            elevator.disable();   
-            System.out.println("shit4");     
+            elevator.disable();        
         }
     }
 

@@ -121,7 +121,7 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
     //JT added this for encoder troubleshooting
-    System.out.println(collector.theEncoder.getPosition());
+    // System.out.println(collector.collectorEncoder.getPosition());
   }
 
   /**

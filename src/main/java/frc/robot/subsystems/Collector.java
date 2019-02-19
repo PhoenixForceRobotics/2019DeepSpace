@@ -2,7 +2,7 @@ package frc.robot.subsystems;
 
 import java.util.logging.Logger;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import frc.robot.Constants;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
@@ -14,18 +14,22 @@ import com.revrobotics.CANSparkMaxLowLevel;
 
 import frc.robot.utility.Log;
 
-public class Collector extends Subsystem
+public class Collector extends PIDSubsystem
 {
     public Motor flywheelleft, flywheelright;
     public Motor collectorrotate;
     public Motor collectorrotate1;
     public DoubleSolenoid puncher;
-    public CANEncoder theEncoder;
+    public CANEncoder collectorEncoder;
 
     public static final Logger logger = Log.configureLog(Collector.class.getName());
 
     public Collector() {
+        super("COllector", Constants.SubsystemSpeeds.RotateCollectorPIDConstants.kp, Constants.SubsystemSpeeds.RotateCollectorPIDConstants.ki, Constants.SubsystemSpeeds.RotateCollectorPIDConstants.kd);
+        getPIDController().setContinuous(false);
+
         logger.fine("Spinup Ball Collector and Hatch Collector");
+        
         flywheelleft = new Motor(Constants.MotorMap.BallCollector.COLLECTOR_LEFT, MotorType.kBrushed, Constants.MotorMap.BallCollector.COLLECTORLEFT_REVERSED, 30);
         flywheelright = new Motor(Constants.MotorMap.BallCollector.COLLECTOR_RIGHT,  MotorType.kBrushed,Constants.MotorMap.BallCollector.COLLECTORRIGHT_REVERSED, 30);
         collectorrotate = new Motor(Constants.MotorMap.BallCollector.BALL_ROTATE, MotorType.kBrushed, Constants.MotorMap.BallCollector.BALLROTATE_REVERSED, 30);
@@ -37,7 +41,7 @@ public class Collector extends Subsystem
         this.puncher = new DoubleSolenoid(Constants.PneumaticsMap.HatchCollector.PUNCHER1, Constants.PneumaticsMap.HatchCollector.PUNCHER2);
         //try setting a lower level motor setting per Chief Delphi --this is JT's fault
         collectorrotate.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 1);
-        theEncoder = collectorrotate.getEncoder();
+        collectorEncoder = collectorrotate.getEncoder();
     }
 
     public void intake(double value)
@@ -54,13 +58,27 @@ public class Collector extends Subsystem
         flywheelright.set(-value);
     }
 
-    public void rotate(double value)
+    // public void rotate(double value)
+    // {
+    //     //jt system out
+    //     System.out.println("Value:" + value);
+    //     logger.finest("Start Ball Collector Rotate");
+    //     collectorrotate.setSetpoint(value);
+    //     System.out.println(collectorEncoder.getPosition());
+    // }
+
+    public double returnPIDInput()
     {
-        //jt system out
-        System.out.println("Value:" + value);
-        logger.finest("Start Ball Collector Rotate");
-        collectorrotate.set(value);
-        System.out.println(theEncoder.getPosition());
+        return collectorEncoder.getPosition();
+    }
+    
+    public void usePIDOutput(double output){
+        collectorrotate.set(output);
+    }
+
+    public void killrotatemotors()
+    {
+        collectorrotate.set(0);
     }
 
     public void puncherControl(char direction){

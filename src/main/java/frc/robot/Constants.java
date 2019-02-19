@@ -82,9 +82,18 @@ public class Constants
         public static final double TOP = 1.5;
     }
 
+    public static class CollectorSetPoints
+    {
+        public static final double DOWN = .15;
+        public static final double UP = 1.0;
+    }
+
     public static class EncoderMap{
-        public static class HatchCollector {
-            public static int ROTATE = 5;
+        public static class Collector 
+        {
+            public static int COLLECTORDIGITAL1 = 4;
+            public static int COLLECTORDIGITAL2 = 5;
+            public static final boolean COLLECTORDIGITAL_REVERSED = true;
         }
         public static class Elevator
         {
@@ -111,7 +120,7 @@ public class Constants
         {
             public static final double BCIntakeSpeed = .5;
             public static final double BCOuttakeSpeed = .5;
-            public static final double BCRotateSpeed = .5;
+            public static final double RotateSpeed = .5;
         }
         public static class ElevatorPIDConstants
         {
@@ -120,7 +129,7 @@ public class Constants
             public static final double kd = .00;
             public static final double tolerance = .05;
         }
-        public static class RotateBallCollectorPIDConstants
+        public static class RotateCollectorPIDConstants
         {
             public static final double kp = .00;
             public static final double ki = .00;
