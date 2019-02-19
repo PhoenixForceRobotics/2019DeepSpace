@@ -48,10 +48,17 @@ public class Constants
 
         public static class BallCollector
         {
+<<<<<<< HEAD
             public static int BALL_ROTATE = 5;
             public static int BALL_ROTATE1 = 7;
             public static int COLLECTOR_LEFT = 8;
             public static int COLLECTOR_RIGHT = 9;
+=======
+            public static int BALL_ROTATE = 4;
+            public static int BALL_ROTATE1 = 5;
+            public static int COLLECTOR_LEFT = 6;
+            public static int COLLECTOR_RIGHT = 7;
+>>>>>>> bfdb294bbab48fcdcd3f1e549964d26adfd21f85
 
             public static final boolean BALLROTATE_REVERSED = true;
             public static final boolean BALLROTATE1_REVERSED = false;
@@ -77,9 +84,9 @@ public class Constants
     }
     public static class ElevatorSetPoints
     {
-        public static final double BOTTOM = .05;
+        public static final double BOTTOM = .15;
         public static final double MIDDLE = .75;
-        public static final double TOP = 1.3;
+        public static final double TOP = 1.5;
     }
 
     public static class EncoderMap{
@@ -115,7 +122,11 @@ public class Constants
         }
         public static class ElevatorPIDConstants
         {
+<<<<<<< HEAD
             public static final double kp = .00;
+=======
+            public static final double kp = -1;
+>>>>>>> bfdb294bbab48fcdcd3f1e549964d26adfd21f85
             public static final double ki = .00;
             public static final double kd = .00;
             public static final double tolerance = .05;
@@ -124,7 +135,7 @@ public class Constants
         {
             public static final double kp = .00;
             public static final double ki = .00;
-            
+
             public static final double kd = .00;
             public static final double tolerance = 3;
         }

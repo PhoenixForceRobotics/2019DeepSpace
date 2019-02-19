@@ -3,6 +3,7 @@ import frc.robot.Constants;
 import frc.robot.Robot;
 import frc.robot.subsystems.Elevator;
 
+<<<<<<< HEAD
 import org.graalvm.compiler.replacements.nodes.AssertionNode;
 import org.junit.Assert;
 import org.junit.Assert.*;
@@ -12,6 +13,11 @@ import edu.wpi.first.wpilibj.PIDController;
 // import edu.wpi.first.wpilibj.Joystick.ButtonType;
 import frc.robot.subsystems.OI;
 // import junit.framework.Assert;
+=======
+import edu.wpi.first.wpilibj.PIDController;
+// import edu.wpi.first.wpilibj.Joystick.ButtonType;
+import frc.robot.subsystems.OI;
+>>>>>>> bfdb294bbab48fcdcd3f1e549964d26adfd21f85
 import edu.wpi.first.wpilibj.command.Command;
 
 
@@ -23,7 +29,10 @@ public class RunElevator extends Command
     private boolean a;
     private boolean b;
     private boolean c;
+<<<<<<< HEAD
     private Assert assert1;
+=======
+>>>>>>> bfdb294bbab48fcdcd3f1e549964d26adfd21f85
 
     public RunElevator()
     {
@@ -35,6 +44,7 @@ public class RunElevator extends Command
     @Override
     public void initialize()
     {
+<<<<<<< HEAD
         try{
             a = Robot.oi.driverController.Dpad.Up.get();
             b = Robot.oi.driverController.Dpad.Left.get();
@@ -52,10 +62,29 @@ public class RunElevator extends Command
         } catch(AssertionError assert1){
             end();
         }
+=======
+        a = Robot.oi.driverController.Dpad.Up.get();
+        b = Robot.oi.driverController.Dpad.Left.get();
+        c = Robot.oi.driverController.Dpad.Down.get();
+        System.out.println(a);
+>>>>>>> bfdb294bbab48fcdcd3f1e549964d26adfd21f85
 
-        elevator.setSetpoint(point);
-        elevator.enable();
-        setTimeout(.5);
+        if(a && !b && !c){
+            elevator.setSetpoint(Constants.ElevatorSetPoints.TOP);
+            elevator.enable();
+            System.out.println("shit");
+        } else if(!a && b && !c){
+            elevator.setSetpoint(Constants.ElevatorSetPoints.MIDDLE);
+            elevator.enable();
+            System.out.println("shit2");
+        } else if(!a && !b && c){
+            elevator.setSetpoint(Constants.ElevatorSetPoints.BOTTOM);
+            elevator.enable();
+            System.out.println("shit3");
+        } else {
+            elevator.disable();   
+            System.out.println("shit4");     
+        }
     }
 
     @Override
@@ -67,7 +96,7 @@ public class RunElevator extends Command
     @Override
     public boolean isFinished()
     {
-        return isTimedOut();
+        return false;
     }
 
     @Override
