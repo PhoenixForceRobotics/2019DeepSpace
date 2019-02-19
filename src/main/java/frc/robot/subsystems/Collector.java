@@ -35,11 +35,7 @@ public class Collector extends Subsystem
         flywheelright.follow(flywheelleft);
         
         this.puncher = new DoubleSolenoid(Constants.PneumaticsMap.HatchCollector.PUNCHER1, Constants.PneumaticsMap.HatchCollector.PUNCHER2);
-<<<<<<< HEAD
         //try setting a lower level motor setting per Chief Delphi --this is JT's fault
-=======
-        //try setting a lowe leve motor setting per Chief Delphi --this is JT's fault
->>>>>>> bfdb294bbab48fcdcd3f1e549964d26adfd21f85
         collectorrotate.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 1);
         theEncoder = collectorrotate.getEncoder();
     }
