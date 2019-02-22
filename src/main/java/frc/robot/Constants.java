@@ -124,7 +124,7 @@ public class Constants
         }
         public static class ElevatorPIDConstants
         {
-            public static final double kp = -1.2;
+            public static final double kp = -.3;
             public static final double ki = .00;
             public static final double kd = .00;
             public static final double tolerance = .05;

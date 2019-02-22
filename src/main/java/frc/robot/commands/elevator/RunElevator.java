@@ -12,7 +12,6 @@ import edu.wpi.first.wpilibj.command.Command;
 public class RunElevator extends Command 
 {
     private Elevator elevator;
-    private OI oi;
     private boolean a;
     private boolean b;
     private boolean c;
@@ -21,15 +20,14 @@ public class RunElevator extends Command
     {
         requires(Robot.elevator);
         this.elevator = Robot.elevator;
-        this.oi = Robot.oi;
     }
 
     @Override
     public void initialize()
     {
-        a = oi.driverController.Dpad.Up.get();
-        b = oi.driverController.Dpad.Left.get();
-        c = oi.driverController.Dpad.Down.get();
+        a = Robot.oi.driverController.Dpad.Up.get();
+        b = Robot.oi.driverController.Dpad.Left.get();
+        c = Robot.oi.driverController.Dpad.Down.get();
         System.out.println(a);
 
         if(a && !b && !c){
