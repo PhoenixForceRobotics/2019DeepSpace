@@ -56,11 +56,8 @@ public class Collector extends Subsystem
 
     public void rotate(double value)
     {
-        //jt system out
-        System.out.println("Value:" + value);
         logger.finest("Start Ball Collector Rotate");
         collectorrotate.set(value);
-        System.out.println(theEncoder.getPosition());
     }
 
     public void puncherControl(char direction){
