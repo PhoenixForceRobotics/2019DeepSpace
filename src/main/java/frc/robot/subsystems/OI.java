@@ -29,5 +29,10 @@ public class OI
 
         driverController.leftBumper.whenPressed(new RotateCollector());
         driverController.rightBumper.whenPressed(new RotateCollector());
+
+        driverController.aButton.whileHeld(new BallHoldIntake());
+        driverController.bButton.whileHeld(new BallHoldOuttake());
+
+        driverController.rightStickButton.whenPressed(new Shifter());
     }
 }

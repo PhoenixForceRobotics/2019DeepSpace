@@ -34,7 +34,6 @@ public class Elevator extends PIDSubsystem {
     }
 
     public double returnPIDInput(){
-        System.out.println(elevatorEncoder.getPosition());
         return elevatorEncoder.getPosition();
     }
 

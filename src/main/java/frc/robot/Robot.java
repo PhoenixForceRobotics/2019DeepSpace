@@ -112,16 +112,19 @@ public class Robot extends TimedRobot {
   /**
    * This function is called periodically during operator control.
    */
+
+   public static void addDriveBase(){
+    Scheduler.getInstance().add(new RunDriveBase(drivebase, oi));
+   }
+  
   @Override
   public void teleopInit() {
-      Scheduler.getInstance().add(new RunDriveBase(drivebase, oi));
+    addDriveBase();
   }
 
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
-    //JT added this for encoder troubleshooting
-    // System.out.println(collector.collectorEncoder.getPosition());
   }
 
   /**

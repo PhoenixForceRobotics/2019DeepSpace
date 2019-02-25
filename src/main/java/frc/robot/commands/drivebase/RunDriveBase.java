@@ -2,6 +2,7 @@ package frc.robot.commands.drivebase;
 
 import frc.robot.subsystems.OI;
 import frc.robot.subsystems.Drivebase;
+import frc.robot.Robot;
 
 import java.util.logging.Logger;
 import frc.robot.utility.Log;
@@ -16,6 +17,7 @@ public class RunDriveBase extends Command
     private Drivebase drivebase;
     private OI oi;
     private CustomMath customMath;
+    private double multiplier;
 
     private static final Logger logger = Log.configureLog(RunDriveBase.class.getName());
 
@@ -40,8 +42,10 @@ public class RunDriveBase extends Command
     {   
         logger.finest("Run Drive Base Execute");
         //tank drive controls
-        drivebase.setLeft(customMath.makeSign(oi.driverController.rightStick.getY(), Math.pow(oi.driverController.rightStick.getY(), Constants.SubsystemSpeeds.DrivebaseValues.StickPower)));
-        drivebase.setRight(customMath.makeSign(oi.driverController.leftStick.getY(), Math.pow(oi.driverController.leftStick.getY(), Constants.SubsystemSpeeds.DrivebaseValues.StickPower)));
+        multiplier = drivebase.getMultiplier();
+        System.out.println(drivebase.getMultiplier());
+        drivebase.setLeft(customMath.makeSign(oi.driverController.rightStick.getY(), multiplier * Math.pow(oi.driverController.rightStick.getY(), Constants.SubsystemSpeeds.DrivebaseValues.StickPower)));
+        drivebase.setRight(customMath.makeSign(oi.driverController.leftStick.getY(), multiplier * Math.pow(oi.driverController.leftStick.getY(), Constants.SubsystemSpeeds.DrivebaseValues.StickPower)));
     }
 
     @Override
