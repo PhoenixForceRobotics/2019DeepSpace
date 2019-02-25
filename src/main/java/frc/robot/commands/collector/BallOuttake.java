@@ -21,21 +21,19 @@ public class BallOuttake extends Command
     }
 
     public void initialize() {
-        logger.fine("Initialize BallOuttake");
-        setTimeout(.2);
+
     }
 
 
     public void execute() {
         logger.finest("Excecute BallOuttake");
-        collector.outtake(Constants.SubsystemSpeeds.BallCollectorValues.BCOuttakeSpeed);
+        collector.outtake(-Constants.SubsystemSpeeds.BallCollectorValues.BCOuttakeSpeed);
     }
 
 
     public boolean isFinished()
     {
-        logger.finest("BallOuttake is Finished");
-        return isTimedOut();
+        return false;
     }
 
     @Override

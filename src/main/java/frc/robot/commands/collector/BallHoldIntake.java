@@ -29,7 +29,7 @@ public class BallHoldIntake extends Command
     public void execute()
     {    
         logger.finest("Excecute BallHoldIntake");
-        collector.intake(Constants.SubsystemSpeeds.BallCollectorValues.BCIntakeSpeed);
+        collector.intake(1);
     }
 
     @Override

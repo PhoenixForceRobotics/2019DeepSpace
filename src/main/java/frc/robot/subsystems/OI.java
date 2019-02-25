@@ -27,7 +27,7 @@ public class OI
         driverController.Dpad.Left.whenPressed(new RunElevator());
         driverController.Dpad.Down.whenPressed(new RunElevator());
 
-        driverController.leftBumper.whenPressed(new RotateCollector());
-        driverController.rightBumper.whenPressed(new RotateCollector());
+        driverController.aButton.whileHeld(new BallHoldIntake());
+        driverController.bButton.whileHeld(new BallOuttake());
     }
 }

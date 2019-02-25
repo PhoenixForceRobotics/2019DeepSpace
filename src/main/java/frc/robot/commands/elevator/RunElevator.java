@@ -38,7 +38,7 @@ public class RunElevator extends Command
             elevator.enable();
         } else if(!a && !b && c){
             elevator.setSetpoint(Constants.ElevatorSetPoints.BOTTOM);
-            elevator.enable();
+            elevator.disable();
         } else {
             elevator.disable();        
         }
