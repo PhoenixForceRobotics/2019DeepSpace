@@ -1,55 +1,52 @@
 package frc.robot.commands.collector;
 
+import frc.robot.Constants;
 import frc.robot.Robot;
 import frc.robot.subsystems.Collector;
-import frc.robot.Constants;
-import frc.robot.utility.Log;
 import edu.wpi.first.wpilibj.command.Command;
+// import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import java.util.logging.Logger;
+import frc.robot.utility.Log;
 
-public class BallHoldIntake extends Command
-{
+
+public class RotateDown extends Command
+{   
     private Collector collector;
-    private static final Logger logger = Log.configureLog(BallHoldIntake.class.getName());
 
-    public BallHoldIntake()
-    {
-        logger.fine("Spinup BallHoldIntake");
+    private static final Logger logger = Log.configureLog(RotateDown.class.getName());
+
+    public RotateDown() {
         requires(Robot.collector);
+
         this.collector = Robot.collector;
     }
-
     @Override
     public void initialize()
     {
 
     }
-
+  
     @Override
     public void execute()
-    {    
-        logger.finest("Excecute BallHoldIntake");
-        collector.intake(1);
+    {
+
     }
 
-    @Override
+    @Override 
     public boolean isFinished()
     {
-        logger.finest("BallHoldIntake is finished");
         return false;
     }
 
     @Override
     public void interrupted()
     {
-        logger.fine("BallHoldIntake interrupted");
         end();
     }
 
     @Override
     public void end()
     {
-        logger.fine("BallHoldIntake end");
-        collector.intake(0);
-    }
+
+    }   
 }

@@ -25,10 +25,11 @@ public class RunElevator extends Command
     @Override
     public void initialize()
     {
+        double encod = elevator.elevatorEncoder.getPosition();
+
         a = Robot.oi.driverController.Dpad.Up.get();
         b = Robot.oi.driverController.Dpad.Left.get();
         c = Robot.oi.driverController.Dpad.Down.get();
-        System.out.println(a);
 
         if(a && !b && !c){
             elevator.setSetpoint(Constants.ElevatorSetPoints.TOP);
@@ -40,14 +41,14 @@ public class RunElevator extends Command
             elevator.setSetpoint(Constants.ElevatorSetPoints.BOTTOM);
             elevator.disable();
         } else {
-            elevator.disable();        
+            elevator.disable();      
         }
     }
 
     @Override
     public void execute()
     {
-        
+        System.out.println(elevator.elevatorEncoder.getPosition());
     }
 
     @Override

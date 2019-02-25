@@ -11,6 +11,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 public class Drivebase extends Subsystem {
     public Motor left1, left2, left3;
     public Motor right1, right2, right3;
+    private double Multiplier = 1;
 
     private static final Logger logger = Log.configureLog(Drivebase.class.getName());
 
@@ -40,6 +41,19 @@ public class Drivebase extends Subsystem {
     {
         logger.finest("Start Set Right");
         right1.set(value);
+    }
+
+    public void shift()
+    {
+        if(Multiplier == 1){
+            Multiplier = .25;
+        } else {
+            Multiplier = 1; 
+        }
+    }
+
+    public double getMultiplier(){
+        return Multiplier;
     }
 
     public void initDefaultCommand()
