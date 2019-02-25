@@ -48,10 +48,10 @@ public class Constants
 
         public static class BallCollector
         {
-            public static int BALL_ROTATE = 4;
-            public static int BALL_ROTATE1 = 6;
+            public static int BALL_ROTATE = 111;
+            public static int BALL_ROTATE1 = 112;
             public static int COLLECTOR_LEFT = 5;
-            public static int COLLECTOR_RIGHT = 7;
+            public static int COLLECTOR_RIGHT = 113;
 
             public static final boolean BALLROTATE_REVERSED = true;
             public static final boolean BALLROTATE1_REVERSED = false;
@@ -77,9 +77,9 @@ public class Constants
     }
     public static class ElevatorSetPoints
     {
-        public static final double BOTTOM = .05;
-        public static final double MIDDLE = .45;
-        public static final double TOP = 1.1;
+        public static final double BOTTOM = .2;
+        public static final double MIDDLE = .5;
+        public static final double TOP = 1.0;
     }
 
     public static class EncoderMap{
@@ -115,9 +115,9 @@ public class Constants
         }
         public static class ElevatorPIDConstants
         {
-            public static final double kp = -2.5;
+            public static final double kp = -10.00;
             public static final double ki = .00;
-            public static final double kd = .00;
+            public static final double kd = -20.00;
             public static final double tolerance = .05;
         }
         public static class RotateBallCollectorPIDConstants

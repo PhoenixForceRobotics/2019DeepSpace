@@ -51,7 +51,7 @@ public class RunElevator extends Command
     @Override
     public void execute()
     {
-        
+        System.out.println(elevator.elevatorEncoder.getPosition());
     }
 
     @Override

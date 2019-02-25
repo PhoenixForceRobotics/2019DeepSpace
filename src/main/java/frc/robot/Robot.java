@@ -113,13 +113,13 @@ public class Robot extends TimedRobot {
    * This function is called periodically during operator control.
    */
 
-  public void addDriveBase(){
+   public static void addDriveBase(){
     Scheduler.getInstance().add(new RunDriveBase(drivebase, oi));
-  }
+   }
   
   @Override
   public void teleopInit() {
-      addDriveBase();
+    addDriveBase();
   }
 
   @Override

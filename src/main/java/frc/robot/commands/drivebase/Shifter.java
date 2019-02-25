@@ -40,6 +40,6 @@ public class Shifter extends Command
     @Override
     public void end()
     {
-            
+        Robot.addDriveBase();
     }
 }
