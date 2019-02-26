@@ -16,7 +16,7 @@ import frc.robot.utility.Log;
 
 public class Collector extends PIDSubsystem
 {
-    public Motor flywheelleft, flywheelright;
+    public Motor ballleft, ballright;
     public Motor collectorrotate;
     public Motor collectorrotate1;
     public DoubleSolenoid puncher;
@@ -25,18 +25,18 @@ public class Collector extends PIDSubsystem
     public static final Logger logger = Log.configureLog(Collector.class.getName());
 
     public Collector() {
-        super("COllector", Constants.SubsystemSpeeds.RotateCollectorPIDConstants.kp, Constants.SubsystemSpeeds.RotateCollectorPIDConstants.ki, Constants.SubsystemSpeeds.RotateCollectorPIDConstants.kd);
+        super("Collector", Constants.SubsystemSpeeds.RotateCollectorPIDConstants.kp, Constants.SubsystemSpeeds.RotateCollectorPIDConstants.ki, Constants.SubsystemSpeeds.RotateCollectorPIDConstants.kd);
         getPIDController().setContinuous(false);
 
         logger.fine("Spinup Ball Collector and Hatch Collector");
         
-        flywheelleft = new Motor(Constants.MotorMap.BallCollector.COLLECTOR_LEFT, MotorType.kBrushed, Constants.MotorMap.BallCollector.COLLECTORLEFT_REVERSED, 30);
-        flywheelright = new Motor(Constants.MotorMap.BallCollector.COLLECTOR_RIGHT,  MotorType.kBrushed,Constants.MotorMap.BallCollector.COLLECTORRIGHT_REVERSED, 30);
+        ballleft = new Motor(Constants.MotorMap.BallCollector.COLLECTOR_LEFT, MotorType.kBrushed, Constants.MotorMap.BallCollector.COLLECTORLEFT_REVERSED, 30);
+        ballright = new Motor(Constants.MotorMap.BallCollector.COLLECTOR_RIGHT,  MotorType.kBrushed,Constants.MotorMap.BallCollector.COLLECTORRIGHT_REVERSED, 30);
         collectorrotate = new Motor(Constants.MotorMap.BallCollector.BALL_ROTATE, MotorType.kBrushed, Constants.MotorMap.BallCollector.BALLROTATE_REVERSED, 30);
         collectorrotate1 = new Motor(Constants.MotorMap.BallCollector.BALL_ROTATE1, MotorType.kBrushed, Constants.MotorMap.BallCollector.BALLROTATE1_REVERSED, 30);
 
         collectorrotate1.follow(collectorrotate);
-        flywheelright.follow(flywheelleft);
+        ballright.follow(ballleft);
         
         this.puncher = new DoubleSolenoid(Constants.PneumaticsMap.HatchCollector.PUNCHER1, Constants.PneumaticsMap.HatchCollector.PUNCHER2);
         //try setting a lower level motor setting per Chief Delphi --this is JT's fault
@@ -47,15 +47,13 @@ public class Collector extends PIDSubsystem
     public void intake(double value)
     {
         logger.finest("Start Ball Collector Intake");
-        flywheelleft.set(value);
-        flywheelright.set(value);
+        ballleft.set(value);
     }
 
     public void outtake(double value)
     {
         logger.finest("Start Ball Collector Outake");
-        flywheelleft.set(-value);
-        flywheelright.set(-value);
+        ballleft.set(-value);
     }
 
     // public void rotate(double value)

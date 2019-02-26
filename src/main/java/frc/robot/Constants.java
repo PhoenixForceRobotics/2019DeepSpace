@@ -48,17 +48,10 @@ public class Constants
 
         public static class BallCollector
         {
-<<<<<<< HEAD
-            public static int BALL_ROTATE = 4;
-            public static int BALL_ROTATE1 = 6;
-            public static int COLLECTOR_LEFT = 5;
-            public static int COLLECTOR_RIGHT = 7;
-=======
             public static int BALL_ROTATE = 111;
             public static int BALL_ROTATE1 = 112;
             public static int COLLECTOR_LEFT = 5;
             public static int COLLECTOR_RIGHT = 113;
->>>>>>> e22f6a396d96277ec0a8915ebd8499d536e27bfd
 
             public static final boolean BALLROTATE_REVERSED = true;
             public static final boolean BALLROTATE1_REVERSED = false;
@@ -84,15 +77,15 @@ public class Constants
     }
     public static class ElevatorSetPoints
     {
-<<<<<<< HEAD
-        public static final double BOTTOM = .20;
-        public static final double MIDDLE = .75;
-        public static final double TOP = 1.40;
-=======
-        public static final double BOTTOM = .2;
-        public static final double MIDDLE = .5;
-        public static final double TOP = 1.0;
->>>>>>> e22f6a396d96277ec0a8915ebd8499d536e27bfd
+        // fake setpoints for jenky tuning
+        // public static final double BOTTOM = .20;
+        // public static final double MIDDLE = .75;
+        // public static final double TOP = 1.40;
+
+        // actual setpoints
+        public static final double BOTTOM = .10;
+        public static final double MIDDLE = .50;
+        public static final double TOP = 1.00;
     }
 
     public static class CollectorSetPoints
@@ -137,15 +130,16 @@ public class Constants
         }
         public static class ElevatorPIDConstants
         {
-<<<<<<< HEAD
-            public static final double kp = -2.00;
-            public static final double ki = 0.00;
-            public static final double kd = -6.00;
-=======
+            // jenky tuning that kinda works
+            // public static final double kp = -2.00;
+            // public static final double ki = 0.00;
+            // public static final double kd = -6.00;
+
+            // tuning that is in process and makes carriage go boom
             public static final double kp = -10.00;
             public static final double ki = .00;
             public static final double kd = -20.00;
->>>>>>> e22f6a396d96277ec0a8915ebd8499d536e27bfd
+            
             public static final double tolerance = .05;
         }
         public static class RotateCollectorPIDConstants
