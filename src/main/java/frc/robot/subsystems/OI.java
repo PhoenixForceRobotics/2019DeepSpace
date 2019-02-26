@@ -4,7 +4,7 @@ import frc.controllers.BobXboxController;
 import frc.robot.commands.collector.*;
 import frc.robot.commands.drivebase.*;
 import frc.robot.commands.elevator.*;
-import frc.robot.Constants;
+// import frc.robot.Constants;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -32,6 +32,7 @@ public class OI
 
         driverController.aButton.whileHeld(new BallHoldIntake());
         driverController.bButton.whileHeld(new BallHoldOuttake());
+        driverController.bButton.whenPressed(new BallOuttake());
 
         driverController.rightStickButton.whenPressed(new Shifter());
     }

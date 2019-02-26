@@ -4,7 +4,6 @@ import frc.robot.Constants;
 import frc.robot.Robot;
 import frc.robot.subsystems.Collector;
 import edu.wpi.first.wpilibj.command.PIDCommand;
-// import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import java.util.logging.Logger;
 import frc.robot.utility.Log;
 
@@ -39,28 +38,33 @@ public class RotateDown extends PIDCommand
 
     @Override
     protected void initialize() {
+        logger.fine("Initialize RotateDown");
         super.initialize();
         super.setSetpoint(setpoint);
     }
 
     @Override
     protected void execute() {
+        logger.fine("Execute RotateDown");
         super.execute();
     }
 
     @Override
     protected boolean isFinished() {
+        logger.fine("RotateDown isFinished?");
         return false;
     }
 
     @Override
     protected void interrupted() {
+        logger.fine("RotateDown interrupted");
         super.interrupted();
         super.end();
     }
 
     @Override
     protected void end() {
+        logger.fine("End RotateDown");
         super.end();
         collector.killrotatemotors();
     }

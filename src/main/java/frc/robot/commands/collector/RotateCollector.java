@@ -5,20 +5,20 @@ import frc.robot.Constants;
 import frc.robot.commands.collector.RotateUp;
 import frc.robot.commands.collector.RotateDown;
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import com.revrobotics.CANEncoder;
+// import com.revrobotics.CANEncoder;
 
 
 public class RotateCollector extends CommandGroup 
 {
     private boolean a;
     private boolean b;
-    private boolean c;
     // private CANEncoder encoder;
     
     public RotateCollector() {
 
         a = Robot.oi.driverController.leftBumper.get();
         b = Robot.oi.driverController.rightBumper.get();
+        // I'm leaving the encoder because when we add more setpoints we will need it
         // this.encoder = Robot.collector.collectorEncoder;
 
         if(a && !b){

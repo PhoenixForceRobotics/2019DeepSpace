@@ -39,28 +39,33 @@ public class RotateUp extends PIDCommand
 
     @Override
     protected void initialize() {
+        logger.fine("Initialize RotateUp");
         super.initialize();
         super.setSetpoint(setpoint);
     }
 
     @Override
     protected void execute() {
+        logger.fine("Execute RotateUp");
         super.execute();
     }
 
     @Override
     protected boolean isFinished() {
+        logger.fine("RotateUp isFinished?");
         return false;
     }
 
     @Override
     protected void interrupted() {
+        logger.fine("RotateUp interrupted");
         super.interrupted();
         super.end();
     }
 
     @Override
     protected void end() {
+        logger.fine("End RotateUp");
         super.end();
         collector.killrotatemotors();
     }

@@ -3,13 +3,16 @@ package frc.robot.commands.elevator;
 import frc.robot.Constants;
 import frc.robot.Robot;
 import frc.robot.subsystems.Elevator;
-import edu.wpi.first.wpilibj.PIDBase.AbsoluteTolerance;
 import edu.wpi.first.wpilibj.command.PIDCommand;
+import java.util.logging.Logger;
+import frc.robot.utility.Log;
 
 public class RunElevatorDown extends PIDCommand
 {
     private Elevator elevator;
     private double setpoint;
+
+    private static final Logger logger = Log.configureLog(RunElevatorDown.class.getName());
 
     public RunElevatorDown(double setpoint)
     {
@@ -33,12 +36,14 @@ public class RunElevatorDown extends PIDCommand
 
     @Override
     protected void initialize() {
+        logger.fine("Initialize RunElevtorDown");
         super.initialize();
         super.setSetpoint(setpoint);
     }
 
     @Override
     protected void execute() {
+        logger.fine("Execute RunElevatorDown");
         super.execute();
     }
 
@@ -49,12 +54,14 @@ public class RunElevatorDown extends PIDCommand
 
     @Override
     protected void interrupted() {
+        logger.fine("RunElevatorDown");
         super.interrupted();
         super.end();
     }
 
     @Override
     protected void end() {
+        logger.fine("End RunElevatorDown");
         super.end();
         elevator.killmotors();
     }

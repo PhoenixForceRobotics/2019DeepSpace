@@ -2,14 +2,13 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Constants;
-import frc.robot.Robot;
 import frc.robot.utility.Motor;
-
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-
 import com.revrobotics.CANEncoder;
 // import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel;
+import java.util.logging.Logger;
+import frc.robot.utility.Log;
 
 public class Elevator extends Subsystem {
     public Motor elevatorL;
@@ -17,8 +16,10 @@ public class Elevator extends Subsystem {
 
     public CANEncoder elevatorEncoder;
 
-    public Elevator() {
+    private static final Logger logger = Log.configureLog(Elevator.class.getName());
 
+    public Elevator() {
+        logger.finest("Spinup Elevator");
         elevatorL = new Motor(Constants.MotorMap.Elevator.ELEVATORL, MotorType.kBrushed, Constants.MotorMap.Elevator.ELEVATORL_REVERSED, 30);
         elevatorR = new Motor(Constants.MotorMap.Elevator.ELEVATORR, MotorType.kBrushed, Constants.MotorMap.Elevator.ELEVATORR_REVERSED, 30);
         elevatorR.follow(elevatorL);
@@ -29,6 +30,7 @@ public class Elevator extends Subsystem {
     }
 
     public void killmotors(){
+        logger.finest("Elevator kill motors");
         elevatorL.set(0);
     }
 
