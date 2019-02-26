@@ -1,67 +1,30 @@
 package frc.robot.commands.collector;
 
-import frc.robot.Constants;
 import frc.robot.Robot;
-import frc.robot.subsystems.Collector;
-import frc.robot.subsystems.OI;
-import edu.wpi.first.wpilibj.command.Command;
-import java.util.logging.Logger;
-import frc.robot.utility.Log;
+import frc.robot.Constants;
+import frc.robot.commands.collector.RotateUp;
+import frc.robot.commands.collector.RotateDown;
+import edu.wpi.first.wpilibj.command.CommandGroup;
+import com.revrobotics.CANEncoder;
 
 
-public class RotateCollector extends Command
-{   
-    private Collector collector;
-    private OI oi;
+public class RotateCollector extends CommandGroup 
+{
     private boolean a;
     private boolean b;
-
-    private static final Logger logger = Log.configureLog(RotateCollector.class.getName());
-
+    private boolean c;
+    // private CANEncoder encoder;
+    
     public RotateCollector() {
-        requires(Robot.collector);
-        this.collector = Robot.collector;
-        this.oi = Robot.oi;
-    }
-    @Override
-    public void initialize()
-    {
-        a = oi.driverController.leftBumper.get();
-        b = oi.driverController.rightBumper.get();
+
+        a = Robot.oi.driverController.leftBumper.get();
+        b = Robot.oi.driverController.rightBumper.get();
+        // this.encoder = Robot.collector.collectorEncoder;
 
         if(a && !b){
-            collector.setSetpoint(Constants.CollectorSetPoints.UP);
-            collector.enable();
-        } else if(b && !a){
-            collector.setSetpoint(Constants.CollectorSetPoints.DOWN);
-            collector.enable();
-        } else {
-            collector.disable();
+            new RotateUp(Constants.CollectorSetPoints.UP);
+        } else if(!a && b){
+            new RotateDown(Constants.CollectorSetPoints.DOWN);
         }
     }
-  
-    @Override
-    public void execute()
-    {
-        
-    }
-
-    @Override 
-    public boolean isFinished()
-    {
-        return false;
-    }
-
-    @Override
-    public void interrupted()
-    {
-        end();
-    }
-
-    @Override
-    public void end()
-    {
-        collector.disable();
-        collector.killrotatemotors();
-    }   
 }

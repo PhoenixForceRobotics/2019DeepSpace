@@ -2,7 +2,7 @@ package frc.robot.subsystems;
 
 import java.util.logging.Logger;
 
-import edu.wpi.first.wpilibj.command.PIDSubsystem;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Constants;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
@@ -14,7 +14,7 @@ import com.revrobotics.CANSparkMaxLowLevel;
 
 import frc.robot.utility.Log;
 
-public class Collector extends PIDSubsystem
+public class Collector extends Subsystem
 {
     public Motor flywheelleft, flywheelright;
     public Motor collectorrotate;
@@ -25,9 +25,7 @@ public class Collector extends PIDSubsystem
     public static final Logger logger = Log.configureLog(Collector.class.getName());
 
     public Collector() {
-        super("COllector", Constants.SubsystemSpeeds.RotateCollectorPIDConstants.kp, Constants.SubsystemSpeeds.RotateCollectorPIDConstants.ki, Constants.SubsystemSpeeds.RotateCollectorPIDConstants.kd);
-        getPIDController().setContinuous(false);
-
+        
         logger.fine("Spinup Ball Collector and Hatch Collector");
         
         flywheelleft = new Motor(Constants.MotorMap.BallCollector.COLLECTOR_LEFT, MotorType.kBrushed, Constants.MotorMap.BallCollector.COLLECTORLEFT_REVERSED, 30);
@@ -56,24 +54,6 @@ public class Collector extends PIDSubsystem
         logger.finest("Start Ball Collector Outake");
         flywheelleft.set(-value);
         flywheelright.set(-value);
-    }
-
-    // public void rotate(double value)
-    // {
-    //     //jt system out
-    //     System.out.println("Value:" + value);
-    //     logger.finest("Start Ball Collector Rotate");
-    //     collectorrotate.setSetpoint(value);
-    //     System.out.println(collectorEncoder.getPosition());
-    // }
-
-    public double returnPIDInput()
-    {
-        return collectorEncoder.getPosition();
-    }
-    
-    public void usePIDOutput(double output){
-        collectorrotate.set(output);
     }
 
     public void killrotatemotors()

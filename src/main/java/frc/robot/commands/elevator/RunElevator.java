@@ -1,72 +1,38 @@
 package frc.robot.commands.elevator;
-import frc.robot.Constants;
+
 import frc.robot.Robot;
-import frc.robot.subsystems.Elevator;
+import frc.robot.Constants;
+import frc.robot.commands.elevator.RunElevatorUp;
+import frc.robot.commands.elevator.RunElevatorDown;
+import edu.wpi.first.wpilibj.command.CommandGroup;
+import com.revrobotics.CANEncoder;
 
-import edu.wpi.first.wpilibj.PIDController;
-// import edu.wpi.first.wpilibj.Joystick.ButtonType;
-import frc.robot.subsystems.OI;
-import edu.wpi.first.wpilibj.command.Command;
 
-
-public class RunElevator extends Command 
+public class RunElevator extends CommandGroup 
 {
-    private Elevator elevator;
     private boolean a;
     private boolean b;
     private boolean c;
-
-    public RunElevator()
-    {
-        requires(Robot.elevator);
-        this.elevator = Robot.elevator;
-    }
-
-    @Override
-    public void initialize()
-    {
-        double encod = elevator.elevatorEncoder.getPosition();
+    private CANEncoder encoder;
+    
+    public RunElevator() {
 
         a = Robot.oi.driverController.Dpad.Up.get();
         b = Robot.oi.driverController.Dpad.Left.get();
         c = Robot.oi.driverController.Dpad.Down.get();
+        this.encoder = Robot.elevator.elevatorEncoder;
 
         if(a && !b && !c){
-            elevator.setSetpoint(Constants.ElevatorSetPoints.TOP);
-            elevator.enable();
+            new RunElevatorUp(Constants.ElevatorSetPoints.TOP);
         } else if(!a && b && !c){
-            elevator.setSetpoint(Constants.ElevatorSetPoints.MIDDLE);
-            elevator.enable();
+            if(encoder.getPosition() > Constants.ElevatorSetPoints.MIDDLE){
+                new RunElevatorDown(Constants.ElevatorSetPoints.MIDDLE);
+            }
+            else if (encoder.getPosition() < Constants.ElevatorSetPoints.MIDDLE){
+                new RunElevatorUp(Constants.ElevatorSetPoints.MIDDLE);
+            }
         } else if(!a && !b && c){
-            elevator.setSetpoint(Constants.ElevatorSetPoints.BOTTOM);
-            elevator.disable();
-        } else {
-            elevator.disable();      
+            new RunElevatorDown(Constants.ElevatorSetPoints.BOTTOM);
         }
-    }
-
-    @Override
-    public void execute()
-    {
-        System.out.println(elevator.elevatorEncoder.getPosition());
-    }
-
-    @Override
-    public boolean isFinished()
-    {
-        return false;
-    }
-
-    @Override
-    public void interrupted()
-    {   
-        end();
-    }
-
-    @Override
-    public void end()
-    {
-        elevator.disable();
-        elevator.killmotors();
     }
 }
