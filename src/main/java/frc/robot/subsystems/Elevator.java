@@ -11,8 +11,10 @@ import java.util.logging.Logger;
 import frc.robot.utility.Log;
 
 public class Elevator extends Subsystem {
-    public Motor elevatorL;
-    public Motor elevatorR;
+    public Motor elevator1;
+    public Motor elevator2;
+    public Motor elevator3;
+    public Motor elevator4;
 
     public CANEncoder elevatorEncoder;
 
@@ -20,18 +22,22 @@ public class Elevator extends Subsystem {
 
     public Elevator() {
         logger.finest("Spinup Elevator");
-        elevatorL = new Motor(Constants.MotorMap.Elevator.ELEVATORL, MotorType.kBrushed, Constants.MotorMap.Elevator.ELEVATORL_REVERSED, 30);
-        elevatorR = new Motor(Constants.MotorMap.Elevator.ELEVATORR, MotorType.kBrushed, Constants.MotorMap.Elevator.ELEVATORR_REVERSED, 30);
-        elevatorR.follow(elevatorL);
-        
-        elevatorL.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 2);
-        elevatorEncoder = elevatorL.getEncoder();
+        elevator1 = new Motor(Constants.MotorMap.Elevator.ELEVATOR1, MotorType.kBrushed, Constants.MotorMap.Elevator.ELEVATOR1_REVERSED, 30);
+        elevator2 = new Motor(Constants.MotorMap.Elevator.ELEVATOR2, MotorType.kBrushed, Constants.MotorMap.Elevator.ELEVATOR2_REVERSED, 30);
+        elevator3 = new Motor(Constants.MotorMap.Elevator.ELEVATOR3, MotorType.kBrushed, Constants.MotorMap.Elevator.ELEVATOR3_REVERSED, 30);
+        elevator4 = new Motor(Constants.MotorMap.Elevator.ELEVATOR4, MotorType.kBrushed, Constants.MotorMap.Elevator.ELEVATOR4_REVERSED, 30);
+ 
+        elevator3.follow(elevator1);
+        elevator4.follow(elevator2);
+
+        elevator1.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 2);
+        elevatorEncoder = elevator1.getEncoder();
 
     }
 
     public void killmotors(){
         logger.finest("Elevator kill motors");
-        elevatorL.set(0);
+        elevator1.set(0);
     }
 
     public void initDefaultCommand()

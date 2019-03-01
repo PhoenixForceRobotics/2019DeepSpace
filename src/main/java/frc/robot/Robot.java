@@ -20,6 +20,7 @@ import frc.robot.subsystems.Collector;
 import java.util.logging.Logger;
 import frc.robot.utility.Log;
 import frc.robot.commands.drivebase.RunDriveBase;
+import frc.robot.commands.elevator.RunElevator;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -39,6 +40,7 @@ public class Robot extends TimedRobot {
   public static Collector collector;
   public static Elevator elevator;
 
+
   private static final Logger logger = Log.configureLog(Robot.class.getName());
 
   /**
@@ -56,11 +58,11 @@ public class Robot extends TimedRobot {
       collector = new Collector();
       logger.fine("About  to start HDrive");
       hDrive = new HDrive();
-      logger.fine("starting elevator");
-      elevator = new Elevator();
       logger.fine("starting OI");
-      oi = new OI();
+      elevator = new Elevator();
       logger.fine("Everything done here");
+      oi = new OI();
+      logger.fine("starting elevator");
   }
 
   /**
@@ -120,6 +122,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopInit() {
     addDriveBase();
+    Scheduler.getInstance().add(new RunElevator());
   }
 
   @Override
