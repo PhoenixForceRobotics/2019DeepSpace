@@ -4,7 +4,6 @@ import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.subsystems.Drivebase;
 
-
 public class Shifter extends Command
 {
     Drivebase mydrive;

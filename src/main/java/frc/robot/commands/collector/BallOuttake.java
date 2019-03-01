@@ -1,6 +1,5 @@
 package frc.robot.commands.collector;
 
-// import frc.robot.subsystems.OI;
 import frc.robot.Robot;
 import frc.robot.subsystems.Collector;
 import frc.robot.Constants;
@@ -27,7 +26,7 @@ public class BallOuttake extends Command
 
     public void execute() {
         logger.finest("Excecute BallOuttake");
-        collector.outtake(-Constants.SubsystemSpeeds.BallCollectorValues.BCOuttakeSpeed);
+        collector.outtake(Constants.SubsystemSpeeds.BallCollectorValues.BCOuttakeSpeed);
     }
 
 

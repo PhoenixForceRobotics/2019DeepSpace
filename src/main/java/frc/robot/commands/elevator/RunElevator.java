@@ -1,72 +1,77 @@
 package frc.robot.commands.elevator;
-import frc.robot.Constants;
+
 import frc.robot.Robot;
 import frc.robot.subsystems.Elevator;
-
-import edu.wpi.first.wpilibj.PIDController;
-// import edu.wpi.first.wpilibj.Joystick.ButtonType;
 import frc.robot.subsystems.OI;
+import frc.robot.Constants;
+import frc.robot.commands.elevator.ElevatorPID;
 import edu.wpi.first.wpilibj.command.Command;
+import com.revrobotics.CANEncoder;
 
 
-public class RunElevator extends Command 
+public class RunElevator extends Command
 {
     private Elevator elevator;
-    private boolean a;
-    private boolean b;
-    private boolean c;
+    private CANEncoder encoder;
+    private OI oi;
 
-    public RunElevator()
-    {
+    private boolean up;
+    private boolean left;
+    private boolean down;
+
+    private ElevatorPID elevatorPID;
+    
+    public RunElevator() {
         requires(Robot.elevator);
+        this.encoder = Robot.elevator.elevatorEncoder;
         this.elevator = Robot.elevator;
+        this.oi = Robot.oi;
+        System.out.println(this.oi);
+        System.out.println(this.elevator);
+        elevatorPID = new ElevatorPID();
+
     }
 
     @Override
-    public void initialize()
-    {
-        double encod = elevator.elevatorEncoder.getPosition();
+    protected void initialize() {
 
-        a = Robot.oi.driverController.Dpad.Up.get();
-        b = Robot.oi.driverController.Dpad.Left.get();
-        c = Robot.oi.driverController.Dpad.Down.get();
+    }
 
-        if(a && !b && !c){
-            elevator.setSetpoint(Constants.ElevatorSetPoints.TOP);
-            elevator.enable();
-        } else if(!a && b && !c){
-            elevator.setSetpoint(Constants.ElevatorSetPoints.MIDDLE);
-            elevator.enable();
-        } else if(!a && !b && c){
-            elevator.setSetpoint(Constants.ElevatorSetPoints.BOTTOM);
-            elevator.disable();
-        } else {
-            elevator.disable();      
+    @Override
+    protected void execute() {
+        up = oi.driverController.Dpad.Up.get();
+        left = oi.driverController.Dpad.Left.get();
+        down = oi.driverController.Dpad.Down.get();
+        
+        if(up && !left && !down){
+            System.out.println("upupupupupupupup");
+            elevatorPID.PIDUp(Constants.ElevatorSetPoints.TOP);
+        } else if(!up && left && !down){
+            System.out.println("leftleftleftleftleft");
+            if(encoder.getPosition() > Constants.ElevatorSetPoints.MIDDLE){
+                elevatorPID.PIDDown(Constants.ElevatorSetPoints.MIDDLE);
+            }
+            else if (encoder.getPosition() < Constants.ElevatorSetPoints.MIDDLE){
+                elevatorPID.PIDUp(Constants.ElevatorSetPoints.MIDDLE);
+            }
+        } else if(!up && !left && down){
+            System.out.println("downdowndowndowndowndown");
+            elevatorPID.PIDDown(Constants.ElevatorSetPoints.BOTTOM);
         }
     }
 
     @Override
-    public void execute()
-    {
-        System.out.println(elevator.elevatorEncoder.getPosition());
-    }
-
-    @Override
-    public boolean isFinished()
-    {
+    protected boolean isFinished() {
         return false;
     }
 
     @Override
-    public void interrupted()
-    {   
-        end();
+    protected void interrupted() {
+        
     }
 
     @Override
-    public void end()
-    {
-        elevator.disable();
-        elevator.killmotors();
+    protected void end() {
+        
     }
 }

@@ -38,20 +38,12 @@ public class Constants
             public static final boolean HDRIVE2_REVERSED = true;
         }
 
-        public static class HatchCollector
-        {
-        //¯\_(ツ)_/¯ dunno what the motor is
-            public static int ARMCOLLECTOR = 9;
-        //Should this be true or false? 
-            public static final boolean ARMCOLLECTOR_REVERSED = false;
-        }
-
         public static class BallCollector
         {
-            public static int BALL_ROTATE = 111;
-            public static int BALL_ROTATE1 = 112;
+            public static int BALL_ROTATE = 6;
+            public static int BALL_ROTATE1 = 7;
             public static int COLLECTOR_LEFT = 5;
-            public static int COLLECTOR_RIGHT = 113;
+            public static int COLLECTOR_RIGHT = 4;
 
             public static final boolean BALLROTATE_REVERSED = true;
             public static final boolean BALLROTATE1_REVERSED = false;
@@ -61,11 +53,15 @@ public class Constants
 
         public static class Elevator
         {
-            public static int ELEVATORL = 10;
-            public static int ELEVATORR = 11;
+            public static int ELEVATOR1 = 10;
+            public static int ELEVATOR2 = 11;
+            public static int ELEVATOR3 = 8;
+            public static int ELEVATOR4 = 9;
 
-            public static final boolean ELEVATORL_REVERSED = false;
-            public static final boolean ELEVATORR_REVERSED = true;
+            public static final boolean ELEVATOR1_REVERSED = true;
+            public static final boolean ELEVATOR2_REVERSED = false;
+            public static final boolean ELEVATOR3_REVERSED = true;
+            public static final boolean ELEVATOR4_REVERSED = true;
         }
     
     }
@@ -77,15 +73,9 @@ public class Constants
     }
     public static class ElevatorSetPoints
     {
-        // fake setpoints for jenky tuning
-        // public static final double BOTTOM = .20;
-        // public static final double MIDDLE = .75;
-        // public static final double TOP = 1.40;
-
-        // actual setpoints
-        public static final double BOTTOM = .10;
-        public static final double MIDDLE = .50;
-        public static final double TOP = 1.00;
+        public static final double BOTTOM = .2;
+        public static final double MIDDLE = .75;
+        public static final double TOP = 1.13;
     }
 
     public static class CollectorSetPoints
@@ -124,29 +114,40 @@ public class Constants
         }
         public static class BallCollectorValues
         {
-            public static final double BCIntakeSpeed = 1;
-            public static final double BCOuttakeSpeed = 1;
+            public static final double BCIntakeSpeed = .4;
+            public static final double BCOuttakeSpeed = .4;
             public static final double BCRotateSpeed = 1;
         }
         public static class ElevatorPIDConstants
         {
-            // jenky tuning that kinda works
-            // public static final double kp = -2.00;
-            // public static final double ki = 0.00;
-            // public static final double kd = -6.00;
-
-            // tuning that is in process and makes carriage go boom
-            public static final double kp = -10.00;
-            public static final double ki = .00;
-            public static final double kd = -20.00;
-            
+            public static final class UP
+            {
+                public static final double kp = -3.75;
+                public static final double ki = .00;
+                public static final double kd = -5.25;
+            }
+            public static final class DOWN
+            {
+                public static final double kp = -.3;
+                public static final double ki = .00;
+                public static final double kd = -1;
+            }
             public static final double tolerance = .05;
         }
         public static class RotateCollectorPIDConstants
         {
-            public static final double kp = .00;
-            public static final double ki = .00;
-            public static final double kd = .00;
+            public static final class UP
+            {
+                public static final double kp = .00;
+                public static final double ki = .00;
+                public static final double kd = .00;
+            }
+            public static final class DOWN
+            {
+                public static final double kp = .00;
+                public static final double ki = .00;
+                public static final double kd = .00;
+            }
             public static final double tolerance = 3;
         }
     }

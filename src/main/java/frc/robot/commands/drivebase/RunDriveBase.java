@@ -43,7 +43,6 @@ public class RunDriveBase extends Command
         logger.finest("Run Drive Base Execute");
         //tank drive controls
         multiplier = drivebase.getMultiplier();
-        System.out.println(drivebase.getMultiplier());
         drivebase.setLeft(customMath.makeSign(oi.driverController.rightStick.getY(), multiplier * Math.pow(oi.driverController.rightStick.getY(), Constants.SubsystemSpeeds.DrivebaseValues.StickPower)));
         drivebase.setRight(customMath.makeSign(oi.driverController.leftStick.getY(), multiplier * Math.pow(oi.driverController.leftStick.getY(), Constants.SubsystemSpeeds.DrivebaseValues.StickPower)));
     }

@@ -1,10 +1,14 @@
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.Encoder;
 import frc.controllers.BobXboxController;
 import frc.robot.commands.collector.*;
 import frc.robot.commands.drivebase.*;
 import frc.robot.commands.elevator.*;
+import frc.robot.Robot;
 import frc.robot.Constants;
+import com.revrobotics.CANEncoder;
+// import frc.robot.Constants;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -12,7 +16,6 @@ import frc.robot.Constants;
  */
 public class OI
 {
-
     public BobXboxController driverController;
     public BobXboxController operatorController;
 
@@ -22,10 +25,6 @@ public class OI
 
         driverController.leftTriggerButton.whileHeld(new RunHDrive());
         driverController.rightTriggerButton.whileHeld(new RunHDrive());
-        
-        driverController.Dpad.Up.whenPressed(new RunElevator());
-        driverController.Dpad.Left.whenPressed(new RunElevator());
-        driverController.Dpad.Down.whenPressed(new RunElevator());
 
         driverController.leftBumper.whenPressed(new RotateCollector());
         driverController.rightBumper.whenPressed(new RotateCollector());

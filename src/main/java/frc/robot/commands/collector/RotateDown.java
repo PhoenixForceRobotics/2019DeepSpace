@@ -3,50 +3,69 @@ package frc.robot.commands.collector;
 import frc.robot.Constants;
 import frc.robot.Robot;
 import frc.robot.subsystems.Collector;
-import edu.wpi.first.wpilibj.command.Command;
-// import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.command.PIDCommand;
 import java.util.logging.Logger;
 import frc.robot.utility.Log;
 
 
-public class RotateDown extends Command
+public class RotateDown extends PIDCommand
 {   
     private Collector collector;
+    private double setpoint;
 
-    private static final Logger logger = Log.configureLog(RotateDown.class.getName());
+    private static final Logger logger = Log.configureLog(RotateUp.class.getName());
 
-    public RotateDown() {
+    public RotateDown(double setpoint) {
+        
+        super(Constants.SubsystemSpeeds.RotateCollectorPIDConstants.DOWN.kp,
+            Constants.SubsystemSpeeds.RotateCollectorPIDConstants.DOWN.ki,
+            Constants.SubsystemSpeeds.RotateCollectorPIDConstants.DOWN.kd);
+        
         requires(Robot.collector);
-
         this.collector = Robot.collector;
+        this.setpoint = setpoint;
     }
+    
     @Override
-    public void initialize()
-    {
-
+    protected double returnPIDInput() {
+        return collector.collectorEncoder.getPosition();
     }
-  
+
     @Override
-    public void execute()
-    {
-
+    protected void usePIDOutput(double output) {
+        collector.collectorrotate.set(output);
     }
 
-    @Override 
-    public boolean isFinished()
-    {
+    @Override
+    protected void initialize() {
+        logger.fine("Initialize RotateDown");
+        super.initialize();
+        super.setSetpoint(setpoint);
+    }
+
+    @Override
+    protected void execute() {
+        logger.fine("Execute RotateDown");
+        super.execute();
+    }
+
+    @Override
+    protected boolean isFinished() {
+        logger.fine("RotateDown isFinished?");
         return false;
     }
 
     @Override
-    public void interrupted()
-    {
-        end();
+    protected void interrupted() {
+        logger.fine("RotateDown interrupted");
+        super.interrupted();
+        super.end();
     }
 
     @Override
-    public void end()
-    {
-
-    }   
+    protected void end() {
+        logger.fine("End RotateDown");
+        super.end();
+        collector.killrotatemotors();
+    }
 }
