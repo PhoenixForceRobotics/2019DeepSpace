@@ -40,10 +40,10 @@ public class Constants
 
         public static class BallCollector
         {
-            public static int BALL_ROTATE = 6;
+            public static int BALL_ROTATE = 4;
             public static int BALL_ROTATE1 = 7;
-            public static int COLLECTOR_LEFT = 5;
-            public static int COLLECTOR_RIGHT = 4;
+            public static int COLLECTOR_LEFT = 6;
+            public static int COLLECTOR_RIGHT = 5;
 
             public static final boolean BALLROTATE_REVERSED = true;
             public static final boolean BALLROTATE1_REVERSED = false;
@@ -115,7 +115,7 @@ public class Constants
         public static class BallCollectorValues
         {
             public static final double BCIntakeSpeed = .4;
-            public static final double BCOuttakeSpeed = .4;
+            public static final double BCOuttakeSpeed = 1;
             public static final double BCRotateSpeed = 1;
         }
         public static class ElevatorPIDConstants
