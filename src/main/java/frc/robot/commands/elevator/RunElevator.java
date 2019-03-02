@@ -15,6 +15,7 @@ public class RunElevator extends Command
     private CANEncoder encoder;
     private OI oi;
     private double setpoint;
+    private double lastSet;
 
     private boolean up;
     private boolean left;
@@ -54,7 +55,7 @@ public class RunElevator extends Command
                 setpoint = Constants.ElevatorSetPoints.Balls.MIDDLE;
             } else if(!up && !left && right && !down){
                 setpoint = Constants.ElevatorSetPoints.Balls.CENTER;
-            } else if(!up && !left && !right && !down){
+            } else if(!up && !left && !right && down){
                 setpoint = Constants.ElevatorSetPoints.Balls.BOTTOM;
             }
         } else {
@@ -62,16 +63,14 @@ public class RunElevator extends Command
                 setpoint = Constants.ElevatorSetPoints.Hatches.TOP;
             } else if(!up && left && !right && !down){
                 setpoint = Constants.ElevatorSetPoints.Hatches.MIDDLE;
-            } else if(!up && !left && !right && !down){
+            } else if(!up && !left && !right && down){
                 setpoint = Constants.ElevatorSetPoints.Hatches.BOTTOM;
             }
         }
-
-        if(encoder.getPosition() < setpoint){
-            elevatorPID.PIDUp(setpoint);
-        } else {
-            elevatorPID.PIDDown(setpoint);
+        if(lastSet != setpoint){
+            newCom();
         }
+        lastSet = setpoint;
     }
 
     @Override
@@ -81,11 +80,19 @@ public class RunElevator extends Command
 
     @Override
     protected void interrupted() {
-        
+        end();
     }
 
     @Override
     protected void end() {
-        
+        elevatorPID.end();
+    }
+
+    private void newCom(){
+        if(encoder.getPosition() < setpoint){
+            elevatorPID.PIDUp(setpoint);
+        } else {
+            elevatorPID.PIDDown(setpoint);
+        }
     }
 }

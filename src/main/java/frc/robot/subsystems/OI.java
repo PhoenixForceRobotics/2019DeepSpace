@@ -22,13 +22,10 @@ public class OI
         driverController.leftTriggerButton.whileHeld(new RunHDrive());
         driverController.rightTriggerButton.whileHeld(new RunHDrive());
 
-        driverController.leftBumper.whenPressed(new RotateCollector());
-        driverController.rightBumper.whenPressed(new RotateCollector());
-
-        driverController.aButton.whileHeld(new BallHoldIntake());
-        driverController.bButton.whileHeld(new BallHoldOuttake());
+        driverController.leftBumper.whileHeld(new BallHoldOuttake());
+        driverController.rightBumper.whileHeld(new BallHoldIntake());
 
         driverController.rightStickButton.whenPressed(new Shifter());
-        driverController.startButton.whenPressed(new ElevatorShifter());
+        driverController.selectButton.whenPressed(new ElevatorShifter());
     }
 }

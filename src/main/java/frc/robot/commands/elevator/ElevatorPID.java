@@ -54,4 +54,8 @@ public class ElevatorPID extends PIDCommand
     protected boolean isFinished(){
         return false;
     }
+
+    public void end(){
+        super.getPIDController().disable();
+    }
 }

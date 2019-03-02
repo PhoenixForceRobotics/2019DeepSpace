@@ -44,13 +44,18 @@ public class Collector extends Subsystem
     public void intake(double value)
     {
         logger.finest("Start Ball Collector Intake");
-        ballleft.set(value);
+        ballleft.set(-value);
     }
 
     public void outtake(double value)
     {
         logger.finest("Start Ball Collector Outake");
-        ballleft.set(-value);
+        ballleft.set(value);
+    }
+
+    public void janktateUp(double speed)
+    {
+        collectorrotate.set(speed);
     }
 
     public void killrotatemotors()
