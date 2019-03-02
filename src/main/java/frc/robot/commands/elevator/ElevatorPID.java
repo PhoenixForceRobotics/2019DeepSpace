@@ -10,7 +10,6 @@ import frc.robot.utility.Log;
 public class ElevatorPID extends PIDCommand
 {
     private Elevator elevator;
-    private double setpoint;
 
     private static final Logger logger = Log.configureLog(ElevatorPID.class.getName());
 
@@ -34,7 +33,6 @@ public class ElevatorPID extends PIDCommand
     }
 
     public void PIDUp(double setpoint){
-        this.setpoint = setpoint;
         super.getPIDController().reset();
         super.getPIDController().setPID(Constants.SubsystemSpeeds.ElevatorPIDConstants.UP.kp,
                                         Constants.SubsystemSpeeds.ElevatorPIDConstants.UP.ki,
@@ -44,7 +42,6 @@ public class ElevatorPID extends PIDCommand
     }
 
     public void PIDDown(double setpoint){
-        this.setpoint = setpoint;
         super.getPIDController().reset();
         super.getPIDController().setPID(Constants.SubsystemSpeeds.ElevatorPIDConstants.DOWN.kp,
                                         Constants.SubsystemSpeeds.ElevatorPIDConstants.DOWN.ki,

@@ -73,9 +73,17 @@ public class Constants
     }
     public static class ElevatorSetPoints
     {
-        public static final double BOTTOM = .2;
-        public static final double MIDDLE = .75;
-        public static final double TOP = 1.13;
+        public static class Balls{
+            public static final double BOTTOM = .5;
+            public static final double CENTER = .75;
+            public static final double MIDDLE = 1.13;
+            public static final double TOP = 1.17;
+        }
+        public static class Hatches{
+            public static final double BOTTOM = 0;
+            public static final double MIDDLE = .55;
+            public static final double TOP = 1.15;
+        }
     }
 
     public static class CollectorSetPoints

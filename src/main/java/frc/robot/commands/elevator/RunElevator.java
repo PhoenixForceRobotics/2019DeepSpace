@@ -14,9 +14,11 @@ public class RunElevator extends Command
     private Elevator elevator;
     private CANEncoder encoder;
     private OI oi;
+    private double setpoint;
 
     private boolean up;
     private boolean left;
+    private boolean right;
     private boolean down;
 
     private ElevatorPID elevatorPID;
@@ -29,7 +31,6 @@ public class RunElevator extends Command
         System.out.println(this.oi);
         System.out.println(this.elevator);
         elevatorPID = new ElevatorPID();
-
     }
 
     @Override
@@ -41,22 +42,35 @@ public class RunElevator extends Command
     protected void execute() {
         up = oi.driverController.Dpad.Up.get();
         left = oi.driverController.Dpad.Left.get();
+        right = oi.driverController.Dpad.Right.get();
         down = oi.driverController.Dpad.Down.get();
         
-        if(up && !left && !down){
-            System.out.println("upupupupupupupup");
-            elevatorPID.PIDUp(Constants.ElevatorSetPoints.TOP);
-        } else if(!up && left && !down){
-            System.out.println("leftleftleftleftleft");
-            if(encoder.getPosition() > Constants.ElevatorSetPoints.MIDDLE){
-                elevatorPID.PIDDown(Constants.ElevatorSetPoints.MIDDLE);
+        //This is the selector for the hight of the elevator. I know it can be abstracted 
+        //somehow with strings but I don't want to mess with that
+        if(elevator.ballMode){
+            if(up && !left && !right && !down){
+                setpoint = Constants.ElevatorSetPoints.Balls.TOP;
+            } else if(!up && left && !right && !down){
+                setpoint = Constants.ElevatorSetPoints.Balls.MIDDLE;
+            } else if(!up && !left && right && !down){
+                setpoint = Constants.ElevatorSetPoints.Balls.CENTER;
+            } else if(!up && !left && !right && !down){
+                setpoint = Constants.ElevatorSetPoints.Balls.BOTTOM;
             }
-            else if (encoder.getPosition() < Constants.ElevatorSetPoints.MIDDLE){
-                elevatorPID.PIDUp(Constants.ElevatorSetPoints.MIDDLE);
+        } else {
+            if(up && !left && !right && !down){
+                setpoint = Constants.ElevatorSetPoints.Hatches.TOP;
+            } else if(!up && left && !right && !down){
+                setpoint = Constants.ElevatorSetPoints.Hatches.MIDDLE;
+            } else if(!up && !left && !right && !down){
+                setpoint = Constants.ElevatorSetPoints.Hatches.BOTTOM;
             }
-        } else if(!up && !left && down){
-            System.out.println("downdowndowndowndowndown");
-            elevatorPID.PIDDown(Constants.ElevatorSetPoints.BOTTOM);
+        }
+
+        if(encoder.getPosition() < setpoint){
+            elevatorPID.PIDUp(setpoint);
+        } else {
+            elevatorPID.PIDDown(setpoint);
         }
     }
 

@@ -1,13 +1,9 @@
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.Encoder;
 import frc.controllers.BobXboxController;
 import frc.robot.commands.collector.*;
 import frc.robot.commands.drivebase.*;
 import frc.robot.commands.elevator.*;
-import frc.robot.Robot;
-import frc.robot.Constants;
-import com.revrobotics.CANEncoder;
 // import frc.robot.Constants;
 
 /**
@@ -33,5 +29,6 @@ public class OI
         driverController.bButton.whileHeld(new BallHoldOuttake());
 
         driverController.rightStickButton.whenPressed(new Shifter());
+        driverController.startButton.whenPressed(new ElevatorShifter());
     }
 }
