@@ -23,6 +23,7 @@ import frc.robot.utility.Log;
 import frc.robot.commands.drivebase.RunDriveBase;
 import frc.robot.commands.elevator.RunElevator;
 import frc.robot.commands.collector.RotateCollector;
+import frc.robot.commands.climber.PistonsUp;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -133,6 +134,7 @@ public class Robot extends TimedRobot {
     addDriveBase();
     addRunElevator();
     Scheduler.getInstance().add(new RotateCollector());
+    Scheduler.getInstance().add(new PistonsUp());
   }
 
   @Override

@@ -74,17 +74,20 @@ public class Constants
         public static class HatchCollector {
             public static int PUNCHER1 = 0;
             public static int PUNCHER2 = 1;
+            public static int PIN1 = 2;
+            public static int PIN2 = 3;
         }
         public static class ClimberPistons {
-            public static int SOLENOID1 = 7;
-            public static int SOLENOID2 = 8;
-            public static int SOLENOID3 = 9;
-            public static int SOLENOID4 = 10;
+            public static int SOLENOID1 = 4;
+            public static int SOLENOID2 = 5;
+            public static int SOLENOID3 = 7;
+            public static int SOLENOID4 = 6;
         }
     }
     public static class ElevatorSetPoints
     {
         public static class Balls{
+            public static final double TRUEBOTTOM = .1;
             public static final double BOTTOM = .5;
             public static final double CENTER = .75;
             public static final double MIDDLE = 1.13;
@@ -99,25 +102,11 @@ public class Constants
 
     public static class CollectorSetPoints
     {
-        public static final double BACK = .15;
-        public static final double MIDDLE = .5;
-        public static final double FRONT = 1.0;
+        public static final double BACK = 0;
+        public static final double MIDDLE = .25;
+        public static final double FRONT = .43;
     }
 
-    public static class EncoderMap{
-        public static class Collector 
-        {
-            public static int COLLECTORDIGITAL1 = 4;
-            public static int COLLECTORDIGITAL2 = 5;
-            public static final boolean COLLECTORDIGITAL_REVERSED = true;
-        }
-        public static class Elevator
-        {
-            public static int ELEVATORDIGITAL1 = 10;
-            public static int ELEVATORDIGITAL2 = 11;
-            public static boolean ELEVATORDIGITAL_REVERSED = true;
-        }
-    }
     public static class SubsystemSpeeds{
         public static class DrivebaseValues{
             public static double StickPower = 3;
@@ -139,17 +128,27 @@ public class Constants
         }
         public static class ElevatorPIDConstants
         {
+            //JT added this to try a steady
+            public static final class STEADY
+            {
+                public static final double kp = -6;
+                public static final double ki = .00;
+                public static final double kd = .00;
+            }
             public static final class UP
             {
-                public static final double kp = -3.75;
+                public static final double kp = -4;
                 public static final double ki = .00;
-                public static final double kd = -5.25;
+                public static final double kd = -10;
             }
             public static final class DOWN
             {
-                public static final double kp = -.3;
+                public static final double kp = -2.0;
                 public static final double ki = .00;
-                public static final double kd = -1;
+                public static final double kd = -3.0;
+                //public static final double kp = -4;
+                //public static final double ki = .00;
+                //public static final double kd = -10;
             }
             public static final double tolerance = .05;
         }
@@ -157,17 +156,17 @@ public class Constants
         {
             public static final class FORWARD
             {
-                public static final double kp = .00;
+                public static final double kp = 2.00;
                 public static final double ki = .00;
                 public static final double kd = .00;
             }
             public static final class BACK
             {
-                public static final double kp = .00;
+                public static final double kp = 1.00;
                 public static final double ki = .00;
                 public static final double kd = .00;
             }
-            public static final double tolerance = 3;
+            public static final double tolerance = .05;
         }
     }
     public static class OIMap {

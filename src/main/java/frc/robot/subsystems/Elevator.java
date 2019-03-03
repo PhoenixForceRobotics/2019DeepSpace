@@ -37,8 +37,11 @@ public class Elevator extends Subsystem {
 
     }
 
-    public void elevatorShift(){
-        ballMode = !ballMode;
+    public void makeBallMode(){
+        ballMode = true;
+    }
+    public void makeHatchMode(){
+        ballMode = false;
     }
 
     public void killmotors(){

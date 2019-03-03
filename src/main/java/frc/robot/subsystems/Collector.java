@@ -20,6 +20,7 @@ public class Collector extends Subsystem
     public Motor collectorrotate;
     public Motor collectorrotate1;
     public DoubleSolenoid puncher;
+    public DoubleSolenoid pins;
     public CANEncoder collectorEncoder;
 
     public static final Logger logger = Log.configureLog(Collector.class.getName());
@@ -33,7 +34,8 @@ public class Collector extends Subsystem
 
         collectorrotate1.follow(collectorrotate);
         
-        this.puncher = new DoubleSolenoid(Constants.PneumaticsMap.HatchCollector.PUNCHER1, Constants.PneumaticsMap.HatchCollector.PUNCHER2);
+        puncher = new DoubleSolenoid(Constants.PneumaticsMap.HatchCollector.PUNCHER1, Constants.PneumaticsMap.HatchCollector.PUNCHER2);
+        pins = new DoubleSolenoid(Constants.PneumaticsMap.HatchCollector.PIN1,Constants.PneumaticsMap.HatchCollector.PIN2);
         //try setting a lower level motor setting per Chief Delphi --this is JT's fault
         collectorrotate.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 0);
         collectorEncoder = collectorrotate.getEncoder();
@@ -77,6 +79,16 @@ public class Collector extends Subsystem
             logger.fine("Puncher off position");
             puncher.set(DoubleSolenoid.Value.kOff);
         }
+    }
+
+    public void pinDown(){
+        pins.set(DoubleSolenoid.Value.kForward);
+    }
+    public void pinUp(){
+        pins.set(DoubleSolenoid.Value.kReverse);
+    }
+    public void pinOff(){
+        pins.set(DoubleSolenoid.Value.kOff);
     }
    
     public void initDefaultCommand()

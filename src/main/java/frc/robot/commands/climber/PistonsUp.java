@@ -17,19 +17,19 @@ public class PistonsUp extends Command
     @Override
     protected void initialize()
     {
-        
+        setTimeout(2);
     }
 
     @Override
     protected void execute()
     {
-        climber.levitate();
+        climber.unlevitate();
     }
 
     @Override
     protected boolean isFinished()
     {
-        return false;
+        return isTimedOut();
     }
 
     @Override

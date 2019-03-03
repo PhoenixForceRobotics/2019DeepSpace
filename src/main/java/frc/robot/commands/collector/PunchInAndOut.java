@@ -14,8 +14,8 @@ public class PunchInAndOut extends CommandGroup
 
     public PunchInAndOut() {
         logger.info("Punch in and out");
-        addSequential(new PuncherHatchOut());
         addSequential(new PuncherHatchIn());
+        addSequential(new PuncherHatchOut());
     }
 
    
