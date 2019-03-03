@@ -56,6 +56,11 @@ public class Collector extends Subsystem
         collectorrotate.set(speed);
     }
 
+    public void janktateDown(double speed)
+    {
+        collectorrotate.set(-speed);
+    }
+
     public void killrotatemotors()
     {
         collectorrotate.set(0);
