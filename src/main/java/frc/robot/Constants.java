@@ -88,9 +88,9 @@ public class Constants
 
     public static class CollectorSetPoints
     {
-        public static final double BACK = .15;
-        public static final double MIDDLE = .5;
-        public static final double FRONT = 1.0;
+        public static final double BACK = 0;
+        public static final double MIDDLE = .25;
+        public static final double FRONT = .43;
     }
 
     public static class EncoderMap{
@@ -137,9 +137,9 @@ public class Constants
             }
             public static final class DOWN
             {
-                public static final double kp = -.3;
+                public static final double kp = -2.0;
                 public static final double ki = .00;
-                public static final double kd = -1;
+                public static final double kd = -3.0;
             }
             public static final double tolerance = .05;
         }
@@ -147,13 +147,13 @@ public class Constants
         {
             public static final class FORWARD
             {
-                public static final double kp = .00;
+                public static final double kp = 2.00;
                 public static final double ki = .00;
                 public static final double kd = .00;
             }
             public static final class BACK
             {
-                public static final double kp = .00;
+                public static final double kp = 1.00;
                 public static final double ki = .00;
                 public static final double kd = .00;
             }

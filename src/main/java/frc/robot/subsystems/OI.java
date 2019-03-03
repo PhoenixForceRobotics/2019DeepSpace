@@ -17,7 +17,7 @@ public class OI
 
     public OI() {
         driverController = new BobXboxController(0, 0.11, 0.11);
-        //operatorController = new BobXboxController(0, 0.10, 0.08);
+        operatorController = new BobXboxController(0, 0.11, 0.11);
 
         driverController.leftTriggerButton.whileHeld(new RunHDrive());
         driverController.rightTriggerButton.whileHeld(new RunHDrive());
