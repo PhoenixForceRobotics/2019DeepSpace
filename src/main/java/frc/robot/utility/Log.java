@@ -16,21 +16,23 @@ public class Log{
         final Logger theLog = Logger.getLogger(classname);
         final StreamHandler shandler = new StreamHandler(System.out, new SimpleFormatter());
         final FileHandler fhandler;
+
+        shandler.setLevel(Constants.Misc.logLevel);
+        //theLog.addHandler(shandler);
+        
         try
         {
-          fhandler = new FileHandler("/home/lvuser/Output.txt", false);
+          fhandler = new FileHandler("/home/lvuser/robot.log");
           fhandler.setFormatter(new SimpleFormatter());
           fhandler.setLevel(Constants.Misc.logLevel);
-          theLog.addHandler(fhandler);
+          //theLog.addHandler(fhandler);
         }
         catch (IOException ioe)
         {
+            ioe.printStackTrace();
+            theLog.warning("Could not open log file");
             System.out.println("Failed to open log file");
         }
-
-        shandler.setLevel(Constants.Misc.logLevel);
-        theLog.addHandler(shandler);
-        
         return theLog;
     }
 }

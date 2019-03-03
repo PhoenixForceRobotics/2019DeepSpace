@@ -73,6 +73,7 @@ public class RunElevator extends Command
         }
         if(lastSet != setpoint){
             newCom();
+            System.out.println("new setpoint");
         }
         lastSet = setpoint;
     }

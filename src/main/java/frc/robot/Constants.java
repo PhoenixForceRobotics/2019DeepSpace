@@ -130,9 +130,9 @@ public class Constants
         {
             public static final class UP
             {
-                public static final double kp = -3.75;
+                public static final double kp = -4;
                 public static final double ki = .00;
-                public static final double kd = -5.25;
+                public static final double kd = -10;
             }
             public static final class DOWN
             {
