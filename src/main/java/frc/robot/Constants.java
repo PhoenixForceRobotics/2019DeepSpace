@@ -102,9 +102,9 @@ public class Constants
 
     public static class CollectorSetPoints
     {
-        public static final double BACK = 0;
-        public static final double MIDDLE = .25;
-        public static final double FRONT = .43;
+        public static final double BACK = -.05;
+        public static final double MIDDLE = -.18;
+        public static final double FRONT = -.35;
     }
 
     public static class SubsystemSpeeds{
@@ -156,15 +156,21 @@ public class Constants
         {
             public static final class FORWARD
             {
-                public static final double kp = 2.00;
-                public static final double ki = .00;
-                public static final double kd = .00;
+                public static final double kp = -10.00;
+                public static final double ki = 0;
+                public static final double kd = -16;
             }
             public static final class BACK
             {
-                public static final double kp = 1.00;
-                public static final double ki = .00;
-                public static final double kd = .00;
+                public static final double kp = -10.00;
+                public static final double ki = 0;
+                public static final double kd = -16;
+            }
+            public static final class STEADY
+            {
+                public static final double kp = -7;
+                public static final double ki = 0;
+                public static final double kd = 0;
             }
             public static final double tolerance = .05;
         }
@@ -174,6 +180,6 @@ public class Constants
     }
 
     public static class Misc {
-        public static Level logLevel = Level.FINEST;
+        public static Level logLevel = Level.WARNING;
    }
 }

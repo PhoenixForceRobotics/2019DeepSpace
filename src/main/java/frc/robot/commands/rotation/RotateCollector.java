@@ -1,10 +1,10 @@
-package frc.robot.commands.collector;
+package frc.robot.commands.rotation;
 
 import frc.robot.Robot;
-import frc.robot.subsystems.Collector;
+import frc.robot.subsystems.Rotation;
 import frc.robot.subsystems.OI;
 import frc.robot.Constants;
-import frc.robot.commands.collector.CollectorPID;
+import frc.robot.commands.rotation.CollectorPID;
 import edu.wpi.first.wpilibj.command.Command;
 import com.revrobotics.CANEncoder;
 
@@ -17,16 +17,16 @@ public class RotateCollector extends Command
     private double setpoint;
     private double lastSet;
 
-    private Collector collector;
+    private Rotation rotation;
     private CANEncoder encoder;
     private OI oi;
     
     private CollectorPID collectorPID;
 
     public RotateCollector() {
-        requires(Robot.collector);
-        this.collector = Robot.collector;
-        this.encoder = collector.collectorEncoder;
+        requires(Robot.rotation);
+        this.rotation = Robot.rotation;
+        this.encoder = rotation.collectorEncoder;
         this.oi = Robot.oi;
         collectorPID = new CollectorPID();
     }
@@ -38,9 +38,9 @@ public class RotateCollector extends Command
 
     @Override
     protected void execute() {
-        a = oi.driverController.aButton.get();
-        b = oi.driverController.bButton.get();
-        c = oi.driverController.xButton.get();
+        a = oi.operatorController.aButton.get();
+        b = oi.operatorController.bButton.get();
+        c = oi.operatorController.xButton.get();
         
         if(a && !b && !c){
             setpoint = Constants.CollectorSetPoints.BACK;
@@ -53,6 +53,10 @@ public class RotateCollector extends Command
         if(lastSet!=setpoint){
             newCom();
         }
+    //     if(java.lang.Math.abs(collector.collectorEncoder.getPosition() - setpoint) < .05)
+    //    {
+    //         steady();
+    //    }
         lastSet = setpoint;
     }
 
@@ -77,5 +81,8 @@ public class RotateCollector extends Command
         } else {
             collectorPID.PIDBack(setpoint);
         }
+    }
+    private void steady(){
+        collectorPID.PIDSteady(setpoint);
     }
 }

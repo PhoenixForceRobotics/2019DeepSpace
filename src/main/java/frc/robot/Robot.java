@@ -18,11 +18,12 @@ import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.HDrive;
 import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.Climber;
+import frc.robot.subsystems.Rotation;
 import java.util.logging.Logger;
 import frc.robot.utility.Log;
 import frc.robot.commands.drivebase.RunDriveBase;
 import frc.robot.commands.elevator.RunElevator;
-import frc.robot.commands.collector.RotateCollector;
+import frc.robot.commands.rotation.RotateCollector;
 import frc.robot.commands.climber.PistonsUp;
 
 /**
@@ -43,6 +44,7 @@ public class Robot extends TimedRobot {
   public static Collector collector;
   public static Elevator elevator;
   public static Climber climber;
+  public static Rotation rotation;
 
 
   private static final Logger logger = Log.configureLog(Robot.class.getName());
@@ -66,6 +68,8 @@ public class Robot extends TimedRobot {
       elevator = new Elevator();
       logger.fine("starting climber");
       climber = new Climber();
+      logger.fine("starting rotation");
+      rotation = new Rotation();
       logger.fine("starting OI");
       oi = new OI();
       logger.fine("Everything done here");
@@ -140,6 +144,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+    //System.out.println(collector.collectorEncoder.getPosition());
   }
 
   /**

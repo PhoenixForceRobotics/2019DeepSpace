@@ -75,7 +75,7 @@ public class RunElevator extends Command
             newCom();
             System.out.println("new setpoint");
         }
-       if(java.lang.Math.abs(elevator.elevatorEncoder.getPosition() - setpoint) < .05)
+       if(java.lang.Math.abs(elevator.elevatorEncoder.getPosition() - setpoint) < .01)
        {
             steady();
        }

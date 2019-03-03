@@ -1,17 +1,17 @@
-package frc.robot.commands.collector;
+package frc.robot.commands.rotation;
 
 import frc.robot.Robot;
-import frc.robot.subsystems.Collector;
+import frc.robot.subsystems.Rotation;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class Jenktate extends Command
 {
-    private Collector collector;
+    private Rotation rotation;
 
     public Jenktate()
     {
-        requires(Robot.collector);
-        this.collector = Robot.collector;
+        requires(Robot.rotation);
+        this.rotation = Robot.rotation;
     }
 
     @Override
@@ -23,7 +23,7 @@ public class Jenktate extends Command
     @Override
     protected void execute()
     {
-        collector.janktateDown(1);
+        rotation.janktateDown(1);
     }
 
     @Override
@@ -41,6 +41,6 @@ public class Jenktate extends Command
     @Override
     protected void end()
     {
-        collector.janktateDown(0);
+        rotation.janktateDown(0);
     }
 }
