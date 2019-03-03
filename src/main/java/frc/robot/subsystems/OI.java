@@ -44,14 +44,3 @@ public class OI
         operatorController.rightTriggerButton.whenPressed(new PunchInAndOut());
     }
 }
-
-/* 
-
-op left joystick elevator override
-op dpad five ball set points,
-op select elevator shift
-dr left/right stick drive
-dr left/right trigger hdrive
-op right joystick down ele off
-
-*/
