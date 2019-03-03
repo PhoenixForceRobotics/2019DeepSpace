@@ -17,15 +17,24 @@ public class OI
 
     public OI() {
         driverController = new BobXboxController(0, 0.11, 0.11);
-        operatorController = new BobXboxController(0, 0.11, 0.11);
+        operatorController = new BobXboxController(1, 0.11, 0.11);
 
+        //driverController Commands
         driverController.leftTriggerButton.whileHeld(new RunHDrive());
         driverController.rightTriggerButton.whileHeld(new RunHDrive());
 
-        driverController.leftBumper.whileHeld(new BallHoldOuttake());
-        driverController.rightBumper.whileHeld(new BallHoldIntake());
+        driverController.leftBumper.whileHeld(new PinControl('u'));
+        driverController.rightBumper.whileHeld(new PinControl('d'));
 
         driverController.rightStickButton.whenPressed(new Shifter());
-        driverController.selectButton.whenPressed(new ElevatorShifter());
+        
+        //operatorController Commands
+        operatorController.selectButton.whenPressed(new ElevatorShifter('h'));
+        operatorController.startButton.whenPressed(new ElevatorShifter('b'));
+
+        operatorController.leftBumper.whileHeld(new BallHoldIntake());
+        operatorController.rightBumper.whileHeld(new BallHoldOuttake());
+
+        operatorController.rightTriggerButton.whenPressed(new PunchInAndOut());
     }
 }

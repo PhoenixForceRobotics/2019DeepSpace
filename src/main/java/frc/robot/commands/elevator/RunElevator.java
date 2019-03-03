@@ -21,6 +21,7 @@ public class RunElevator extends Command
     private boolean left;
     private boolean right;
     private boolean down;
+    private boolean trueDown;
 
     private ElevatorPID elevatorPID;
     
@@ -41,22 +42,25 @@ public class RunElevator extends Command
 
     @Override
     protected void execute() {
-        up = oi.driverController.Dpad.Up.get();
-        left = oi.driverController.Dpad.Left.get();
-        right = oi.driverController.Dpad.Right.get();
-        down = oi.driverController.Dpad.Down.get();
+        up = oi.operatorController.Dpad.Up.get();
+        left = oi.operatorController.Dpad.Left.get();
+        right = oi.operatorController.Dpad.Right.get();
+        down = oi.operatorController.Dpad.Down.get();
+        trueDown = oi.operatorController.rightStickButton.get();
         
         //This is the selector for the hight of the elevator. I know it can be abstracted 
         //somehow with strings but I don't want to mess with that
         if(elevator.ballMode){
-            if(up && !left && !right && !down){
+            if(up && !left && !right && !down && !trueDown){
                 setpoint = Constants.ElevatorSetPoints.Balls.TOP;
-            } else if(!up && left && !right && !down){
+            } else if(!up && left && !right && !down && !trueDown){
                 setpoint = Constants.ElevatorSetPoints.Balls.MIDDLE;
-            } else if(!up && !left && right && !down){
+            } else if(!up && !left && right && !down && !trueDown){
                 setpoint = Constants.ElevatorSetPoints.Balls.CENTER;
-            } else if(!up && !left && !right && down){
+            } else if(!up && !left && !right && down && !trueDown){
                 setpoint = Constants.ElevatorSetPoints.Balls.BOTTOM;
+            } else if(!up && !left && !right && down && trueDown){
+                setpoint = Constants.ElevatorSetPoints.Balls.TRUEBOTTOM;
             }
         } else {
             if(up && !left && !right && !down){

@@ -7,15 +7,21 @@ import frc.robot.subsystems.Elevator;
 public class ElevatorShifter extends Command
 {
     Elevator elevator;
-    public ElevatorShifter(){
+    char mode;
+    public ElevatorShifter(char mode){
         requires(Robot.elevator);
         this.elevator = Robot.elevator;
+        this.mode = mode;
     }
 
     @Override
     public void initialize()
     {
-        elevator.elevatorShift();
+        if(mode == 'b'){
+            elevator.makeBallMode();
+        } else if (mode == 'h'){
+            elevator.makeHatchMode();
+        }
     }
 
     @Override

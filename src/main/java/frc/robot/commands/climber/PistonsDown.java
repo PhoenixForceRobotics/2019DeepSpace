@@ -23,7 +23,7 @@ public class PistonsDown extends Command
     @Override
     protected void execute()
     {
-        climber.unlevitate();
+        climber.levitate();
     }
 
     @Override
