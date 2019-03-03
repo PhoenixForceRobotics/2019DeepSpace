@@ -41,6 +41,16 @@ public class ElevatorPID extends PIDCommand
         super.setSetpoint(setpoint);
     }
 
+    //jt adding this to try to build a steady state PID
+    public void PIDSteady(double setpoint){
+        super.getPIDController().reset();
+        super.getPIDController().setPID(Constants.SubsystemSpeeds.ElevatorPIDConstants.UP.kp,
+                                        Constants.SubsystemSpeeds.ElevatorPIDConstants.UP.ki,
+                                        Constants.SubsystemSpeeds.ElevatorPIDConstants.UP.kd);
+        super.getPIDController().enable();
+        super.setSetpoint(setpoint);
+    }
+
     public void PIDDown(double setpoint){
         super.getPIDController().reset();
         super.getPIDController().setPID(Constants.SubsystemSpeeds.ElevatorPIDConstants.DOWN.kp,

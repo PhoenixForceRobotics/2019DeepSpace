@@ -128,6 +128,13 @@ public class Constants
         }
         public static class ElevatorPIDConstants
         {
+            //JT added this to try a steady
+            public static final class STEADY
+            {
+                public static final double kp = -6;
+                public static final double ki = .00;
+                public static final double kd = .00;
+            }
             public static final class UP
             {
                 public static final double kp = -4;
@@ -139,6 +146,9 @@ public class Constants
                 public static final double kp = -2.0;
                 public static final double ki = .00;
                 public static final double kd = -3.0;
+                //public static final double kp = -4;
+                //public static final double ki = .00;
+                //public static final double kd = -10;
             }
             public static final double tolerance = .05;
         }

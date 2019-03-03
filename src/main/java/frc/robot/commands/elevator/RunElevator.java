@@ -75,6 +75,10 @@ public class RunElevator extends Command
             newCom();
             System.out.println("new setpoint");
         }
+       if(java.lang.Math.abs(elevator.elevatorEncoder.getPosition() - setpoint) < .01)
+       {
+            steady();
+       }
         lastSet = setpoint;
     }
 
@@ -93,6 +97,11 @@ public class RunElevator extends Command
         elevatorPID.end();
     }
 
+    //JT trying a steady routine
+    private void steady()
+    {
+        elevatorPID.PIDSteady(setpoint);
+    }
     private void newCom(){
         if(encoder.getPosition() < setpoint){
             elevatorPID.PIDUp(setpoint);
