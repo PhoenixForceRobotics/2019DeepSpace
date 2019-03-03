@@ -18,6 +18,8 @@ public class Elevator extends Subsystem {
 
     public CANEncoder elevatorEncoder;
 
+    public boolean ballMode = true;
+
     private static final Logger logger = Log.configureLog(Elevator.class.getName());
 
     public Elevator() {
@@ -33,6 +35,10 @@ public class Elevator extends Subsystem {
         elevator1.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 2);
         elevatorEncoder = elevator1.getEncoder();
 
+    }
+
+    public void elevatorShift(){
+        ballMode = !ballMode;
     }
 
     public void killmotors(){

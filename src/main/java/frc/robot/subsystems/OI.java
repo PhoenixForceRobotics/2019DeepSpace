@@ -1,13 +1,9 @@
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.Encoder;
 import frc.controllers.BobXboxController;
 import frc.robot.commands.collector.*;
 import frc.robot.commands.drivebase.*;
 import frc.robot.commands.elevator.*;
-import frc.robot.Robot;
-import frc.robot.Constants;
-import com.revrobotics.CANEncoder;
 // import frc.robot.Constants;
 
 /**
@@ -26,9 +22,10 @@ public class OI
         driverController.leftTriggerButton.whileHeld(new RunHDrive());
         driverController.rightTriggerButton.whileHeld(new RunHDrive());
 
-        driverController.aButton.whileHeld(new BallHoldOuttake());
-        driverController.bButton.whileHeld(new BallHoldIntake());
+        driverController.leftBumper.whileHeld(new BallHoldOuttake());
+        driverController.rightBumper.whileHeld(new BallHoldIntake());
 
         driverController.rightStickButton.whenPressed(new Shifter());
+        driverController.selectButton.whenPressed(new ElevatorShifter());
     }
 }

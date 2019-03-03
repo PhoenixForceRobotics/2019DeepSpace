@@ -119,11 +119,15 @@ public class Robot extends TimedRobot {
    public static void addDriveBase(){
     Scheduler.getInstance().add(new RunDriveBase(drivebase, oi));
    }
+
+   public static void addRunElevator(){
+    Scheduler.getInstance().add(new RunElevator());
+   }
   
   @Override
   public void teleopInit() {
     addDriveBase();
-    Scheduler.getInstance().add(new RunElevator());
+    addRunElevator();
     Scheduler.getInstance().add(new RotateCollector());
   }
 

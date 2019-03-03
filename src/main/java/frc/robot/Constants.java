@@ -84,15 +84,24 @@ public class Constants
     }
     public static class ElevatorSetPoints
     {
-        public static final double BOTTOM = .2;
-        public static final double MIDDLE = .75;
-        public static final double TOP = 1.13;
+        public static class Balls{
+            public static final double BOTTOM = .5;
+            public static final double CENTER = .75;
+            public static final double MIDDLE = 1.13;
+            public static final double TOP = 1.17;
+        }
+        public static class Hatches{
+            public static final double BOTTOM = 0;
+            public static final double MIDDLE = .55;
+            public static final double TOP = 1.15;
+        }
     }
 
     public static class CollectorSetPoints
     {
-        public static final double DOWN = .15;
-        public static final double UP = 1.0;
+        public static final double BACK = .15;
+        public static final double MIDDLE = .5;
+        public static final double FRONT = 1.0;
     }
 
     public static class EncoderMap{
@@ -147,13 +156,13 @@ public class Constants
         }
         public static class RotateCollectorPIDConstants
         {
-            public static final class UP
+            public static final class FORWARD
             {
                 public static final double kp = .00;
                 public static final double ki = .00;
                 public static final double kd = .00;
             }
-            public static final class DOWN
+            public static final class BACK
             {
                 public static final double kp = .00;
                 public static final double ki = .00;

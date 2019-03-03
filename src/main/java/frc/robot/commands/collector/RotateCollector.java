@@ -2,25 +2,35 @@ package frc.robot.commands.collector;
 
 import frc.robot.Robot;
 import frc.robot.subsystems.Collector;
+import frc.robot.subsystems.OI;
 import frc.robot.Constants;
-import frc.robot.commands.collector.RotateUp;
-import frc.robot.commands.collector.RotateDown;
+import frc.robot.commands.collector.CollectorPID;
 import edu.wpi.first.wpilibj.command.Command;
-// import com.revrobotics.CANEncoder;
+import com.revrobotics.CANEncoder;
 
 
 public class RotateCollector extends Command
 {
     private boolean a;
     private boolean b;
+    private boolean c;
+    private double setpoint;
+    private double lastSet;
+
     private Collector collector;
-    // private CANEncoder encoder;
+    private CANEncoder encoder;
+    private OI oi;
     
+    private CollectorPID collectorPID;
+
     public RotateCollector() {
-        collector = Robot.collector;
-        // I'm leaving the encoder because when we add more setpoints we will need it
-        // this.encoder = Robot.collector.collectorEncoder
+        requires(Robot.collector);
+        this.collector = Robot.collector;
+        this.encoder = collector.collectorEncoder;
+        this.oi = Robot.oi;
+        collectorPID = new CollectorPID();
     }
+    
     @Override
     protected void initialize() {     
 
@@ -28,16 +38,22 @@ public class RotateCollector extends Command
 
     @Override
     protected void execute() {
-        a = Robot.oi.driverController.leftBumper.get();
-        b = Robot.oi.driverController.rightBumper.get();
+        a = oi.driverController.aButton.get();
+        b = oi.driverController.bButton.get();
+        c = oi.driverController.xButton.get();
         
-        if(a && !b){
-            collector.janktateUp(.5);
-        } else if(!a && b){
-            collector.janktateUp(-.5);
-        } else {
-            collector.janktateUp(0);
+        if(a && !b && !c){
+            setpoint = Constants.CollectorSetPoints.BACK;
+        } else if(!a && b && !c){
+            setpoint = Constants.CollectorSetPoints.MIDDLE;
+        } else if(!a && !b && c) {
+            setpoint = Constants.CollectorSetPoints.FRONT;
         }
+
+        if(lastSet!=setpoint){
+            newCom();
+        }
+        lastSet = setpoint;
     }
 
     @Override
@@ -52,6 +68,14 @@ public class RotateCollector extends Command
 
     @Override
     protected void end() {
-        collector.janktateUp(0);
+        collectorPID.end();
+    }
+
+    private void newCom(){
+        if(encoder.getPosition() < setpoint){
+            collectorPID.PIDForward(setpoint);
+        } else {
+            collectorPID.PIDBack(setpoint);
+        }
     }
 }
