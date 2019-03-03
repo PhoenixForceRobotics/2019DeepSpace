@@ -17,6 +17,7 @@ import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.HDrive;
 import frc.robot.subsystems.Collector;
+import frc.robot.subsystems.Climber;
 import java.util.logging.Logger;
 import frc.robot.utility.Log;
 import frc.robot.commands.drivebase.RunDriveBase;
@@ -40,6 +41,7 @@ public class Robot extends TimedRobot {
   public static HDrive hDrive;
   public static Collector collector;
   public static Elevator elevator;
+  public static Climber climber;
 
 
   private static final Logger logger = Log.configureLog(Robot.class.getName());
@@ -59,11 +61,13 @@ public class Robot extends TimedRobot {
       collector = new Collector();
       logger.fine("About  to start HDrive");
       hDrive = new HDrive();
-      logger.fine("starting OI");
-      elevator = new Elevator();
-      logger.fine("Everything done here");
-      oi = new OI();
       logger.fine("starting elevator");
+      elevator = new Elevator();
+      logger.fine("starting climber");
+      climber = new Climber();
+      logger.fine("starting OI");
+      oi = new OI();
+      logger.fine("Everything done here");
   }
 
   /**

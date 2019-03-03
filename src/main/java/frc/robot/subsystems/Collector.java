@@ -16,7 +16,7 @@ import frc.robot.utility.Log;
 
 public class Collector extends Subsystem
 {
-    public Motor ballleft, ballright;
+    public Motor ballintake;
     public Motor collectorrotate;
     public Motor collectorrotate1;
     public DoubleSolenoid puncher;
@@ -27,13 +27,11 @@ public class Collector extends Subsystem
     public Collector() {
         logger.fine("Spinup Ball Collector and Hatch Collector");
         
-        ballleft = new Motor(Constants.MotorMap.BallCollector.COLLECTOR_LEFT, MotorType.kBrushed, Constants.MotorMap.BallCollector.COLLECTORLEFT_REVERSED, 30);
-        ballright = new Motor(Constants.MotorMap.BallCollector.COLLECTOR_RIGHT,  MotorType.kBrushed,Constants.MotorMap.BallCollector.COLLECTORRIGHT_REVERSED, 30);
+        ballintake = new Motor(Constants.MotorMap.BallCollector.COLLECTORIO, MotorType.kBrushed, Constants.MotorMap.BallCollector.COLLECTORIO_REVERSED, 30);
         collectorrotate = new Motor(Constants.MotorMap.BallCollector.BALL_ROTATE, MotorType.kBrushed, Constants.MotorMap.BallCollector.BALLROTATE_REVERSED, 30);
         collectorrotate1 = new Motor(Constants.MotorMap.BallCollector.BALL_ROTATE1, MotorType.kBrushed, Constants.MotorMap.BallCollector.BALLROTATE1_REVERSED, 30);
 
         collectorrotate1.follow(collectorrotate);
-        ballright.follow(ballleft);
         
         this.puncher = new DoubleSolenoid(Constants.PneumaticsMap.HatchCollector.PUNCHER1, Constants.PneumaticsMap.HatchCollector.PUNCHER2);
         //try setting a lower level motor setting per Chief Delphi --this is JT's fault
@@ -44,13 +42,13 @@ public class Collector extends Subsystem
     public void intake(double value)
     {
         logger.finest("Start Ball Collector Intake");
-        ballleft.set(-value);
+        ballintake.set(-value);
     }
 
     public void outtake(double value)
     {
         logger.finest("Start Ball Collector Outake");
-        ballleft.set(value);
+        ballintake.set(value);
     }
 
     public void janktateUp(double speed)

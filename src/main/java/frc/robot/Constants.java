@@ -42,13 +42,11 @@ public class Constants
         {
             public static int BALL_ROTATE = 4;
             public static int BALL_ROTATE1 = 7;
-            public static int COLLECTOR_LEFT = 6;
-            public static int COLLECTOR_RIGHT = 5;
+            public static int COLLECTORIO = 5;
 
             public static final boolean BALLROTATE_REVERSED = true;
             public static final boolean BALLROTATE1_REVERSED = false;
-            public static final boolean COLLECTORLEFT_REVERSED = true;
-            public static final boolean COLLECTORRIGHT_REVERSED = false;
+            public static final boolean COLLECTORIO_REVERSED = true;
         }
 
         public static class Elevator
@@ -63,12 +61,25 @@ public class Constants
             public static final boolean ELEVATOR3_REVERSED = true;
             public static final boolean ELEVATOR4_REVERSED = true;
         }
+
+        public static class Climber
+        {
+            public static int COLSON = 6;
+
+            public static boolean COLSON_REVERSED = false;
+        }
     
     }
     public static class PneumaticsMap{
         public static class HatchCollector {
             public static int PUNCHER1 = 0;
             public static int PUNCHER2 = 1;
+        }
+        public static class ClimberPistons {
+            public static int SOLENOID1 = 7;
+            public static int SOLENOID2 = 8;
+            public static int SOLENOID3 = 9;
+            public static int SOLENOID4 = 10;
         }
     }
     public static class ElevatorSetPoints
@@ -117,15 +128,14 @@ public class Constants
             public static int TiggerPower = 2;
             public static double TimerPower = 1.5;
         }
-        public static class HatchCollectorValues
-        {
-            public static final double HCspeed = .5;
-        }
         public static class BallCollectorValues
         {
             public static final double BCIntakeSpeed = .4;
             public static final double BCOuttakeSpeed = 1;
-            public static final double BCRotateSpeed = 1;
+        }
+        public static class ClimberValues
+        {
+            public static final double ColsonSpeed = .5;
         }
         public static class ElevatorPIDConstants
         {
