@@ -128,15 +128,14 @@ public class Constants
             public static int TiggerPower = 2;
             public static double TimerPower = 1.5;
         }
-        public static class HatchCollectorValues
-        {
-            public static final double HCspeed = .5;
-        }
         public static class BallCollectorValues
         {
             public static final double BCIntakeSpeed = .4;
             public static final double BCOuttakeSpeed = 1;
-            public static final double BCRotateSpeed = 1;
+        }
+        public static class ClimberValues
+        {
+            public static final double ColsonSpeed = .5;
         }
         public static class ElevatorPIDConstants
         {
