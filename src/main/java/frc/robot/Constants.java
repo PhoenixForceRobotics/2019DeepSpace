@@ -87,16 +87,16 @@ public class Constants
     public static class ElevatorSetPoints
     {
         public static class Balls{
-            public static final double TRUEBOTTOM = .1;
-            public static final double BOTTOM = .5;
-            public static final double CENTER = .75;
-            public static final double MIDDLE = 1.13;
-            public static final double TOP = 1.17;
+            public static final double TRUEBOTTOM = .065;
+            public static final double BOTTOM = .52;
+            public static final double CENTER = .77;
+            public static final double MIDDLE = 1.15;
+            public static final double TOP = 1.19;
         }
         public static class Hatches{
             public static final double BOTTOM = 0;
-            public static final double MIDDLE = .55;
-            public static final double TOP = 1.15;
+            public static final double MIDDLE = .57;
+            public static final double TOP = 1.17;
         }
     }
 
@@ -104,7 +104,7 @@ public class Constants
     {
         public static final double BACK = -.05;
         public static final double MIDDLE = -.18;
-        public static final double FRONT = -.35;
+        public static final double FRONT = -.3;
     }
 
     public static class SubsystemSpeeds{
@@ -143,7 +143,7 @@ public class Constants
             }
             public static final class DOWN
             {
-                public static final double kp = -2.0;
+                public static final double kp = -1.0;
                 public static final double ki = .00;
                 public static final double kd = -3.0;
                 //public static final double kp = -4;

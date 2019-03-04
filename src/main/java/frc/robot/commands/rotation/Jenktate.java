@@ -23,7 +23,8 @@ public class Jenktate extends Command
     @Override
     protected void execute()
     {
-        rotation.janktateDown(1);
+        System.out.println("executing");
+        rotation.janktateDown(-1);
     }
 
     @Override
@@ -35,7 +36,7 @@ public class Jenktate extends Command
     @Override
     protected void interrupted()
     {
-        end();
+
     }
 
     @Override

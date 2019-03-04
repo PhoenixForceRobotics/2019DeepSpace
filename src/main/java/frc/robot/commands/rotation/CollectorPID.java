@@ -22,6 +22,7 @@ public class CollectorPID extends PIDCommand
     
     @Override
     protected double returnPIDInput() {
+        System.out.println(rotation.collectorEncoder.getPosition());
         return rotation.collectorEncoder.getPosition();
     }
 

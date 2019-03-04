@@ -7,6 +7,7 @@ import frc.robot.Constants;
 import frc.robot.commands.rotation.CollectorPID;
 import edu.wpi.first.wpilibj.command.Command;
 import com.revrobotics.CANEncoder;
+import edu.wpi.first.wpilibj.Timer;
 
 
 public class RotateCollector extends Command
@@ -16,6 +17,8 @@ public class RotateCollector extends Command
     private boolean c;
     private double setpoint;
     private double lastSet;
+    private Timer killTimer;
+    private boolean timer = false;
 
     private Rotation rotation;
     private CANEncoder encoder;
@@ -29,17 +32,18 @@ public class RotateCollector extends Command
         this.encoder = rotation.collectorEncoder;
         this.oi = Robot.oi;
         collectorPID = new CollectorPID();
+        killTimer = new Timer();
     }
     
     @Override
-    protected void initialize() {     
-
+    protected void initialize() { 
+        
     }
 
     @Override
     protected void execute() {
-        a = oi.operatorController.aButton.get();
-        b = oi.operatorController.bButton.get();
+        a = oi.operatorController.bButton.get();
+        b = oi.operatorController.yButton.get();
         c = oi.operatorController.xButton.get();
         
         if(a && !b && !c){
@@ -53,10 +57,20 @@ public class RotateCollector extends Command
         if(lastSet!=setpoint){
             newCom();
         }
-    //     if(java.lang.Math.abs(collector.collectorEncoder.getPosition() - setpoint) < .05)
-    //    {
-    //         steady();
-    //    }
+        if(java.lang.Math.abs(rotation.collectorEncoder.getPosition() - setpoint) < .05 
+            && (setpoint == Constants.CollectorSetPoints.FRONT || setpoint == Constants.CollectorSetPoints.BACK))
+       {
+           if(timer){
+               killTimer.start();
+               timer = true;
+           }
+           if(killTimer.get() > .5){
+                System.out.println("killed");
+                collectorPID.end();
+                killTimer.reset();
+                timer = false;
+           }
+       }
         lastSet = setpoint;
     }
 
