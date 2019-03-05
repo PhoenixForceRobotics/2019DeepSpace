@@ -105,6 +105,7 @@ public class Constants
         public static final double BACK = -.05;
         public static final double MIDDLE = -.18;
         public static final double FRONT = -.3;
+        public static final double CLIMB = -.5;
     }
 
     public static class SubsystemSpeeds{
@@ -171,6 +172,12 @@ public class Constants
                 public static final double kp = -7;
                 public static final double ki = 0;
                 public static final double kd = 0;
+            }
+            public static final class CLIMB
+            {
+                public static final double kp = -1000;
+                public static final double ki = .00;
+                public static final double kd = .00;
             }
             public static final double tolerance = .05;
         }

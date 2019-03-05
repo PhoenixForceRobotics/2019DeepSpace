@@ -30,8 +30,6 @@ public class RunElevator extends Command
         this.encoder = Robot.elevator.elevatorEncoder;
         this.elevator = Robot.elevator;
         this.oi = Robot.oi;
-        System.out.println(this.oi);
-        System.out.println(this.elevator);
         elevatorPID = new ElevatorPID();
     }
 
@@ -73,7 +71,6 @@ public class RunElevator extends Command
         }
         if(lastSet != setpoint){
             newCom();
-            System.out.println("new setpoint");
         }
        if(java.lang.Math.abs(elevator.elevatorEncoder.getPosition() - setpoint) < .01)
        {

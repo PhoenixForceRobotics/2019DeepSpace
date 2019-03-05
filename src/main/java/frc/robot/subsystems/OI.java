@@ -4,7 +4,7 @@ import frc.controllers.BobXboxController;
 import frc.robot.commands.climber.CheckButtons;
 import frc.robot.commands.climber.PistonsDown;
 import frc.robot.commands.climber.PistonsUp;
-import frc.robot.commands.climber.RotateandShoot;
+import frc.robot.commands.climber.ClimbSequence;
 import frc.robot.commands.collector.*;
 import frc.robot.commands.drivebase.*;
 import frc.robot.commands.elevator.*;
@@ -45,7 +45,7 @@ public class OI
 
         operatorController.rightTriggerButton.whenPressed(new PunchInAndOut());
 
-        driverController.startButton.whileHeld(new RotateandShoot());
+        driverController.startButton.whileHeld(new CheckButtons());
         driverController.selectButton.whenPressed(new PistonsDown());
     }
 }
