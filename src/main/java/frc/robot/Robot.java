@@ -76,6 +76,13 @@ public class Robot extends TimedRobot {
       oi = new OI();
       logger.fine("Everything done here");
   }
+  public static void addDriveBase(){
+    Scheduler.getInstance().add(new RunDriveBase(drivebase, oi));
+   }
+
+   public static void addRunElevator(){
+    //Scheduler.getInstance().add(new RunElevator());
+   }
 
   /**
    * This function is called every robot packet, no matter the mode. Use
@@ -102,8 +109,10 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
-    m_autoSelected = m_chooser.getSelected();
-    // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
+    addDriveBase();
+    addRunElevator();
+    Scheduler.getInstance().add(new RotateCollector());
+    Scheduler.getInstance().add(new PistonsUp());
   }
 
   /**
@@ -111,31 +120,16 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousPeriodic() {
-    switch (m_autoSelected) {
-      case kCustomAuto:
-        // Put custom auto code here
-        break;
-      case kDefaultAuto:
-      default:
-        // Put default auto code here
-        break;
-    }
+    Scheduler.getInstance().run();
   }
 
   /**
    * This function is called periodically during operator control.
    */
 
-   public static void addDriveBase(){
-    Scheduler.getInstance().add(new RunDriveBase(drivebase, oi));
-   }
-
-   public static void addRunElevator(){
-    Scheduler.getInstance().add(new RunElevator());
-   }
-
   @Override
   public void teleopInit() {
+    Scheduler.getInstance().removeAll();
     addDriveBase();
     addRunElevator();
     Scheduler.getInstance().add(new RotateCollector());

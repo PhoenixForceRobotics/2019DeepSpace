@@ -41,8 +41,8 @@ public class Constants
         public static class BallCollector
         {
             public static int BALL_ROTATE = 4;
-            public static int BALL_ROTATE1 = 7;
-            public static int COLLECTORIO = 5;
+            public static int BALL_ROTATE1 = 6;
+            public static int COLLECTORIO = 7;
 
             public static final boolean BALLROTATE_REVERSED = true;
             public static final boolean BALLROTATE1_REVERSED = false;
@@ -55,7 +55,7 @@ public class Constants
             public static int ELEVATOR2 = 11;
 
             public static final boolean ELEVATOR1_REVERSED = true;
-            public static final boolean ELEVATOR2_REVERSED = false;
+            public static final boolean ELEVATOR2_REVERSED = true;
         }
 
         public static class Climber
@@ -86,22 +86,22 @@ public class Constants
             public static final double TRUEBOTTOM = 0;
             public static final double BOTTOM = .52;
             public static final double CENTER = .77;
-            public static final double MIDDLE = 1.15;
-            public static final double TOP = 1.19;
+            public static final double MIDDLE = 1.1;
+            public static final double TOP = 1.15;
         }
         public static class Hatches{
             public static final double BOTTOM = 0;
-            public static final double MIDDLE = .64;
-            public static final double TOP = 1.24;
+            public static final double MIDDLE = .56;
+            public static final double TOP = 1.15;
         }
     }
 
     public static class CollectorSetPoints
     {
-        public static final double BACK = -.05;
-        public static final double MIDDLE = -.21;
-        public static final double FRONT = -.43;
-        public static final double CLIMB = -.7;
+        public static final double BACK = .05;
+        public static final double MIDDLE = .22;
+        public static final double FRONT = .43;
+        public static final double CLIMB = .29;
     }
 
     public static class SubsystemSpeeds{
@@ -128,21 +128,21 @@ public class Constants
             //JT added this to try a steady
             public static final class STEADY
             {
-                public static final double kp = -6;
+                public static final double kp = 6;
                 public static final double ki = .00;
                 public static final double kd = .00;
             }
             public static final class UP
             {
-                public static final double kp = -4;
+                public static final double kp = 4;
                 public static final double ki = .00;
-                public static final double kd = -10;
+                public static final double kd = 10;
             }
             public static final class DOWN
             {
-                public static final double kp = -1.0;
+                public static final double kp = 1.0;
                 public static final double ki = .00;
-                public static final double kd = -3.0;
+                public static final double kd = 3.0;
                 //public static final double kp = -4;
                 //public static final double ki = .00;
                 //public static final double kd = -10;
@@ -153,15 +153,15 @@ public class Constants
         {
             public static final class FORWARD
             {
-                public static final double kp = 10.00;
+                public static final double kp = -10.00;
                 public static final double ki = 0;
-                public static final double kd = 16;
+                public static final double kd = -16;
             }
             public static final class BACK
             {
-                public static final double kp = 10.00;
+                public static final double kp = -10.00;
                 public static final double ki = 0;
-                public static final double kd = 10;
+                public static final double kd = -10;
             }
             public static final class STEADY
             {

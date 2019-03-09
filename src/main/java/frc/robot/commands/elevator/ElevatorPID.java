@@ -22,14 +22,14 @@ public class ElevatorPID extends PIDCommand
 
     @Override
     protected double returnPIDInput() {
-        //System.out.println(elevator.elevatorEncoder.getPosition());
+        System.out.println(elevator.elevatorEncoder.getPosition());
         return elevator.elevatorEncoder.getPosition();
     }
 
     @Override
     protected void usePIDOutput(double output) {
         elevator.elevator1.set(output);
-        elevator.elevator2.set(output);
+        elevator.elevator2.set(-output);
     }
 
     public void PIDUp(double setpoint){

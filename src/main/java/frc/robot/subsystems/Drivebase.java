@@ -25,22 +25,21 @@ public class Drivebase extends Subsystem {
         right2 = new Motor(Constants.MotorMap.Drivebase.RIGHT_2, MotorType.kBrushless, Constants.MotorMap.Drivebase.RIGHT2_REVERSED, 40);
         right3 = new Motor(Constants.MotorMap.Drivebase.RIGHT_3, MotorType.kBrushless, Constants.MotorMap.Drivebase.RIGHT3_REVERSED, 40);
 
-        left2.follow(left1);
-        left3.follow(left1);
-
-        right2.follow(right1);
-        right3.follow(right1);
     }
     public void setLeft(double value)
     {
         logger.finest("Start Set Left");
         left1.set(value);
+        left2.set(value);
+        left3.set(value);
     }
 
     public void setRight(double value)
     {
         logger.finest("Start Set Right");
         right1.set(value);
+        right2.set(value);
+        right3.set(value);
     }
 
     public void shift()

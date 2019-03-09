@@ -26,7 +26,8 @@ public class Rotation extends Subsystem
         collectorrotate1 = new Motor(Constants.MotorMap.BallCollector.BALL_ROTATE1, MotorType.kBrushed, Constants.MotorMap.BallCollector.BALLROTATE1_REVERSED, 30);
 
         collectorrotate1.follow(collectorrotate);
-        collectorrotate.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 2);
+        collectorrotate1.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 2);
+        collectorrotate.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 0);
         collectorEncoder = collectorrotate1.getEncoder();
     }
 

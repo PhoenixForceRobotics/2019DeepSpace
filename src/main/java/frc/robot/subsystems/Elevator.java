@@ -24,12 +24,11 @@ public class Elevator extends Subsystem {
 
     public Elevator() {
         logger.finest("Spinup Elevator");
-        elevator1 = new Motor(Constants.MotorMap.Elevator.ELEVATOR1, MotorType.kBrushless, Constants.MotorMap.Elevator.ELEVATOR1_REVERSED, 30);
-        elevator2 = new Motor(Constants.MotorMap.Elevator.ELEVATOR2, MotorType.kBrushless, Constants.MotorMap.Elevator.ELEVATOR2_REVERSED, 30);
+        elevator1 = new Motor(Constants.MotorMap.Elevator.ELEVATOR1, MotorType.kBrushed, Constants.MotorMap.Elevator.ELEVATOR1_REVERSED, 30);
+        elevator2 = new Motor(Constants.MotorMap.Elevator.ELEVATOR2, MotorType.kBrushed, Constants.MotorMap.Elevator.ELEVATOR2_REVERSED, 30);
 
         elevator1.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 2);
         elevatorEncoder = elevator1.getEncoder();
-
     }
 
     public void makeBallMode(){

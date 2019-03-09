@@ -50,6 +50,7 @@ public class PinControl extends Command
     @Override
     public void end()
     {
+        collector.pinUp();
         collector.pinOff();
     }
 }

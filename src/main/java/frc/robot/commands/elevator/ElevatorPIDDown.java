@@ -33,7 +33,7 @@ public class ElevatorPIDDown extends PIDCommand
     @Override
     protected void usePIDOutput(double output) {
         elevator.elevator1.set(output);
-        elevator.elevator2.set(output);
+        elevator.elevator2.set(-output);
     }
 
     @Override
