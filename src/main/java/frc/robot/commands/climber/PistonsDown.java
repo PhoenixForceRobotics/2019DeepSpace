@@ -18,7 +18,7 @@ public class PistonsDown extends Command
     protected void initialize()
     {
         //JT set timeout
-        setTimeout(2);
+        // setTimeout(2);
     }
 
     @Override

@@ -26,10 +26,12 @@ public class CheckButtons extends Command
 
     @Override
     protected void execute() {
-        payton = oi.driverController.selectButton.get();
+        // System.out.println("execute?");
+        payton = oi.driverController.startButton.get();
         david = oi.operatorController.leftTriggerButton.get();
 
         if(payton && david){
+            // System.out.println("trueeee");
             new ClimbSequence();
             end();
         }

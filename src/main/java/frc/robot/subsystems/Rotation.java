@@ -14,8 +14,7 @@ import frc.robot.utility.Log;
 
 public class Rotation extends Subsystem
 {
-    public Motor collectorrotate;
-    public Motor collectorrotate1;
+    public Motor collectorrotate, collectorrotate1;
     public CANEncoder collectorEncoder;
 
     public static final Logger logger = Log.configureLog(Collector.class.getName());
@@ -28,7 +27,7 @@ public class Rotation extends Subsystem
 
         collectorrotate1.follow(collectorrotate);
         collectorrotate.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 2);
-        collectorEncoder = collectorrotate.getEncoder();
+        collectorEncoder = collectorrotate1.getEncoder();
     }
 
     public void janktateUp(double speed)

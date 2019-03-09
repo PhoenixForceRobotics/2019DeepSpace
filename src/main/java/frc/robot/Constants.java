@@ -53,13 +53,9 @@ public class Constants
         {
             public static int ELEVATOR1 = 10;
             public static int ELEVATOR2 = 11;
-            public static int ELEVATOR3 = 8;
-            public static int ELEVATOR4 = 9;
 
             public static final boolean ELEVATOR1_REVERSED = true;
             public static final boolean ELEVATOR2_REVERSED = false;
-            public static final boolean ELEVATOR3_REVERSED = true;
-            public static final boolean ELEVATOR4_REVERSED = true;
         }
 
         public static class Climber
@@ -72,8 +68,8 @@ public class Constants
     }
     public static class PneumaticsMap{
         public static class HatchCollector {
-            public static int PUNCHER1 = 0;
-            public static int PUNCHER2 = 1;
+            public static int PUNCHER1 = 1;
+            public static int PUNCHER2 = 0;
             public static int PIN1 = 2;
             public static int PIN2 = 3;
         }
@@ -87,7 +83,7 @@ public class Constants
     public static class ElevatorSetPoints
     {
         public static class Balls{
-            public static final double TRUEBOTTOM = .065;
+            public static final double TRUEBOTTOM = 0;
             public static final double BOTTOM = .52;
             public static final double CENTER = .77;
             public static final double MIDDLE = 1.15;
@@ -95,17 +91,17 @@ public class Constants
         }
         public static class Hatches{
             public static final double BOTTOM = 0;
-            public static final double MIDDLE = .57;
-            public static final double TOP = 1.17;
+            public static final double MIDDLE = .64;
+            public static final double TOP = 1.24;
         }
     }
 
     public static class CollectorSetPoints
     {
         public static final double BACK = -.05;
-        public static final double MIDDLE = -.18;
-        public static final double FRONT = -.3;
-        public static final double CLIMB = -.5;
+        public static final double MIDDLE = -.21;
+        public static final double FRONT = -.43;
+        public static final double CLIMB = -.7;
     }
 
     public static class SubsystemSpeeds{
@@ -157,15 +153,15 @@ public class Constants
         {
             public static final class FORWARD
             {
-                public static final double kp = -10.00;
+                public static final double kp = 10.00;
                 public static final double ki = 0;
-                public static final double kd = -16;
+                public static final double kd = 16;
             }
             public static final class BACK
             {
-                public static final double kp = -10.00;
+                public static final double kp = 10.00;
                 public static final double ki = 0;
-                public static final double kd = -16;
+                public static final double kd = 10;
             }
             public static final class STEADY
             {
@@ -175,7 +171,7 @@ public class Constants
             }
             public static final class CLIMB
             {
-                public static final double kp = -1000;
+                public static final double kp = 1000;
                 public static final double ki = .00;
                 public static final double kd = .00;
             }

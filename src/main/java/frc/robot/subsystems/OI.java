@@ -1,6 +1,7 @@
 package frc.robot.subsystems;
 
 import frc.controllers.BobXboxController;
+import frc.robot.Constants;
 import frc.robot.commands.climber.CheckButtons;
 import frc.robot.commands.climber.PistonsDown;
 import frc.robot.commands.climber.PistonsUp;
@@ -9,6 +10,7 @@ import frc.robot.commands.collector.*;
 import frc.robot.commands.drivebase.*;
 import frc.robot.commands.elevator.*;
 // import frc.robot.Constants;
+import frc.robot.commands.rotation.ClimbingPID;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -45,7 +47,9 @@ public class OI
 
         operatorController.rightTriggerButton.whenPressed(new PunchInAndOut());
 
-        driverController.startButton.whileHeld(new CheckButtons());
+        //operatorController.leftTriggerButton.whenPressed(new ClimbSequence());
         driverController.selectButton.whenPressed(new PistonsDown());
+        // driverController.aButton.whileHeld(new ClimbingPID(Constants.CollectorSetPoints.CLIMB));
+        // driverController.bButton.whileHeld(new ClimbSequence());
     }
 }

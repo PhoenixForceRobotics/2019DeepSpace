@@ -7,6 +7,7 @@ import frc.robot.Constants;
 import frc.robot.commands.rotation.CollectorPID;
 import edu.wpi.first.wpilibj.command.Command;
 import com.revrobotics.CANEncoder;
+
 import edu.wpi.first.wpilibj.Timer;
 
 
@@ -15,6 +16,7 @@ public class RotateCollector extends Command
     private boolean a;
     private boolean b;
     private boolean c;
+    private boolean d;
     private double setpoint;
     private double lastSet;
     private Timer killTimer;
@@ -45,13 +47,16 @@ public class RotateCollector extends Command
         a = oi.operatorController.bButton.get();
         b = oi.operatorController.yButton.get();
         c = oi.operatorController.xButton.get();
+        d = oi.operatorController.aButton.get();
         
-        if(a && !b && !c){
+        if(a && !b && !c && !d){
             setpoint = Constants.CollectorSetPoints.BACK;
-        } else if(!a && b && !c){
+        } else if(!a && b && !c && !d){
             setpoint = Constants.CollectorSetPoints.MIDDLE;
-        } else if(!a && !b && c) {
+        } else if(!a && !b && c && !d) {
             setpoint = Constants.CollectorSetPoints.FRONT;
+        } else if(!a && !b && !c && d){
+            setpoint = Constants.CollectorSetPoints.CLIMB;
         }
 
         if(lastSet!=setpoint){

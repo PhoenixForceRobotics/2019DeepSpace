@@ -26,13 +26,14 @@ public class ClimbingPID extends PIDCommand
     
     @Override
     protected double returnPIDInput() {
-        System.out.println("climbinggggg");
+        // System.out.println("climbinggggg");
         return rotation.collectorEncoder.getPosition();
     }
 
     @Override
     protected void usePIDOutput(double output) {
         rotation.collectorrotate.set(output);
+        rotation.collectorrotate1.set(output);
     }
 
    
