@@ -83,16 +83,16 @@ public class Constants
     public static class ElevatorSetPoints
     {
         public static class Balls{
-            public static final double TRUEBOTTOM = 0;
-            public static final double BOTTOM = .52;
-            public static final double CENTER = .77;
-            public static final double MIDDLE = 1.1;
-            public static final double TOP = 1.15;
+            public static final double TRUEBOTTOM = .03;
+            public static final double BOTTOM = -.52;
+            public static final double CENTER = -.77;
+            public static final double MIDDLE = -1.17;
+            public static final double TOP = -1.25;
         }
         public static class Hatches{
             public static final double BOTTOM = 0;
-            public static final double MIDDLE = .56;
-            public static final double TOP = 1.15;
+            public static final double MIDDLE = -.56;
+            public static final double TOP = -1.25;
         }
     }
 
@@ -101,7 +101,7 @@ public class Constants
         public static final double BACK = .05;
         public static final double MIDDLE = .22;
         public static final double FRONT = .43;
-        public static final double CLIMB = .29;
+        public static final double CLIMB = .28;
     }
 
     public static class SubsystemSpeeds{
@@ -128,21 +128,21 @@ public class Constants
             //JT added this to try a steady
             public static final class STEADY
             {
-                public static final double kp = 6;
+                public static final double kp = -6;
                 public static final double ki = .00;
                 public static final double kd = .00;
             }
             public static final class UP
             {
-                public static final double kp = 4;
+                public static final double kp = -7;
                 public static final double ki = .00;
-                public static final double kd = 10;
+                public static final double kd = -12;
             }
             public static final class DOWN
             {
-                public static final double kp = 1.0;
+                public static final double kp = -1.0;
                 public static final double ki = .00;
-                public static final double kd = 3.0;
+                public static final double kd = -5.0;
                 //public static final double kp = -4;
                 //public static final double ki = .00;
                 //public static final double kd = -10;

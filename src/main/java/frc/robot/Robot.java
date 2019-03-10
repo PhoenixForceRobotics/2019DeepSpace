@@ -81,7 +81,7 @@ public class Robot extends TimedRobot {
    }
 
    public static void addRunElevator(){
-    //Scheduler.getInstance().add(new RunElevator());
+    Scheduler.getInstance().add(new RunElevator());
    }
 
   /**
@@ -139,11 +139,12 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+    //System.out.println(elevator.elevatorEncoder.getPosition());
   }
 
   /**
    * This function is called periodically during test mode.
-   */
+   */ 
   @Override
   public void testPeriodic() {
   }

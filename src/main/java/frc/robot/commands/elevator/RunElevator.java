@@ -72,10 +72,10 @@ public class RunElevator extends Command
         if(lastSet != setpoint){
             newCom();
         }
-       if(java.lang.Math.abs(elevator.elevatorEncoder.getPosition() - setpoint) < .01)
-       {
-            steady();
-       }
+    //    if(java.lang.Math.abs(elevator.elevatorEncoder.getPosition() - setpoint) < .01)
+    //    {
+    //         steady();
+    //    }
         lastSet = setpoint;
     }
 
@@ -100,9 +100,11 @@ public class RunElevator extends Command
         elevatorPID.PIDSteady(setpoint);
     }
     private void newCom(){
-        if(encoder.getPosition() < setpoint){
+        if(encoder.getPosition() > setpoint){
+            System.out.println("UP");
             elevatorPID.PIDUp(setpoint);
         } else {
+            System.out.println("DOWN");
             elevatorPID.PIDDown(setpoint);
         }
     }
