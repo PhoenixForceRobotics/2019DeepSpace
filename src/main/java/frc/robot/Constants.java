@@ -83,7 +83,7 @@ public class Constants
     public static class ElevatorSetPoints
     {
         public static class Balls{
-            public static final double TRUEBOTTOM = .03;
+            public static final double TRUEBOTTOM = .15;
             public static final double BOTTOM = -.52;
             public static final double CENTER = -.77;
             public static final double MIDDLE = -1.17;
@@ -136,7 +136,7 @@ public class Constants
             {
                 public static final double kp = -7;
                 public static final double ki = .00;
-                public static final double kd = -12;
+                public static final double kd = -13;
             }
             public static final class DOWN
             {
