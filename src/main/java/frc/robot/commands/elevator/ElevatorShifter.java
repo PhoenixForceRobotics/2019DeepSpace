@@ -17,6 +17,7 @@ public class ElevatorShifter extends Command
     @Override
     public void initialize()
     {
+        //This makes the elevator go into ball or hatch mode wheter the char inputted is 'b' or 'h' respectively
         if(mode == 'b'){
             elevator.makeBallMode();
         } else if (mode == 'h'){
@@ -33,6 +34,7 @@ public class ElevatorShifter extends Command
     @Override
     public boolean isFinished()
     {
+        //This makes it so the intialize runs and then the method ends
         return true;
     }
 
@@ -45,6 +47,8 @@ public class ElevatorShifter extends Command
     @Override
     public void end()
     {
+        //This readds the run elevator command to the Scheduler because calling this command
+        //on the elevator removes the previous instance of runElevator
         Robot.addRunElevator();
     }
 }

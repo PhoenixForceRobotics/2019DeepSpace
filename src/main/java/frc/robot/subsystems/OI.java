@@ -2,13 +2,11 @@ package frc.robot.subsystems;
 
 import frc.controllers.BobXboxController;
 import frc.robot.Constants;
-import frc.robot.commands.climber.CheckButtons;
-import frc.robot.commands.climber.PistonsDown;
-import frc.robot.commands.climber.PistonsUp;
-import frc.robot.commands.climber.ClimbSequence;
 import frc.robot.commands.collector.*;
 import frc.robot.commands.drivebase.*;
 import frc.robot.commands.elevator.*;
+import frc.robot.commands.rotation.*;
+import frc.robot.commands.climber.*;
 // import frc.robot.Constants;
 import frc.robot.commands.rotation.ClimbingPID;
 
@@ -24,21 +22,25 @@ public class OI
     public OI() {
         driverController = new BobXboxController(0, 0.11, 0.11);
         operatorController = new BobXboxController(1, 0.11, 0.11);
-
-        //driverController Commands
+        /** 
+         * Driver Controller Commands
+         */
         driverController.leftTriggerButton.whileHeld(new RunHDrive());
         driverController.rightTriggerButton.whileHeld(new RunHDrive());
 
-        //JT trying to break the pistons
-        //driverController.startButton.whenPressed(new PistonsDown());
-        //JT retracting permissions
-        //driverController.selectButton.whenPressed(new PistonsUp());
+        //'u' indicates up so it pushed the pins in
+        //'d' indicates down so it puts the pistons against the ground
         driverController.leftBumper.whileHeld(new PinControl('u'));
         driverController.rightBumper.whileHeld(new PinControl('d'));
 
+        //This shifts the robot between full, and lowered speed
         driverController.rightStickButton.whenPressed(new Shifter());
         
-        //operatorController Commands
+        /** 
+         * Operator Controller Commands
+         */
+        //'h' indicates hatch mode and 'b' indicates ball mode so it changes what elevator 
+        //setpoints are targeted when the button is pressed
         operatorController.selectButton.whenPressed(new ElevatorShifter('h'));
         operatorController.startButton.whenPressed(new ElevatorShifter('b'));
 
@@ -48,7 +50,7 @@ public class OI
         operatorController.rightTriggerButton.whenPressed(new PunchInAndOut());
 
         //operatorController.leftTriggerButton.whenPressed(new ClimbSequence());
-        driverController.selectButton.whenPressed(new PistonsDown());
+        //driverController.selectButton.whenPressed(new PistonsDown());
         // driverController.aButton.whileHeld(new ClimbingPID(Constants.CollectorSetPoints.CLIMB));
         // driverController.bButton.whileHeld(new ClimbSequence());
     }

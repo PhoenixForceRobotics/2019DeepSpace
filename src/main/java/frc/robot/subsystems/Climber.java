@@ -23,11 +23,13 @@ public class Climber extends Subsystem
         colson.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 0);
     }
 
+    //Pushes the pistons down, raising the robot
     public void levitate(){
         leftPiston.set(DoubleSolenoid.Value.kForward);
         rightPiston.set(DoubleSolenoid.Value.kForward);
     }
-
+    
+    //Pulls the pistons up, lowering the robot
     public void unlevitate(){
         leftPiston.set(DoubleSolenoid.Value.kReverse);
         rightPiston.set(DoubleSolenoid.Value.kReverse);
@@ -38,6 +40,7 @@ public class Climber extends Subsystem
         rightPiston.set(DoubleSolenoid.Value.kOff);
     }
 
+    //This function is to power the colsons which are on the climbing platform
     public void move(double value)
     {
         colson.set(value);

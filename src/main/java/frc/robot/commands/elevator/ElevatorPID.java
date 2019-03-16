@@ -31,6 +31,7 @@ public class ElevatorPID extends PIDCommand
         elevator.elevator2.set(-output);
     }
 
+    //This sets the PID to run off of the setpoints for when the elevator is moving up
     public void PIDUp(double setpoint){
         super.getPIDController().reset();
         super.getPIDController().setPID(Constants.SubsystemSpeeds.ElevatorPIDConstants.UP.kp,
@@ -40,7 +41,7 @@ public class ElevatorPID extends PIDCommand
         super.setSetpoint(setpoint);
     }
 
-    //jt adding this to try to build a steady state PID
+    //This sets the PID to run off of the setpoints to hold it steady
     public void PIDSteady(double setpoint){
         super.getPIDController().reset();
         super.getPIDController().setPID(Constants.SubsystemSpeeds.ElevatorPIDConstants.STEADY.kp,
@@ -50,6 +51,7 @@ public class ElevatorPID extends PIDCommand
         super.setSetpoint(setpoint);
     }
 
+    //Thist sets the PID to run off the setpoints when the elevator is moving towards the ground
     public void PIDDown(double setpoint){
         super.getPIDController().reset();
         super.getPIDController().setPID(Constants.SubsystemSpeeds.ElevatorPIDConstants.DOWN.kp,

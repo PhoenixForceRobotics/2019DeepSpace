@@ -56,7 +56,7 @@ public class RotateCollector extends Command
         } else if(!a && !b && c && !d) {
             setpoint = Constants.CollectorSetPoints.FRONT;
         } else if(!a && !b && !c && d){
-            setpoint = Constants.CollectorSetPoints.CLIMB;
+            setpoint = Constants.CollectorSetPoints.SHOOT;
         }
 
         if(lastSet!=setpoint){

@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import java.util.logging.Logger;
 import frc.robot.utility.Log;
 
+//This pushed the alignment pins in whatever direction is inputted for a portion of a second that pulls them back in
 public class PinControl extends Command 
 {
     private Collector collector;

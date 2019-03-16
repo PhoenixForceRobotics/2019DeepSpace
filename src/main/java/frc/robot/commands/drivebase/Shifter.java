@@ -12,6 +12,7 @@ public class Shifter extends Command
         this.mydrive = Robot.drivebase;
     }
 
+    //This shifts the drivebase from full power to .25 power or the other way around
     @Override
     public void initialize()
     {

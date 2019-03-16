@@ -4,6 +4,7 @@ import frc.robot.subsystems.OI;
 import frc.robot.subsystems.Drivebase;
 
 import java.util.logging.Logger;
+import frc.robot.Robot;
 import frc.robot.utility.Log;
 import frc.robot.Constants;
 import frc.robot.utility.CustomMath;
@@ -20,14 +21,14 @@ public class RunDriveBase extends Command
 
     private static final Logger logger = Log.configureLog(RunDriveBase.class.getName());
 
-    public RunDriveBase(Drivebase drivebase, OI oi)
+    public RunDriveBase()
     {
         logger.fine("Spinup Run Drive Base");
         requires(drivebase);
         customMath = new CustomMath();
 
-        this.drivebase = drivebase;
-        this.oi = oi;
+        drivebase = Robot.drivebase;
+        oi = Robot.oi;
     }
 
     @Override
@@ -40,10 +41,13 @@ public class RunDriveBase extends Command
     public void execute()
     {   
         logger.finest("Run Drive Base Execute");
-        //tank drive controls
+        //tank drive controls; multiplier is for lowering the speed for greater control
+        //The make sign function is to make sure no matter the power the output is in the same direction as the joystick is pushed
         multiplier = drivebase.getMultiplier();
-        drivebase.setLeft(customMath.makeSign(oi.driverController.rightStick.getY(), multiplier * Math.pow(oi.driverController.rightStick.getY(), Constants.SubsystemSpeeds.DrivebaseValues.StickPower)));
-        drivebase.setRight(customMath.makeSign(oi.driverController.leftStick.getY(), multiplier * Math.pow(oi.driverController.leftStick.getY(), Constants.SubsystemSpeeds.DrivebaseValues.StickPower)));
+        drivebase.setLeft(customMath.makeSign(oi.driverController.rightStick.getY(), 
+                            multiplier * Math.pow(oi.driverController.rightStick.getY(), Constants.SubsystemSpeeds.DrivebaseValues.StickPower)));
+        drivebase.setRight(customMath.makeSign(oi.driverController.leftStick.getY(), 
+                            multiplier * Math.pow(oi.driverController.leftStick.getY(), Constants.SubsystemSpeeds.DrivebaseValues.StickPower)));
     }
 
     @Override

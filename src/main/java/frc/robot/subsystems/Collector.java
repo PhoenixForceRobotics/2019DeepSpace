@@ -41,6 +41,8 @@ public class Collector extends Subsystem
         ballintake.set(value);
     }
 
+    //This controlls the pistons that punch the hatch off of the velcro 
+    //'o' pushes the pistons out 'i' pulls the pistons in, and anything else cuts off air
     public void puncherControl(char direction){
         if(direction == 'o'){
             logger.fine("Puncher out position");
@@ -54,6 +56,7 @@ public class Collector extends Subsystem
         }
     }
 
+    //These put the alignment pins for the floor hatch pickup up and down
     public void pinDown(){
         pins.set(DoubleSolenoid.Value.kForward);
     }
