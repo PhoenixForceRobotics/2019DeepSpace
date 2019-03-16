@@ -143,9 +143,6 @@ public class Constants
                 public static final double kp = -1.0;
                 public static final double ki = .00;
                 public static final double kd = -5.0;
-                //public static final double kp = -4;
-                //public static final double ki = .00;
-                //public static final double kd = -10;
             }
             public static final double tolerance = .05;
         }

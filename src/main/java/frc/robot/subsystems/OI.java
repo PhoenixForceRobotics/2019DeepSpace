@@ -2,15 +2,11 @@ package frc.robot.subsystems;
 
 import frc.controllers.BobXboxController;
 import frc.robot.Constants;
-import frc.robot.commands.climber.CheckButtons;
-import frc.robot.commands.climber.PistonsDown;
-import frc.robot.commands.climber.PistonsUp;
-import frc.robot.commands.climber.ClimbSequence;
+import frc.robot.commands.climber.*;
 import frc.robot.commands.collector.*;
 import frc.robot.commands.drivebase.*;
 import frc.robot.commands.elevator.*;
-// import frc.robot.Constants;
-import frc.robot.commands.rotation.ClimbingPID;
+import frc.robot.commands.rotation.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -28,13 +24,10 @@ public class OI
         //driverController Commands
         driverController.leftTriggerButton.whileHeld(new RunHDrive());
         driverController.rightTriggerButton.whileHeld(new RunHDrive());
-
-        //JT trying to break the pistons
-        //driverController.startButton.whenPressed(new PistonsDown());
-        //JT retracting permissions
-        //driverController.selectButton.whenPressed(new PistonsUp());
-        driverController.leftBumper.whileHeld(new PinControl('u'));
-        driverController.rightBumper.whileHeld(new PinControl('d'));
+        
+        driverController.leftBumper.whileHeld(new AlignmentPins());
+        // driverController.leftBumper.whileHeld(new PinControl('u'));
+        // driverController.rightBumper.whileHeld(new PinControl('d'));
 
         driverController.rightStickButton.whenPressed(new Shifter());
         
@@ -47,9 +40,8 @@ public class OI
 
         operatorController.rightTriggerButton.whenPressed(new PunchInAndOut());
 
-        //operatorController.leftTriggerButton.whenPressed(new ClimbSequence());
-        driverController.selectButton.whenPressed(new PistonsDown());
-        // driverController.aButton.whileHeld(new ClimbingPID(Constants.CollectorSetPoints.CLIMB));
+        // Climbing operations
+        // operatorController.leftTriggerButton.whenPressed(new ClimbSequence());
         // driverController.bButton.whileHeld(new ClimbSequence());
     }
 }
