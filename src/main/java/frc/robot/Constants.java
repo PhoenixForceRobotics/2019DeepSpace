@@ -53,9 +53,13 @@ public class Constants
         {
             public static int ELEVATOR1 = 10;
             public static int ELEVATOR2 = 11;
+            public static int ELEVATOR3 = 5;
+            public static int ELEVATOR4 = 8;
 
             public static final boolean ELEVATOR1_REVERSED = true;
             public static final boolean ELEVATOR2_REVERSED = true;
+            public static final boolean ELEVATOR3_REVERSED = false;
+            public static final boolean ELEVATOR4_REVERSED = false;
         }
 
         public static class Climber

@@ -29,6 +29,8 @@ public class ElevatorPID extends PIDCommand
     protected void usePIDOutput(double output) {
         elevator.elevator1.set(output);
         elevator.elevator2.set(-output);
+        elevator.elevator3.set(output);
+        elevator.elevator4.set(-output);
     }
 
     public void PIDUp(double setpoint){
