@@ -128,9 +128,9 @@ public class Constants
             //JT added this for motionprofiling
             public static final class MOTIONPROFILE
             {
-                public static final double kp = -6;
+                public static final double kp = -7;
                 public static final double ki = .00;
-                public static final double kd = .00;
+                public static final double kd = -13;
                 //JT any constants below this point are random starting points not tuned
                 public static final double kiz = .00;
                 public static final double kff = .00;
