@@ -13,8 +13,8 @@ import frc.robot.utility.Log;
 public class Elevator extends Subsystem {
     public Motor elevator1;
     public Motor elevator2;
-    public Motor elevator3;
-    public Motor elevator4;
+    //public Motor elevator3;
+    //public Motor elevator4;
 
     public CANEncoder elevatorEncoder;
 

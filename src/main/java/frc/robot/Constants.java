@@ -125,12 +125,22 @@ public class Constants
         }
         public static class ElevatorPIDConstants
         {
-            //JT added this to try a steady
-            public static final class STEADY
+            //JT added this for motionprofiling
+            public static final class MOTIONPROFILE
             {
                 public static final double kp = -6;
                 public static final double ki = .00;
                 public static final double kd = .00;
+                //JT any constants below this point are random starting points not tuned
+                public static final double kiz = .00;
+                public static final double kff = .00;
+                public static final double kMinOutput = -1;
+                public static final double kMaxOutput = 1;
+                public static final double maxRPM = 5700;
+                public static final double maxVel = 2000; // rpm
+                public static final double minVel = 0;
+                public static final double maxAcc = 1500;
+                public static final double allowedErr = 0;  
             }
             public static final class UP
             {

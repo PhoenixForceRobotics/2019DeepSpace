@@ -2,6 +2,7 @@ package frc.robot.commands.elevator;
 
 import frc.robot.Robot;
 import frc.robot.subsystems.Elevator;
+import frc.robot.commands.elevator.ElevatorSmartMotion;
 import frc.robot.subsystems.OI;
 import frc.robot.Constants;
 import frc.robot.commands.elevator.ElevatorPID;
@@ -24,6 +25,7 @@ public class RunElevator extends Command
     private boolean trueDown;
 
     private ElevatorPID elevatorPID;
+    private ElevatorSmartMotion eleSmartMotion;
     
     public RunElevator() {
         requires(Robot.elevator);
@@ -31,6 +33,7 @@ public class RunElevator extends Command
         this.elevator = Robot.elevator;
         this.oi = Robot.oi;
         elevatorPID = new ElevatorPID();
+        eleSmartMotion = new ElevatorSmartMotion();
     }
 
     @Override
@@ -72,10 +75,7 @@ public class RunElevator extends Command
         if(lastSet != setpoint){
             newCom();
         }
-    //    if(java.lang.Math.abs(elevator.elevatorEncoder.getPosition() - setpoint) < .01)
-    //    {
-    //         steady();
-    //    }
+   
         lastSet = setpoint;
     }
 
@@ -91,21 +91,19 @@ public class RunElevator extends Command
 
     @Override
     protected void end() {
-        elevatorPID.end();
+        //elevatorPID.end();
+        eleSmartMotion.end();
     }
 
-    //JT trying a steady routine
-    private void steady()
-    {
-        elevatorPID.PIDSteady(setpoint);
-    }
-    private void newCom(){
-        if(encoder.getPosition() > setpoint){
+    private void newCom() {
+        /*if(encoder.getPosition() > setpoint){
             System.out.println("UP");
             elevatorPID.PIDUp(setpoint);
         } else {
             System.out.println("DOWN");
             elevatorPID.PIDDown(setpoint);
-        }
+        }*/
+        //JT Commented this out and we are just going to try and use Smart Motion
+        eleSmartMotion.DoIt(setpoint);
     }
 }
