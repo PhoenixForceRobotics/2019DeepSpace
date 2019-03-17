@@ -32,7 +32,7 @@ public class CollectorPID extends PIDCommand
     }
 
     public void PIDBack(double setpoint){
-        System.out.println("Backwards");
+        // System.out.println("Backwards");
         super.getPIDController().reset();
         super.getPIDController().setPID(Constants.SubsystemSpeeds.RotateCollectorPIDConstants.BACK.kp,
                                         Constants.SubsystemSpeeds.RotateCollectorPIDConstants.BACK.ki,
@@ -42,7 +42,7 @@ public class CollectorPID extends PIDCommand
     }
 
     public void PIDForward(double setpoint){
-        System.out.println("Forward");
+        // System.out.println("Forward");
         super.getPIDController().reset();
         super.getPIDController().setPID(Constants.SubsystemSpeeds.RotateCollectorPIDConstants.FORWARD.kp,
                                         Constants.SubsystemSpeeds.RotateCollectorPIDConstants.FORWARD.ki,

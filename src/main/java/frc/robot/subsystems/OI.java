@@ -7,7 +7,6 @@ import frc.robot.commands.drivebase.*;
 import frc.robot.commands.elevator.*;
 import frc.robot.commands.rotation.*;
 import frc.robot.commands.climber.*;
-// import frc.robot.Constants;
 import frc.robot.commands.rotation.ClimbingPID;
 
 /**
@@ -27,11 +26,10 @@ public class OI
          */
         driverController.leftTriggerButton.whileHeld(new RunHDrive());
         driverController.rightTriggerButton.whileHeld(new RunHDrive());
-
-        //'u' indicates up so it pushed the pins in
-        //'d' indicates down so it puts the pistons against the ground
-        driverController.leftBumper.whileHeld(new PinControl('u'));
-        driverController.rightBumper.whileHeld(new PinControl('d'));
+        
+        driverController.leftBumper.whileHeld(new AlignmentPins());
+        // driverController.leftBumper.whileHeld(new PinControl('u'));
+        // driverController.rightBumper.whileHeld(new PinControl('d'));
 
         //This shifts the robot between full, and lowered speed
         driverController.rightStickButton.whenPressed(new Shifter());
