@@ -59,9 +59,9 @@ public class Robot extends TimedRobot {
       SmartDashboard.putData("Auto choices", m_chooser);
       logger.fine("About to start drivebase");
       drivebase = new Drivebase();
-      logger.fine("About to start Collector");
+      logger.info("About to start Collector");
       collector = new Collector();
-      logger.fine("About  to start HDrive");
+      logger.fine("About to start HDrive");
       hDrive = new HDrive();
       logger.fine("starting elevator");
       elevator = new Elevator();
@@ -72,6 +72,7 @@ public class Robot extends TimedRobot {
       logger.fine("starting OI");
       oi = new OI();
       logger.fine("Everything done here");
+      System.out.println(logger);
   }
   public static void addDriveBase(){
     Scheduler.getInstance().add(new RunDriveBase(drivebase, oi));
@@ -136,7 +137,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
-    System.out.println(elevator.elevatorEncoder.getPosition());
+    // System.out.println(elevator.elevatorEncoder.getPosition());
   }
 
   /**

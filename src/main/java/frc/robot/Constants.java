@@ -187,6 +187,6 @@ public class Constants
     }
 
     public static class Misc {
-        public static Level logLevel = Level.WARNING;
+        public static Level logLevel = Level.FINEST;
    }
 }
