@@ -19,12 +19,10 @@ import frc.robot.subsystems.HDrive;
 import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Rotation;
-import frc.robot.Constants;
 import java.util.logging.Logger;
 import frc.robot.utility.Log;
 import frc.robot.commands.drivebase.RunDriveBase;
 import frc.robot.commands.elevator.RunElevator;
-import frc.robot.commands.elevator.ElevatorPID;
 import frc.robot.commands.rotation.RotateCollector;
 import frc.robot.commands.climber.PistonsUp;
 
@@ -38,7 +36,6 @@ import frc.robot.commands.climber.PistonsUp;
 public class Robot extends TimedRobot {
   private static final String kDefaultAuto = "Default";
   private static final String kCustomAuto = "My Auto";
-  private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   public static OI oi;
   public static Drivebase drivebase;
