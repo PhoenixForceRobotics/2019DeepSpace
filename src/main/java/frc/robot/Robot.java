@@ -13,15 +13,15 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
 import frc.robot.subsystems.OI;
-import frc.robot.subsystems.Drivebase;
+import frc.robot.subsystems.DriveBaseAB;
 import frc.robot.subsystems.Elevator;
-import frc.robot.subsystems.HDrive;
+//import frc.robot.subsystems.HDrive;
 import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Rotation;
 import java.util.logging.Logger;
 import frc.robot.utility.Log;
-import frc.robot.commands.drivebase.RunDriveBase;
+import frc.robot.commands.drivebase.RunDrivebaseAB;
 import frc.robot.commands.elevator.RunElevator;
 import frc.robot.commands.rotation.RotateCollector;
 import frc.robot.commands.climber.PistonsUp;
@@ -38,8 +38,8 @@ public class Robot extends TimedRobot {
   private static final String kCustomAuto = "My Auto";
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   public static OI oi;
-  public static Drivebase drivebase;
-  public static HDrive hDrive;
+  public static DriveBaseAB drivebaseAB;
+  //public static HDrive hDrive;
   public static Collector collector;
   public static Elevator elevator;
   public static Climber climber;
@@ -58,11 +58,11 @@ public class Robot extends TimedRobot {
       m_chooser.addOption("My Auto", kCustomAuto);
       SmartDashboard.putData("Auto choices", m_chooser);
       logger.fine("About to start drivebase");
-      drivebase = new Drivebase();
+      drivebaseAB = new DriveBaseAB();
       logger.info("About to start Collector");
       collector = new Collector();
       logger.fine("About to start HDrive");
-      hDrive = new HDrive();
+      //hDrive = new HDrive();
       logger.fine("starting elevator");
       elevator = new Elevator();
       logger.fine("starting climber");
@@ -75,7 +75,7 @@ public class Robot extends TimedRobot {
       System.out.println(logger);
   }
   public static void addDriveBase(){
-    Scheduler.getInstance().add(new RunDriveBase(drivebase, oi));
+    Scheduler.getInstance().add(new RunDrivebaseAB(drivebaseAB, oi));
    }
 
    public static void addRunElevator(){

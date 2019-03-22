@@ -2,11 +2,11 @@ package frc.robot.commands.drivebase;
 
 import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.subsystems.Drivebase;
+import frc.robot.subsystems.DriveBaseAB;
 
 public class Shifter extends Command
 {
-    Drivebase mydrive;
+    DrivebaseAB mydrive;
     public Shifter(){
         requires(Robot.drivebase);
         this.mydrive = Robot.drivebase;
