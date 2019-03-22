@@ -95,10 +95,11 @@ public class RunElevator extends Command
     }
 
     //JT trying a steady routine
-    private void steady()
-    {
-        elevatorPID.PIDSteady(setpoint);
-    }
+    // private void steady()
+    // {
+    //     elevatorPID.PIDSteady(setpoint);
+    // }
+
     private void newCom(){
         if(encoder.getPosition() > setpoint){
             System.out.println("UP");

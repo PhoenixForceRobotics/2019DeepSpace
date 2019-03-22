@@ -32,7 +32,7 @@ public class ElevatorPID extends PIDCommand
 
     @Override
     protected void usePIDOutput(double output) {
-        fineControl = oi.operatorController.leftStick.getY()/10;
+        fineControl = oi.operatorController.leftStick.getY()/2;
         newOutput = output + fineControl;
         elevator.elevator1.set(newOutput);
         elevator.elevator2.set(-newOutput);
@@ -45,16 +45,6 @@ public class ElevatorPID extends PIDCommand
         super.getPIDController().setPID(Constants.SubsystemSpeeds.ElevatorPIDConstants.UP.kp,
                                         Constants.SubsystemSpeeds.ElevatorPIDConstants.UP.ki,
                                         Constants.SubsystemSpeeds.ElevatorPIDConstants.UP.kd);
-        super.getPIDController().enable();
-        super.setSetpoint(setpoint);
-    }
-
-    //jt adding this to try to build a steady state PID
-    public void PIDSteady(double setpoint){
-        super.getPIDController().reset();
-        super.getPIDController().setPID(Constants.SubsystemSpeeds.ElevatorPIDConstants.STEADY.kp,
-                                        Constants.SubsystemSpeeds.ElevatorPIDConstants.STEADY.ki,
-                                        Constants.SubsystemSpeeds.ElevatorPIDConstants.STEADY.kd);
         super.getPIDController().enable();
         super.setSetpoint(setpoint);
     }
