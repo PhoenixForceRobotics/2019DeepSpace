@@ -19,8 +19,11 @@ import frc.robot.subsystems.HDrive;
 import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Rotation;
+
+import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import frc.robot.utility.Log;
+import frc.robot.utility.TheLogFile;
 import frc.robot.commands.drivebase.RunDriveBase;
 import frc.robot.commands.elevator.RunElevator;
 import frc.robot.commands.rotation.RotateCollector;
@@ -37,6 +40,7 @@ public class Robot extends TimedRobot {
   private static final String kDefaultAuto = "Default";
   private static final String kCustomAuto = "My Auto";
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
+  public static TheLogFile theLogFile;
   public static OI oi;
   public static Drivebase drivebase;
   public static HDrive hDrive;
@@ -54,9 +58,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-      m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
-      m_chooser.addOption("My Auto", kCustomAuto);
-      SmartDashboard.putData("Auto choices", m_chooser);
+      theLogFile = new TheLogFile();
       logger.fine("About to start drivebase");
       drivebase = new Drivebase();
       logger.info("About to start Collector");

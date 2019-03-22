@@ -7,6 +7,7 @@ import java.util.logging.StreamHandler;
 import java.io.IOException;
 import java.util.logging.FileHandler;
 
+import frc.robot.Robot;
 import frc.robot.Constants;
 
 import java.util.logging.SimpleFormatter;
@@ -31,19 +32,10 @@ public class Log{
         theLog.addHandler(shandler);
         theLog.addHandler(chandler);
         
-        try
-        {
-            fhandler = new FileHandler("/home/lvuser/robot.txt");
-            fhandler.setFormatter(new SimpleFormatter());
-            fhandler.setLevel(logLevel);
-            theLog.addHandler(fhandler);
-        }
-        catch (IOException ioe)
-        {
-            ioe.printStackTrace();
-            theLog.warning("Could not open log file");
-            System.out.println("Failed to open log file");
-        }
+        fhandler = Robot.theLogFile.getLogFile();
+        fhandler.setFormatter(new SimpleFormatter());
+        fhandler.setLevel(logLevel);
+        theLog.addHandler(fhandler);
 
         return theLog;
     }
