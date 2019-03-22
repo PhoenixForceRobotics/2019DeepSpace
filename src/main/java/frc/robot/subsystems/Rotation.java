@@ -14,7 +14,7 @@ import frc.robot.utility.Log;
 
 public class Rotation extends Subsystem
 {
-    public Motor collectorrotate, collectorrotate1;
+    public Motor collectorrotate, collectorrotate1; //hope it gives you h**l, when you find a man thats worht a d**m, hope he gives you h**l
     public CANEncoder collectorEncoder;
 
     public static final Logger logger = Log.configureLog(Collector.class.getName());
@@ -26,7 +26,7 @@ public class Rotation extends Subsystem
         collectorrotate1 = new Motor(Constants.MotorMap.BallCollector.BALL_ROTATE1, MotorType.kBrushed, Constants.MotorMap.BallCollector.BALLROTATE1_REVERSED, 30);
 
         collectorrotate1.follow(collectorrotate);
-        collectorrotate1.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 2);
+        collectorrotate1.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 2);//set perameter EVANQ
         collectorrotate.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 0);
         collectorEncoder = collectorrotate1.getEncoder();
     }
@@ -41,12 +41,12 @@ public class Rotation extends Subsystem
         collectorrotate.set(-speed);
     }
 
-    public void killrotatemotors()
+    public void killrotatemotors() //EVANQ how to learn good name conventions
     {
         collectorrotate.set(0);
     }
 
-    public void initDefaultCommand()
+    public void initDefaultCommand() //EVANQ
     {
 
     }

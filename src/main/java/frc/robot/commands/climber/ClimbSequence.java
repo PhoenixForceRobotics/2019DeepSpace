@@ -18,7 +18,7 @@ public class ClimbSequence extends CommandGroup
         Robot.addDriveBase();
         Scheduler.getInstance().add(new PistonsDown());
         addParallel(new ClimbingPID(Constants.CollectorSetPoints.CLIMB));
-        addParallel(new ElevatorPIDDown(Constants.ElevatorSetPoints.Hatches.BOTTOM));
+        addParallel(new ElevatorPIDDown(Constants.ElevatorSetPoints.Hatches.BOTTOM)); //EVANQ
         Scheduler.getInstance().add(new MoveColsons());
     }
 }

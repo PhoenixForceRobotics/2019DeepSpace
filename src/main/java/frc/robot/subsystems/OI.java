@@ -22,7 +22,7 @@ public class OI
     public BobXboxController operatorController;
 
     public OI() {
-        driverController = new BobXboxController(0, 0.11, 0.11);
+        driverController = new BobXboxController(0, 0.11, 0.11); //this is an EVANQ
         operatorController = new BobXboxController(1, 0.11, 0.11);
 
         //driverController Commands

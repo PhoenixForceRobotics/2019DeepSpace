@@ -13,7 +13,7 @@ public class ElevatorPID extends PIDCommand
     private Elevator elevator;
     private OI oi;
     private double fineControl;
-    private double newOutput;
+    private double newOutput;  
 
     private static final Logger logger = Log.configureLog(ElevatorPID.class.getName());
 

@@ -47,7 +47,7 @@ public class Collector extends Subsystem
             puncher.set(DoubleSolenoid.Value.kForward);
         } else if (direction == 'i'){
             logger.fine("Puncher in position");
-            puncher.set(DoubleSolenoid.Value.kReverse);
+            puncher.set(DoubleSolenoid.Value.kReverse); //Emily decided that K stands for Kontsants, and it is such a stupid thing. K is for Kappa. Why is she so weird in her naming, she should have the naming conventions of Evan.
         } else {
             logger.fine("Puncher off position");
             puncher.set(DoubleSolenoid.Value.kOff);
