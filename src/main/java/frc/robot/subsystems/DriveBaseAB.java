@@ -48,7 +48,7 @@ public class DriveBaseAB extends Subsystem{
         
         }
 
-        public void Multiplyer(){
+        public void shift(){
 
             if (Multiplyer == 1){
                 Multiplyer = .25;

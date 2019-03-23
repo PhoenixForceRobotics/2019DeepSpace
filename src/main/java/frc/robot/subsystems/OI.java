@@ -21,8 +21,8 @@ public class OI
         operatorController = new BobXboxController(1, 0.11, 0.11);
 
         //driverController Commands
-        driverController.leftTriggerButton.whileHeld(new RunHDrive());
-        driverController.rightTriggerButton.whileHeld(new RunHDrive());
+        //driverController.leftTriggerButton.whileHeld(new RunHDrive());
+        //riverController.rightTriggerButton.whileHeld(new RunHDrive());
 
         driverController.leftBumper.whileHeld(new PinControl('u'));
         driverController.rightBumper.whileHeld(new PinControl('d'));

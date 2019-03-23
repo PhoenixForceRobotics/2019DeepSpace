@@ -1,4 +1,4 @@
-/*package frc.robot.subsystems;
+package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -13,7 +13,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 public class HDrive extends Subsystem {
     public Motor hdrive1, hdrive2;
 
-    private static final Logger logger = Log.configureLog(Drivebase.class.getName());
+    private static final Logger logger = Log.configureLog(DriveBaseAB.class.getName());
 
     public HDrive() {
         logger.fine("Spinup hDrive");
@@ -38,5 +38,5 @@ public class HDrive extends Subsystem {
     public void initDefaultCommand()
     {
 
-    }*/
-//}
+    }
+}

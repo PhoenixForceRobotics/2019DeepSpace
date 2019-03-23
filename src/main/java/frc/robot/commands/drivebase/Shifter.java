@@ -6,10 +6,10 @@ import frc.robot.subsystems.DriveBaseAB;
 
 public class Shifter extends Command
 {
-    DrivebaseAB mydrive;
+    DriveBaseAB mydrive;
     public Shifter(){
-        requires(Robot.drivebase);
-        this.mydrive = Robot.drivebase;
+        requires(Robot.drivebaseAB);
+        this.mydrive = Robot.drivebaseAB;
     }
 
     @Override
