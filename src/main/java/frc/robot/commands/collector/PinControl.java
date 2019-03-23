@@ -15,6 +15,7 @@ public class PinControl extends Command
     private static final Logger logger = Log.configureLog(PinControl.class.getName());
     
     public PinControl(char direction){
+        logger.fine("spinup Pin Control");
         this.collector = Robot.collector;
         direct = direction;
     }
@@ -22,7 +23,7 @@ public class PinControl extends Command
     @Override
     public void initialize()
     {
-        setTimeout(.7);
+        
     }
   
     @Override

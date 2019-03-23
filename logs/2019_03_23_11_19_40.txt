@@ -1,0 +1,50 @@
+Mar 23, 2019 11:19:41 AM frc.robot.Robot robotInit
+FINE: About to start drivebase
+Mar 23, 2019 11:19:42 AM frc.robot.subsystems.Drivebase <init>
+FINE: Spinup Drivebase
+Mar 23, 2019 11:19:42 AM frc.robot.Robot robotInit
+INFO: About to start Collector
+Mar 23, 2019 11:19:42 AM frc.robot.subsystems.Collector <init>
+FINE: Spinup Ball Collector and Hatch Collector
+Mar 23, 2019 11:19:42 AM frc.robot.Robot robotInit
+FINE: About to start HDrive
+Mar 23, 2019 11:19:42 AM frc.robot.subsystems.HDrive <init>
+FINE: Spinup hDrive
+Mar 23, 2019 11:19:42 AM frc.robot.subsystems.HDrive <init>
+FINE: Spinup hDrive
+Mar 23, 2019 11:19:42 AM frc.robot.Robot robotInit
+FINE: starting elevator
+Mar 23, 2019 11:19:42 AM frc.robot.subsystems.Elevator <init>
+FINEST: Spinup Elevator
+Mar 23, 2019 11:19:42 AM frc.robot.Robot robotInit
+FINE: starting climber
+Mar 23, 2019 11:19:42 AM frc.robot.Robot robotInit
+FINE: starting rotation
+Mar 23, 2019 11:19:42 AM frc.robot.subsystems.Rotation <init>
+FINE: Spinup Ball Collector and Hatch Collector
+Mar 23, 2019 11:19:42 AM frc.robot.subsystems.Rotation <init>
+FINE: Spinup Ball Collector and Hatch Collector
+Mar 23, 2019 11:19:42 AM frc.robot.Robot robotInit
+FINE: starting OI
+Mar 23, 2019 11:19:42 AM frc.robot.commands.drivebase.RunHDrive <init>
+FINE: Spinup RunHDrive
+Mar 23, 2019 11:19:43 AM frc.robot.commands.drivebase.RunHDrive <init>
+FINE: Spinup RunHDrive
+Mar 23, 2019 11:19:43 AM frc.robot.commands.collector.PinControl <init>
+FINE: spinup Pin Control
+Mar 23, 2019 11:19:43 AM frc.robot.commands.collector.PinControl <init>
+FINE: spinup Pin Control
+Mar 23, 2019 11:19:43 AM frc.robot.commands.drivebase.Shifter <init>
+FINE: spinup Shifter
+Mar 23, 2019 11:19:43 AM frc.robot.commands.collector.BallHoldIntake <init>
+FINE: Spinup BallHoldIntake
+Mar 23, 2019 11:19:43 AM frc.robot.commands.collector.BallHoldOuttake <init>
+FINE: Spinup BallHoldIntake
+Mar 23, 2019 11:19:43 AM frc.robot.commands.collector.PunchInAndOut <init>
+FINE: Punch in and out
+Mar 23, 2019 11:19:43 AM frc.robot.commands.collector.PuncherHatchIn <init>
+FINE: Spinup Puncher Hatch In
+Mar 23, 2019 11:19:43 AM frc.robot.commands.collector.PuncherHatchOut <init>
+FINE: Spinup Puncher Hatch Out
+Mar 23, 2019 11:19:43 AM frc.robot.Robot robotInit
+FINE: Everything done here

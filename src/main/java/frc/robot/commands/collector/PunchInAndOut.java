@@ -13,7 +13,7 @@ public class PunchInAndOut extends CommandGroup
     private static final Logger logger = Log.configureLog(PunchInAndOut.class.getName());
 
     public PunchInAndOut() {
-        logger.info("Punch in and out");
+        logger.fine("Punch in and out");
         addSequential(new PuncherHatchIn());
         addSequential(new PuncherHatchOut());
     }
