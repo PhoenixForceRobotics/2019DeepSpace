@@ -18,7 +18,7 @@ public class TheLogFile extends Subsystem{
         if(logFileMade){
             try
             {
-                thePath = "/home/lvuser/logs/" + dateFormat.format(date).toString() + ".txt";
+                thePath = "/home/lvuser/logs/Prac_" + dateFormat.format(date).toString() + ".txt";
                 theLogFile = new FileHandler(thePath);
                 logFileMade = false;
             }
