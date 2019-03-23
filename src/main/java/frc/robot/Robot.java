@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
+import frc.robot.utility.TheLogFile;
 import frc.robot.subsystems.OI;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.Elevator;
@@ -34,6 +35,7 @@ import frc.robot.commands.climber.PistonsUp;
  * project.
  */
 public class Robot extends TimedRobot {
+  public static TheLogFile theLogFile;
   public static OI oi;
   public static Drivebase drivebase;
   public static HDrive hDrive;
@@ -49,6 +51,7 @@ public class Robot extends TimedRobot {
   //used for any initialization code.
   @Override
   public void robotInit() {
+      theLogFile = new TheLogFile();
       logger.fine("About to start drivebase");
       drivebase = new Drivebase();
       logger.fine("About to start Collector");
