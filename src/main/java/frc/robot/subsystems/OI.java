@@ -27,7 +27,7 @@ public class OI
         driverController.leftBumper.whileHeld(new PinControl('u'));
         driverController.rightBumper.whileHeld(new PinControl('d'));
 
-        driverController.rightStickButton.whenPressed(new Shifter());
+        driverController.rightStickButton.whenPressed(new ShifterAB());
         
         //operatorController Commands
         operatorController.selectButton.whenPressed(new ElevatorShifter('h'));
