@@ -54,7 +54,6 @@ public class ElevatorSmartMotion
     _pidcontroller.setSmartMotionAllowedClosedLoopError(Constants.SubsystemSpeeds.ElevatorPIDConstants.MOTIONPROFILE.allowedErr, smartMotionSlot);
 
     // m_pidController.setReference(setPoint, ControlType.kSmartMotion);
-
     _pidcontroller.setReference(position, ControlType.kSmartMotion);
 }
 
