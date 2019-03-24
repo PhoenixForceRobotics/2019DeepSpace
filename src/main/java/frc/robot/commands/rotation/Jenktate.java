@@ -29,7 +29,7 @@ public class Jenktate extends Command
     @Override
     protected void execute()
     {
-        logger.finest("Jenktate executed");
+        logger.finest("Jenktate execute");
         rotation.janktateDown(-1);
     }
 
@@ -49,7 +49,7 @@ public class Jenktate extends Command
     @Override
     protected void end()
     {
-        logger.fine("Jenktate was ended");
+        logger.fine("Jenktate end");
         rotation.janktateDown(0);
     }
 }

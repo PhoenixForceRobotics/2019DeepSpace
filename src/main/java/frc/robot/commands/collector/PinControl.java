@@ -24,14 +24,13 @@ public class PinControl extends Command
     @Override
     public void initialize()
     {
-        logger.finest("PinControl init");
+        logger.fine("PinControl init");
         setTimeout(.7);
     }
   
     @Override
     public void execute()
     {
-
         logger.finest("PinControl executed");
         if(direct == 'd'){
             logger.finest("Pin Down");

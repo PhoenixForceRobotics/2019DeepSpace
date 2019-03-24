@@ -27,13 +27,13 @@ public class Collector extends Subsystem
 
     public void intake(double value)
     {
-        logger.finest("Start Ball Collector Intake");
+        logger.finest("Ball Collector Intake");
         ballintake.set(-value);
     }
 
     public void outtake(double value)
     {
-        logger.finest("Start Ball Collector Outake");
+        logger.finest("Ball Collector Outake");
         ballintake.set(value);
     }
 

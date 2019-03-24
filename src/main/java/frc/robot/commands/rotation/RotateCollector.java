@@ -62,36 +62,36 @@ public class RotateCollector extends Command
         d = oi.operatorController.aButton.get();
         
         if(a && !b && !c && !d){
-            logger.fine("BACK");
+            logger.fine("Collector BACK");
             setpoint = Constants.CollectorSetPoints.BACK;
         } else if(!a && b && !c && !d){
-            logger.fine("MIDDLE");
+            logger.fine("Collector MIDDLE");
             setpoint = Constants.CollectorSetPoints.MIDDLE;
         } else if(!a && !b && c && !d) {
-            logger.fine("FRONT");
+            logger.fine("Collector FRONT");
             setpoint = Constants.CollectorSetPoints.FRONT;
         } else if(!a && !b && !c && d){
-            logger.fine("SHOOT");
+            logger.fine("Collector SHOOT");
             setpoint = Constants.CollectorSetPoints.SHOOT;
         }
 
         if(lastSet!=setpoint){
             newCom();
         }
-        if(java.lang.Math.abs(rotation.collectorEncoder.getPosition() - setpoint) < .05 
-            && (setpoint == Constants.CollectorSetPoints.FRONT || setpoint == Constants.CollectorSetPoints.BACK))
-       {
-           if(timer){
-               killTimer.start();
-               timer = true;
-           }
-           if(killTimer.get() > .5){
-                System.out.println("killed");
-                collectorPID.end();
-                killTimer.reset();
-                timer = false;
-           }
-       }
+    //     if(java.lang.Math.abs(rotation.collectorEncoder.getPosition() - setpoint) < .05 
+    //         && (setpoint == Constants.CollectorSetPoints.FRONT || setpoint == Constants.CollectorSetPoints.BACK))
+    //    {
+    //        if(timer){
+    //            killTimer.start();
+    //            timer = true;
+    //        }
+    //        if(killTimer.get() > .5){
+    //             System.out.println("killed");
+    //             collectorPID.end();
+    //             killTimer.reset();
+    //             timer = false;
+    //        }
+    //    }
         lastSet = setpoint;
     }
 
@@ -113,6 +113,7 @@ public class RotateCollector extends Command
     }
 
     private void newCom(){
+        logger.fine("Collector PID New Command");
         if(encoder.getPosition() < setpoint){
             collectorPID.PIDForward(setpoint);
         } else {

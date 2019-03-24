@@ -14,7 +14,7 @@ public class Shifter extends Command
     public static final Logger logger = Log.configureLog(Shifter.class.getName());
 
     public Shifter(){
-        logger.finest("Shifer spinup");
+        logger.fine("Shifer spinup");
         requires(Robot.drivebase);
         this.mydrive = Robot.drivebase;
     }
@@ -24,7 +24,7 @@ public class Shifter extends Command
     public void initialize()
 
     {
-        logger.finest("Shifter init");
+        logger.fine("Shifter init");
         mydrive.shift();
     }
 
