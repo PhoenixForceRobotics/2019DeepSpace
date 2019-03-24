@@ -6,10 +6,14 @@ import frc.robot.subsystems.Elevator;
 import edu.wpi.first.wpilibj.command.PIDCommand;
 import java.util.logging.Logger;
 import frc.robot.utility.Log;
+import frc.robot.subsystems.OI;
 
 public class ElevatorPID extends PIDCommand
 {
     private Elevator elevator;
+    private OI oi;
+    private double fineControl;
+    private double newOutput;
 
     private static final Logger logger = Log.configureLog(ElevatorPID.class.getName());
 
@@ -20,6 +24,7 @@ public class ElevatorPID extends PIDCommand
         logger.fine("ElevatorPID spinup");
         requires(Robot.elevator);
         this.elevator = Robot.elevator;
+        this.oi = Robot.oi;
     }
 
     @Override
@@ -29,8 +34,10 @@ public class ElevatorPID extends PIDCommand
 
     @Override
     protected void usePIDOutput(double output) {
-        elevator.elevator1.set(output);
-        elevator.elevator2.set(-output);
+        fineControl = oi.operatorController.leftStick.getY()/2;
+        newOutput = output + fineControl;
+        elevator.elevator1.set(newOutput);
+        elevator.elevator2.set(-newOutput);
     }
 
     //This sets the PID to run off of the setpoints for when the elevator is moving up

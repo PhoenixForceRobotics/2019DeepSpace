@@ -23,8 +23,13 @@ public class RunDriveBase extends Command
 
     public RunDriveBase()
     {
+<<<<<<< HEAD
         logger.fine("Spinup RunDriveBase");
         requires(drivebase);
+=======
+        logger.fine("Spinup Run Drive Base");
+        requires(Robot.drivebase);
+>>>>>>> 9e6001c5f4ca01b747fad68bbc65bcfd291d6e60
         customMath = new CustomMath();
 
         drivebase = Robot.drivebase;
