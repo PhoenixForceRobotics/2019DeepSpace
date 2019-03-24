@@ -1,5 +1,7 @@
 package frc.robot.commands.rotation;
 
+//Andrew added the loggin to this file, may need some more logging
+
 import frc.robot.Robot;
 import frc.robot.subsystems.Rotation;
 import frc.robot.subsystems.OI;
@@ -9,6 +11,9 @@ import edu.wpi.first.wpilibj.command.Command;
 import com.revrobotics.CANEncoder;
 import edu.wpi.first.wpilibj.Timer;
 
+//import the logging thing
+import frc.robot.utility.Log;
+import java.util.logging.Logger;
 
 public class RotateCollector extends Command
 {
@@ -24,10 +29,15 @@ public class RotateCollector extends Command
     private Rotation rotation;
     private CANEncoder encoder;
     private OI oi;
+
+    public static final Logger logger = Log.configureLog(RotateCollector.class.getName());
+
     
     private CollectorPID collectorPID;
 
     public RotateCollector() {
+
+        logger.fine("Rotate Collector spin up");
         requires(Robot.rotation);
         this.rotation = Robot.rotation;
         this.encoder = rotation.collectorEncoder;
@@ -38,23 +48,30 @@ public class RotateCollector extends Command
     
     @Override
     protected void initialize() { 
+        logger.finest("RotateCollector init");
         
     }
 
     @Override
     protected void execute() {
+
+        logger.finest("Rotate Collector execute");
         a = oi.operatorController.bButton.get();
         b = oi.operatorController.yButton.get();
         c = oi.operatorController.xButton.get();
         d = oi.operatorController.aButton.get();
         
         if(a && !b && !c && !d){
+            logger.fine("BACK");
             setpoint = Constants.CollectorSetPoints.BACK;
         } else if(!a && b && !c && !d){
+            logger.fine("MIDDLE");
             setpoint = Constants.CollectorSetPoints.MIDDLE;
         } else if(!a && !b && c && !d) {
+            logger.fine("FRONT");
             setpoint = Constants.CollectorSetPoints.FRONT;
         } else if(!a && !b && !c && d){
+            logger.fine("SHOOT");
             setpoint = Constants.CollectorSetPoints.SHOOT;
         }
 
@@ -85,11 +102,13 @@ public class RotateCollector extends Command
 
     @Override
     protected void interrupted() {
+        logger.fine("Was interrupted");
         end();
     }
 
     @Override
     protected void end() {
+
         collectorPID.end();
     }
 

@@ -12,6 +12,8 @@ import frc.robot.utility.CustomMath;
 import edu.wpi.first.wpilibj.Timer;
 import java.lang.Math;
 
+
+
 public class RunHDrive extends Command
 {
     private HDrive hDrive;
@@ -34,6 +36,7 @@ public class RunHDrive extends Command
     public void initialize()
     {
         this.oi = Robot.oi;
+        logger.finest("RunHDrive init");
         startUp.reset();
         startUp.start();
     }
@@ -67,7 +70,7 @@ public class RunHDrive extends Command
     @Override
     public void interrupted()
     {
-        logger.fine("RunHDrive Interrupted");
+
         end();
     }
 

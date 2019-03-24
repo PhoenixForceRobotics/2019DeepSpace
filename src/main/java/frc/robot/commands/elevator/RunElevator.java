@@ -8,6 +8,10 @@ import frc.robot.commands.elevator.ElevatorPID;
 import edu.wpi.first.wpilibj.command.Command;
 import com.revrobotics.CANEncoder;
 
+//These are the loggin imports
+import java.util.logging.Logger;
+import frc.robot.utility.Log;
+
 
 public class RunElevator extends Command
 {
@@ -24,8 +28,11 @@ public class RunElevator extends Command
     private boolean trueDown;
 
     private ElevatorPID elevatorPID;
+
+    public static final Logger logger = Log.configureLog(RunElevator.class.getName());
     
     public RunElevator() {
+        logger.fine("Spinup 'Run Elevator'");
         requires(Robot.elevator);
         this.encoder = Robot.elevator.elevatorEncoder;
         this.elevator = Robot.elevator;
@@ -35,11 +42,14 @@ public class RunElevator extends Command
 
     @Override
     protected void initialize() {
+        logger.finest("Run Elevator initialize");
 
     }
 
     @Override
     protected void execute() {
+
+        logger.finest("Run elevator executed");
         up = oi.operatorController.Dpad.Up.get();
         left = oi.operatorController.Dpad.Left.get();
         right = oi.operatorController.Dpad.Right.get();
@@ -51,22 +61,30 @@ public class RunElevator extends Command
         //To see more information about the heights look at Constants.Java
         if(elevator.ballMode){
             if(up && !left && !right && !down && !trueDown){
+                logger.fine("ballMode Top -- Balls");
                 setpoint = Constants.ElevatorSetPoints.Balls.TOP;
             } else if(!up && left && !right && !down && !trueDown){
+                logger.fine("ballMode Middle -- Balls");
                 setpoint = Constants.ElevatorSetPoints.Balls.MIDDLE;
             } else if(!up && !left && right && !down && !trueDown){
+                logger.fine("ballMode Center -- Balls");
                 setpoint = Constants.ElevatorSetPoints.Balls.CENTER;
             } else if(!up && !left && !right && down && !trueDown){
+                logger.fine("ballMode Bottom -- Balls");
                 setpoint = Constants.ElevatorSetPoints.Balls.BOTTOM;
             } else if(!up && !left && !right && down && trueDown){
+                logger.fine("ballMode TrueBottom -- Balls");
                 setpoint = Constants.ElevatorSetPoints.Balls.TRUEBOTTOM;
             }
         } else {
             if(up && !left && !right && !down){
+                logger.fine("ballMode TOP -- Hatches");
                 setpoint = Constants.ElevatorSetPoints.Hatches.TOP;
             } else if(!up && left && !right && !down){
+                logger.fine("ballMode Middle -- Hatches");
                 setpoint = Constants.ElevatorSetPoints.Hatches.MIDDLE;
             } else if(!up && !left && !right && down){
+                logger.fine("ballMode Bettom -- Hatches");
                 setpoint = Constants.ElevatorSetPoints.Hatches.BOTTOM;
             }
         }
@@ -94,6 +112,7 @@ public class RunElevator extends Command
 
     @Override
     protected void interrupted() {
+
         end();
     }
 
@@ -101,6 +120,7 @@ public class RunElevator extends Command
     //or when the climber drives the elevator down
     @Override
     protected void end() {
+        logger.fine("Ended");
         elevatorPID.end();
     }
 
@@ -113,9 +133,11 @@ public class RunElevator extends Command
     private void newCom(){
         if(encoder.getPosition() > setpoint){
             System.out.println("UP");
+            logger.finest("Went up to setpoint");
             elevatorPID.PIDUp(setpoint);
         } else {
             System.out.println("DOWN");
+            logger.finest("Went down to setpoint");
             elevatorPID.PIDDown(setpoint);
         }
     }

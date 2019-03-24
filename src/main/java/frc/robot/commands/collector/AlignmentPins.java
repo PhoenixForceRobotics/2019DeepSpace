@@ -14,36 +14,41 @@ public class AlignmentPins extends Command
     private static final Logger logger = Log.configureLog(AlignmentPins.class.getName());
     
     public AlignmentPins(){
+        logger.fine("AllignmentPins Spin up");
         this.collector = Robot.collector;
     }
 
     @Override
     public void initialize()
     {
-        
+        logger.finest("AllignmentPins init");
     }
   
     @Override
     public void execute()
     {
+        logger.finest("AllignemntPins executed");
         collector.pinDown();
     }
 
     @Override 
     public boolean isFinished()
     {
+    
         return false;
     }
 
     @Override
     public void interrupted()
     {
+
         end();
     }
 
     @Override
     public void end()
     {
+        logger.finest("AllignmentPins was ended -- PinUp and PinOff");
         collector.pinUp();
         collector.pinOff();
     }

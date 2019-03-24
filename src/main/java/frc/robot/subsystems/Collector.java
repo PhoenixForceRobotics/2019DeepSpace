@@ -54,12 +54,15 @@ public class Collector extends Subsystem
 
     //These put the alignment pins for the floor hatch pickup up and down
     public void pinDown(){
+        logger.fine("Pins Down");
         pins.set(DoubleSolenoid.Value.kForward);
     }
     public void pinUp(){
+        logger.fine("Pins Up");
         pins.set(DoubleSolenoid.Value.kReverse);
     }
     public void pinOff(){
+        logger.fine("Pins Off");
         pins.set(DoubleSolenoid.Value.kOff);
     }
    

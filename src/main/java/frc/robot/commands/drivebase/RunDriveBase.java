@@ -23,7 +23,7 @@ public class RunDriveBase extends Command
 
     public RunDriveBase()
     {
-        logger.fine("Spinup Run Drive Base");
+        logger.fine("Spinup RunDriveBase");
         requires(drivebase);
         customMath = new CustomMath();
 
@@ -40,7 +40,7 @@ public class RunDriveBase extends Command
     @Override
     public void execute()
     {   
-        logger.finest("Run Drive Base Execute");
+        logger.finest("RunDriveBase Execute");
         //tank drive controls; multiplier is for lowering the speed for greater control
         //The make sign function is to make sure no matter the power the output is in the same direction as the joystick is pushed
         multiplier = drivebase.getMultiplier();
@@ -59,14 +59,14 @@ public class RunDriveBase extends Command
     @Override
     public void interrupted()
     {
-        logger.fine("Run Drive Base Interrupted");
+       
         end();
     }
 
     @Override
     public void end()
     {
-        logger.fine("Run Drive Base End");
+        logger.fine("RunDriveBase End");
         drivebase.setLeft(0);
         drivebase.setRight(0);
     }

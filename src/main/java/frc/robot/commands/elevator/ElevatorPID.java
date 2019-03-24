@@ -15,7 +15,9 @@ public class ElevatorPID extends PIDCommand
 
     public ElevatorPID()
     {
+        
         super(0,0,0);
+        logger.fine("ElevatorPID spinup");
         requires(Robot.elevator);
         this.elevator = Robot.elevator;
     }
@@ -33,6 +35,7 @@ public class ElevatorPID extends PIDCommand
 
     //This sets the PID to run off of the setpoints for when the elevator is moving up
     public void PIDUp(double setpoint){
+        logger.finest("Elevator is moving up");
         super.getPIDController().reset();
         super.getPIDController().setPID(Constants.SubsystemSpeeds.ElevatorPIDConstants.UP.kp,
                                         Constants.SubsystemSpeeds.ElevatorPIDConstants.UP.ki,
@@ -43,6 +46,7 @@ public class ElevatorPID extends PIDCommand
 
     //This sets the PID to run off of the setpoints to hold it steady
     public void PIDSteady(double setpoint){
+        logger.finest("Elevator is steady");
         super.getPIDController().reset();
         super.getPIDController().setPID(Constants.SubsystemSpeeds.ElevatorPIDConstants.STEADY.kp,
                                         Constants.SubsystemSpeeds.ElevatorPIDConstants.STEADY.ki,
@@ -53,6 +57,7 @@ public class ElevatorPID extends PIDCommand
 
     //Thist sets the PID to run off the setpoints when the elevator is moving towards the ground
     public void PIDDown(double setpoint){
+        logger.finest("Elevator is moving to the ground");
         super.getPIDController().reset();
         super.getPIDController().setPID(Constants.SubsystemSpeeds.ElevatorPIDConstants.DOWN.kp,
                                         Constants.SubsystemSpeeds.ElevatorPIDConstants.DOWN.ki,
@@ -67,6 +72,7 @@ public class ElevatorPID extends PIDCommand
     }
 
     public void end(){
+        logger.fine("Was ended");
         super.getPIDController().disable();
     }
 }

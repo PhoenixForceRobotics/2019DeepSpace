@@ -20,7 +20,7 @@ public class Elevator extends Subsystem {
     private static final Logger logger = Log.configureLog(Elevator.class.getName());
 
     public Elevator() {
-        logger.finest("Spinup Elevator");
+        logger.fine("Spinup Elevator");
         elevator1 = new Motor(Constants.MotorMap.Elevator.ELEVATOR1, MotorType.kBrushed, Constants.MotorMap.Elevator.ELEVATOR1_REVERSED, 30);
         elevator2 = new Motor(Constants.MotorMap.Elevator.ELEVATOR2, MotorType.kBrushed, Constants.MotorMap.Elevator.ELEVATOR2_REVERSED, 30);
 
@@ -32,19 +32,21 @@ public class Elevator extends Subsystem {
     //These switch the elevator between ball and hatch mode
     //Each of these modes has a different set of setpoints defined in constants for placement of game objects
     public void makeBallMode(){
+        logger.fine("ballMode = true");
         ballMode = true;
     }
     public void makeHatchMode(){
+        logger.fine("ballMode = false");
         ballMode = false;
     }
 
     public void killmotors(){
-        logger.finest("Elevator kill motors");
+        logger.fine("Elevator kill motors");
         elevator1.set(0);
     }
 
     public void initDefaultCommand()
     {
-        
+        logger.finest("initDefault");
     }
 }

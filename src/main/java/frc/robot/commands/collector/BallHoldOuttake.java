@@ -14,7 +14,7 @@ public class BallHoldOuttake extends Command
 
     public BallHoldOuttake()
     {
-        logger.fine("Spinup BallHoldIntake");
+        logger.fine("Spinup BallHoldOuttake");
         requires(Robot.collector);
         this.collector = Robot.collector;
     }
@@ -28,28 +28,28 @@ public class BallHoldOuttake extends Command
     @Override
     public void execute()
     {    
-        logger.finest("Excecute BallHoldIntake");
+        logger.finest("Excecute BallHoldOuttake");
         collector.outtake(Constants.SubsystemSpeeds.BallCollectorValues.BCOuttakeSpeed);
     }
 
     @Override
     public boolean isFinished()
     {
-        logger.finest("BallHoldIntake is finished");
+        logger.finest("BallHoldOuttake is finished");
         return false;
     }
 
     @Override
     public void interrupted()
     {
-        logger.fine("BallHoldIntake interrupted");
+      
         end();
     }
 
     @Override
     public void end()
     {
-        logger.fine("BallHoldIntake end");
+        logger.fine("BallHoldOuttake end");
         collector.intake(0);
     }
 }

@@ -86,11 +86,13 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
+    logger.finest("robotPeriodic");
   }
 
   //This is called at the beginning of the Auto Period
   @Override
   public void autonomousInit() {
+    logger.finest("autoInit");
     addDriveBase();
     addRunElevator();
     Scheduler.getInstance().add(new RotateCollector());
@@ -101,6 +103,7 @@ public class Robot extends TimedRobot {
   //This function is called periodically during autonomous.
   @Override
   public void autonomousPeriodic() {
+    logger.finest("autoPeriodic");
     Scheduler.getInstance().run();
   }
 
@@ -108,6 +111,7 @@ public class Robot extends TimedRobot {
   //This function at the beginning of Teleop
   @Override
   public void teleopInit() {
+    logger.finest("teleopInit");
     Scheduler.getInstance().removeAll();
     addDriveBase();
     addRunElevator();
@@ -118,6 +122,7 @@ public class Robot extends TimedRobot {
   //This function is called periodically during operator control
   @Override
   public void teleopPeriodic() {
+    logger.finest("teleopPeriodic");
     Scheduler.getInstance().run();
     System.out.println(elevator.elevatorEncoder.getPosition());
   }
@@ -126,5 +131,6 @@ public class Robot extends TimedRobot {
   //This function is called periodically during test mode.
   @Override
   public void testPeriodic() {
+    logger.finest("testPeriodic");
   }
 }
