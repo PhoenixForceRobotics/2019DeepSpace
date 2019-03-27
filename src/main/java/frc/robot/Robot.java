@@ -127,7 +127,7 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     logger.finest("teleopPeriodic");
     Scheduler.getInstance().run();
-    System.out.println(elevator.elevatorEncoder.getPosition());
+    //System.out.println(elevator.elevatorEncoder.getPosition());
   }
 
   

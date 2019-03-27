@@ -14,7 +14,7 @@ public class Log{
     private static Level logLevel;
     public static Logger configureLog (String classname)
     {
-        logLevel = Level.FINEST;
+        logLevel = Level.WARNING;
         final Logger theLog = Logger.getLogger(classname);
         final ConsoleHandler chandler = new ConsoleHandler();
         final StreamHandler shandler = new StreamHandler(System.out, new SimpleFormatter());
