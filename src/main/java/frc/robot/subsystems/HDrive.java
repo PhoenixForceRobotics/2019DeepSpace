@@ -15,8 +15,8 @@ public class HDrive extends Subsystem {
 
     public HDrive() {
         logger.fine("Spinup hDrive");
-        hdrive1 = new Motor(Constants.MotorMap.Drivebase.HDRIVE1, MotorType.kBrushless, Constants.MotorMap.Drivebase.HDRIVE1_REVERSED, 40);
-        hdrive2 = new Motor(Constants.MotorMap.Drivebase.HDRIVE2, MotorType.kBrushless, Constants.MotorMap.Drivebase.HDRIVE2_REVERSED, 40);
+        hdrive1 = new Motor(Constants.MotorMap.Drivebase.HDRIVE1, MotorType.kBrushed, Constants.MotorMap.Drivebase.HDRIVE1_REVERSED, 40);
+        hdrive2 = new Motor(Constants.MotorMap.Drivebase.HDRIVE2, MotorType.kBrushed, Constants.MotorMap.Drivebase.HDRIVE2_REVERSED, 40);
         hdrive2.follow(hdrive1);
     }
     
