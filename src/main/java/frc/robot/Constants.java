@@ -132,6 +132,10 @@ public class Constants
             public static double StickPower = 3;
         }
         public static class HDriveValues{
+            //Quick Acceloration time
+            public static double quickAccel = .3;
+            public static double quickTimerPower = 2;
+            public static double quickTimerMultiplyer = 1.0;
             //Max spped of the HDrive
             public static double MaxSpeed = 1;
             //This is the power that the Trigger input is raised to
