@@ -28,8 +28,6 @@ public class OI
         driverController.rightTriggerButton.whileHeld(new RunHDrive());
         
         driverController.leftBumper.whileHeld(new AlignmentPins());
-        // driverController.leftBumper.whileHeld(new PinControl('u'));
-        // driverController.rightBumper.whileHeld(new PinControl('d'));
 
         //This shifts the robot between full, and lowered speed
         driverController.rightStickButton.whenPressed(new Shifter());

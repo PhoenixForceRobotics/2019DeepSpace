@@ -41,15 +41,13 @@ public class AlignmentPins extends Command
     @Override
     public void interrupted()
     {
-
         end();
     }
 
     @Override
     public void end()
     {
-        logger.fine("AllignmentPins was ended -- PinUp and PinOff");
+        logger.fine("AllignmentPins was ended -- PinUp");
         collector.pinUp();
-        collector.pinOff();
     }
 }
