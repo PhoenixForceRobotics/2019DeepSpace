@@ -12,6 +12,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.networktables.NetworkTableInstance;
+
 import frc.robot.subsystems.OI;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.Elevator;
@@ -38,9 +42,19 @@ public class Robot extends TimedRobot {
   public static HDrive hDrive;
   public static Collector collector;
   public static Elevator elevator;
+  public static NetworkTable table;
 
   private static final Logger logger = Log.configureLog(Robot.class.getName());
 
+
+
+
+  public Robot()
+  {
+    NetworkTableInstance ntinst = NetworkTableInstance.getDefault();
+    NetworkTable table = ntinst.getTable("grip/MyVisionPipeline");
+  
+  }
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
