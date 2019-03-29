@@ -50,4 +50,5 @@ public class CustomMath{
             return 0;
         }
     }    
+
 }

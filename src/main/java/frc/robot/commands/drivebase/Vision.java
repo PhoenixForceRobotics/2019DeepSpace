@@ -53,6 +53,7 @@ public Vision() {
 
     Scanner visvalin = new Scanner(System.in);
 
+    //this math finds the number that we have, I know the number that we are looking for
         vis1 = visvalin.nextDouble();
         vis2 = visvalin.nextDouble();
         finalvis = vis1 + vis2 ;
@@ -64,18 +65,20 @@ public Vision() {
 @Override
 public void initialize(){
 
-    if(vis > 10){
+//activate the HDRIVE based on the value that my math is able to find
+
+    if(vis > 151.5){
         hDrive.hDrive('r', customMath.returnLesserMag(
             Math.pow(oi.driverController.triggers.getRight(), Constants.SubsystemSpeeds.HDriveValues.TiggerPower)*Constants.SubsystemSpeeds.HDriveValues.MaxSpeed, 
             Math.pow(startUp.get(), Constants.SubsystemSpeeds.HDriveValues.TimerPower)*Constants.SubsystemSpeeds.HDriveValues.TimerMultiplyer));
 
-    } else if(vis < 20){
+    } else if(vis < 171.5){
 
         hDrive.hDrive('l', customMath.returnLesserMag(
             Math.pow(oi.driverController.triggers.getLeft(), Constants.SubsystemSpeeds.HDriveValues.TiggerPower)*Constants.SubsystemSpeeds.HDriveValues.MaxSpeed, 
             Math.pow(startUp.get(), Constants.SubsystemSpeeds.HDriveValues.TimerPower)*Constants.SubsystemSpeeds.HDriveValues.TimerMultiplyer));
     
-    } else if(vis == 15){
+    } else if(vis == 161.5){
 
         hDrive.hDrive('l',0);
     }
