@@ -1,7 +1,5 @@
 package frc.robot.commands.collector;
 
-import frc.robot.Constants;
-import frc.robot.Robot;
 import frc.robot.commands.collector.PuncherHatchIn;
 import frc.robot.commands.collector.PuncherHatchOut;
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -16,8 +14,8 @@ public class PunchInAndOut extends CommandGroup
 
     public PunchInAndOut() {
         logger.info("Punch in and out");
-        addSequential(new PuncherHatchOut());
         addSequential(new PuncherHatchIn());
+        addSequential(new PuncherHatchOut());
     }
 
    

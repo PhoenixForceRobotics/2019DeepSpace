@@ -1,6 +1,5 @@
 package frc.robot.commands.collector;
 
-// import frc.robot.subsystems.OI;
 import frc.robot.Robot;
 import frc.robot.subsystems.Collector;
 import frc.robot.Constants;
@@ -21,8 +20,7 @@ public class BallOuttake extends Command
     }
 
     public void initialize() {
-        logger.fine("Initialize BallOuttake");
-        setTimeout(.2);
+
     }
 
 
@@ -34,8 +32,7 @@ public class BallOuttake extends Command
 
     public boolean isFinished()
     {
-        logger.finest("BallOuttake is Finished");
-        return isTimedOut();
+        return false;
     }
 
     @Override

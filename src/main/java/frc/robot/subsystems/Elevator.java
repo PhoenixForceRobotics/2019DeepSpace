@@ -1,49 +1,46 @@
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.command.PIDSubsystem;
-// import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Constants;
-import frc.robot.Robot;
 import frc.robot.utility.Motor;
-
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-
 import com.revrobotics.CANEncoder;
-import com.revrobotics.CANSparkMax;
+// import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel;
+import java.util.logging.Logger;
+import frc.robot.utility.Log;
 
-public class Elevator extends PIDSubsystem {
-    public Motor elevatorL;
-    public Motor elevatorR;
+public class Elevator extends Subsystem {
+    public Motor elevator1;
+    public Motor elevator2;
+    public Motor elevator3;
+    public Motor elevator4;
 
     public CANEncoder elevatorEncoder;
 
+    public boolean ballMode = true;
+
+    private static final Logger logger = Log.configureLog(Elevator.class.getName());
+
     public Elevator() {
-        // The constructor passes a name for the subsystem and the P, I and D constants that are used when computing the motor output
-        super("Elevator", Constants.SubsystemSpeeds.ElevatorPIDConstants.kp, Constants.SubsystemSpeeds.ElevatorPIDConstants.ki, Constants.SubsystemSpeeds.ElevatorPIDConstants.kd);
-        getPIDController().setContinuous(false);
-        
-        elevatorL = new Motor(Constants.MotorMap.Elevator.ELEVATORL, MotorType.kBrushed, Constants.MotorMap.Elevator.ELEVATORL_REVERSED, 30);
-        elevatorR = new Motor(Constants.MotorMap.Elevator.ELEVATORR, MotorType.kBrushed, Constants.MotorMap.Elevator.ELEVATORR_REVERSED, 30);
-        elevatorR.follow(elevatorL);
-        
-        elevatorL.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 2);
-        elevatorEncoder = elevatorL.getEncoder();
+        logger.finest("Spinup Elevator");
+        elevator1 = new Motor(Constants.MotorMap.Elevator.ELEVATOR1, MotorType.kBrushed, Constants.MotorMap.Elevator.ELEVATOR1_REVERSED, 30);
+        elevator2 = new Motor(Constants.MotorMap.Elevator.ELEVATOR2, MotorType.kBrushed, Constants.MotorMap.Elevator.ELEVATOR2_REVERSED, 30);
 
-        setAbsoluteTolerance(Constants.SubsystemSpeeds.ElevatorPIDConstants.tolerance);
+        elevator1.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 2);
+        elevatorEncoder = elevator1.getEncoder();
     }
 
-    public double returnPIDInput(){
-        System.out.println(elevatorEncoder.getPosition());
-        return elevatorEncoder.getPosition();
+    public void makeBallMode(){
+        ballMode = true;
     }
-
-    public void usePIDOutput(double output){
-        elevatorL.set(output);
+    public void makeHatchMode(){
+        ballMode = false;
     }
 
     public void killmotors(){
-        elevatorL.set(0);
+        logger.finest("Elevator kill motors");
+        elevator1.set(0);
     }
 
     public void initDefaultCommand()

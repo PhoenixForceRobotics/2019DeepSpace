@@ -7,12 +7,12 @@ import frc.robot.utility.Log;
 import edu.wpi.first.wpilibj.command.Command;
 import java.util.logging.Logger;
 
-public class BallHoldIntake extends Command
+public class BallHoldOuttake extends Command
 {
     private Collector collector;
-    private static final Logger logger = Log.configureLog(BallHoldIntake.class.getName());
+    private static final Logger logger = Log.configureLog(BallHoldOuttake.class.getName());
 
-    public BallHoldIntake()
+    public BallHoldOuttake()
     {
         logger.fine("Spinup BallHoldIntake");
         requires(Robot.collector);
@@ -29,7 +29,7 @@ public class BallHoldIntake extends Command
     public void execute()
     {    
         logger.finest("Excecute BallHoldIntake");
-        collector.intake(Constants.SubsystemSpeeds.BallCollectorValues.BCIntakeSpeed);
+        collector.outtake(Constants.SubsystemSpeeds.BallCollectorValues.BCOuttakeSpeed);
     }
 
     @Override

@@ -51,7 +51,7 @@ public class RunHDrive extends Command
             hDrive.hDrive('l', customMath.returnLesserMag(Math.pow(oi.driverController.triggers.getLeft(), Constants.SubsystemSpeeds.HDriveValues.TiggerPower)*Constants.SubsystemSpeeds.HDriveValues.MaxSpeed, Math.pow(startUp.get(), Constants.SubsystemSpeeds.HDriveValues.TimerPower)*Constants.SubsystemSpeeds.HDriveValues.TimerMultiplyer));
         } else {
             hDrive.hDrive('l', 0);
-        }
+        }    
     }
 
     @Override

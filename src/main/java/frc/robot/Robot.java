@@ -21,9 +21,16 @@ import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.HDrive;
 import frc.robot.subsystems.Collector;
+import frc.robot.subsystems.Climber;
+import frc.robot.subsystems.Rotation;
+import frc.robot.Constants;
 import java.util.logging.Logger;
 import frc.robot.utility.Log;
 import frc.robot.commands.drivebase.RunDriveBase;
+import frc.robot.commands.elevator.RunElevator;
+import frc.robot.commands.elevator.ElevatorPID;
+import frc.robot.commands.rotation.RotateCollector;
+import frc.robot.commands.climber.PistonsUp;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -43,6 +50,9 @@ public class Robot extends TimedRobot {
   public static Collector collector;
   public static Elevator elevator;
   public static NetworkTable table;
+  public static Climber climber;
+  public static Rotation rotation;
+
 
   private static final Logger logger = Log.configureLog(Robot.class.getName());
 
@@ -72,10 +82,21 @@ public class Robot extends TimedRobot {
       hDrive = new HDrive();
       logger.fine("starting elevator");
       elevator = new Elevator();
+      logger.fine("starting climber");
+      climber = new Climber();
+      logger.fine("starting rotation");
+      rotation = new Rotation();
       logger.fine("starting OI");
       oi = new OI();
       logger.fine("Everything done here");
   }
+  public static void addDriveBase(){
+    Scheduler.getInstance().add(new RunDriveBase(drivebase, oi));
+   }
+
+   public static void addRunElevator(){
+    Scheduler.getInstance().add(new RunElevator());
+   }
 
   /**
    * This function is called every robot packet, no matter the mode. Use
@@ -102,9 +123,10 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
-    m_autoSelected = m_chooser.getSelected();
-    // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
-    System.out.println("Auto selected: " + m_autoSelected);
+    addDriveBase();
+    addRunElevator();
+    Scheduler.getInstance().add(new RotateCollector());
+    Scheduler.getInstance().add(new PistonsUp());
   }
 
   /**
@@ -112,35 +134,31 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousPeriodic() {
-    switch (m_autoSelected) {
-      case kCustomAuto:
-        // Put custom auto code here
-        break;
-      case kDefaultAuto:
-      default:
-        // Put default auto code here
-        break;
-    }
+    Scheduler.getInstance().run();
   }
 
   /**
    * This function is called periodically during operator control.
    */
+
   @Override
   public void teleopInit() {
-      Scheduler.getInstance().add(new RunDriveBase(drivebase, oi));
+    Scheduler.getInstance().removeAll();
+    addDriveBase();
+    addRunElevator();
+    Scheduler.getInstance().add(new RotateCollector());
+    Scheduler.getInstance().add(new PistonsUp());
   }
 
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
-    //JT added this for encoder troubleshooting
-    // System.out.println(collector.collectorEncoder.getPosition());
+    System.out.println(elevator.elevatorEncoder.getPosition());
   }
 
   /**
    * This function is called periodically during test mode.
-   */
+   */ 
   @Override
   public void testPeriodic() {
   }
