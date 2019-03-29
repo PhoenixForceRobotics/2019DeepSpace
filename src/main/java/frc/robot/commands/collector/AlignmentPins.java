@@ -21,7 +21,7 @@ public class AlignmentPins extends Command
     @Override
     public void initialize()
     {
-        logger.finest("AllignmentPins init");
+
     }
   
     @Override
@@ -48,7 +48,7 @@ public class AlignmentPins extends Command
     @Override
     public void end()
     {
-        logger.finest("AllignmentPins was ended -- PinUp and PinOff");
+        logger.fine("AllignmentPins was ended -- PinUp and PinOff");
         collector.pinUp();
         collector.pinOff();
     }

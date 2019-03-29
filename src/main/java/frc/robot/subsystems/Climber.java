@@ -40,7 +40,7 @@ public class Climber extends Subsystem
     
     //Pulls the pistons up, lowering the robot
     public void unlevitate(){
-        logger.finest("Not Levitating");
+        logger.finest("UnLevitating");
         leftPiston.set(DoubleSolenoid.Value.kReverse);
         rightPiston.set(DoubleSolenoid.Value.kReverse);
     }

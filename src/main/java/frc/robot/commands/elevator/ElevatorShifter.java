@@ -27,10 +27,10 @@ public class ElevatorShifter extends Command
     {
         //This makes the elevator go into ball or hatch mode wheter the char inputted is 'b' or 'h' respectively
         if(mode == 'b'){
-            logger.info(" mode == 'b' -- Ball Mode");
+            logger.info("Elevator in Ball Mode");
             elevator.makeBallMode();
         } else if (mode == 'h'){
-            logger.info(" mode == 'h' -- Hatch Mode");
+            logger.info("Elevator in Hatch Mode");
             elevator.makeHatchMode();
         }
     }
@@ -38,28 +38,26 @@ public class ElevatorShifter extends Command
     @Override
     public void execute()
     {
-        logger.finest("Elevator Shifter executed");
+    
     }
 
     @Override
     public boolean isFinished()
     {
         //This makes it so the intialize runs and then the method ends
-       
         return true;
     }
 
     @Override
     public void interrupted()
     {
-        logger.fine("Was interrupted");
         end();
     }
 
     @Override
     public void end()
     {
-        logger.fine("Ended");
+        logger.fine("Elevator Shifter Ended");
         //This readds the run elevator command to the Scheduler because calling this command
         //on the elevator removes the previous instance of runElevator
         Robot.addRunElevator();

@@ -47,6 +47,6 @@ public class Elevator extends Subsystem {
 
     public void initDefaultCommand()
     {
-        logger.finest("initDefault");
+        
     }
 }

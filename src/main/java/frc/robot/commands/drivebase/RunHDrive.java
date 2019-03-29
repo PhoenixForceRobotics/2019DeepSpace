@@ -36,7 +36,7 @@ public class RunHDrive extends Command
     public void initialize()
     {
         this.oi = Robot.oi;
-        logger.finest("RunHDrive init");
+        logger.fine("RunHDrive init");
         startUp.reset();
         startUp.start();
     }

@@ -50,10 +50,10 @@ public class Drivebase extends Subsystem {
     public void shift()
     {
         if(Multiplier == 1){
-            logger.info("Shifter .25");
+            logger.info("Drivebase shifter .25");
             Multiplier = .25;
         } else {
-            logger.info("Shifter 1.0");
+            logger.info("Drivebase shifter 1.0");
             Multiplier = 1; 
         }
     }
