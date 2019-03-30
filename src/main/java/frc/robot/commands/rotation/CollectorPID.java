@@ -53,6 +53,16 @@ public class CollectorPID extends PIDCommand
         super.setSetpoint(setpoint);
     }
     
+    public void CollectorClimb(double setpoint){
+        logger.fine("Collector PID Climb");
+        super.getPIDController().reset();
+        super.getPIDController().setPID(Constants.SubsystemSpeeds.RotateCollectorPIDConstants.CLIMB.kp,
+                                        Constants.SubsystemSpeeds.RotateCollectorPIDConstants.CLIMB.ki,
+                                        Constants.SubsystemSpeeds.RotateCollectorPIDConstants.CLIMB.kd);
+        super.getPIDController().enable();
+        super.setSetpoint(setpoint);
+    }
+
     public void PIDSteady(double setpoint){
         logger.fine("Collector PID Steady");
         super.getPIDController().reset();

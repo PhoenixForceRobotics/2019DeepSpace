@@ -26,6 +26,7 @@ public class RunElevator extends Command
     private boolean right;
     private boolean down;
     private boolean trueDown;
+    private boolean climb;
 
     private ElevatorPID elevatorPID;
 
@@ -53,36 +54,43 @@ public class RunElevator extends Command
         right = oi.operatorController.Dpad.Right.get();
         down = oi.operatorController.Dpad.Down.get();
         trueDown = oi.operatorController.rightStickButton.get();
+        climb = oi.driverController.aButton.get();
         
         //This is the selector for the hight of the elevator. I know it can be abstracted 
         //somehow with strings but I don't want to mess with that
         //To see more information about the heights look at Constants.Java
         if(elevator.ballMode){
-            if(up && !left && !right && !down && !trueDown){
+            if(up && !left && !right && !down && !trueDown && !climb){
                 logger.fine("Top -- Balls");
                 setpoint = Constants.ElevatorSetPoints.Balls.TOP;
-            } else if(!up && left && !right && !down && !trueDown){
+            } else if(!up && left && !right && !down && !trueDown && !climb){
                 logger.fine("Middle -- Balls");
                 setpoint = Constants.ElevatorSetPoints.Balls.MIDDLE;
-            } else if(!up && !left && right && !down && !trueDown){
+            } else if(!up && !left && right && !down && !trueDown && !climb){
                 logger.fine("Center -- Balls");
                 setpoint = Constants.ElevatorSetPoints.Balls.CENTER;
-            } else if(!up && !left && !right && down && !trueDown){
+            } else if(!up && !left && !right && down && !trueDown && !climb){
                 logger.fine("Bottom -- Balls");
                 setpoint = Constants.ElevatorSetPoints.Balls.BOTTOM;
-            } else if(!up && !left && !right && down && trueDown){
+            } else if(!up && !left && !right && down && trueDown && !climb){
                 logger.fine("TrueBottom -- Balls");
+                setpoint = Constants.ElevatorSetPoints.Balls.TRUEBOTTOM;
+            } else if(!up && !left && !right && down && !trueDown && climb){
+                logger.fine("Elevator Climb");
                 setpoint = Constants.ElevatorSetPoints.Balls.TRUEBOTTOM;
             }
         } else {
-            if(up && !left && !right && !down){
+            if(up && !left && !right && !down && !climb){
                 logger.fine("TOP -- Hatches");
                 setpoint = Constants.ElevatorSetPoints.Hatches.TOP;
-            } else if(!up && left && !right && !down){
+            } else if(!up && left && !right && !down && !climb){
                 logger.fine("Middle -- Hatches");
                 setpoint = Constants.ElevatorSetPoints.Hatches.MIDDLE;
-            } else if(!up && !left && !right && down){
+            } else if(!up && !left && !right && down && !climb){
                 logger.fine("Bottom -- Hatches");
+                setpoint = Constants.ElevatorSetPoints.Hatches.BOTTOM;
+            } else if(!up && !left && !right && !down && climb){
+                logger.fine("Elevator Climb");
                 setpoint = Constants.ElevatorSetPoints.Hatches.BOTTOM;
             }
         }
