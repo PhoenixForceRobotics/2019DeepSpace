@@ -7,7 +7,6 @@ import frc.robot.commands.drivebase.*;
 import frc.robot.commands.elevator.*;
 import frc.robot.commands.rotation.*;
 import frc.robot.commands.climber.*;
-import frc.robot.commands.rotation.ClimbingPID;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -45,8 +44,13 @@ public class OI
 
         operatorController.leftTriggerButton.whileHeld(new AlignmentPins());
 
-        //operatorController.leftTriggerButton.whenPressed(new ClimbSequence());
-        //driverController.selectButton.whenPressed(new PistonsDown());
+
+        /**
+         * Climbing
+         */
+        // operatorController.leftTriggerButton.whenPressed(new ClimbSequence());
+        driverController.aButton.whenPressed(new ClimbSequence());
+        driverController.bButton.whenPressed(new PistonsUp());
         // driverController.aButton.whileHeld(new ClimbingPID(Constants.CollectorSetPoints.CLIMB));
         // driverController.bButton.whileHeld(new ClimbSequence());
     }

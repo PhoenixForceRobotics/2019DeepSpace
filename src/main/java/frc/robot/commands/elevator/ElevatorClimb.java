@@ -10,13 +10,13 @@ import frc.robot.utility.Log;
 //This function as a whole is supposedly going to be used when we have the climber working but I don't
 //think that it is currently in use
 
-public class ElevatorPIDDown extends PIDCommand
+public class ElevatorClimb extends PIDCommand
 {
     private Elevator elevator;
 
-    private static final Logger logger = Log.configureLog(ElevatorPIDDown.class.getName());
+    private static final Logger logger = Log.configureLog(ElevatorClimb.class.getName());
 
-    public ElevatorPIDDown(double setpoint)
+    public ElevatorClimb()
     {
         super(Constants.SubsystemSpeeds.ElevatorPIDConstants.DOWN.kp,
                 Constants.SubsystemSpeeds.ElevatorPIDConstants.DOWN.ki,
@@ -24,7 +24,7 @@ public class ElevatorPIDDown extends PIDCommand
         requires(Robot.elevator);
         this.elevator = Robot.elevator;
         super.getPIDController().enable();
-        super.setSetpoint(setpoint);
+        super.setSetpoint(Constants.ElevatorSetPoints.Balls.TRUEBOTTOM);
     }
 
     @Override
