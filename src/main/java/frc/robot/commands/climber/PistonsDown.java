@@ -4,12 +4,18 @@ import frc.robot.Robot;
 import frc.robot.subsystems.Climber;
 import edu.wpi.first.wpilibj.command.Command;
 
+//These are the imports for logging
+import java.util.logging.Logger;
+import frc.robot.utility.Log;
+
 public class PistonsDown extends Command
 {
     private Climber climber;
+    public static final Logger logger = Log.configureLog(PistonsDown.class.getName());
 
     public PistonsDown()
     {
+        logger.fine("PistonsDown SpinUp");
         requires(Robot.climber);
         this.climber = Robot.climber;
     }
@@ -17,6 +23,7 @@ public class PistonsDown extends Command
     @Override
     protected void initialize()
     {
+        logger.finest("PistonsDown init");
         //JT set timeout
         // setTimeout(2);
     }
@@ -24,6 +31,7 @@ public class PistonsDown extends Command
     @Override
     protected void execute()
     {
+        logger.finest("PistonsDown was executed");
         climber.levitate();
     }
 
@@ -36,12 +44,14 @@ public class PistonsDown extends Command
     @Override
     protected void interrupted()
     {
+        
         end();
     }
 
     @Override
     protected void end()
     {
+        logger.fine("PistonsDown Was ended");
         climber.killPistons();
     }
 }

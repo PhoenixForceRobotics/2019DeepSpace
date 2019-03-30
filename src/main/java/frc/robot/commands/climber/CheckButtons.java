@@ -7,16 +7,21 @@ import frc.robot.commands.climber.PistonsDown;
 import frc.robot.commands.rotation.Jenktate;
 import edu.wpi.first.wpilibj.command.Command;
 
+//These are the imports for logging
+import java.util.logging.Logger;
+import frc.robot.utility.Log;
+
 public class CheckButtons extends Command
 {
     private OI oi;
+
 
     private boolean payton;
     private boolean david;
 
     public CheckButtons()
     {
-        
+   
     }
 
     @Override
@@ -26,6 +31,7 @@ public class CheckButtons extends Command
 
     @Override
     protected void execute() {
+        
         // System.out.println("execute?");
         payton = oi.driverController.startButton.get();
         david = oi.operatorController.leftTriggerButton.get();
@@ -44,11 +50,12 @@ public class CheckButtons extends Command
 
     @Override
     protected void interrupted() {
+       
         end();
     }
 
     @Override
     protected void end() {
-        
+       
     }
 }

@@ -26,6 +26,9 @@ public class Drivebase extends Subsystem {
         right3 = new Motor(Constants.MotorMap.Drivebase.RIGHT_3, MotorType.kBrushless, Constants.MotorMap.Drivebase.RIGHT3_REVERSED, 40);
 
     }
+
+    //the set left and set right functions are set up like this instead of using the follow function so in the
+    //event that one of the motors loses power we don't lose the whole side of the drivebase
     public void setLeft(double value)
     {
         logger.finest("Start Set Left");
@@ -42,11 +45,15 @@ public class Drivebase extends Subsystem {
         right3.set(value);
     }
 
+    //This changes the multiplier that joystick input is multipled for higher control at lower speeds
+    //or faster speeds with lower control
     public void shift()
     {
         if(Multiplier == 1){
+            logger.info("Drivebase shifter .25");
             Multiplier = .25;
         } else {
+            logger.info("Drivebase shifter 1.0");
             Multiplier = 1; 
         }
     }
