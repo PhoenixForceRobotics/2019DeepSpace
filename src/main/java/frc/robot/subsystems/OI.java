@@ -40,10 +40,10 @@ public class OI
         operatorController.selectButton.whenPressed(new ElevatorShifter('h'));
         operatorController.startButton.whenPressed(new ElevatorShifter('b'));
 
-        operatorController.rightBumper.whileHeld(new BallHoldIntake());
-        operatorController.leftBumper.whileHeld(new BallHoldOuttake());
+        operatorController.leftBumper.whileHeld(new BallHoldIntake());
+        operatorController.rightBumper.whileHeld(new BallHoldOuttake());
 
-        operatorController.rightTriggerButton.whenPressed(new PunchInAndOut());
+        operatorController.leftTriggerButton.whileHeld(new AlignmentPins());
 
         //operatorController.leftTriggerButton.whenPressed(new ClimbSequence());
         //driverController.selectButton.whenPressed(new PistonsDown());

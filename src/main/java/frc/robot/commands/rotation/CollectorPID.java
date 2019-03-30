@@ -30,6 +30,7 @@ public class CollectorPID extends PIDCommand
     @Override
     protected void usePIDOutput(double output) {
         rotation.collectorrotate.set(output);
+        rotation.collectorrotate1.set(output);
     }
 
     public void PIDBack(double setpoint){

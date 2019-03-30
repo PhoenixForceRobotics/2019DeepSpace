@@ -26,6 +26,7 @@ import frc.robot.commands.drivebase.RunDriveBase;
 import frc.robot.commands.elevator.RunElevator;
 import frc.robot.commands.rotation.RotateCollector;
 import frc.robot.commands.climber.PistonsUp;
+import frc.robot.commands.collector.PuncherHatchOut;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -78,6 +79,9 @@ public class Robot extends TimedRobot {
    public static void addRunElevator(){
     Scheduler.getInstance().add(new RunElevator());
    }
+   public static void puncherin(){
+     Scheduler.getInstance().add(new PuncherHatchOut());
+   }
 
   /**
    * This function is called every robot packet, no matter the mode. Use
@@ -127,7 +131,8 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     logger.finest("teleopPeriodic");
     Scheduler.getInstance().run();
-    //System.out.println(elevator.elevatorEncoder.getPosition());
+    //System.out.println(rotation.collectorEncoder.getPosition());  
+    System.out.println(elevator.elevatorEncoder.getPosition());
   }
 
   

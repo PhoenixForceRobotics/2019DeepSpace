@@ -34,7 +34,7 @@ public class ElevatorPID extends PIDCommand
 
     @Override
     protected void usePIDOutput(double output) {
-        fineControl = oi.operatorController.leftStick.getY()/2;
+        fineControl = -oi.operatorController.leftStick.getY()/1.5;
         newOutput = output + fineControl;
         elevator.elevator1.set(newOutput);
         elevator.elevator2.set(-newOutput);
