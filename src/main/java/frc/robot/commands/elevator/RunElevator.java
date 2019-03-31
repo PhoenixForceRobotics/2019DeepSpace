@@ -130,11 +130,11 @@ public class RunElevator extends Command
     private void newCom(){
         logger.fine("New PID Command Being Called");
         if(encoder.getPosition() > setpoint){
-            System.out.println("UP");
+            //System.out.println("UP");
             logger.finest("Went up to setpoint");
             elevatorPID.PIDUp(setpoint);
         } else {
-            System.out.println("DOWN");
+            //System.out.println("DOWN");
             logger.finest("Went down to setpoint");
             elevatorPID.PIDDown(setpoint);
         }

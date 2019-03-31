@@ -21,6 +21,7 @@ public class RotateCollector extends Command
     private boolean b;
     private boolean c;
     private boolean d;
+    private boolean e;
     private double setpoint;
     private double lastSet;
     private Timer killTimer;
@@ -60,19 +61,23 @@ public class RotateCollector extends Command
         b = oi.operatorController.yButton.get();
         c = oi.operatorController.xButton.get();
         d = oi.operatorController.aButton.get();
+        e = oi.driverController.yButton.get();
         
-        if(a && !b && !c && !d){
+        if(a && !b && !c && !d && !e){
             logger.fine("Collector BACK");
             setpoint = Constants.CollectorSetPoints.BACK;
-        } else if(!a && b && !c && !d){
+        } else if(!a && b && !c && !d && !e){
             logger.fine("Collector MIDDLE");
             setpoint = Constants.CollectorSetPoints.MIDDLE;
-        } else if(!a && !b && c && !d) {
+        } else if(!a && !b && c && !d && !e) {
             logger.fine("Collector FRONT");
             setpoint = Constants.CollectorSetPoints.FRONT;
-        } else if(!a && !b && !c && d){
+        } else if(!a && !b && !c && d && !e){
             logger.fine("Collector SHOOT");
             setpoint = Constants.CollectorSetPoints.SHOOT;
+        } else if (!a && !b && !c && !d && e){
+            logger.fine("Juggle!");
+            setpoint = Constants.CollectorSetPoints.JUGGLE;
         }
 
         if(lastSet!=setpoint){

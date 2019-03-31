@@ -132,7 +132,7 @@ public class Robot extends TimedRobot {
     logger.finest("teleopPeriodic");
     Scheduler.getInstance().run();
     //System.out.println(rotation.collectorEncoder.getPosition());  
-    System.out.println(elevator.elevatorEncoder.getPosition());
+    //System.out.println(elevator.elevatorEncoder.getPosition());
   }
 
   
