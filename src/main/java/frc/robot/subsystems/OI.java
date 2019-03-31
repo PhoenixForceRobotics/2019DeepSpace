@@ -51,6 +51,7 @@ public class OI
         // operatorController.leftTriggerButton.whenPressed(new ClimbSequence());
         driverController.aButton.whenPressed(new ClimbSequence());
         driverController.bButton.whenPressed(new PistonsUp());
+        driverController.xButton.whenPressed(new PistonsDown());
         // driverController.aButton.whileHeld(new ClimbingPID(Constants.CollectorSetPoints.CLIMB));
         // driverController.bButton.whileHeld(new ClimbSequence());
     }

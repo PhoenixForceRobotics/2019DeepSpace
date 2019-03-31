@@ -73,18 +73,18 @@ public class Constants
     public static class PneumaticsMap{
         public static class HatchCollector {
             //These are the punchers that push the hatch off of the velcro
-            public static int PUNCHER1 = 1;
-            public static int PUNCHER2 = 0;
+            public static int PUNCHER1 = 7;
+            public static int PUNCHER2 = 6;
             //These are the alignment pins for the floor hatch collector
             public static int PIN1 = 2;
             public static int PIN2 = 3;
         }
         public static class ClimberPistons {
             //These are the ports for the pistons in the back for climbing
-            public static int SOLENOID1 = 4;
-            public static int SOLENOID2 = 5;
-            public static int SOLENOID3 = 7;
-            public static int SOLENOID4 = 6;
+            public static int SOLENOID1 = 1;
+            public static int SOLENOID2 = 0;
+            public static int SOLENOID3 = 4;
+            public static int SOLENOID4 = 5;
         }
     }
     public static class ElevatorSetPoints
