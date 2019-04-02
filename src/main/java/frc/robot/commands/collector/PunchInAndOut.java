@@ -12,8 +12,9 @@ public class PunchInAndOut extends CommandGroup
 
     private static final Logger logger = Log.configureLog(PunchInAndOut.class.getName());
 
+    //This pushes the punches out for a portion of a second then pulls them back in to pop the hatch out
     public PunchInAndOut() {
-        logger.info("Punch in and out");
+        logger.fine("Punch in and out");
         addSequential(new PuncherHatchIn());
         addSequential(new PuncherHatchOut());
     }

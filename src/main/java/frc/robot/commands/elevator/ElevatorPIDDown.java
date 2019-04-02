@@ -7,6 +7,9 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
 import java.util.logging.Logger;
 import frc.robot.utility.Log;
 
+//This function as a whole is supposedly going to be used when we have the climber working but I don't
+//think that it is currently in use
+
 public class ElevatorPIDDown extends PIDCommand
 {
     private Elevator elevator;

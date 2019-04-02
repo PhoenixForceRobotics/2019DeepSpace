@@ -1,15 +1,11 @@
 package frc.robot.subsystems;
 
 import java.util.logging.Logger;
-
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Constants;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import frc.robot.utility.Motor;
-
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-
 import frc.robot.utility.Log;
 
 public class Collector extends Subsystem
@@ -31,16 +27,18 @@ public class Collector extends Subsystem
 
     public void intake(double value)
     {
-        logger.finest("Start Ball Collector Intake");
+        logger.finest("Ball Collector Intake");
         ballintake.set(-value);
     }
 
     public void outtake(double value)
     {
-        logger.finest("Start Ball Collector Outake");
+        logger.finest("Ball Collector Outake");
         ballintake.set(value);
     }
 
+    //This controlls the pistons that punch the hatch off of the velcro 
+    //'o' pushes the pistons out 'i' pulls the pistons in, and anything else cuts off air
     public void puncherControl(char direction){
         if(direction == 'o'){
             logger.fine("Puncher out position");
@@ -54,13 +52,17 @@ public class Collector extends Subsystem
         }
     }
 
+    //These put the alignment pins for the floor hatch pickup up and down
     public void pinDown(){
+        logger.fine("Pins Down");
         pins.set(DoubleSolenoid.Value.kForward);
     }
     public void pinUp(){
+        logger.fine("Pins Up");
         pins.set(DoubleSolenoid.Value.kReverse);
     }
     public void pinOff(){
+        logger.fine("Pins Off");
         pins.set(DoubleSolenoid.Value.kOff);
     }
    

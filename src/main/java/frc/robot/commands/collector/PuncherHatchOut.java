@@ -44,6 +44,7 @@ public class PuncherHatchOut extends Command
     @Override
     public void interrupted()
     {
+        
         end();
     }
 

@@ -15,7 +15,8 @@ public class CollectorPID extends PIDCommand
     private static final Logger logger = Log.configureLog(CollectorPID.class.getName());
 
     public CollectorPID() {
-        super(0,0,0);        
+        super(0,0,0);
+        logger.fine("Collector PID Init");        
         requires(Robot.rotation);
         this.rotation = Robot.rotation;
     }
@@ -32,7 +33,7 @@ public class CollectorPID extends PIDCommand
     }
 
     public void PIDBack(double setpoint){
-        System.out.println("Backwards");
+        logger.fine("Collector PID Back");
         super.getPIDController().reset();
         super.getPIDController().setPID(Constants.SubsystemSpeeds.RotateCollectorPIDConstants.BACK.kp,
                                         Constants.SubsystemSpeeds.RotateCollectorPIDConstants.BACK.ki,
@@ -42,7 +43,7 @@ public class CollectorPID extends PIDCommand
     }
 
     public void PIDForward(double setpoint){
-        System.out.println("Forward");
+        logger.fine("Collector PID Forward");
         super.getPIDController().reset();
         super.getPIDController().setPID(Constants.SubsystemSpeeds.RotateCollectorPIDConstants.FORWARD.kp,
                                         Constants.SubsystemSpeeds.RotateCollectorPIDConstants.FORWARD.ki,
@@ -52,6 +53,7 @@ public class CollectorPID extends PIDCommand
     }
     
     public void PIDSteady(double setpoint){
+        logger.fine("Collector PID Steady");
         super.getPIDController().reset();
         super.getPIDController().setPID(Constants.SubsystemSpeeds.RotateCollectorPIDConstants.STEADY.kp,
                                         Constants.SubsystemSpeeds.RotateCollectorPIDConstants.STEADY.ki,
@@ -67,6 +69,7 @@ public class CollectorPID extends PIDCommand
 
     @Override
     protected void end() {
+        logger.fine("Collector PID End");
         super.getPIDController().disable();
     }
 }

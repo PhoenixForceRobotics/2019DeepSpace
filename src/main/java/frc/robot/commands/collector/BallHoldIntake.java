@@ -42,7 +42,7 @@ public class BallHoldIntake extends Command
     @Override
     public void interrupted()
     {
-        logger.fine("BallHoldIntake interrupted");
+   
         end();
     }
 
