@@ -12,14 +12,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
-<<<<<<< HEAD
 import frc.robot.utility.TheLogFile;
-=======
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 
->>>>>>> 21684a0464f4496b1f938fe17b8c7a0a700668fb
 import frc.robot.subsystems.OI;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.Elevator;
@@ -56,10 +53,6 @@ public class Robot extends TimedRobot {
 
   private static final Logger logger = Log.configureLog(Robot.class.getName());
 
-<<<<<<< HEAD
-  //This function is run when the robot is first started up and should be
-  //used for any initialization code.
-=======
 
 
 
@@ -73,7 +66,6 @@ public class Robot extends TimedRobot {
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
    */
->>>>>>> 21684a0464f4496b1f938fe17b8c7a0a700668fb
   @Override
   public void robotInit() {
       theLogFile = new TheLogFile();
