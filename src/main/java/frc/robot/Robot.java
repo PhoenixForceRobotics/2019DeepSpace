@@ -31,6 +31,7 @@ import frc.robot.commands.elevator.RunElevator;
 import frc.robot.commands.elevator.ElevatorPID;
 import frc.robot.commands.rotation.RotateCollector;
 import frc.robot.commands.climber.PistonsUp;
+import frc.robot.commands.drivebase.Vision;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -62,7 +63,7 @@ public class Robot extends TimedRobot {
   public Robot()
   {
     NetworkTableInstance ntinst = NetworkTableInstance.getDefault();
-    NetworkTable table = ntinst.getTable("grip/MyVisionPipeline");
+    NetworkTable table = ntinst.getTable("visionOutputTable");
   
   }
   /**
@@ -89,6 +90,17 @@ public class Robot extends TimedRobot {
       logger.fine("starting OI");
       oi = new OI();
       logger.fine("Everything done here");
+
+      double[] defaultValue = new double[0];
+      while (true) {
+
+          double[] areas = table.getNumberArray("centerX", defaultValue);
+          for (double centerX : areas ){
+              System.out.print(centerX + "");
+          }
+          System.out.println();
+          Timer.delay(1);
+      }
   }
   public static void addDriveBase(){
     Scheduler.getInstance().add(new RunDriveBase(drivebase, oi));

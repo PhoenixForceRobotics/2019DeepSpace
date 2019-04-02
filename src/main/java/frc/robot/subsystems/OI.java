@@ -46,6 +46,7 @@ public class OI
         operatorController.leftBumper.whileHeld(new BallHoldOuttake());
 
         operatorController.rightTriggerButton.whenPressed(new PunchInAndOut());
+        operatorController.leftTriggerButton.whileHeld(new Vision());
 
         //operatorController.leftTriggerButton.whenPressed(new ClimbSequence());
         driverController.selectButton.whenPressed(new PistonsDown());

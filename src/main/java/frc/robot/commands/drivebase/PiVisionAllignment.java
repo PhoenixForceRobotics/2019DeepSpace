@@ -1,5 +1,8 @@
 // package frc.robot.commands.drivebase;
 
+//So the problem is to use Pid for a position on the field instead of encoders
+//We want the difference between 
+
 // import edu.wpi.first.wpilibj.command.Command;
 // import edu.wpi.first.wpilibj.command.PIDCommand;
 // import frc.robot.Constants;
