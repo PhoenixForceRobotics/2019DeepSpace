@@ -59,7 +59,7 @@ public class RunElevator extends Command
         trueDown = oi.operatorController.rightStickButton.get();
         climb = oi.driverController.aButton.get();
         
-        //This is the selector for the hight of the elevator. I know it can be abstracted 
+        //This is the selector for the height of the elevator. I know it can be abstracted 
         //somehow with strings but I don't want to mess with that
         //To see more information about the heights look at Constants.Java
         if(elevator.ballMode){
