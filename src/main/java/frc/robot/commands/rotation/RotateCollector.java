@@ -10,6 +10,7 @@ import frc.robot.commands.rotation.CollectorPID;
 import edu.wpi.first.wpilibj.command.Command;
 import com.revrobotics.CANEncoder;
 import edu.wpi.first.wpilibj.Timer;
+// import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 //import the logging thing
 import frc.robot.utility.Log;
@@ -22,6 +23,7 @@ public class RotateCollector extends Command
     private boolean c;
     private boolean d;
     private double setpoint;
+    private String level;
     private double lastSet;
     private Timer killTimer;
     private boolean timer = false;
@@ -64,16 +66,22 @@ public class RotateCollector extends Command
         if(a && !b && !c && !d){
             logger.fine("Collector BACK");
             setpoint = Constants.CollectorSetPoints.BACK;
+            level = "0 degrees";
         } else if(!a && b && !c && !d){
             logger.fine("Collector MIDDLE");
             setpoint = Constants.CollectorSetPoints.MIDDLE;
+            level = "92 degrees";
         } else if(!a && !b && c && !d) {
             logger.fine("Collector FRONT");
+            level = "180 degrees";
             setpoint = Constants.CollectorSetPoints.FRONT;
         } else if(!a && !b && !c && d){
             logger.fine("Collector SHOOT");
             setpoint = Constants.CollectorSetPoints.SHOOT;
+            level = "45 degrees";
         }
+
+        // SmartDashboard.putString("Collector Position", level);
 
         if(lastSet!=setpoint){
             newCom();

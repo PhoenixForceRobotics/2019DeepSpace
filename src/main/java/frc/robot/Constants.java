@@ -42,12 +42,12 @@ public class Constants
         {
             //Ball Rotates rotate the collector 
             //CollectorIO supposedly means Collector Intake Outake (Talk to Erin)(not my fault)(I am Evan btw)
-            public static int BALL_ROTATE = 4;
-            public static int BALL_ROTATE1 = 6;
-            public static int COLLECTORIO = 7;
+            public static int BALL_ROTATE = 5;
+            public static int BALL_ROTATE1 = 7;
+            public static int COLLECTORIO = 6;
 
             public static final boolean BALLROTATE_REVERSED = true;
-            public static final boolean BALLROTATE1_REVERSED = false;
+            public static final boolean BALLROTATE1_REVERSED = true;
             public static final boolean COLLECTORIO_REVERSED = true;
         }
 
@@ -55,7 +55,7 @@ public class Constants
         {
             //These motors drive the elevator up or down
             public static int ELEVATOR1 = 10;
-            public static int ELEVATOR2 = 11;
+            public static int ELEVATOR2 = 9;
 
             public static final boolean ELEVATOR1_REVERSED = true;
             public static final boolean ELEVATOR2_REVERSED = true;
@@ -64,7 +64,7 @@ public class Constants
         public static class Climber
         {
             //This colson is the current idea of getting on the level two platform
-            public static int COLSON = 6;
+            public static int COLSON = 8;
 
             public static boolean COLSON_REVERSED = false;
         }
@@ -73,11 +73,11 @@ public class Constants
     public static class PneumaticsMap{
         public static class HatchCollector {
             //These are the punchers that push the hatch off of the velcro
-            public static int PUNCHER1 = 1;
-            public static int PUNCHER2 = 0;
+            public static int PUNCHER1 = 2;
+            public static int PUNCHER2 = 3;
             //These are the alignment pins for the floor hatch collector
-            public static int PIN1 = 2;
-            public static int PIN2 = 3;
+            public static int PIN1 = 0;
+            public static int PIN2 = 1;
         }
         public static class ClimberPistons {
             //These are the ports for the pistons in the back for climbing
@@ -92,7 +92,7 @@ public class Constants
         //Setpoints for each height of the ball dropoff
         public static class Balls{
             //Height for ball pickup
-            public static final double TRUEBOTTOM = .15;
+            public static final double TRUEBOTTOM = .0;
             //Bottom level of the rocket
             public static final double BOTTOM = -.52;
             //The only ball level for cargo ship
@@ -115,15 +115,15 @@ public class Constants
     public static class CollectorSetPoints
     {
         //Inside the robot
-        public static final double BACK = .05;
+        public static final double BACK = -.05;
         //This is the 90 degree angle for hatch dropoff
-        public static final double MIDDLE = .22;
+        public static final double MIDDLE = -.22;
         //This is the angle for shooting level 3 or the bottom of the rocket
-        public static final double SHOOT = .28;
+        public static final double SHOOT = -.28;
         //Against the ground for hatch pickup and ball intake
-        public static final double FRONT = .43;
+        public static final double FRONT = -.43;
         //This Drives the collector into the ground for climbing
-        public static final double CLIMB = .28;
+        public static final double CLIMB = -.28;
     }
 
     public static class SubsystemSpeeds{
@@ -142,7 +142,7 @@ public class Constants
         }
         public static class BallCollectorValues
         {
-            public static final double BCIntakeSpeed = .4;
+            public static final double BCIntakeSpeed = .8;
             public static final double BCOuttakeSpeed = 1;
         }
         public static class ClimberValues
@@ -161,14 +161,14 @@ public class Constants
             //Values for bringing the elevator up
             public static final class UP
             {
-                public static final double kp = -7;
+                public static final double kp = -4.5;
                 public static final double ki = .00;
-                public static final double kd = -13;
+                public static final double kd = -10;
             }
             //Values for bringing the elevator down
             public static final class DOWN
             {
-                public static final double kp = -1.0;
+                public static final double kp = -1.7;
                 public static final double ki = .00;
                 public static final double kd = -5.0;
             }
@@ -179,16 +179,16 @@ public class Constants
             //Values for bringing the Rotator out of the robot
             public static final class FORWARD
             {
-                public static final double kp = -10.00;
+                public static final double kp = 10.00;
                 public static final double ki = 0;
-                public static final double kd = -16;
+                public static final double kd = 16;
             }
             //Values for bringing the Rotator into the robot
             public static final class BACK
             {
-                public static final double kp = -10.00;
+                public static final double kp = 10.00;
                 public static final double ki = 0;
-                public static final double kd = -10;
+                public static final double kd = 10;
             }
             //Values for holding the collector in place (I don't think it is used currently)
             public static final class STEADY

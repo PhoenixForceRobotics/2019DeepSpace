@@ -5,7 +5,6 @@ import frc.robot.Constants;
 import frc.robot.utility.Log;
 import frc.robot.utility.Motor;
 import java.util.logging.Logger;
-
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 public class Drivebase extends Subsystem {

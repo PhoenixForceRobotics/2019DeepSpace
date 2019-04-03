@@ -3,6 +3,7 @@ package frc.robot.commands.elevator;
 import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.subsystems.Elevator;
+// import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 //These are the imports for logging
 import java.util.logging.Logger;
@@ -10,8 +11,10 @@ import frc.robot.utility.Log;
 
 public class ElevatorShifter extends Command
 {
+    
     Elevator elevator;
     char mode;
+    private String modeString;
 
     public static final Logger logger = Log.configureLog(ElevatorShifter.class.getName());
     
@@ -29,16 +32,18 @@ public class ElevatorShifter extends Command
         if(mode == 'b'){
             logger.info("Elevator in Ball Mode");
             elevator.makeBallMode();
+            modeString = "ball";
         } else if (mode == 'h'){
             logger.info("Elevator in Hatch Mode");
             elevator.makeHatchMode();
+            modeString = "hatch";
         }
     }
 
     @Override
     public void execute()
     {
-    
+        // SmartDashboard.putString("Elevator Mode", modeString);
     }
 
     @Override
@@ -58,7 +63,7 @@ public class ElevatorShifter extends Command
     public void end()
     {
         logger.fine("Elevator Shifter Ended");
-        //This readds the run elevator command to the Scheduler because calling this command
+        //This re-adds the run elevator command to the Scheduler because calling this command
         //on the elevator removes the previous instance of runElevator
         Robot.addRunElevator();
     }

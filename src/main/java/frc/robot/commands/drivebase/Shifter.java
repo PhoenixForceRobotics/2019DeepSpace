@@ -3,6 +3,7 @@ package frc.robot.commands.drivebase;
 import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.subsystems.Drivebase;
+// import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 //These are the imports for logging
 import java.util.logging.Logger;
@@ -32,6 +33,7 @@ public class Shifter extends Command
     public void execute()
     {
         logger.finest("Shifter was executed");
+        // SmartDashboard.putNumber("Drivebase Speed", mydrive.getMultiplier());
     }
 
     @Override

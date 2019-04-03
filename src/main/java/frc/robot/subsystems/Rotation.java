@@ -24,12 +24,11 @@ public class Rotation extends Subsystem
         
         collectorrotate = new Motor(Constants.MotorMap.BallCollector.BALL_ROTATE, MotorType.kBrushed, Constants.MotorMap.BallCollector.BALLROTATE_REVERSED, 30);
         collectorrotate1 = new Motor(Constants.MotorMap.BallCollector.BALL_ROTATE1, MotorType.kBrushed, Constants.MotorMap.BallCollector.BALLROTATE1_REVERSED, 30);
-
-        collectorrotate1.follow(collectorrotate);
+        
         //Sensor type 2 is the number for an encoder, 0 is no sensor
-        collectorrotate1.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 2);
-        collectorrotate.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 0);
-        collectorEncoder = collectorrotate1.getEncoder();
+        collectorrotate.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 2);
+        collectorrotate1.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 0);
+        collectorEncoder = collectorrotate.getEncoder();
     }
 
     //janktates are just a way to manually move the collector

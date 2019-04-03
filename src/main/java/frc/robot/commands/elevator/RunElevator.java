@@ -6,6 +6,8 @@ import frc.robot.subsystems.OI;
 import frc.robot.Constants;
 import frc.robot.commands.elevator.ElevatorPID;
 import edu.wpi.first.wpilibj.command.Command;
+// import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import com.revrobotics.CANEncoder;
 
 //These are the loggin imports
@@ -20,6 +22,7 @@ public class RunElevator extends Command
     private OI oi;
     private double setpoint;
     private double lastSet;
+    private String level;
 
     private boolean up;
     private boolean left;
@@ -61,31 +64,42 @@ public class RunElevator extends Command
             if(up && !left && !right && !down && !trueDown){
                 logger.fine("Top -- Balls");
                 setpoint = Constants.ElevatorSetPoints.Balls.TOP;
+                level = "Rocket Level 3";
             } else if(!up && left && !right && !down && !trueDown){
                 logger.fine("Middle -- Balls");
                 setpoint = Constants.ElevatorSetPoints.Balls.MIDDLE;
+                level = "Rocket Level 2";
             } else if(!up && !left && right && !down && !trueDown){
                 logger.fine("Center -- Balls");
                 setpoint = Constants.ElevatorSetPoints.Balls.CENTER;
+                level = "Cargo Ship";
             } else if(!up && !left && !right && down && !trueDown){
                 logger.fine("Bottom -- Balls");
                 setpoint = Constants.ElevatorSetPoints.Balls.BOTTOM;
+                level = "Rocket Level 1";
             } else if(!up && !left && !right && down && trueDown){
                 logger.fine("TrueBottom -- Balls");
                 setpoint = Constants.ElevatorSetPoints.Balls.TRUEBOTTOM;
+                level = "Ground Pickup";
             }
         } else {
             if(up && !left && !right && !down){
                 logger.fine("TOP -- Hatches");
                 setpoint = Constants.ElevatorSetPoints.Hatches.TOP;
+                level = "Rocket Level 3";
             } else if(!up && left && !right && !down){
                 logger.fine("Middle -- Hatches");
                 setpoint = Constants.ElevatorSetPoints.Hatches.MIDDLE;
+                level = "Rocket Level 2";
             } else if(!up && !left && !right && down){
                 logger.fine("Bottom -- Hatches");
                 setpoint = Constants.ElevatorSetPoints.Hatches.BOTTOM;
+                level = "Rocket Level 1, Cargo Ship, Loading Station";
             }
         }
+        
+        // SmartDashboard.putString("Elevator Height", level);
+
         //if the setpoint has changed it starts a new PID Command
         //This is essentially so that d and I don't continually reset
         if(lastSet != setpoint){
