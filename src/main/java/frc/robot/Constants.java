@@ -43,8 +43,8 @@ public class Constants
             //Ball Rotates rotate the collector 
             //CollectorIO supposedly means Collector Intake Outake (Talk to Erin)(not my fault)(I am Evan btw)
             public static int BALL_ROTATE = 5;
-            public static int BALL_ROTATE1 = 6;
-            public static int COLLECTORIO = 7;
+            public static int BALL_ROTATE1 = 7;
+            public static int COLLECTORIO = 6;
 
             public static final boolean BALLROTATE_REVERSED = true;
             public static final boolean BALLROTATE1_REVERSED = false;
@@ -55,7 +55,7 @@ public class Constants
         {
             //These motors drive the elevator up or down
             public static int ELEVATOR1 = 10;
-            public static int ELEVATOR2 = 11;
+            public static int ELEVATOR2 = 9;
 
             public static final boolean ELEVATOR1_REVERSED = true;
             public static final boolean ELEVATOR2_REVERSED = true;
@@ -64,7 +64,7 @@ public class Constants
         public static class Climber
         {
             //This colson is the current idea of getting on the level two platform
-            public static int COLSON = 4;
+            public static int COLSON = 6;
 
             public static boolean COLSON_REVERSED = false;
         }
