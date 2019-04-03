@@ -29,6 +29,7 @@ public class RunElevator extends Command
     private boolean right;
     private boolean down;
     private boolean trueDown;
+    private boolean climb;
 
     private ElevatorPID elevatorPID;
 
@@ -56,12 +57,13 @@ public class RunElevator extends Command
         right = oi.operatorController.Dpad.Right.get();
         down = oi.operatorController.Dpad.Down.get();
         trueDown = oi.operatorController.rightStickButton.get();
+        climb = oi.driverController.aButton.get();
         
         //This is the selector for the hight of the elevator. I know it can be abstracted 
         //somehow with strings but I don't want to mess with that
         //To see more information about the heights look at Constants.Java
         if(elevator.ballMode){
-            if(up && !left && !right && !down && !trueDown){
+            if(up && !left && !right && !down && !trueDown && !climb){
                 logger.fine("Top -- Balls");
                 setpoint = Constants.ElevatorSetPoints.Balls.TOP;
                 level = "Rocket Level 3";
@@ -83,7 +85,7 @@ public class RunElevator extends Command
                 level = "Ground Pickup";
             }
         } else {
-            if(up && !left && !right && !down){
+            if(up && !left && !right && !down && !climb){
                 logger.fine("TOP -- Hatches");
                 setpoint = Constants.ElevatorSetPoints.Hatches.TOP;
                 level = "Rocket Level 3";

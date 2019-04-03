@@ -81,10 +81,10 @@ public class Constants
         }
         public static class ClimberPistons {
             //These are the ports for the pistons in the back for climbing
-            public static int SOLENOID1 = 4;
-            public static int SOLENOID2 = 5;
-            public static int SOLENOID3 = 7;
-            public static int SOLENOID4 = 6;
+            public static int SOLENOID1 = 6;
+            public static int SOLENOID2 = 7;
+            public static int SOLENOID3 = 4;
+            public static int SOLENOID4 = 5;
         }
     }
     public static class ElevatorSetPoints
@@ -92,22 +92,22 @@ public class Constants
         //Setpoints for each height of the ball dropoff
         public static class Balls{
             //Height for ball pickup
-            public static final double TRUEBOTTOM = .0;
+            public static final double TRUEBOTTOM = -.05;
             //Bottom level of the rocket
-            public static final double BOTTOM = -.52;
+            public static final double BOTTOM = -.50;
             //The only ball level for cargo ship
-            public static final double CENTER = -.77;
+            public static final double CENTER = -.74;
             //Middle level of the rocket
-            public static final double MIDDLE = -1.17;
+            public static final double MIDDLE = -1.1;
             //Top level of the rocket (obviously)(This is just here so it doesn't look uneven)
-            public static final double TOP = -1.25;
+            public static final double TOP = -1.3;
         }
         //Setpoints for each height of the hatch dropoff
         public static class Hatches{
             //This is the height for both the cargo and the bottom of the rocket
-            public static final double BOTTOM = 0;
-            public static final double MIDDLE = -.56;
-            public static final double TOP = -1.25;
+            public static final double BOTTOM = 0.04;
+            public static final double MIDDLE = -.69;
+            public static final double TOP = -1.37;
         }
     }
 
@@ -117,11 +117,11 @@ public class Constants
         //Inside the robot
         public static final double BACK = -.05;
         //This is the 90 degree angle for hatch dropoff
-        public static final double MIDDLE = -.22;
+        public static final double MIDDLE = -.21;
         //This is the angle for shooting level 3 or the bottom of the rocket
-        public static final double SHOOT = -.28;
+        public static final double SHOOT = -.29;
         //Against the ground for hatch pickup and ball intake
-        public static final double FRONT = -.43;
+        public static final double FRONT = -.435;
         //This Drives the collector into the ground for climbing
         public static final double CLIMB = -.28;
     }
@@ -188,7 +188,7 @@ public class Constants
             {
                 public static final double kp = 10.00;
                 public static final double ki = 0;
-                public static final double kd = 10;
+                public static final double kd = 16;
             }
             //Values for holding the collector in place (I don't think it is used currently)
             public static final class STEADY
@@ -200,7 +200,7 @@ public class Constants
             //Slams the collector against the climbing platform HARD
             public static final class CLIMB
             {
-                public static final double kp = -1000;
+                public static final double kp = 1000;
                 public static final double ki = .00;
                 public static final double kd = .00;
             }

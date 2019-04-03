@@ -22,6 +22,7 @@ public class RotateCollector extends Command
     private boolean b;
     private boolean c;
     private boolean d;
+    private boolean climb;
     private double setpoint;
     private String level;
     private double lastSet;
@@ -62,8 +63,10 @@ public class RotateCollector extends Command
         b = oi.operatorController.yButton.get();
         c = oi.operatorController.xButton.get();
         d = oi.operatorController.aButton.get();
+
+        climb = oi.driverController.aButton.get();
         
-        if(a && !b && !c && !d){
+        if(a && !b && !c && !d && !climb){
             logger.fine("Collector BACK");
             setpoint = Constants.CollectorSetPoints.BACK;
             level = "0 degrees";
@@ -75,10 +78,13 @@ public class RotateCollector extends Command
             logger.fine("Collector FRONT");
             level = "180 degrees";
             setpoint = Constants.CollectorSetPoints.FRONT;
-        } else if(!a && !b && !c && d){
+        } else if(!a && !b && !c && d && !climb){
             logger.fine("Collector SHOOT");
             setpoint = Constants.CollectorSetPoints.SHOOT;
             level = "45 degrees";
+        } else if(!a && !b && !c && !d && climb){
+            logger.fine("Collector CLIMB");
+            setpoint = Constants.CollectorSetPoints.CLIMB;
         }
 
         // SmartDashboard.putString("Collector Position", level);

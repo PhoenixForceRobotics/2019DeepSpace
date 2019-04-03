@@ -8,20 +8,20 @@ import java.util.logging.Logger;
 import frc.robot.utility.Log;
 
 
-public class ClimbingPID extends PIDCommand
+public class CollectorClimb extends PIDCommand
 {   
     private Rotation rotation;
 
-    private static final Logger logger = Log.configureLog(ClimbingPID.class.getName());
+    private static final Logger logger = Log.configureLog(CollectorClimb.class.getName());
 
-    public ClimbingPID(double setpoint) {
+    public CollectorClimb() {
         super(Constants.SubsystemSpeeds.RotateCollectorPIDConstants.CLIMB.kp,
                 Constants.SubsystemSpeeds.RotateCollectorPIDConstants.CLIMB.ki,
                 Constants.SubsystemSpeeds.RotateCollectorPIDConstants.CLIMB.kd);        
         requires(Robot.rotation);
         this.rotation = Robot.rotation;
         super.getPIDController().enable();
-        super.setSetpoint(setpoint);
+        super.setSetpoint(Constants.CollectorSetPoints.CLIMB);
     }
     
     @Override

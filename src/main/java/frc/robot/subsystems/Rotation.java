@@ -35,14 +35,17 @@ public class Rotation extends Subsystem
     public void janktateUp(double speed)
     {
         collectorrotate.set(speed);
+        collectorrotate1.set(speed);
     }
     public void janktateDown(double speed)
     {
         collectorrotate.set(-speed);
+        collectorrotate1.set(-speed);
     }
 
     public void killrotatemotors()
     {
+        collectorrotate.set(0);
         collectorrotate.set(0);
     }
 

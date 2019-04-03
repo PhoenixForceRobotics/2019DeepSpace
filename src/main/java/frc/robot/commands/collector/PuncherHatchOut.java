@@ -32,7 +32,7 @@ public class PuncherHatchOut extends Command
     public void execute()
     {
         logger.finest("Hatch Collector puncher out execute");
-        hatchCollector.puncherControl('o');
+        hatchCollector.pinDown();
     }
 
     @Override 
@@ -52,6 +52,6 @@ public class PuncherHatchOut extends Command
     public void end()
     {
         logger.fine("Hatch Collector puncher out end");
-        hatchCollector.puncherControl('n');
+        hatchCollector.pinOff();
     }
 }

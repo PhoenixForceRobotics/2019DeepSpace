@@ -15,7 +15,6 @@ public class CheckButtons extends Command
 {
     private OI oi;
 
-
     private boolean payton;
     private boolean david;
 

@@ -21,20 +21,19 @@ public class AlignmentPins extends Command
     @Override
     public void initialize()
     {
-
+        collector.pinOff();
     }
   
     @Override
     public void execute()
     {
         logger.finest("AllignemntPins executed");
-        collector.pinDown();
+        collector.pinUp();
     }
 
     @Override 
     public boolean isFinished()
     {
-    
         return false;
     }
 
@@ -48,6 +47,6 @@ public class AlignmentPins extends Command
     public void end()
     {
         logger.fine("AllignmentPins was ended -- PinUp");
-        collector.pinUp();
+        Robot.puncherin();
     }
 }
