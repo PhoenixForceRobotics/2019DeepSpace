@@ -92,7 +92,7 @@ public class Constants
         //Setpoints for each height of the ball dropoff
         public static class Balls{
             //Height for ball pickup
-            public static final double TRUEBOTTOM = -.05;
+            public static final double TRUEBOTTOM = .05;
             //Bottom level of the rocket
             public static final double BOTTOM = -.50;
             //The only ball level for cargo ship
@@ -157,21 +157,21 @@ public class Constants
             public static final class STEADY
             {
                 public static final double kp = -6;
-                public static final double ki = .00;
-                public static final double kd = .00;
+                public static final double ki = -.00;
+                public static final double kd = -.00;
             }
             //Values for bringing the elevator up
             public static final class UP
             {
                 public static final double kp = -5;
-                public static final double ki = .00;
+                public static final double ki = -.00;
                 public static final double kd = -10;
             }
             //Values for bringing the elevator down
             public static final class DOWN
             {
                 public static final double kp = -2.0;
-                public static final double ki = .00;
+                public static final double ki = -.00;
                 public static final double kd = -5.0;
             }
             public static final double tolerance = .05;
