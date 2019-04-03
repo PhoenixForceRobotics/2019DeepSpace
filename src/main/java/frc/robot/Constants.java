@@ -119,11 +119,13 @@ public class Constants
         //This is the 90 degree angle for hatch dropoff
         public static final double MIDDLE = -.21;
         //This is the angle for shooting level 3 or the bottom of the rocket
-        public static final double SHOOT = -.29;
+        public static final double SHOOT = -.31;
         //Against the ground for hatch pickup and ball intake
         public static final double FRONT = -.435;
         //This Drives the collector into the ground for climbing
-        public static final double CLIMB = -.28;
+        public static final double CLIMB = .28;
+        // This moves exactly to 90 degrees so david can juggle
+        public static final double JUGGLE = -.195;
     }
 
     public static class SubsystemSpeeds{

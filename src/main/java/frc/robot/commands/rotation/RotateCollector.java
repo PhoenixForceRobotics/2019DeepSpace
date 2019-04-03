@@ -23,6 +23,7 @@ public class RotateCollector extends Command
     private boolean c;
     private boolean d;
     private boolean climb;
+    private boolean e;
     private double setpoint;
     private String level;
     private double lastSet;
@@ -63,28 +64,24 @@ public class RotateCollector extends Command
         b = oi.operatorController.yButton.get();
         c = oi.operatorController.xButton.get();
         d = oi.operatorController.aButton.get();
-
-        climb = oi.driverController.aButton.get();
+        e = oi.driverController.yButton.get();
         
-        if(a && !b && !c && !d && !climb){
+        if(a && !b && !c && !d && !e){
             logger.fine("Collector BACK");
             setpoint = Constants.CollectorSetPoints.BACK;
-            level = "0 degrees";
-        } else if(!a && b && !c && !d){
+        } else if(!a && b && !c && !d && !e){
             logger.fine("Collector MIDDLE");
             setpoint = Constants.CollectorSetPoints.MIDDLE;
-            level = "92 degrees";
-        } else if(!a && !b && c && !d) {
+        } else if(!a && !b && c && !d && !e) {
             logger.fine("Collector FRONT");
             level = "180 degrees";
             setpoint = Constants.CollectorSetPoints.FRONT;
-        } else if(!a && !b && !c && d && !climb){
+        } else if(!a && !b && !c && d && !e){
             logger.fine("Collector SHOOT");
             setpoint = Constants.CollectorSetPoints.SHOOT;
-            level = "45 degrees";
-        } else if(!a && !b && !c && !d && climb){
-            logger.fine("Collector CLIMB");
-            setpoint = Constants.CollectorSetPoints.CLIMB;
+        } else if (!a && !b && !c && !d && e){
+            logger.fine("Juggle!");
+            setpoint = Constants.CollectorSetPoints.JUGGLE;
         }
 
         // SmartDashboard.putString("Collector Position", level);

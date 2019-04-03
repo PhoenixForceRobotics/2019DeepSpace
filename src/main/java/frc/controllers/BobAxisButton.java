@@ -31,7 +31,7 @@ public class BobAxisButton extends Button {
 	public boolean get() {
 		switch (this.thresholdType) {
 		case EXACT:
-			System.out.println("axis value: " + joy.getRawAxis(this.axis));
+			//System.out.println("axis value: " + joy.getRawAxis(this.axis));
 			return joy.getRawAxis(this.axis) == this.targetVal;
 		case LESS_THAN:
 			return joy.getRawAxis(this.axis) < this.targetVal;
