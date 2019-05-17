@@ -57,9 +57,9 @@ public class RotateCollector extends Command
     protected void execute() {
 
         logger.finest("Rotate Collector execute");
-        a = oi.operatorController.bButton.get();
+        a = oi.operatorController.xButton.get();
         b = oi.operatorController.yButton.get();
-        c = oi.operatorController.xButton.get();
+        c = oi.operatorController.bButton.get();
         d = oi.operatorController.aButton.get();
         e = oi.driverController.yButton.get();
         

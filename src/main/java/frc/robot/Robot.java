@@ -7,6 +7,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -68,6 +69,8 @@ public class Robot extends TimedRobot {
       logger.fine("starting OI");
       oi = new OI();
       logger.fine("Everything done here");
+
+      CameraServer.getInstance().startAutomaticCapture();
   }
 
   //These are functions because in both cases there is code that gets added that kills
