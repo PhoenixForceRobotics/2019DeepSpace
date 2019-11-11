@@ -6,6 +6,8 @@ import frc.robot.utility.Motor;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMaxLowLevel;
+import com.revrobotics.EncoderType;
+
 import java.util.logging.Logger;
 import frc.robot.utility.Log;
 
@@ -25,8 +27,7 @@ public class Elevator extends Subsystem {
         elevator2 = new Motor(Constants.MotorMap.Elevator.ELEVATOR2, MotorType.kBrushed, Constants.MotorMap.Elevator.ELEVATOR2_REVERSED, 30);
 
         //sets the elevator one encoder to have a sensor that is an encoder
-        elevator1.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 2);
-        elevatorEncoder = elevator1.getEncoder();
+        elevatorEncoder = elevator1.getEncoder(EncoderType.kQuadrature, 128);
     }
 
     //These switch the elevator between ball and hatch mode

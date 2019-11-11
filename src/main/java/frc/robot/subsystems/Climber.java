@@ -27,7 +27,7 @@ public class Climber extends Subsystem
         leftPiston = new DoubleSolenoid(Constants.PneumaticsMap.ClimberPistons.SOLENOID1, Constants.PneumaticsMap.ClimberPistons.SOLENOID2);
         rightPiston = new DoubleSolenoid(Constants.PneumaticsMap.ClimberPistons.SOLENOID3, Constants.PneumaticsMap.ClimberPistons.SOLENOID4);
 
-        colson.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 0);
+        // colson.setParameter(CANSparkMaxLowLevel.ConfigParameter.kSensorType, 0);
     }
 
     //Pushes the pistons down, raising the robot
