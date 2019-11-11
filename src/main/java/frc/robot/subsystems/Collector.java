@@ -1,15 +1,17 @@
 package frc.robot.subsystems;
 
 import java.util.logging.Logger;
+
+import com.revrobotics.CANSparkMaxLowLevel;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Constants;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-import frc.robot.utility.Motor;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import frc.robot.utility.Log;
+import frc.robot.utility.Motor;
 
-public class Collector extends Subsystem
-{
+public class Collector extends Subsystem {
     public Motor ballintake;
     public DoubleSolenoid puncher;
     public DoubleSolenoid pins;
@@ -20,7 +22,6 @@ public class Collector extends Subsystem
         logger.fine("Spinup Ball Collector and Hatch Collector");
         
         ballintake = new Motor(Constants.MotorMap.BallCollector.COLLECTORIO, MotorType.kBrushed, Constants.MotorMap.BallCollector.COLLECTORIO_REVERSED, 30);
-        
         puncher = new DoubleSolenoid(Constants.PneumaticsMap.HatchCollector.PUNCHER1, Constants.PneumaticsMap.HatchCollector.PUNCHER2);
         pins = new DoubleSolenoid(Constants.PneumaticsMap.HatchCollector.PIN1,Constants.PneumaticsMap.HatchCollector.PIN2);
     }

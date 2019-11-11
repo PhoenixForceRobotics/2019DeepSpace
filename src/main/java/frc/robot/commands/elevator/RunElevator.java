@@ -54,7 +54,7 @@ public class RunElevator extends Command
         down = oi.operatorController.Dpad.Down.get();
         trueDown = oi.operatorController.rightStickButton.get();
         
-        //This is the selector for the hight of the elevator. I know it can be abstracted 
+        //This is the selector for the height of the elevator. I know it can be abstracted 
         //somehow with strings but I don't want to mess with that
         //To see more information about the heights look at Constants.Java
         if(elevator.ballMode){
@@ -134,7 +134,7 @@ public class RunElevator extends Command
             logger.finest("Went up to setpoint");
             elevatorPID.PIDUp(setpoint);
         } else {
-            System.out.println("DOWN");
+            //System.out.println("DOWN");
             logger.finest("Went down to setpoint");
             elevatorPID.PIDDown(setpoint);
         }

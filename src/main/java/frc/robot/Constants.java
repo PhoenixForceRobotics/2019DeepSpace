@@ -124,6 +124,8 @@ public class Constants
         public static final double FRONT = 13.90;
         //This Drives the collector into the ground for climbing
         public static final double CLIMB = .28;
+        // This moves exactly to 90 degrees so david can juggle
+        public static final double JUGGLE = -.195;
     }
 
     public static class SubsystemSpeeds{
@@ -142,7 +144,7 @@ public class Constants
         }
         public static class BallCollectorValues
         {
-            public static final double BCIntakeSpeed = .7;
+            public static final double BCIntakeSpeed = .8;
             public static final double BCOuttakeSpeed = .6;
         }
         public static class ClimberValues
